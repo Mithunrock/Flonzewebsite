@@ -53,7 +53,7 @@
     }
     .navbar .login-btn {
       background-color: #ffd700;
-      color: #111;
+      color: #fff; /* Change text color to white */
       padding: 6px 14px;
       border-radius: 6px;
       text-decoration: none;
@@ -202,6 +202,13 @@
       display: inline-block;
       margin: 0 8px;
     }
+    .social-link img {
+      filter: invert(0.7); /* Lighten the icon */
+      transition: filter 0.2s;
+    }
+    .social-link img:hover {
+      filter: invert(1); /* Highlight on hover */
+    }
 
     @media (min-width: 601px) {
       .menu-icon {
@@ -315,6 +322,11 @@
         mobileNav.classList.remove('active');
       }
     });
+
+    const searchBtn = document.querySelector('.search-btn');
+    searchBtn.onclick = function () {
+      alert('Search functionality coming soon!');
+    };
   </script>
 </body>
 </html>
