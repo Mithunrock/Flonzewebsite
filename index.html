@@ -26,10 +26,15 @@
       top: 0;
       z-index: 1000;
     }
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
     .navbar .logo {
       font-size: 1.6em;
       font-weight: 700;
       color: #ffeb3b;
+      margin-left: 8px;
     }
     .navbar nav {
       display: flex;
@@ -166,12 +171,18 @@
       }
       .navbar {
         padding: 8px 10px;
+        justify-content: space-between;
+      }
+      .nav-left {
+        display: flex;
+        align-items: center;
       }
       .navbar .logo {
         font-size: 1.1em;
       }
       .navbar nav {
         gap: 5px; /* Reduce gap between links */
+        display: none;
       }
       .navbar nav a {
         font-size: 0.8em;
@@ -180,9 +191,7 @@
       .navbar .login-btn {
         font-size: 0.75em;
         padding: 4px 8px;
-      }
-      .navbar nav {
-        display: none;
+        margin-left: auto;
       }
       .menu-icon {
         display: block;
@@ -205,8 +214,17 @@
 <body>
 
   <div class="navbar">
-    <button class="menu-icon" id="menuBtn">&#8942;</button>
-    <div class="logo">FLONZE</div>
+    <div class="nav-left">
+      <button class="menu-icon" id="menuBtn">
+        <!-- Hamburger icon SVG for better look -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="18" x2="20" y2="18"/>
+        </svg>
+      </button>
+      <div class="logo">FLONZE</div>
+    </div>
     <nav>
       <a href="#">Home</a>
       <a href="#">Services</a>
