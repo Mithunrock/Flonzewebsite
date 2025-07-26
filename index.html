@@ -210,17 +210,29 @@
       .navbar nav {
         display: none;
       }
+      .search-btn,
+      .login-btn,
+      .menu-icon {
+        margin-right: 0;
+        margin-left: 8px;
+      }
       .search-btn {
-        margin-right: 6px;
+        order: 1;
       }
       .login-btn {
-        margin-right: 6px;
+        order: 2;
         font-size: 0.75em;
         padding: 4px 8px;
       }
       .menu-icon {
         display: block;
-        margin-right: 0;
+        order: 3;
+      }
+      .navbar > .search-btn,
+      .navbar > .login-btn,
+      .navbar > .menu-icon {
+        /* Ensure these are grouped at the end */
+        margin-left: 8px;
       }
       .mobile-nav {
         display: none;
