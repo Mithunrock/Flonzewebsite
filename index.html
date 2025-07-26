@@ -200,51 +200,35 @@
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 1.5em;
-      }
       .navbar {
-        padding: 8px 10px;
+        display: flex;
+        align-items: center;
         justify-content: space-between;
+        padding: 8px 10px;
       }
       .navbar nav {
         display: none;
       }
-      .search-btn,
-      .login-btn,
-      .menu-icon {
-        margin-right: 0;
-        margin-left: 8px;
-      }
       .search-btn {
+        margin-left: auto;
+        margin-right: auto;
         order: 1;
       }
-      .login-btn {
+      .navbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 4px;
         order: 2;
+        margin-left: auto;
+      }
+      .login-btn {
         font-size: 0.75em;
         padding: 4px 8px;
       }
       .menu-icon {
         display: block;
-        order: 3;
-      }
-      .navbar > .search-btn,
-      .navbar > .login-btn,
-      .navbar > .menu-icon {
-        /* Ensure these are grouped at the end */
-        margin-left: 8px;
-      }
-      .mobile-nav {
-        display: none;
-      }
-      .mobile-nav.active {
-        display: flex;
-      }
-      .navbar {
-        justify-content: flex-start;
-      }
-      .navbar .logo {
-        margin-left: 10px;
+        font-size: 1.7em;
+        margin-right: 0;
       }
     }
   </style>
@@ -256,26 +240,28 @@
       <img src="images/logo.png" alt="Flonze Logo" style="height:32px;vertical-align:middle;">
       FLONZE
     </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-      <a href="track.html">Track</a>
-    </nav>
     <button class="search-btn" title="Search">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8"/>
         <line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
     </button>
-    <a href="#" class="login-btn">Login</a>
-    <button class="menu-icon" id="menuBtn">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="4" y1="6" x2="20" y2="6"/>
-        <line x1="4" y1="12" x2="20" y2="12"/>
-        <line x1="4" y1="18" x2="20" y2="18"/>
-      </svg>
-    </button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+      <a href="track.html">Track</a>
+    </nav>
+    <div class="navbar-actions">
+      <a href="#" class="login-btn">Login</a>
+      <button class="menu-icon" id="menuBtn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="18" x2="20" y2="18"/>
+        </svg>
+      </button>
+    </div>
     <div class="mobile-nav" id="mobileNav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
