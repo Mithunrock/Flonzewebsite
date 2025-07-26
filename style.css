@@ -21,6 +21,42 @@ nav a {
 
 main {
   padding: 20px;
+  .flonze-info {
+  text-align: center;
+  max-width: 800px;
+  margin: 40px auto;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.flonze-info .highlight {
+  color: #d32f2f; /* Red highlight */
+  font-weight: bold;
+}
+
+.flonze-info h2 {
+  font-size: 24px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.flonze-info h3 {
+  margin-top: 25px;
+  font-size: 20px;
+  color: #2e7d32; /* Green tone */
+}
+
+.features {
+  list-style-type: none;
+  padding: 0;
+}
+
+.features li {
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
 }
 
 footer {
