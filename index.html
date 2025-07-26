@@ -19,22 +19,27 @@
     .navbar {
       background: #d50000;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       padding: 12px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    .nav-left {
+    .logo {
       display: flex;
       align-items: center;
-    }
-    .navbar .logo {
       font-size: 1.6em;
       font-weight: 700;
       color: #ffeb3b;
-      margin-left: 8px;
+      margin-right: 20px;
+    }
+    .logo img {
+      margin-right: 12px; /* Increase gap between logo and name */
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
     }
     .navbar nav {
       display: flex;
@@ -54,6 +59,17 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9em;
+    }
+    .navbar .search-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      vertical-align: middle;
+      padding: 4px;
+    }
+    .navbar .search-btn svg {
+      display: block;
     }
 
     .hero {
@@ -78,7 +94,7 @@
     .section {
       padding: 40px 20px;
       text-align: center;
-      background: #1a1a1a;
+      background: #232323; /* Changed color */
     }
     .section h2 {
       font-size: 1.1em;
@@ -167,6 +183,22 @@
       border-bottom: none;
     }
 
+    .social-section {
+      text-align: center;
+      padding: 20px 0;
+      background: #1a1a1a;
+      margin-top: 20px;
+    }
+    .social-section span {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.9em;
+    }
+    .social-link {
+      display: inline-block;
+      margin: 0 8px;
+    }
+
     @media (max-width: 600px) {
       .hero h1 {
         font-size: 1.5em;
@@ -216,6 +248,10 @@
 <body>
 
   <div class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="Flonze Logo" style="height:32px;vertical-align:middle;">
+      FLONZE
+    </div>
     <div class="nav-left">
       <button class="menu-icon" id="menuBtn">
         <!-- Hamburger icon SVG for better look -->
@@ -225,7 +261,6 @@
           <line x1="4" y1="18" x2="20" y2="18"/>
         </svg>
       </button>
-      <div class="logo">FLONZE</div>
     </div>
     <nav>
       <a href="index.html">Home</a>
@@ -233,6 +268,12 @@
       <a href="contact.html">Contact</a>
       <a href="track.html">Track</a>
     </nav>
+    <button class="search-btn" title="Search">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </button>
     <a href="#" class="login-btn">Login</a>
     <div class="mobile-nav" id="mobileNav">
       <a href="index.html">Home</a>
@@ -271,6 +312,13 @@
       <li>Launching in 2027 with a focus on Tier 2 & 3 cities</li>
       <li>Technology-first, fleet-enabled, and customer-centric</li>
     </ul>
+  </div>
+
+  <div class="social-section">
+    <span>Connect with us:</span>
+    <a href="https://www.linkedin.com/company/flonze/" target="_blank" class="social-link">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:28px;vertical-align:middle;">
+    </a>
   </div>
 
   <footer>
