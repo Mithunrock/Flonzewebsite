@@ -3,23 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>Flonze – Track Your Shipment</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
     header { background: #000; color: white; padding: 20px; text-align: center; }
     nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
     .container { padding: 40px; text-align: center; }
-    input, button {
+    input[type="text"] {
       padding: 10px;
       font-size: 16px;
       margin-top: 10px;
       width: 300px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus {
+      border-color: #003366;
+      outline: none;
     }
     button {
-      background: black;
+      background: #003366;
       color: white;
       cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 24px;
+      font-size: 16px;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #0055a5;
+    }
+    .result {
+      margin-top: 24px;
+      font-size: 18px;
+      color: #2e7d32;
+      min-height: 32px;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 12px; }
+      input[type="text"] { width: 95%; }
     }
   </style>
 </head>
@@ -36,8 +61,23 @@
 
   <div class="container">
     <h2>Track Your Shipment</h2>
-    <input type="text" placeholder="Enter Tracking ID" /><br>
-    <button>Track Now</button>
+    <input type="text" id="trackInput" placeholder="Enter Tracking ID" /><br>
+    <button onclick="showResult()">Track Now</button>
+    <div class="result" id="result"></div>
   </div>
+
+  <script>
+    function showResult() {
+      var id = document.getElementById('trackInput').value.trim();
+      var result = document.getElementById('result');
+      if (id === "") {
+        result.textContent = "Please enter a valid Tracking ID.";
+        result.style.color = "#d32f2f";
+      } else {
+        result.textContent = "Tracking info for: " + id + " (Demo only)";
+        result.style.color = "#2e7d32";
+      }
+    }
+  </script>
 </body>
 </html>

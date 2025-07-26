@@ -4,16 +4,77 @@
   <meta charset="UTF-8">
   <title>Contact Us – Flonze</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: #000; color: white; padding: 20px; text-align: center; }
-    nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
-    .container { padding: 40px; max-width: 600px; margin: auto; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+    }
+    header {
+      background: #000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #00c6ff;
+    }
+    .container {
+      padding: 40px;
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #222;
+      letter-spacing: 1px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
     input, textarea {
-      width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc;
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 7px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      background: #fafafa;
+      transition: border 0.2s;
+    }
+    input:focus, textarea:focus {
+      border: 1.5px solid #0077ff;
+      outline: none;
+      background: #fff;
     }
     button {
-      background: black; color: white; padding: 10px 20px; margin-top: 15px;
-      border: none; border-radius: 5px; cursor: pointer;
+      background: linear-gradient(90deg, #0077ff 0%, #00c6ff 100%);
+      color: white;
+      padding: 12px 0;
+      margin-top: 10px;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,119,255,0.08);
+      transition: background 0.2s, transform 0.2s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #005bb5 0%, #0099cc 100%);
+      transform: translateY(-2px) scale(1.03);
     }
   </style>
 </head>
