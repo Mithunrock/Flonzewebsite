@@ -175,6 +175,9 @@
       flex-direction: column;
       min-width: 120px;
     }
+    .mobile-nav.active {
+      display: flex;
+    }
     .mobile-nav a {
       color: #fff;
       text-decoration: none;
@@ -236,6 +239,157 @@
         order: 3;
       }
     }
+
+    .contact-section {
+      background: #121212;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    .contact-section h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #ffeb3b;
+    }
+    .contact-section p {
+      font-size: 1em;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+    .contact-details div {
+      margin: 10px 0;
+      font-size: 0.95em;
+    }
+    .contact-details a {
+      color: #ffeb3b;
+      text-decoration: none;
+    }
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+
+    .reviews-section {
+      background: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-radius: 8px;
+    }
+    .reviews-section h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #ffeb3b;
+    }
+    .reviews {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .review {
+      font-size: 1em;
+      color: #ddd;
+    }
+
+    .faq-section {
+      background: #121212;
+      color: #fff;
+      text-align: left;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-radius: 8px;
+    }
+    .faq-section h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #ffeb3b;
+    }
+    .faq .question {
+      margin-bottom: 20px;
+    }
+    .faq .question strong {
+      color: #ffeb3b;
+    }
+
+    .cta-section {
+      background: #d50000;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-radius: 8px;
+    }
+    .cta-section h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    .cta-btn {
+      background: #ffeb3b;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .map-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .map-section h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #ffeb3b;
+    }
+    .map-section iframe {
+      border: 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .blog-section {
+      background: #232323;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+      border-radius: 8px;
+    }
+    .blog-section h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #ffeb3b;
+    }
+    .blogs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .blog {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .blog h3 {
+      font-size: 1.2em;
+      color: #ffeb3b;
+    }
+    .blog p {
+      font-size: 1em;
+      color: #ddd;
+    }
+    .blog a {
+      color: #ffeb3b;
+      text-decoration: none;
+    }
+    .blog a:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
@@ -298,6 +452,83 @@
     </ul>
   </div>
 
+  <div class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Feel free to reach out to us for any inquiries or support.</p>
+    <div class="contact-details">
+      <div>
+        📍 <strong>Address:</strong> 123 Logistics Lane, Suite 101, Mumbai, India
+      </div>
+      <div>
+        📧 <strong>Email:</strong> <a href="mailto:flonzesupport@gmail.com">flonzesupport@gmail.com</a>
+      </div>
+      <div>
+        📞 <strong>Phone:</strong> +91 98765 43210
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-section">
+    <h2>What Our Clients Say</h2>
+    <div class="reviews">
+      <div class="review">
+        <p>"Flonze has transformed our logistics operations. Highly recommended!"</p>
+        <strong>- Client A</strong>
+      </div>
+      <div class="review">
+        <p>"Reliable and efficient delivery solutions. Great support team!"</p>
+        <strong>- Client B</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="question">
+        <strong>Q: What services does Flonze offer?</strong>
+        <p>A: We provide smart dispatch, fleet-as-a-service, multi-warehouse solutions, and more.</p>
+      </div>
+      <div class="question">
+        <strong>Q: How can I track my shipment?</strong>
+        <p>A: Use our "Track" feature to get real-time updates on your shipment.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to streamline your logistics?</h2>
+    <a href="contact.html" class="cta-btn">Contact Us</a>
+  </div>
+
+  <div class="map-section">
+    <h2>Find Us</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.123456789!2d72.123456789!3d19.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b123456789%3A0x123456789abcdef!2sFlonze%20Logistics!5e0!3m2!1sen!2sin!4v123456789"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <div class="blog-section">
+    <h2>Latest Updates</h2>
+    <div class="blogs">
+      <div class="blog">
+        <h3>How Flonze is Revolutionizing Logistics</h3>
+        <p>Discover how our innovative solutions are transforming the logistics industry.</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="blog">
+        <h3>Top 5 Benefits of Fleet-as-a-Service</h3>
+        <p>Learn how fleet-as-a-service can boost your business efficiency.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </div>
+
   <div class="social-section">
     <span>Connect with us:</span>
     <a href="https://www.linkedin.com/company/flonze/" target="_blank" class="social-link">
@@ -314,9 +545,11 @@
     // Show/hide mobile nav
     const menuBtn = document.getElementById('menuBtn');
     const mobileNav = document.getElementById('mobileNav');
+
     menuBtn.onclick = function () {
       mobileNav.classList.toggle('active');
     };
+
     document.addEventListener('click', function (e) {
       if (!menuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
         mobileNav.classList.remove('active');
