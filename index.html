@@ -3,250 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FLONZE | Home</title>
+  <title>Flonze | Smart Logistics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff5f5;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .logistics-img {
-  border: 4px solid #00b36b; /* green border */
-  border-radius: 12px;        /* smooth rounded corners */
-}
-    .logistics-img:hover {
-      transform: scale(1.05); /* slight zoom on hover */
-      transition: transform 0.3s ease; /* smooth transition */
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background-color: #111;
     }
-
-    .top-bar {
-      background-color: #b30000;
-      color: white;
+    .navbar {
+      background: #d50000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      flex-wrap: wrap;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-
-    .top-bar .logo {
-      font-size: 28px;
-      font-weight: bold;
+    .navbar .logo {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #ffeb3b;
     }
-
-    .top-bar nav a {
-      color: white;
+    .navbar nav {
+      display: flex;
+      gap: 15px;
+    }
+    .navbar nav a {
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: 500;
-    }
-
-    .top-bar .cta-button {
-      background-color: #00b36b;
-      border: none;
       color: white;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .alert {
-      background-color: #ffe6e6;
-      color: #800000;
-      padding: 12px 25px;
-      font-size: 14px;
-      border-top: 3px solid red;
       font-weight: 500;
-      text-align: center;
+      font-size: 0.95em;
+    }
+    .navbar .login-btn {
+      background-color: #ffd700;
+      color: #111;
+      padding: 6px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9em;
     }
 
-    .main {
+    .hero {
+      background: url('SER.jpg') no-repeat center center/cover;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+    .hero h1 {
+      font-size: 2em;
+      margin-bottom: 12px;
+      font-weight: 700;
+      text-shadow: 1px 1px 5px #000;
+    }
+    .hero p {
+      font-size: 1em;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .section {
       padding: 40px 20px;
       text-align: center;
+      background: #1a1a1a;
     }
 
-    .main h1 {
-      color: #b30000;
-      font-size: 34px;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
     }
 
-    .main p {
-      font-size: 18px;
-      color: #444;
-      max-width: 700px;
-      margin: 20px auto;
-    }
-
-    .flonze-info h2 {
-      color: #b30000;
-    }
-
-    .flonze-info .highlight {
-      color: #00b36b;
-      font-weight: bold;
-    }
-
-    .flonze-info ul.features {
-      list-style-type: none;
-      padding: 0;
-      text-align: left;
-      max-width: 700px;
-      margin: 20px auto;
-    }
-
-    .flonze-info ul li {
-      padding: 8px 0;
-      font-size: 16px;
-    }
-
-    /* Logistic images */
-    .logistics-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .logistics-gallery img {
-      width: 160px;
-      height: 120px;
-      object-fit: cover;
+    .cube {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 10px;
       border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85em;
     }
 
-    .footer {
-      background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 30px 15px;
+    .about {
+      background: #121212;
+      padding: 30px 20px;
+      font-size: 0.95em;
+      color: #ddd;
+      line-height: 1.6;
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .footer h3 {
-      margin-bottom: 10px;
-    }
-
-    .social-icons {
+    .about ul {
       margin-top: 10px;
+      padding-left: 20px;
     }
 
-    .social-icons a {
-      margin: 0 10px;
-      display: inline-block;
+    footer {
+      background-color: #000;
+      color: #ccc;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.85em;
+    }
+    footer a {
+      color: #ffeb3b;
+      text-decoration: none;
     }
 
-    .social-icons img {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background-color: #00b36b;
-      padding: 5px;
-    }
-
-    @media (max-width: 768px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.5em;
       }
-
-      .top-bar nav {
-        margin-top: 10px;
-      }
-
-      .top-bar nav a {
-        margin: 5px 10px 0 0;
-        display: inline-block;
-      }
-
-      .main h1 {
-        font-size: 28px;
-      }
-
-      .main p {
-        font-size: 16px;
-      }
-
-      .flonze-info ul li {
-        font-size: 15px;
-      }
-
-      .logistics-gallery img {
-        width: 45%;
+      .navbar nav {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <div class="top-bar">
+  <div class="navbar">
     <div class="logo">FLONZE</div>
     <nav>
       <a href="#">Home</a>
       <a href="#">Services</a>
-      <a href="#">Solutions</a>
-      <a href="#">About</a>
       <a href="#">Contact</a>
+      <a href="#">Track</a>
     </nav>
-    <button class="cta-button">Get Started</button>
+    <a href="#" class="login-btn">Login</a>
   </div>
 
-  <!-- Alert Message -->
-  <div class="alert">
-    Flonze helps D2C brands automate dispatch, manage inventory, and track orders — all from one intuitive dashboard.
-  </div>
-
-  <!-- Main Content -->
-  <div class="main">
+  <div class="hero">
     <h1>Welcome to Flonze</h1>
-    <p>Smart, fast and reliable delivery solutions built for your business. We deliver trust to your doorstep.</p>
+    <p>Smart, fast and reliable delivery solutions built for your business.<br>We deliver trust to your doorstep.</p>
+  </div>
 
-    <div class="flonze-info">
-      <h2>🚚 Flonze | <span class="highlight">Smart Logistics for Bharat</span></h2>
-      <p><strong>Launching in 2027 | B2B + B2C Delivery Infra</strong></p>
-
-      <p>
-        Inspired by <strong>Porter</strong>, <strong>Rapido</strong>, and <strong>Delhivery</strong>, Flonze is building a next-gen logistics platform — 
-        focused on <span class="highlight">smart dispatch</span>, <span class="highlight">on-demand fleet</span>, and 
-        <span class="highlight">real-time tracking</span> for India's fast-growing e-commerce and retail brands.
-      </p>
-
-      <h3>💼 What We’re Building:</h3>
-      <ul class="features">
-        <li>🔄 <strong>Smart Dispatch</strong> for B2B, B2C & Hyperlocal logistics</li>
-        <li>🛵 <strong>Fleet-as-a-Service (FaaS)</strong> – Verified partners, on demand</li>
-        <li>📦 <strong>Multi-Warehouse Sync</strong> – JIT inventory for SMBs</li>
-        <li>📊 <strong>Smart Dashboard</strong> – Track & optimize shipments</li>
-        <li>⚙️ <strong>API Integrations</strong> – D2C, CRM, ERP-ready</li>
-        <li>🧠 <strong>AI Routing & Optimization</strong> (Beta Coming Soon)</li>
-      </ul>
-
-      <!-- Logistics Images -->
-      <div class="logistics-gallery">
-        <div class="logistics-gallery">
-  <img src="images/pexels-tima-miroshnichenko-6169025.jpg"  class="logistics-img" />
-  <img src="images/pexels-tomfisk-3075996.jpg" class="logistics-img" />
-  <img src="images/pexels-winson5293-2701434.jpg"  class="logistics-img" />
-  <img src="images/pexels-tiger-lily-4483772.jpg"  class="logistics-img" />
-</div>
-
-      </div>
+  <div class="section">
+    <h2 style="margin-bottom: 15px;">Our Offerings</h2>
+    <div class="grid">
+      <div class="cube">🔄 <strong>Smart Dispatch</strong><br>B2B, B2C & Hyperlocal</div>
+      <div class="cube">🛵 <strong>Fleet-as-a-Service</strong><br>On-Demand Delivery</div>
+      <div class="cube">📦 <strong>Multi-Warehouse</strong><br>Enable JIT Inventory</div>
+      <div class="cube">📊 <strong>Smart Dashboard</strong><br>Track & Analyze</div>
+      <div class="cube">⚙️ <strong>API Integration</strong><br>ERP, CRM, D2C Ready</div>
+      <div class="cube">🧠 <strong>AI Optimization</strong><br>Beta Launch 2026</div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <div class="footer">
-    <h3>Follow us on</h3>
-    <div class="social-icons">
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
-    </div>
+  <div class="about">
+    <h3>About Flonze</h3>
+    <p>
+      We are building a modern logistics platform tailored for India's fast-growing e-commerce & retail brands.
+    </p>
+    <ul>
+      <li>Inspired by Porter, Rapido, and Delhivery</li>
+      <li>Launching in 2027 with a focus on Tier 2 & 3 cities</li>
+      <li>Technology-first, fleet-enabled, and customer-centric</li>
+    </ul>
   </div>
+
+  <footer>
+    📧 Contact: <a href="mailto:flonzescontect@gmail.com">flonzescontect@gmail.com</a><br>
+    © 2025 <strong>Flonze</strong>. All rights reserved.
+  </footer>
 
 </body>
 </html>
