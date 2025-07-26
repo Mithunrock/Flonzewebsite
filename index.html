@@ -52,9 +52,9 @@
     }
 
     .hero {
-      background: url('SER.jpg') no-repeat center center/cover;
+      background: url('images/SOP.jpg') no-repeat center center/cover;
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 80px 20px 40px;
     }
     .hero h1 {
       font-size: 2em;
@@ -94,17 +94,24 @@
     .about {
       background: #121212;
       padding: 30px 20px;
-      font-size: 0.95em;
+      font-size: 1.3em; /* Increased font size */
       color: #ddd;
-      line-height: 1.6;
-      text-align: left;
+      line-height: 1.7; /* Slightly increased line height */
+      text-align: center;
       max-width: 800px;
-      margin: 0 auto;
+      margin: 80px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
     }
 
     .about ul {
       margin-top: 10px;
-      padding-left: 20px;
+      padding-left: 0;
+      list-style-position: inside;
+      text-align: center;
     }
 
     footer {
@@ -143,8 +150,10 @@
   </div>
 
   <div class="hero">
-    <h1>Welcome to Flonze</h1>
-    <p>Smart, fast and reliable delivery solutions built for your business.<br>We deliver trust to your doorstep.</p>
+    <div class="hero-bg">
+      <h1>Welcome to Flonze</h1>
+      <p>Smart, fast and reliable delivery solutions built for your business.<br>We deliver trust to your doorstep.</p>
+    </div>
   </div>
 
   <div class="section">
