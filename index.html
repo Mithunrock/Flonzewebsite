@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FLONZE | Home</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fff5f5; /* light red background */
+      background-color: #fff5f5;
     }
 
-    /* Navbar */
     .top-bar {
-      background-color: #b30000; /* strong red */
+      background-color: #b30000;
       color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 30px;
+      flex-wrap: wrap;
     }
 
     .top-bar .logo {
       font-size: 28px;
       font-weight: bold;
-      letter-spacing: 1px;
     }
 
     .top-bar nav a {
@@ -35,7 +34,7 @@
     }
 
     .top-bar .cta-button {
-      background-color: #00b36b; /* green button */
+      background-color: #00b36b;
       border: none;
       color: white;
       padding: 8px 16px;
@@ -44,35 +43,72 @@
       font-weight: bold;
     }
 
-    /* Alert Bar */
     .alert {
-      background-color: #ffe6e6; /* light red alert */
+      background-color: #ffe6e6;
       color: #800000;
       padding: 12px 25px;
       font-size: 14px;
       border-top: 3px solid red;
       font-weight: 500;
+      text-align: center;
     }
 
-    /* Main Content */
     .main {
-      padding: 50px 20px;
+      padding: 40px 20px;
       text-align: center;
     }
 
     .main h1 {
       color: #b30000;
-      font-size: 36px;
+      font-size: 34px;
     }
 
     .main p {
       font-size: 18px;
       color: #444;
-      max-width: 600px;
-      margin: auto;
+      max-width: 700px;
+      margin: 20px auto;
     }
 
-    /* Footer */
+    .flonze-info h2 {
+      color: #b30000;
+    }
+
+    .flonze-info .highlight {
+      color: #00b36b;
+      font-weight: bold;
+    }
+
+    .flonze-info ul.features {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    .flonze-info ul li {
+      padding: 8px 0;
+      font-size: 16px;
+    }
+
+    /* Logistic images */
+    .logistics-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .logistics-gallery img {
+      width: 160px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
     .footer {
       background-color: #111;
       color: white;
@@ -97,11 +133,10 @@
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      background-color: #00b36b; /* green background */
+      background-color: #00b36b;
       padding: 5px;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .top-bar {
         flex-direction: column;
@@ -109,12 +144,28 @@
       }
 
       .top-bar nav {
-        margin: 10px 0;
+        margin-top: 10px;
       }
 
       .top-bar nav a {
-        display: inline-block;
         margin: 5px 10px 0 0;
+        display: inline-block;
+      }
+
+      .main h1 {
+        font-size: 28px;
+      }
+
+      .main p {
+        font-size: 16px;
+      }
+
+      .flonze-info ul li {
+        font-size: 15px;
+      }
+
+      .logistics-gallery img {
+        width: 45%;
       }
     }
   </style>
@@ -136,46 +187,45 @@
 
   <!-- Alert Message -->
   <div class="alert">
-    <section class="hero">
-  <div class="container">
-    <h1 class="main-heading">
-      Flonze helps D2C brands automate dispatch, manage inventory, and track orders — all from one intuitive dashboard.
-    </h1>
+    Flonze helps D2C brands automate dispatch, manage inventory, and track orders — all from one intuitive dashboard.
   </div>
-</section>
-    <br>
-  </div>
-
 
   <!-- Main Content -->
-<div class="main">
-  <h1>Welcome to Flonze</h1>
-  <p>Smart, fast and reliable delivery solutions built for your business. We deliver trust to your doorstep.</p>
+  <div class="main">
+    <h1>Welcome to Flonze</h1>
+    <p>Smart, fast and reliable delivery solutions built for your business. We deliver trust to your doorstep.</p>
 
-  <div class="flonze-info">
-    <h2>🚚 Flonze | <span class="highlight">Smart Logistics for Bharat</span></h2>
-    <p><strong>Launching in 2027 | B2B + B2C Delivery Infra</strong></p>
+    <div class="flonze-info">
+      <h2>🚚 Flonze | <span class="highlight">Smart Logistics for Bharat</span></h2>
+      <p><strong>Launching in 2027 | B2B + B2C Delivery Infra</strong></p>
 
-    <p>
-      Inspired by <strong>Porter</strong>, <strong>Rapido</strong>, and <strong>Delhivery</strong>, Flonze is building a next-gen logistics platform — 
-      focused on <span class="highlight">smart dispatch</span>, <span class="highlight">on-demand fleet</span>, and 
-      <span class="highlight">real-time tracking</span> for India's fast-growing e-commerce and retail brands.
-    </p>
+      <p>
+        Inspired by <strong>Porter</strong>, <strong>Rapido</strong>, and <strong>Delhivery</strong>, Flonze is building a next-gen logistics platform — 
+        focused on <span class="highlight">smart dispatch</span>, <span class="highlight">on-demand fleet</span>, and 
+        <span class="highlight">real-time tracking</span> for India's fast-growing e-commerce and retail brands.
+      </p>
 
-    <h3>💼 What We’re Building:</h3>
-    <ul class="features">
-      <li>🔄 <strong>Smart Dispatch</strong> for B2B, B2C & Hyperlocal logistics</li>
-      <li>🛵 <strong>Fleet-as-a-Service (FaaS)</strong> – Verified partners, on demand</li>
-      <li>📦 <strong>Multi-Warehouse Sync</strong> – JIT inventory for SMBs</li>
-      <li>📊 <strong>Smart Dashboard</strong> – Track & optimize shipments</li>
-      <li>⚙️ <strong>API Integrations</strong> – D2C, CRM, ERP-ready</li>
-      <li>🧠 <strong>AI Routing & Optimization</strong> (Beta Coming Soon)</li>
-    </ul>
+      <h3>💼 What We’re Building:</h3>
+      <ul class="features">
+        <li>🔄 <strong>Smart Dispatch</strong> for B2B, B2C & Hyperlocal logistics</li>
+        <li>🛵 <strong>Fleet-as-a-Service (FaaS)</strong> – Verified partners, on demand</li>
+        <li>📦 <strong>Multi-Warehouse Sync</strong> – JIT inventory for SMBs</li>
+        <li>📊 <strong>Smart Dashboard</strong> – Track & optimize shipments</li>
+        <li>⚙️ <strong>API Integrations</strong> – D2C, CRM, ERP-ready</li>
+        <li>🧠 <strong>AI Routing & Optimization</strong> (Beta Coming Soon)</li>
+      </ul>
+
+      <!-- Logistics Images -->
+      <div class="logistics-gallery">
+        <img src="https://images.unsplash.com/photo-1565895405134-b5bba6b5b9fb" alt="Logistics 1" />
+        <img src="https://images.unsplash.com/photo-1610057090576-2b7b2f9d7d57" alt="Logistics 2" />
+        <img src="https://images.unsplash.com/photo-1581090700227-1e8e1f249a5c" alt="Logistics 3" />
+        <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d9" alt="Logistics 4" />
+      </div>
+    </div>
   </div>
-</div>
 
-
-  <!-- Footer Section -->
+  <!-- Footer -->
   <div class="footer">
     <h3>Follow us on</h3>
     <div class="social-icons">
