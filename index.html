@@ -58,13 +58,15 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9em;
+      font-size: 0.85em;
+      margin-right: 8px; /* Reduce gap */
     }
     .navbar .search-btn {
       background: none;
       border: none;
       cursor: pointer;
-      margin-right: 10px;
+      margin-left: auto;
+      margin-right: 8px; /* Reduce gap */
       vertical-align: middle;
       padding: 4px;
     }
@@ -151,9 +153,10 @@
 
     .menu-icon {
       display: block;
-      font-size: 2em; /* Increase size of 3-dot menu */
-      margin-right: 8px; /* Reduce gap */
+      font-size: 2.5em; /* Increase size of 3-dot menu */
+      margin-right: 0; /* Remove extra gap */
       cursor: pointer;
+      order: 3;
       margin-right: 12px;
       color: #fff;
       background: none;
@@ -163,7 +166,7 @@
       display: none;
       position: absolute;
       top: 50px;
-      left: 10px;
+      right: 10px;
       background: #d50000;
       border-radius: 8px;
       box-shadow: 0 2px 8px #0003;
@@ -217,13 +220,9 @@
         display: none;
       }
       .search-btn {
-        margin-left: auto;
-        margin-right: 8px; /* Reduce gap */
         order: 1;
       }
       .login-btn {
-        font-size: 0.75em;
-        padding: 4px 8px;
         order: 2;
       }
       .menu-icon {
@@ -245,22 +244,14 @@
         <line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
     </button>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-      <a href="track.html">Track</a>
-    </nav>
-    <div class="navbar-actions">
-      <a href="#" class="login-btn">Login</a>
-      <button class="menu-icon" id="menuBtn">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" y1="6" x2="20" y2="6"/>
-          <line x1="4" y1="12" x2="20" y2="12"/>
-          <line x1="4" y1="18" x2="20" y2="18"/>
-        </svg>
-      </button>
-    </div>
+    <a href="#" class="login-btn">Login</a>
+    <button class="menu-icon" id="menuBtn">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="6" x2="20" y2="6"/>
+        <line x1="4" y1="12" x2="20" y2="12"/>
+        <line x1="4" y1="18" x2="20" y2="18"/>
+      </svg>
+    </button>
     <div class="mobile-nav" id="mobileNav">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -316,11 +307,10 @@
     // Show/hide mobile nav
     const menuBtn = document.getElementById('menuBtn');
     const mobileNav = document.getElementById('mobileNav');
-    menuBtn.onclick = function() {
+    menuBtn.onclick = function () {
       mobileNav.classList.toggle('active');
     };
-    // Optional: Hide menu when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       if (!menuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
         mobileNav.classList.remove('active');
       }
@@ -328,27 +318,3 @@
   </script>
 </body>
 </html>
-  <style>
-    header {
-      background: #f8f8f8;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    header h2 {
-      margin: 0;
-      font-size: 1.5em;
-      color: #333;
-    }
-    header nav {
-      margin-top: 10px;
-    }
-    header nav a {
-      margin-right: 15px;
-      text-decoration: none;
-      color: #0077ff;
-      font-weight: 500;
-    }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
