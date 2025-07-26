@@ -126,6 +126,40 @@
       text-decoration: none;
     }
 
+    .menu-icon {
+      display: none;
+      font-size: 1.7em;
+      cursor: pointer;
+      margin-right: 12px;
+      color: #fff;
+      background: none;
+      border: none;
+    }
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 10px;
+      background: #d50000;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #0003;
+      padding: 10px 0;
+      z-index: 2000;
+      flex-direction: column;
+      min-width: 120px;
+    }
+    .mobile-nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 18px;
+      font-size: 1em;
+      display: block;
+      border-bottom: 1px solid #fff2;
+    }
+    .mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
     @media (max-width: 600px) {
       .hero h1 {
         font-size: 1.5em;
@@ -147,12 +181,31 @@
         font-size: 0.75em;
         padding: 4px 8px;
       }
+      .navbar nav {
+        display: none;
+      }
+      .menu-icon {
+        display: block;
+      }
+      .mobile-nav {
+        display: none;
+      }
+      .mobile-nav.active {
+        display: flex;
+      }
+      .navbar {
+        justify-content: flex-start;
+      }
+      .navbar .logo {
+        margin-left: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="navbar">
+    <button class="menu-icon" id="menuBtn">&#8942;</button>
     <div class="logo">FLONZE</div>
     <nav>
       <a href="#">Home</a>
@@ -161,6 +214,12 @@
       <a href="#">Track</a>
     </nav>
     <a href="#" class="login-btn">Login</a>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+      <a href="#">Track</a>
+    </div>
   </div>
 
   <div class="hero">
@@ -199,5 +258,19 @@
     © 2025 <strong>Flonze</strong>. All rights reserved.
   </footer>
 
+  <script>
+    // Show/hide mobile nav
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.onclick = function() {
+      mobileNav.classList.toggle('active');
+    };
+    // Optional: Hide menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!menuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+        mobileNav.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
