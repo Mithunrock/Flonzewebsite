@@ -64,13 +64,13 @@
   }
 
   .logo img {
-    width: 40px; /* Adjusted size */
+    width: 40px;
     height: auto;
-    margin-right: 10px; /* Add spacing between logo and text */
+    margin-right: 10px;
   }
 
   .logo-text {
-    font-size: 1.2em; /* Adjusted font size for "FLONZE" */
+    font-size: 1.2em;
     color: #fff;
   }
 
@@ -705,22 +705,23 @@
     color: #333;
   }
 
-  .service-item.estimate {
-    background: #007bff;
-    color: #fff;
-    font-weight: bold;
-    padding: 15px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
+  @media (max-width: 600px) {
+    .services-grid {
+      gap: 10px;
+    }
 
-  .service-item.estimate:hover {
-    background: #0056b3;
-  }
+    .service-item {
+      width: 100px;
+      padding: 8px;
+    }
 
-  .service-item.estimate span {
-    font-size: 0.8em;
-    display: block;
+    .service-item img {
+      width: 30px;
+    }
+
+    .service-item p {
+      font-size: 0.9em;
+    }
   }
 
   /* Popup Overlay */
@@ -803,6 +804,29 @@
   font-size: 1.5em;
   cursor: pointer;
   color: #333;
+}
+
+@media (max-width: 600px) {
+  .popup-content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .popup-content h2 {
+    font-size: 1.2em;
+  }
+
+  .popup-content p {
+    font-size: 0.9em;
+  }
+
+  .form-group input {
+    font-size: 0.8em;
+  }
+
+  .submit-btn {
+    font-size: 0.9em;
+  }
 }
   </style>
 </head>
