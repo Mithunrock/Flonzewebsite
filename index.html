@@ -751,6 +751,86 @@
       gap: 10px;
     }
   }
+
+  /* Popup Overlay */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup Content */
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.popup-content p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.estimate-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.option:hover {
+  background: #f0f0f0;
+}
+
+.option img {
+  width: 40px;
+  height: auto;
+}
+
+.option p {
+  font-size: 1em;
+  color: #333;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #333;
+}
   </style>
 </head>
 <body>
@@ -808,7 +888,7 @@
         <img src="images/Packager Mover.png" alt="Packers & Movers">
         <p>Packers & Movers</p>
       </div>
-      <div class="service-item estimate">
+      <div class="service-item estimate" id="estimateBtn">
         <p>Get an Estimate<br><span>(takes ~2 mins)</span></p>
       </div>
     </div>
@@ -825,45 +905,72 @@
     <div class="contact-details" style="font-size: 0.85em;">
       <div>📍 <strong>Address:</strong> Mumbai, India</div>
       <div>📧 <strong>Email:</strong> <a href="mailto:flonzesupport@gmail.com">flonzesupport@gmail.com</a></div>
-      <div>📞 <strong>Phone:</strong> +91 8108395367</div>
-    </div>
-    <div class="developer-contact" style="margin-top: 20px; font-size: 0.85em;">
-      <h3 style="font-size: 1em;">Contact Developer</h3>
-      <p>If you would like to contact the developer of this page, please use the details below:</p>
-      <p><strong>Developer Name:</strong> Mithun Yadav</p>
-      <p><strong>Email:</strong> <a href="mailto:mithunyadav245@gmail.com">mithunyadav245@gmail.com</a></p>
+      <div>📞 <strong>Phone:</strong> +91 22 4000 0000</div>
     </div>
   </div>
 
-  <div class="social-section">
-    <span>Connect with us:</span>
-    <a href="https://www.linkedin.com/company/flonze/" target="_blank" class="social-link">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:28px;vertical-align:middle;">
-    </a>
-    <a href="https://www.facebook.com/share/15tLiDr14W/?mibextid=wwXIfr" target="_blank" class="social-link">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width:28px;vertical-align:middle;">
-    </a>
+  <!-- Popup Structure -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-content">
+      <button class="close-btn" id="closePopup">×</button>
+      <h2>Get an Estimate</h2>
+      <p>Please fill in the details, so that we can provide you with our best service.</p>
+      <div class="estimate-options">
+        <div class="option">
+          <img src="images/Truck.png" alt="Truck Service">
+          <p>Truck</p>
+        </div>
+        <div class="option">
+          <img src="images/Bike.png" alt="Two Wheeler Service">
+          <p>Two Wheeler</p>
+        </div>
+        <div class="option">
+          <img src="images/Packager Mover.png" alt="Packers & Movers">
+          <p>Packers & Movers</p>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <footer>
-    📧 Contact: <a href="mailto:flonzescontect@gmail.com">flonzescontect@gmail.com</a><br>
-    Smart Logistics Company in Mumbai | B2B Courier Services in India | Last Mile Delivery Solutions<br>
-    © 2025 <strong>Flonze</strong>. All rights reserved.
-  </footer>
 
   <script>
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileNav = document.getElementById('mobileNav');
+    // JavaScript for mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
 
-  menuBtn.addEventListener('click', function () {
-    mobileNav.classList.toggle('active');
-  });
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+    });
 
-  document.addEventListener('click', function (e) {
-    if (!menuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
-      mobileNav.classList.remove('active');
-    }
-  });
+    // JavaScript for closing the mobile menu when a link is clicked
+    const navLinks = document.querySelectorAll('.mobile-nav .nav-link');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+      });
+    });
+
+    // JavaScript for popup functionality
+    const estimateBtn = document.querySelector('.service-item.estimate');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const closePopup = document.getElementById('closePopup');
+
+    // Show popup on button click
+    estimateBtn.addEventListener('click', () => {
+      popupOverlay.style.display = 'flex';
+    });
+
+    // Close popup on close button click
+    closePopup.addEventListener('click', () => {
+      popupOverlay.style.display = 'none';
+    });
+
+    // Close popup when clicking outside the content
+    popupOverlay.addEventListener('click', (e) => {
+      if (e.target === popupOverlay) {
+        popupOverlay.style.display = 'none';
+      }
+    });
   </script>
 </body>
 </html>
