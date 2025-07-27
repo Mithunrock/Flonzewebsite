@@ -675,6 +675,10 @@
       dropdownMenu.style.display = 'none';
     });
 
+    dropdownMenu.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent dropdown from closing when clicking inside
+    });
+
     // Fix Sign In and Login Issues
     const form = document.querySelector('#signup-form'); // Example form selector
     form.addEventListener('submit', async (e) => {
