@@ -44,12 +44,17 @@
     margin-right: 12px;
   }
 
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
   .search-btn {
     background: none;
     border: none;
     cursor: pointer;
     padding: 4px;
-    order: 2; /* Ensure proper alignment */
   }
 
   .search-btn svg {
@@ -59,7 +64,6 @@
   .profile-dropdown {
     position: relative;
     display: inline-block;
-    order: 3; /* Ensure proper alignment */
   }
 
   .profile-btn {
@@ -113,6 +117,7 @@
     display: block;
   }
 
+  /* Hero section styling */
   .hero {
     background: url('images/SOP.jpg') no-repeat center center/cover;
     text-align: center;
@@ -136,6 +141,7 @@
     text-shadow: 1px 1px 5px #000;
   }
 
+  /* Section styling */
   .section {
     padding: 40px 20px;
     text-align: center;
@@ -147,6 +153,7 @@
     margin-bottom: 10px;
   }
 
+  /* Grid styling for offerings */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -162,6 +169,7 @@
     font-size: 0.7em; /* Reduced font size for cubes */
   }
 
+  /* About section styling */
   .about {
     background: #121212;
     padding: 30px 20px;
@@ -199,6 +207,17 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 
+  .about-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #ddd;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Contact section styling */
   .contact-section {
     background: #121212;
     color: #fff;
@@ -230,6 +249,7 @@
     display: none; /* Remove phone number */
   }
 
+  /* Footer styling */
   footer {
     background-color: #000;
     color: #ccc;
@@ -243,6 +263,7 @@
     text-decoration: none;
   }
 
+  /* Menu icon for mobile */
   .menu-icon {
     display: block;
     font-size: 2.5em; /* Increase size of 3-dot menu */
@@ -255,6 +276,7 @@
     border: none;
   }
 
+  /* Mobile navigation styling */
   .mobile-nav {
     display: none;
     position: absolute;
@@ -287,6 +309,7 @@
     border-bottom: none;
   }
 
+  /* Social section styling */
   .social-section {
     text-align: center;
     padding: 20px 0;
@@ -314,6 +337,7 @@
     filter: invert(1); /* Highlight on hover */
   }
 
+  /* Media queries for responsive design */
   @media (min-width: 601px) {
     .menu-icon {
       display: block; /* Ensure 3-dot menu is visible on desktop */
@@ -335,6 +359,7 @@
     }
   }
 
+  /* Reviews section styling */
   .reviews-section {
     background: #232323;
     color: #fff;
@@ -361,6 +386,7 @@
     color: #ddd;
   }
 
+  /* FAQ section styling */
   .faq-section {
     background: #121212;
     color: #fff;
@@ -384,6 +410,7 @@
     color: #ffeb3b;
   }
 
+  /* Call to action section styling */
   .cta-section {
     background: #d50000;
     color: #fff;
@@ -407,6 +434,7 @@
     font-weight: 600;
   }
 
+  /* Map section styling */
   .map-section {
     margin-top: 40px;
     text-align: center;
@@ -424,6 +452,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 
+  /* Blog section styling */
   .blog-section {
     background: #232323;
     color: #fff;
@@ -469,6 +498,39 @@
   .blog a:hover {
     text-decoration: underline;
   }
+
+  /* Capsule buttons for offerings */
+  .capsule-btn {
+    background: linear-gradient(145deg, #ffeb3b, #d4c200);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 20px;
+    color: #000;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .capsule-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (max-width: 600px) {
+    .navbar {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .search-btn {
+      order: 1;
+    }
+
+    .profile-dropdown {
+      order: 2;
+    }
+  }
   </style>
 </head>
 <body>
@@ -478,28 +540,30 @@
       <img src="images/logo.png" alt="Flonze Logo" style="height:32px;">
       FLONZE
     </div>
-    <button class="search-btn" title="Search">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-    </button>
-    <div class="profile-dropdown">
-      <button class="profile-btn" id="profileBtn">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <circle cx="12" cy="10" r="3"/>
-          <path d="M12 13c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z"/>
+    <div class="nav-right">
+      <button class="search-btn" title="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
         </svg>
       </button>
-      <div class="dropdown-menu" id="dropdownMenu">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="track.html">Track</a>
-        <a href="contact.html">Contact</a>
-        <a href="#latest-updates">Latest Updates</a>
-        <a href="login.html">Login</a>
-        <a href="signin.html">Sign In</a>
+      <div class="profile-dropdown">
+        <button class="profile-btn" id="profileBtn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 13c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="track.html">Track</a>
+          <a href="contact.html">Contact</a>
+          <a href="#latest-updates">Latest Updates</a>
+          <a href="login.html">Login</a>
+          <a href="signin.html">Sign In</a>
+        </div>
       </div>
     </div>
   </div>
@@ -514,31 +578,22 @@
   <div class="section">
     <h2 style="margin-bottom: 15px;">Our Offerings</h2>
     <div class="grid">
-      <div class="cube">🔄 <strong>Smart Dispatch</strong><br>B2B, B2C & Hyperlocal</div>
-      <div class="cube">🛵 <strong>Fleet-as-a-Service</strong><br>On-Demand Delivery</div>
-      <div class="cube">📦 <strong>Multi-Warehouse</strong><br>Enable JIT Inventory</div>
-      <div class="cube">📊 <strong>Smart Dashboard</strong><br>Track & Analyze</div>
-      <div class="cube">⚙️ <strong>API Integration</strong><br>ERP, CRM, D2C Ready</div>
-      <div class="cube">🧠 <strong>AI Optimization</strong><br>Beta Launch 2026</div>
+      <button class="capsule-btn">🔄 <strong>Smart Dispatch</strong><br>B2B, B2C & Hyperlocal</button>
+      <button class="capsule-btn">🛵 <strong>Fleet-as-a-Service</strong><br>On-Demand Delivery</button>
+      <button class="capsule-btn">📦 <strong>Multi-Warehouse</strong><br>Enable JIT Inventory</button>
+      <button class="capsule-btn">📊 <strong>Smart Dashboard</strong><br>Track & Analyze</button>
+      <button class="capsule-btn">⚙️ <strong>API Integration</strong><br>ERP, CRM, D2C Ready</button>
+      <button class="capsule-btn">🧠 <strong>AI Optimization</strong><br>Beta Launch 2026</button>
     </div>
   </div>
 
   <div class="about">
     <h3>About Flonze</h3>
-    <p>
-      We are building a modern logistics platform tailored for India's fast-growing e-commerce & retail brands.
+    <p class="about-text">
+      We are building a smart logistics platform for India’s fast-growing e-commerce and retail businesses. Inspired by companies like Porter, Rapido, and Delhivery, Flonze will launch in 2027, focusing on Tier 2 and Tier 3 cities.<br><br>
+      Our platform uses the latest technology and a fleet of delivery partners to give fast, reliable, and affordable service. We help businesses with parcel delivery, e-commerce shipping, and warehousing — all in one place.<br><br>
+      Our mission is to make logistics simple so businesses can grow and serve their customers better. Flonze is ready to change the way goods move across India. Get ready for 2027!
     </p>
-    <ul>
-      <li>Inspired by Porter, Rapido, and Delhivery</li>
-      <li>Launching in 2027 with a focus on Tier 2 & 3 cities</li>
-      <li>Technology-first, fleet-enabled, and customer-centric</li>
-    </ul>
-    <div class="about-images">
-      <img src="images/pexels-tiger-lily-4483772.jpg" alt="Image 1">
-      <img src="images/pexels-tima-miroshnichenko-6169025.jpg" alt="Image 2">
-      <img src="images/pexels-tomfisk-3075996.jpg" alt="Image 3">
-      <img src="images/pexels-winson5293-2701434.jpg" alt="Image 4">
-    </div>
   </div>
 
   <div class="blog-section" id="latest-updates">
