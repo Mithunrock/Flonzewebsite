@@ -5,72 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up | Flonze</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .signup-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8em;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background: linear-gradient(90deg, #0056b3 0%, #0099cc 100%);
+    transform: translateY(-2px);
+  }
+
+  .success-msg,
+  .error-msg {
+    margin-top: 15px;
+    text-align: center;
+    display: none;
+    font-size: 14px;
+  }
+
+  .success-msg {
+    color: green;
+  }
+
+  .error-msg {
+    color: red;
+  }
+
+  @media (max-width: 600px) {
     .signup-container {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 400px;
+      padding: 20px;
     }
 
     h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #333;
+      font-size: 1.5em;
     }
 
     input[type="text"],
     input[type="email"],
     input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      font-size: 14px;
     }
 
     button {
-      width: 100%;
-      padding: 12px;
-      background: #28a745;
+      font-size: 14px;
+    }
+  }
+
+    header {
+      background: #007bff;
       color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:hover {
-      background: #218838;
-    }
-
-    .success-msg, .error-msg {
-      margin-top: 15px;
+      padding: 10px 0;
       text-align: center;
-      display: none;
     }
 
-    .success-msg {
-      color: green;
+    header h2 {
+      margin: 0;
+      font-size: 24px;
     }
 
-    .error-msg {
-      color: red;
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h2>Flonze</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="track.html">Track</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
   <div class="signup-container">
     <h2>Create Account</h2>
     <form id="signup-form">

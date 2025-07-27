@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login | Flonze</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: #f4f4f4;
       display: flex;
       justify-content: center;
@@ -19,7 +23,7 @@
       background: #ffffff;
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 400px;
     }
@@ -28,6 +32,7 @@
       text-align: center;
       margin-bottom: 20px;
       color: #333;
+      font-size: 1.8em;
     }
 
     input[type="email"],
@@ -37,35 +42,48 @@
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.2s ease;
+    }
+
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #007bff;
+      outline: none;
     }
 
     button {
       width: 100%;
       padding: 12px;
-      background: #007bff;
+      background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
       color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
+      font-weight: bold;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     button:hover {
-      background: #0056b3;
+      background: linear-gradient(90deg, #0056b3 0%, #0099cc 100%);
+      transform: translateY(-2px);
+    }
+
+    .success-msg,
+    .error-msg {
+      margin-top: 15px;
+      text-align: center;
+      display: none;
+      font-size: 14px;
     }
 
     .success-msg {
-      margin-top: 15px;
       color: green;
-      text-align: center;
-      display: none;
     }
 
     .error-msg {
-      margin-top: 15px;
       color: red;
-      text-align: center;
-      display: none;
     }
 
     .nav-right {
@@ -147,6 +165,25 @@
       margin-top: 5px;
       font-size: 14px;
     }
+
+    @media (max-width: 600px) {
+      .login-container {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -179,7 +216,8 @@
       <div class="dropdown-menu" id="dropdownMenu">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="login.html">Login</a>
+        <a href="track.html">Track</a>
+        <a href="contact.html">Contact</a>
         <a href="signin.html">Sign In</a>
       </div>
     </div>

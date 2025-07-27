@@ -49,7 +49,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 20px;
+    padding: 10px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -64,9 +64,8 @@
   }
 
   .logo img {
-    width: 80px; /* Smaller width for desktop */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 0; /* Remove extra margin */
+    width: 60px; /* Adjusted size for better fit */
+    height: auto;
   }
 
   /* Adjust logo size for mobile */
@@ -81,7 +80,20 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: flex-end;
+  }
+
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9em; /* Reduced font size */
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+
+  .nav-link:hover {
+    background: #ffeb3b;
+    color: #000;
   }
 
   @media (max-width: 600px) {
@@ -115,7 +127,7 @@
     color: #000;
     border: none;
     border-radius: 50%;
-    padding: 8px;
+    padding: 6px;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -566,12 +578,12 @@
     background: linear-gradient(145deg, #f5e6cc, #e8d5b5); /* Creamy color */
     border: none;
     border-radius: 8px; /* Changed to rectangular shape */
-    padding: 10px 15px; /* Reduced padding */
+    padding: 8px 10px; /* Reduced padding */
     color: #000;
     font-weight: 600;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Reduced shadow */
     cursor: pointer;
-    font-size: 0.9em; /* Reduced font size */
+    font-size: 0.8em; /* Reduced font size */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
@@ -616,9 +628,15 @@
 
   <div class="navbar">
     <div class="logo">
-      <img src="images/logo.png" alt="Smart Logistics Company in India">
+      <img src="images/logo.png" alt="Flonze Logo">
     </div>
     <div class="nav-right">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="track.html" class="nav-link">Track</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="login.html" class="nav-link">Login</a>
+      <a href="signin.html" class="nav-link">Sign In</a>
       <button class="search-btn" title="Search">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"/>
@@ -636,8 +654,10 @@
         <div class="dropdown-menu" id="dropdownMenu">
           <a href="index.html">Home</a>
           <a href="services.html">Services</a>
-          <a href="track.html">Tracks</a>
+          <a href="track.html">Track</a>
           <a href="contact.html">Contact</a>
+          <a href="login.html">Login</a>
+          <a href="signin.html">Sign In</a>
         </div>
       </div>
     </div>

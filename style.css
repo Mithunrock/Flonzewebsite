@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #fdfdfd;
@@ -17,11 +17,13 @@ nav a {
   color: #ffffff;
   margin: 0 10px;
   text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
   text-decoration: underline;
-  color: #ffd700;
+  color: #ffd700; /* Gold hover effect */
 }
 
 main {
@@ -43,14 +45,14 @@ main {
 }
 
 .flonze-info h2 {
-  font-size: 24px;
+  font-size: 26px; /* Slightly larger for better readability */
   color: #222;
   margin-bottom: 10px;
 }
 
 .flonze-info h3 {
   margin-top: 25px;
-  font-size: 20px;
+  font-size: 22px; /* Adjusted for better visibility */
   color: #2e7d32; /* Green tone */
 }
 
@@ -60,8 +62,8 @@ main {
 }
 
 .features li {
-  margin-bottom: 10px;
-  font-size: 17px;
+  margin-bottom: 12px; /* Increased spacing for readability */
+  font-size: 18px; /* Slightly larger font size */
 }
 
 footer {
@@ -73,6 +75,10 @@ footer {
   bottom: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
   .flonze-info {
@@ -80,8 +86,17 @@ footer {
     font-size: 15px;
     margin: 20px auto;
   }
+
   header, footer {
     padding: 8px;
     font-size: 16px;
+  }
+
+  nav a {
+    font-size: 14px; /* Adjusted font size for smaller screens */
+  }
+
+  .features li {
+    font-size: 16px; /* Adjusted font size for readability */
   }
 }

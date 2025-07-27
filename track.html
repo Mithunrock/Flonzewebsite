@@ -5,47 +5,119 @@
   <title>Flonze – Track Your Shipment</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: #000; color: white; padding: 20px; text-align: center; }
-    nav a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
-    .container { padding: 40px; text-align: center; }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  header {
+    background: #003366;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .container {
+    padding: 40px;
+    text-align: center;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.2s;
+  }
+
+  input[type="text"]:focus {
+    border-color: #0055a5;
+    outline: none;
+  }
+
+  button {
+    background: #0055a5;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 24px;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+
+  button:hover {
+    background: #003366;
+  }
+
+  .result {
+    margin-top: 24px;
+    font-size: 18px;
+    color: #2e7d32;
+    min-height: 32px;
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 12px;
+    }
+
     input[type="text"] {
-      padding: 10px;
-      font-size: 16px;
-      margin-top: 10px;
-      width: 300px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      transition: border-color 0.2s;
+      width: 95%;
     }
-    input[type="text"]:focus {
-      border-color: #003366;
-      outline: none;
-    }
-    button {
-      background: #003366;
-      color: white;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 24px;
-      font-size: 16px;
-      margin-top: 10px;
-      transition: background 0.2s;
-    }
-    button:hover {
-      background: #0055a5;
-    }
-    .result {
-      margin-top: 24px;
-      font-size: 18px;
-      color: #2e7d32;
-      min-height: 32px;
-    }
-    @media (max-width: 600px) {
-      .container { padding: 12px; }
-      input[type="text"] { width: 95%; }
-    }
+  }
+
+  .profile-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1000;
+  }
+
+  .dropdown-menu a {
+    color: #000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-menu a:hover {
+    background: #f1f1f1;
+  }
   </style>
 </head>
 <body>
@@ -60,10 +132,26 @@
   </header>
 
   <div class="container">
-    <h2>Track Your Shipment</h2>
+    <h2 style="font-family: 'Poppins', sans-serif; font-size: 1.5em; color: #333;">Track Your Shipment</h2>
     <input type="text" id="trackInput" placeholder="Enter Tracking ID" /><br>
     <button onclick="showResult()">Track Now</button>
     <div class="result" id="result"></div>
+  </div>
+
+  <div class="profile-dropdown">
+    <button class="profile-btn" id="profileBtn">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <circle cx="12" cy="10" r="3"></circle>
+        <path d="M12 13c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z"></path>
+      </svg>
+    </button>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="track.html">Track</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </div>
 
   <script>
@@ -78,6 +166,21 @@
         result.style.color = "#2e7d32";
       }
     }
+
+    // Dropdown menu script
+    document.getElementById('profileBtn').addEventListener('click', function() {
+      var menu = document.getElementById('dropdownMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (!event.target.matches('.profile-btn')) {
+        var dropdowns = document.getElementsByClassName('dropdown-menu');
+        for (var i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].style.display = 'none';
+        }
+      }
+    });
   </script>
 </body>
 </html>
