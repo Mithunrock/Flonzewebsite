@@ -94,6 +94,7 @@
     z-index: 2000;
     text-align: left;
     min-width: 150px;
+    -webkit-transform: translateZ(0); /* Force hardware acceleration for Safari */
   }
 
   .dropdown-menu a {
@@ -694,6 +695,30 @@
         alert('Error: ' + error.message);
       }
     });
+
+    // Fix Profile Dropdown for iOS Devices
+    const profileBtn = document.getElementById('profileBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    // Toggle dropdown menu visibility
+    profileBtn.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default behavior
+      e.stopPropagation(); // Stop event propagation
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Close dropdown menu when clicking outside
+    document.addEventListener('click', () => {
+      dropdownMenu.style.display = 'none';
+    });
+
+    // Prevent dropdown menu from closing when clicking inside
+    dropdownMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    // Ensure compatibility with iOS Safari
+    document.addEventListener('touchstart', () => {}, { passive: true }); // Enable touch events for Safari
   </script>
 </body>
 </html>
