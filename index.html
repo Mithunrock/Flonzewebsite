@@ -64,7 +64,7 @@
   }
 
   .logo img {
-    width: 50px; /* Reduced size for better fit */
+    width: 40px; /* Smaller size for mobile */
     height: auto;
   }
 
@@ -79,14 +79,14 @@
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 15px;
   }
 
   .nav-link {
     color: #fff;
     text-decoration: none;
-    font-size: 0.8em; /* Reduced font size */
-    padding: 5px 8px;
+    font-size: 0.9em; /* Adjusted font size */
+    padding: 5px 10px;
     border-radius: 4px;
     transition: background 0.2s ease;
   }
@@ -360,36 +360,33 @@
   /* Menu icon for mobile */
   .menu-icon {
     display: block;
-    font-size: 2.5em; /* Increase size of 3-dot menu */
-    margin-right: 0; /* Remove extra gap */
-    cursor: pointer;
-    order: 3;
-    margin-right: 12px;
+    font-size: 1.5em;
     color: #fff;
     background: none;
     border: none;
+    cursor: pointer;
   }
 
   /* Mobile navigation styling */
   .mobile-nav {
     display: none;
-    position: fixed; /* Fixed position for better usability */
+    position: fixed;
     top: 0;
     right: 0;
-    width: 80%; /* Take up most of the screen width */
-    height: 100%; /* Full height for better navigation */
-    background: #fff9c4;
+    width: 80%;
+    height: 100%;
+    background: #fff;
     z-index: 2000;
     flex-direction: column;
     padding: 20px;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
-    overflow-y: auto; /* Allow scrolling if content overflows */
-    transition: transform 0.3s ease; /* Smooth slide-in effect */
-    transform: translateX(100%); /* Initially hidden */
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
   }
 
   .mobile-nav.active {
-    transform: translateX(0); /* Slide in when active */
+    transform: translateX(0);
   }
 
   .mobile-nav a {
@@ -664,37 +661,17 @@
     <div class="logo">
       <img src="images/logo.png" alt="Flonze Logo">
     </div>
-    <div class="nav-right">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="track.html" class="nav-link">Track</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <a href="login.html" class="nav-link">Login</a>
-      <a href="signin.html" class="nav-link">Sign In</a>
-      <button class="search-btn" title="Search">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-      </button>
-      <div class="profile-dropdown">
-        <button class="profile-btn" id="profileBtn">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <circle cx="12" cy="10" r="3"></circle>
-            <path d="M12 13c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z"></path>
-          </svg>
-        </button>
-        <div class="dropdown-menu" id="dropdownMenu">
-          <a href="index.html">Home</a>
-          <a href="services.html">Services</a>
-          <a href="track.html">Track</a>
-          <a href="contact.html">Contact</a>
-          <a href="login.html">Login</a>
-          <a href="signin.html">Sign In</a>
-        </div>
-      </div>
-    </div>
+    <button class="menu-icon" id="menuBtn">
+      ☰
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="track.html">Track</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="signin.html">Sign In</a>
   </div>
 
   <div class="hero">
@@ -786,53 +763,18 @@
   </footer>
 
   <script>
-    // Show/hide mobile nav
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileNav = document.getElementById('mobileNav');
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
 
-    menuBtn.onclick = function () {
-      mobileNav.classList.toggle('active');
-    };
+  menuBtn.onclick = function () {
+    mobileNav.classList.toggle('active');
+  };
 
-    document.addEventListener('click', function (e) {
-      if (!menuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
-        mobileNav.classList.remove('active');
-      }
-    });
-
-    const searchBtn = document.querySelector('.search-btn');
-    searchBtn.onclick = function () {
-      alert('Search functionality coming soon!');
-    };
-
-    // Fix Profile Dropdown Stuck Issue
-    const profileBtn = document.getElementById('profileBtn');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-
-    // Toggle dropdown menu visibility
-    profileBtn.addEventListener('click', (e) => {
-      e.preventDefault(); // Prevent default behavior
-      e.stopPropagation(); // Stop event propagation
-      dropdownMenu.classList.toggle('active');
-    });
-
-    // Close dropdown menu when clicking outside
-    document.addEventListener('click', () => {
-      dropdownMenu.classList.remove('active');
-    });
-
-    // Close dropdown menu when clicking a menu item
-    const menuItems = dropdownMenu.querySelectorAll('a');
-    menuItems.forEach((item) => {
-      item.addEventListener('click', () => {
-        dropdownMenu.classList.remove('active');
-      });
-    });
-
-    // Prevent dropdown menu from closing when clicking inside
-    dropdownMenu.addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
+  document.addEventListener('click', function (e) {
+    if (!menuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+      mobileNav.classList.remove('active');
+    }
+  });
   </script>
 </body>
 </html>
