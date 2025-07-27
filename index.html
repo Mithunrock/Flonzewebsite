@@ -404,6 +404,61 @@
       text-decoration: underline;
     }
 
+    .profile-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .profile-btn {
+      background-color: #fff; /* White background */
+      color: #000; /* Black text */
+      border: none;
+      border-radius: 50%; /* Circular button */
+      padding: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Modern shadow */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .profile-btn:hover {
+      transform: scale(1.1); /* Slight zoom effect */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      padding: 10px 0;
+      z-index: 2000;
+      text-align: left;
+      min-width: 150px;
+    }
+
+    .dropdown-menu a {
+      color: #000;
+      text-decoration: none;
+      padding: 8px 18px;
+      display: block;
+      font-size: 0.95em;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .dropdown-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .profile-dropdown:hover .dropdown-menu {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -419,22 +474,32 @@
         <line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
     </button>
-    <a href="login.html" class="login-btn">Login</a>
-    <a href="signin.html" class="login-btn">Sign In</a> <!-- Added Sign In button -->
-    <button class="menu-icon" id="menuBtn">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="4" y1="6" x2="20" y2="6"/>
-        <line x1="4" y1="12" x2="20" y2="12"/>
-        <line x1="4" y1="18" x2="20" y2="18"/>
-      </svg>
-    </button>
-    <div class="mobile-nav" id="mobileNav">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-      <a href="track.html">Track</a>
-      <a href="#latest-updates">Latest Updates</a>
+    <div class="profile-dropdown">
+      <button class="profile-btn" id="profileBtn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="10" r="3"/>
+          <path d="M12 13c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z"/>
+        </svg>
+      </button>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="track.html">Track</a>
+        <a href="contact.html">Contact</a>
+        <a href="#latest-updates">Latest Updates</a>
+        <a href="login.html">Login</a> <!-- Added Login -->
+        <a href="signin.html">Sign In</a> <!-- Added Sign In -->
+      </div>
     </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="track.html">Track</a>
+    <a href="#latest-updates">Latest Updates</a>
   </div>
 
   <div class="hero">
