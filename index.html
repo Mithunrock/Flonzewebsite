@@ -487,6 +487,10 @@
     .grid {
       gap: 8px; /* Reduced gap for mobile */
     }
+
+    .services-grid {
+      gap: 10px;
+    }
   }
 
   /* Reviews section styling */
@@ -653,6 +657,67 @@
     height: auto; /* Maintain aspect ratio */
   }
 
+  /* New Section Styles */
+  .logistics-services {
+    margin-top: 40px;
+    text-align: center;
+    padding: 30px 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .services-heading {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .service-item {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 120px;
+  }
+
+  .service-item img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .service-item p {
+    font-size: 0.9em;
+    color: #333;
+  }
+
+  .service-item.estimate {
+    background: #007bff;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .service-item.estimate:hover {
+    background: #0056b3;
+  }
+
+  .service-item.estimate span {
+    font-size: 0.8em;
+    display: block;
+  }
+
   @media (max-width: 600px) {
     .navbar {
       flex-wrap: wrap;
@@ -680,6 +745,10 @@
 
     .grid {
       gap: 8px; /* Reduced gap for mobile */
+    }
+
+    .services-grid {
+      gap: 10px;
     }
   }
   </style>
@@ -720,6 +789,32 @@
       <button class="capsule-btn">📊 <strong>Smart Dashboard</strong><br>Track & Analyze</button>
       <button class="capsule-btn">⚙️ <strong>API Integration</strong><br>ERP, CRM, D2C Ready</button>
       <button class="capsule-btn">🧠 <strong>AI Optimization</strong><br>Beta Launch 2026</button>
+    </div>
+  </div>
+
+  <!-- New Section -->
+  <div class="logistics-services">
+    <h2 class="services-heading">Choose Your Service</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <img src="images/truck.png" alt="Truck Service">
+        <p>Truck</p>
+      </div>
+      <div class="service-item">
+        <img src="images/two-wheeler.png" alt="Two Wheeler Service">
+        <p>Two Wheeler</p>
+      </div>
+      <div class="service-item">
+        <img src="images/packers-movers.png" alt="Packers & Movers">
+        <p>Packers & Movers</p>
+      </div>
+      <div class="service-item">
+        <img src="images/intercity-courier.png" alt="Intercity Courier Service">
+        <p>Intercity Courier Service</p>
+      </div>
+      <div class="service-item estimate">
+        <p>Get an Estimate<br><span>(takes ~2 mins)</span></p>
+      </div>
     </div>
   </div>
 
