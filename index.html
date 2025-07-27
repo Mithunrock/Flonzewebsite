@@ -386,6 +386,7 @@
   }
 
   .mobile-nav.active {
+    display: flex; /* Ensure the menu is visible */
     transform: translateX(0);
   }
 
@@ -766,9 +767,9 @@
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
 
-  menuBtn.onclick = function () {
+  menuBtn.addEventListener('click', function () {
     mobileNav.classList.toggle('active');
-  };
+  });
 
   document.addEventListener('click', function (e) {
     if (!menuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
