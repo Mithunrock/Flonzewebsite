@@ -64,14 +64,14 @@
   }
 
   .logo img {
-    width: 60px; /* Adjusted size for better fit */
+    width: 50px; /* Reduced size for better fit */
     height: auto;
   }
 
   /* Adjust logo size for mobile */
   @media (max-width: 600px) {
     .logo img {
-      width: 60px; /* Smaller width for mobile */
+      width: 40px; /* Smaller width for mobile */
       height: auto; /* Maintain aspect ratio */
     }
   }
@@ -79,16 +79,46 @@
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
 
   .nav-link {
     color: #fff;
     text-decoration: none;
-    font-size: 0.9em; /* Reduced font size */
-    padding: 5px 10px;
+    font-size: 0.8em; /* Reduced font size */
+    padding: 5px 8px;
     border-radius: 4px;
     transition: background 0.2s ease;
+  }
+
+  .nav-link:hover {
+    background: #ffeb3b;
+    color: #000;
+  }
+
+  .search-btn, .profile-btn {
+    padding: 6px;
+  }
+
+  @media (max-width: 600px) {
+    .navbar {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .logo img {
+      width: 40px; /* Smaller width for mobile */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    .nav-link {
+      font-size: 0.7em; /* Further reduced font size for mobile */
+    }
+
+    .search-btn, .profile-btn {
+      padding: 4px;
+    }
   }
 
   .nav-link:hover {
@@ -220,8 +250,8 @@
   /* Grid styling for offerings */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjusted for smaller buttons */
+    gap: 10px; /* Reduced gap */
     margin-top: 25px;
   }
 
@@ -428,8 +458,8 @@
     }
 
     .capsule-btn {
-      padding: 8px 12px; /* Adjust padding for mobile */
-      font-size: 0.8em; /* Slightly smaller font size */
+      padding: 4px 6px; /* Further reduced padding for mobile */
+      font-size: 0.6em; /* Smaller font size for mobile */
     }
   }
 
@@ -575,21 +605,21 @@
 
   /* Capsule buttons for offerings */
   .capsule-btn {
-    background: linear-gradient(145deg, #f5e6cc, #e8d5b5); /* Creamy color */
+    background: linear-gradient(145deg, #f5e6cc, #e8d5b5);
     border: none;
-    border-radius: 8px; /* Changed to rectangular shape */
-    padding: 8px 10px; /* Reduced padding */
+    border-radius: 8px;
+    padding: 6px 8px; /* Reduced padding */
     color: #000;
     font-weight: 600;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Reduced shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    font-size: 0.8em; /* Reduced font size */
+    font-size: 0.7em; /* Reduced font size */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .capsule-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Enhanced hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
 
   img {
@@ -618,8 +648,12 @@
     }
 
     .capsule-btn {
-      padding: 8px 12px; /* Adjust padding for mobile */
-      font-size: 0.8em; /* Slightly smaller font size */
+      padding: 4px 6px; /* Further reduced padding for mobile */
+      font-size: 0.6em; /* Smaller font size for mobile */
+    }
+
+    .grid {
+      gap: 8px; /* Reduced gap for mobile */
     }
   }
   </style>
