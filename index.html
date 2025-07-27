@@ -89,6 +89,10 @@
       flex-direction: row; /* Horizontal arrangement */
       gap: 8px;
     }
+
+    .search-btn, .profile-btn {
+      padding: 6px;
+    }
   }
 
   .search-btn {
@@ -614,19 +618,6 @@
       <img src="images/logo.png" alt="Smart Logistics Company in India">
     </div>
     <div class="nav-right">
-      <button class="search-btn" title="Search">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-      </button>
-      <button class="notification-btn" title="Notifications">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M12 8v4"></path>
-          <path d="M12 16h.01"></path>
-        </svg>
-      </button>
       <div class="profile-dropdown">
         <button class="profile-btn" id="profileBtn">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -643,6 +634,12 @@
           <a href="#latest-updates">Latest Updates</a>
         </div>
       </div>
+      <button class="search-btn" title="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
     </div>
   </div>
 
@@ -654,16 +651,26 @@
   </div>
 
   <div class="section">
-    <h2 style="margin-bottom: 15px;">Our Logistics Solutions in India</h2>
-    <div class="grid">
-      <button class="capsule-btn">🔄 <strong>Smart Dispatch</strong><br>B2B, B2C & Hyperlocal</button>
-      <button class="capsule-btn">🛵 <strong>Fleet-as-a-Service</strong><br>On-Demand Delivery</button>
-      <button class="capsule-btn">📦 <strong>Multi-Warehouse</strong><br>Enable JIT Inventory</button>
-      <button class="capsule-btn">📊 <strong>Smart Dashboard</strong><br>Track & Analyze</button>
-      <button class="capsule-btn">⚙️ <strong>API Integration</strong><br>ERP, CRM, D2C Ready</button>
-      <button class="capsule-btn">🧠 <strong>AI Optimization</strong><br>Beta Launch 2026</button>
-    </div>
+  <h2 style="margin-bottom: 15px;">Our Logistics Solutions in India</h2>
+  <div class="grid">
+    <button class="capsule-btn">🔄 <strong>Smart Dispatch</strong><br>B2B, B2C & Hyperlocal</button>
+    <button class="capsule-btn">🛵 <strong>Fleet-as-a-Service</strong><br>On-Demand Delivery</button>
+    <button class="capsule-btn">📦 <strong>Multi-Warehouse</strong><br>Enable JIT Inventory</button>
+    <button class="capsule-btn">📊 <strong>Smart Dashboard</strong><br>Track & Analyze</button>
+    <button class="capsule-btn">⚙️ <strong>API Integration</strong><br>ERP, CRM, D2C Ready</button>
+    <button class="capsule-btn">🧠 <strong>AI Optimization</strong><br>Beta Launch 2026</button>
+    
+    <!-- Payment Button -->
+    <a href="https://example.com/payment" target="_blank">
+      <button class="capsule-btn">💳 <strong>Payment Integration</strong><br>Secure & Easy</button>
+    </a>
+
+    <!-- Demo Link Button -->
+    <a href="https://example.com/demo" target="_blank">
+      <button class="capsule-btn">🔗 <strong>Demo Link</strong><br>Try Live Preview</button>
+    </a>
   </div>
+</div>
 
   <div class="blog-section" id="latest-updates">
     <h2>Latest Updates</h2>
@@ -768,9 +775,6 @@
     dropdownMenu.addEventListener('click', (e) => {
       e.stopPropagation();
     });
-
-    // Ensure compatibility with iOS Safari
-    document.addEventListener('touchstart', () => {}, { passive: true }); // Enable touch events for Safari
   </script>
 </body>
 </html>
