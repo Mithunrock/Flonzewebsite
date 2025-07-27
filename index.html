@@ -39,6 +39,10 @@
     overflow-x: hidden; /* Prevent horizontal scrolling */
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   /* Navbar styling */
   .navbar {
     background: #d50000;
@@ -82,7 +86,6 @@
 
   .profile-dropdown {
     position: relative;
-    display: inline-block;
   }
 
   .profile-btn {
@@ -104,17 +107,13 @@
   .dropdown-menu {
     display: none;
     position: absolute;
-    top: 40px;
+    top: 100%;
     right: 0;
-    background-color: #fff;
+    background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     padding: 10px 0;
     z-index: 2000;
-    text-align: left;
-    min-width: 150px;
-    -webkit-transform: translateZ(0); /* Force hardware acceleration for Safari */
-    transform: translateZ(0); /* Standard property for compatibility */
   }
 
   .dropdown-menu a {
@@ -300,30 +299,29 @@
   /* Mobile navigation styling */
   .mobile-nav {
     display: none;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    background: #fff9c4; /* Light yellow background */
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    padding: 10px 0;
+    position: fixed; /* Fixed position for better usability */
+    top: 0;
+    right: 0;
+    width: 80%; /* Take up most of the screen width */
+    height: 100%; /* Full height for better navigation */
+    background: #fff9c4;
     z-index: 2000;
     flex-direction: column;
-    min-width: 120px;
+    padding: 20px;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    transition: transform 0.3s ease; /* Smooth slide-in effect */
+    transform: translateX(100%); /* Initially hidden */
   }
 
   .mobile-nav.active {
-    display: flex;
+    transform: translateX(0); /* Slide in when active */
   }
 
   .mobile-nav a {
-    color: #000; /* Black text for readability */
-    font-weight: 600;
-    text-decoration: none;
-    padding: 8px 18px;
+    padding: 12px 16px;
     font-size: 1em;
-    display: block;
-    border-bottom: 1px solid #fff2;
+    border-bottom: 1px solid #ddd;
   }
 
   .mobile-nav a:last-child {
@@ -369,14 +367,25 @@
     .navbar {
       flex-wrap: wrap;
       justify-content: space-between;
+      padding: 10px;
     }
 
-    .search-btn {
-      order: 1;
+    .logo {
+      font-size: 1.2em; /* Adjust logo size */
     }
 
-    .profile-dropdown {
-      order: 2;
+    .nav-right {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .search-btn, .profile-btn {
+      padding: 6px;
+    }
+
+    .capsule-btn {
+      padding: 12px 16px; /* Adjust padding for mobile */
+      font-size: 0.9em; /* Slightly smaller font size */
     }
   }
 
@@ -538,18 +547,34 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   }
 
+  img {
+    max-width: 100%; /* Ensure images don't overflow */
+    height: auto; /* Maintain aspect ratio */
+  }
+
   @media (max-width: 600px) {
     .navbar {
       flex-wrap: wrap;
       justify-content: space-between;
+      padding: 10px;
     }
 
-    .search-btn {
-      order: 1;
+    .logo {
+      font-size: 1.2em; /* Adjust logo size */
     }
 
-    .profile-dropdown {
-      order: 2;
+    .nav-right {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .search-btn, .profile-btn {
+      padding: 6px;
+    }
+
+    .capsule-btn {
+      padding: 12px 16px; /* Adjust padding for mobile */
+      font-size: 0.9em; /* Slightly smaller font size */
     }
   }
   </style>
