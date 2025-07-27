@@ -81,6 +81,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: flex-end; /* Align icons to the right */
+  }
+
+  @media (max-width: 600px) {
+    .nav-right {
+      flex-direction: row; /* Horizontal arrangement */
+      gap: 8px;
+    }
   }
 
   .search-btn {
@@ -395,7 +403,7 @@
     }
 
     .nav-right {
-      flex-direction: column;
+      flex-direction: row; /* Horizontal arrangement */
       gap: 8px;
     }
 
@@ -551,20 +559,20 @@
 
   /* Capsule buttons for offerings */
   .capsule-btn {
-    background: linear-gradient(145deg, #f9e79f, #f4d03f); /* Light color */
+    background: linear-gradient(145deg, #f5e6cc, #e8d5b5); /* Creamy color */
     border: none;
     border-radius: 50px;
     padding: 15px 20px;
     color: #000;
     font-weight: 600;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5); /* 3D effect */
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .capsule-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), inset 0 3px 6px rgba(255, 255, 255, 0.6); /* Enhanced hover effect */
   }
 
   img {
@@ -584,7 +592,7 @@
     }
 
     .nav-right {
-      flex-direction: column;
+      flex-direction: row; /* Horizontal arrangement */
       gap: 8px;
     }
 
@@ -613,9 +621,10 @@
         </svg>
       </button>
       <button class="notification-btn" title="Notifications">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path>
-          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 8v4"></path>
+          <path d="M12 16h.01"></path>
         </svg>
       </button>
       <div class="profile-dropdown">
@@ -641,10 +650,6 @@
     <div class="hero-bg">
       <h1>Smart Logistics Company in India</h1>
       <p>We provide fast and affordable parcel delivery, same-day delivery, and last-mile delivery solutions for businesses across India.</p>
-      <div style="margin-top: 20px;">
-        <a href="login.html" class="cta-btn" style="margin-right: 10px;">Login</a>
-        <a href="signin.html" class="cta-btn">Sign In</a>
-      </div>
     </div>
   </div>
 
@@ -658,13 +663,6 @@
       <button class="capsule-btn">⚙️ <strong>API Integration</strong><br>ERP, CRM, D2C Ready</button>
       <button class="capsule-btn">🧠 <strong>AI Optimization</strong><br>Beta Launch 2026</button>
     </div>
-  </div>
-
-  <div class="about">
-    <h3>About Flonze</h3>
-    <p class="about-text">
-      Flonze is a tech-enabled logistics startup in India, offering reliable delivery solutions for businesses. From B2B courier services to multi-warehouse logistics and express delivery for e-commerce, we are your trusted partner for growth.
-    </p>
   </div>
 
   <div class="blog-section" id="latest-updates">
@@ -681,6 +679,11 @@
         <a href="#">Read More</a>
       </div>
     </div>
+  </div>
+
+  <div class="login-signin-section" style="display: flex; justify-content: space-between; margin-top: 20px;">
+    <a href="login.html" class="cta-btn" style="margin-right: 10px;">Login</a>
+    <a href="signin.html" class="cta-btn">Sign In</a>
   </div>
 
   <!-- Moved Contact Us section here -->
