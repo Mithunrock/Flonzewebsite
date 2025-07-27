@@ -86,70 +86,24 @@
       color: red;
     }
 
-    .nav-right {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-    }
-
-    .search-btn {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      margin-right: 15px;
-    }
-
-    .profile-dropdown {
-      position: relative;
-    }
-
-    .profile-btn {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      min-width: 150px;
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 10px;
-      color: #333;
-      text-decoration: none;
-    }
-
-    .dropdown-menu a:hover {
-      background: #f4f4f4;
-    }
-
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusted for better alignment */
+      gap: 15px; /* Increased gap for spacing */
       margin-top: 20px;
     }
 
     .capsule-btn {
-      background: #007bff;
-      color: white;
+      background: linear-gradient(145deg, #f5e6cc, #e8d5b5);
       border: none;
-      border-radius: 20px;
-      padding: 15px;
+      border-radius: 8px;
+      padding: 10px 12px; /* Adjusted padding */
+      color: #000;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       cursor: pointer;
-      text-align: center;
-      transition: background 0.3s;
+      font-size: 0.9em; /* Adjusted font size */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -157,7 +111,8 @@
     }
 
     .capsule-btn:hover {
-      background: #0056b3;
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     }
 
     .capsule-btn strong {
@@ -183,6 +138,19 @@
       button {
         font-size: 14px;
       }
+
+      .capsule-btn {
+        padding: 8px 10px;
+        font-size: 0.8em;
+      }
+
+      .grid {
+        gap: 10px;
+      }
+    }
+
+    .nav-right {
+      display: none; /* Hide unnecessary elements */
     }
   </style>
 </head>
@@ -199,20 +167,7 @@
   </div>
 
   <div class="nav-right">
-    <button class="search-btn" title="Search">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-    </button>
     <div class="profile-dropdown">
-      <button class="profile-btn" id="profileBtn">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <circle cx="12" cy="10" r="3"></circle>
-          <path d="M12 13c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z"></path>
-        </svg>
-      </button>
       <div class="dropdown-menu" id="dropdownMenu">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -275,11 +230,9 @@
     const dropdownMenu = document.getElementById('dropdownMenu');
 
     profileBtn.addEventListener('click', () => {
-      const isVisible = dropdownMenu.style.display === 'block';
-      dropdownMenu.style.display = isVisible ? 'none' : 'block';
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Close dropdown if clicked outside
     window.addEventListener('click', (e) => {
       if (!profileBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
         dropdownMenu.style.display = 'none';
