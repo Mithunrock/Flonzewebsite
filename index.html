@@ -31,7 +31,7 @@
 
     /* Navbar styling */
     .navbar {
-      background: #111;
+      background: #dc2626;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -105,7 +105,7 @@
       display: none;
       flex-direction: column;
       gap: 0.625rem;
-      background: #111;
+      background: #dc2626;
       padding: 0.625rem;
       position: absolute;
       top: 3.75rem;
@@ -374,30 +374,47 @@
   </script>
 
   <!-- Hero Section -->
-  <div id="home" class="section" style="padding: 3rem 5%; min-height: 40vh; display: flex; flex-direction: column; justify-content: center;">
-    <h2 style="font-size: clamp(1.5rem, 4vw, 2.5rem); margin-bottom: 1rem;">Your Laundry, Our Responsibility.</h2>
-    <p class="subheading" style="font-size: clamp(1rem, 2.5vw, 1.3rem);">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
-  </div>
-
-  <!-- Services Section -->
-  <div id="services" class="section">
-    <h2>🧼 Our Services</h2>
-    <p class="subheading">📌 Professional care for your everyday wear.</p>
-    <div class="grid">
-      <div class="service-card">
-        <h3>Wash & Fold</h3>
-      </div>
-      <div class="service-card">
-        <h3>Wash & Iron</h3>
-      </div>
-      <div class="service-card">
-        <h3>Dry Cleaning</h3>
-      </div>
-      <div class="service-card">
-        <h3>Monthly Subscription Plans</h3>
+  <div id="home" class="section" style="padding: 4rem 5%; min-height: 60vh; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(99, 102, 241, 0.8)), url('./images/Laundry service.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.3); z-index: 1;"></div>
+    <div style="position: relative; z-index: 2; text-align: center;">
+      <h2 style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1.5rem; color: #fff; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Your Laundry, Our Responsibility.</h2>
+      <p style="font-size: clamp(1.1rem, 3vw, 1.5rem); color: #f1f5f9; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); margin-bottom: 2rem;">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#services" style="background: #ffeb3b; color: #111; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(255, 235, 59, 0.4); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 235, 59, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 235, 59, 0.4)'">Our Services</a>
+        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" style="background: transparent; color: #fff; padding: 1rem 2rem; border: 2px solid #fff; border-radius: 0.5rem; text-decoration: none; font-weight: 600; transition: all 0.3s ease;" onmouseover="this.style.background='#fff'; this.style.color='#4f46e5'" onmouseout="this.style.background='transparent'; this.style.color='#fff'">Book Now</a>
       </div>
     </div>
   </div>
+
+  <!-- Services Section -->
+  <section id="services" style="background: #f9fafb; padding: 4rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 80rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 1rem;">🧼 Our Services</h2>
+      <p style="color: #4b5563; font-size: 1.125rem; margin-bottom: 3rem;">📌 Professional care for your everyday wear.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 2rem;">
+        <button class="service-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border: none; padding: 3rem 2rem; border-radius: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 35px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 25px rgba(102, 126, 234, 0.3)'">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🧺</div>
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0;">Wash & Fold</h3>
+        </button>
+        
+        <button class="service-btn" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #fff; border: none; padding: 3rem 2rem; border-radius: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 35px rgba(240, 147, 251, 0.4)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 25px rgba(240, 147, 251, 0.3)'">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">👕</div>
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0;">Wash & Iron</h3>
+        </button>
+        
+        <button class="service-btn" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #fff; border: none; padding: 3rem 2rem; border-radius: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 35px rgba(79, 172, 254, 0.4)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 25px rgba(79, 172, 254, 0.3)'">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0;">Dry Cleaning</h3>
+        </button>
+        
+        <button class="service-btn" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: #fff; border: none; padding: 3rem 2rem; border-radius: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(250, 112, 154, 0.3); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 15px 35px rgba(250, 112, 154, 0.4)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 25px rgba(250, 112, 154, 0.3)'">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">📅</div>
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0;">Monthly Plans</h3>
+        </button>
+      </div>
+    </div>
+  </section>
 
   <!-- How It Works Section -->
   <section id="how-it-works" style="background: #fef3c7; padding: 4rem 5%; font-family: 'Poppins', sans-serif;">
@@ -429,10 +446,41 @@
   </section>
 
   <!-- Pricing Section -->
-  <div id="pricing" class="section">
-    <h2>💸 Transparent Pricing. No Surprises.</h2>
-    <p class="subheading">📋 Affordable plans starting at just ₹199. Choose what fits you best.</p>
-  </div>
+  <section id="pricing" style="background: #fff; padding: 4rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 96rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 2.5rem;">Our Pricing Plans</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 2rem;">
+        <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Basic Wash</h3>
+          <p style="color: #4b5563; margin-bottom: 1rem;">Just ₹69/kg</p>
+          <ul style="color: #4b5563; margin-bottom: 1rem; text-align: left; list-style: none;">
+            <li>✅ Wash & Fold</li>
+            <li>✅ 48-Hour Delivery</li>
+          </ul>
+          <button style="background: #4f46e5; color: #fff; padding: 0.5rem 1rem; border-radius: 0.75rem; border: none; cursor: pointer;">Choose Plan</button>
+        </div>
+        <div style="background: #4f46e5; color: #fff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); transform: scale(1.05);">
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Premium Care</h3>
+          <p style="margin-bottom: 1rem;">₹99/kg</p>
+          <ul style="margin-bottom: 1rem; text-align: left; list-style: none;">
+            <li>✨ Wash, Iron & Fold</li>
+            <li>✨ 24-Hour Delivery</li>
+            <li>✨ Free Pickup & Drop</li>
+          </ul>
+          <button style="background: #fff; color: #4f46e5; padding: 0.5rem 1rem; border-radius: 0.75rem; border: none; cursor: pointer;">Most Popular</button>
+        </div>
+        <div style="background: #fef3c7; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Family Plan</h3>
+          <p style="color: #4b5563; margin-bottom: 1rem;">₹599/month</p>
+          <ul style="color: #4b5563; margin-bottom: 1rem; text-align: left; list-style: none;">
+            <li>👨‍👩‍👧‍👦 Up to 8 kg/week</li>
+            <li>👕 Free Rewash</li>
+          </ul>
+          <button style="background: #4f46e5; color: #fff; padding: 0.5rem 1rem; border-radius: 0.75rem; border: none; cursor: pointer;">Subscribe Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Serviceable Areas Section -->
   <section id="areas" style="padding: 4rem 5%; font-family: 'Poppins', sans-serif;">
@@ -459,6 +507,31 @@
       <button style="background: #4f46e5; color: #fff; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: none; cursor: pointer;">
         Get My Referral Code
       </button>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" style="background: #fff; padding: 4rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 64rem; margin: 0 auto;">
+      <h2 style="font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 2rem; text-align: center;">Frequently Asked Questions</h2>
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div>
+          <h3 style="font-weight: 600; font-size: 1.125rem; color: #4f46e5; margin-bottom: 0.5rem;">How long does delivery take?</h3>
+          <p style="color: #4b5563;">Standard delivery is within 48 hours. Express service delivers within 24 hours.</p>
+        </div>
+        <div>
+          <h3 style="font-weight: 600; font-size: 1.125rem; color: #4f46e5; margin-bottom: 0.5rem;">What detergent do you use?</h3>
+          <p style="color: #4b5563;">We use dermatologically tested, fragrance-rich premium detergents safe for all fabrics.</p>
+        </div>
+        <div>
+          <h3 style="font-weight: 600; font-size: 1.125rem; color: #4f46e5; margin-bottom: 0.5rem;">Is pickup & drop free?</h3>
+          <p style="color: #4b5563;">Yes, for all orders above ₹149. Below that, a ₹29 pickup fee applies.</p>
+        </div>
+        <div>
+          <h3 style="font-weight: 600; font-size: 1.125rem; color: #4f46e5; margin-bottom: 0.5rem;">Do you offer ironing services?</h3>
+          <p style="color: #4b5563;">Yes! Ironing is included in our Premium and Family plans.</p>
+        </div>
+      </div>
     </div>
   </section>
 
