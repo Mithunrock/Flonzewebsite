@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Flonze | Smart Logistics</title>
+  <title>Flonze Laundry</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     /* General fixes */
@@ -15,8 +15,8 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      color: #fff;
-      background-color: #111;
+      color: #333;
+      background-color: #f9f9f9;
       overflow-x: hidden;
     }
 
@@ -26,7 +26,7 @@
 
     /* Navbar styling */
     .navbar {
-      background: #d50000;
+      background: #c40a0a;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -50,27 +50,42 @@
       margin-right: 10px;
     }
 
-    .menu-icon {
-      font-size: 2em;
+    .navbar-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .navbar-icons .icon {
+      font-size: 1.5em;
       color: #fff;
-      background: none;
-      border: none;
       cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .navbar-icons .icon:hover {
+      transform: scale(1.2);
     }
 
     /* Section styling */
     .section {
       padding: 40px 20px;
       text-align: center;
-      background: #232323;
     }
 
     .section h2 {
-      font-size: 1.3em;
-      margin-bottom: 10px;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      color: #c40a0a;
     }
 
-    /* Grid styling for offerings */
+    .subheading {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    /* Grid styling */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -78,44 +93,135 @@
       margin-top: 25px;
     }
 
-    .capsule-btn {
-      background: linear-gradient(145deg, #f5e6cc, #e8d5b5);
-      border: none;
+    .service-card {
+      background: #fff;
       border-radius: 8px;
-      padding: 10px 12px;
-      color: #000;
-      font-weight: 600;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      font-size: 0.9em;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 20px;
     }
 
-    .capsule-btn:hover {
+    .service-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-btn {
+      background: #c40a0a;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #ff0000;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 1.2em;
+      }
+
+      .navbar-icons .icon {
+        font-size: 1.2em;
+      }
+
+      .section h2 {
+        font-size: 1.3em;
+      }
+
+      .subheading {
+        font-size: 1em;
+      }
+
+      .service-card {
+        padding: 15px;
+      }
+
+      .cta-btn {
+        padding: 8px 12px;
+        font-size: 0.9em;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <div class="navbar">
     <div class="logo">
       <img src="images/logo.png" alt="Flonze Logo">
-      <span class="logo-text">FLONZE</span>
+      <span>FLONZE</span>
     </div>
-    <button class="menu-icon" id="menuBtn">☰</button>
+    <div class="navbar-icons">
+      <span class="icon">🔔</span> <!-- Notification Icon -->
+      <span class="icon">👤</span> <!-- Profile Icon -->
+    </div>
   </div>
 
+  <!-- Hero Section -->
   <div class="section">
-    <h2 style="margin-bottom: 15px;">Our Logistics Solutions in India</h2>
+    <h2>Your Laundry, Our Responsibility.</h2>
+    <p class="subheading">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
+  </div>
+
+  <!-- Services Section -->
+  <div class="section">
+    <h2>🧼 Our Services</h2>
+    <p class="subheading">📌 Professional care for your everyday wear.</p>
     <div class="grid">
-      <button class="capsule-btn">🔄 <strong>Smart Dispatch</strong><br>B2B, B2C & Hyperlocal</button>
-      <button class="capsule-btn">🛵 <strong>Fleet-as-a-Service</strong><br>On-Demand Delivery</button>
-      <button class="capsule-btn">📦 <strong>Multi-Warehouse</strong><br>Enable JIT Inventory</button>
-      <button class="capsule-btn">📊 <strong>Smart Dashboard</strong><br>Track & Analyze</button>
-      <button class="capsule-btn">⚙️ <strong>API Integration</strong><br>ERP, CRM, D2C Ready</button>
+      <div class="service-card">
+        <h3>Wash & Fold</h3>
+      </div>
+      <div class="service-card">
+        <h3>Wash & Iron</h3>
+      </div>
+      <div class="service-card">
+        <h3>Dry Cleaning</h3>
+      </div>
+      <div class="service-card">
+        <h3>Monthly Subscription Plans</h3>
+      </div>
     </div>
+  </div>
+
+  <!-- Pricing Section -->
+  <div class="section">
+    <h2>💸 Transparent Pricing. No Surprises.</h2>
+    <p class="subheading">📋 Affordable plans starting at just ₹199. Choose what fits you best.</p>
+  </div>
+
+  <!-- How It Works Section -->
+  <div class="section">
+    <h2>🔄 How Flonze Laundry Works</h2>
+    <div class="grid">
+      <div class="service-card">
+        <h3>Book Pickup</h3>
+      </div>
+      <div class="service-card">
+        <h3>We Clean & Pack</h3>
+      </div>
+      <div class="service-card">
+        <h3>We Deliver Fresh Clothes</h3>
+      </div>
+    </div>
+    <p class="subheading">🧭 Simple. Seamless. Smart.</p>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="section">
+    <h2>📲 Got Questions? We're Just a Ping Away.</h2>
+    <p class="subheading">WhatsApp us or Call for Pickup & Support.</p>
+    <a href="https://wa.me/1234567890" class="cta-btn">✅ Book Now on WhatsApp</a>
+    <a href="#pricing" class="cta-btn">✅ View Plans</a>
+    <a href="#subscribe" class="cta-btn">✅ Subscribe & Save</a>
   </div>
 </body>
 </html>
