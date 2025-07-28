@@ -134,6 +134,7 @@
       font-size: 1.5em;
       color: #fff;
       cursor: pointer;
+      display: none;
     }
 
     /* Section styling */
@@ -177,14 +178,23 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
+    /* Button spacing */
+    .contact-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .desktop-menu {
         display: none;
       }
 
-      .mobile-menu {
-        display: flex;
+      .menu-icon {
+        display: block;
       }
 
       .logo {
@@ -250,16 +260,31 @@
       const menu = document.getElementById('mobileMenu');
       menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
     }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('mobileMenu');
+      const menuIcon = document.querySelector('.menu-icon');
+      if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+        menu.style.display = 'none';
+      }
+    });
   </script>
 
   <!-- Hero Section -->
-  <div class="section">
+  <div id="home" class="section">
     <h2>Your Laundry, Our Responsibility.</h2>
     <p class="subheading">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
   </div>
 
+  <!-- About Section -->
+  <div id="about" class="section">
+    <h2>About Flonze Laundry</h2>
+    <p class="subheading">Your trusted partner for premium laundry services with doorstep convenience.</p>
+  </div>
+
   <!-- Services Section -->
-  <div class="section">
+  <div id="services" class="section">
     <h2>🧼 Our Services</h2>
     <p class="subheading">📌 Professional care for your everyday wear.</p>
     <div class="grid">
@@ -279,7 +304,7 @@
   </div>
 
   <!-- Pricing Section -->
-  <div class="section">
+  <div id="pricing" class="section">
     <h2>💸 Transparent Pricing. No Surprises.</h2>
     <p class="subheading">📋 Affordable plans starting at just ₹199. Choose what fits you best.</p>
   </div>
@@ -302,12 +327,14 @@
   </div>
 
   <!-- Contact Section -->
-  <div class="section">
+  <div id="contact" class="section">
     <h2>📲 Got Questions? We're Just a Ping Away.</h2>
     <p class="subheading">WhatsApp us or Call for Pickup & Support.</p>
-    <a href="https://wa.me/1234567890" class="cta-btn">Book Now on WhatsApp</a>
-    <a href="#pricing" class="cta-btn">View Plans</a>
-    <a href="#subscribe" class="cta-btn">Subscribe & Save</a>
+    <div class="contact-buttons">
+      <a href="https://wa.me/1234567890" class="cta-btn">Book Now on WhatsApp</a>
+      <a href="#pricing" class="cta-btn">View Plans</a>
+      <a href="#subscribe" class="cta-btn">Subscribe & Save</a>
+    </div>
   </div>
 </body>
 </html>
