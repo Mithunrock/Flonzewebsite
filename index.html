@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Flonze Laundry</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Flonze Laundry - Doorstep laundry pickup and delivery service in Mumbai. Professional washing, eco-friendly detergents, same-day service.">
+  <meta name="keywords" content="laundry service, Mumbai, doorstep pickup, delivery, washing, dry cleaning">
+  <title>Flonze Laundry - Doorstep Pickup & Delivery in Mumbai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     /* General fixes */
@@ -14,15 +18,16 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
       color: #333;
       background-color: #f9f9f9;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+
 
     /* Navbar styling */
     .navbar {
@@ -60,11 +65,6 @@
       font-size: 1.5em;
       color: #fff;
       cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .navbar-icons .icon:hover {
-      transform: scale(1.2);
     }
 
     /* Desktop Menu */
@@ -79,7 +79,6 @@
       font-size: 1rem;
       padding: 0.3125rem 0.625rem;
       border-radius: 0.3125rem;
-      transition: background 0.3s ease;
     }
 
     .desktop-menu a:hover {
@@ -94,7 +93,6 @@
       border-radius: 0.3125rem;
       font-weight: bold;
       text-decoration: none;
-      transition: background 0.3s ease;
     }
 
     .cta-btn:hover {
@@ -114,6 +112,16 @@
       right: 5%;
       border-radius: 0.3125rem;
       box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
+      z-index: 1001;
+      min-width: 12rem;
+      transform: translateY(-0.5rem);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+    
+    .mobile-menu.show {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     .mobile-menu a {
@@ -122,7 +130,6 @@
       font-size: 1rem;
       padding: 0.3125rem 0.625rem;
       border-radius: 0.3125rem;
-      transition: background 0.3s ease;
     }
 
     .mobile-menu a:hover {
@@ -135,6 +142,17 @@
       color: #fff;
       cursor: pointer;
       display: none;
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+      transition: background 0.2s ease;
+    }
+    
+    .menu-icon:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .menu-icon:active {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     /* Section styling */
@@ -167,15 +185,8 @@
       background: #fff;
       border-radius: 0.5rem;
       box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
-      overflow: hidden;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       padding: 1.25rem;
-    }
-
-    .service-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
     }
 
     /* Button spacing */
@@ -187,7 +198,23 @@
       margin-top: 1.25rem;
     }
 
-    /* Responsive Design */
+    /* Tablet Design */
+    @media (max-width: 64rem) and (min-width: 48.1rem) {
+      .navbar {
+        padding: 0.75rem 3%;
+      }
+      
+      .section {
+        padding: 2rem 3%;
+      }
+      
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 1.5rem;
+      }
+    }
+
+    /* Mobile Design */
     @media (max-width: 48rem) {
       .desktop-menu {
         display: none;
@@ -197,29 +224,65 @@
         display: block;
       }
 
+      .navbar {
+        padding: 0.5rem 3%;
+      }
+
       .logo {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
 
       .navbar-icons .icon {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+      }
+
+      .section {
+        padding: 1.5rem 3%;
       }
 
       .section h2 {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
       }
 
       .subheading {
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
 
       .service-card {
-        padding: 0.9375rem;
+        padding: 1rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
       }
 
       .cta-btn {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+      }
+      
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      
+      .contact-buttons .cta-btn {
+        width: 100%;
+        max-width: 18rem;
+        text-align: center;
+      }
+    }
+
+    /* Large Desktop */
+    @media (min-width: 80rem) {
+      .section {
+        padding: 3rem 8%;
+      }
+      
+      .navbar {
+        padding: 0.75rem 8%;
       }
     }
   </style>
@@ -228,7 +291,7 @@
   <!-- Navbar -->
   <div class="navbar">
     <div class="logo">
-      <img src="images/logo.png" alt="Flonze Logo">
+      <img src="./images/logo.png" alt="Flonze Logo" onerror="this.style.display='none'">
       <span>FLONZE</span>
     </div>
     <div class="desktop-menu">
@@ -256,31 +319,64 @@
   </div>
 
   <script>
+    let isMenuOpen = false;
+    
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+      isMenuOpen = !isMenuOpen;
+      
+      if (isMenuOpen) {
+        menu.style.display = 'flex';
+        setTimeout(() => menu.classList.add('show'), 10);
+      } else {
+        menu.classList.remove('show');
+        setTimeout(() => menu.style.display = 'none', 200);
+      }
     }
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
       const menu = document.getElementById('mobileMenu');
       const menuIcon = document.querySelector('.menu-icon');
-      if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
-        menu.style.display = 'none';
+      
+      if (isMenuOpen && !menu.contains(event.target) && !menuIcon.contains(event.target)) {
+        isMenuOpen = false;
+        menu.classList.remove('show');
+        setTimeout(() => menu.style.display = 'none', 200);
       }
+    });
+    
+    // Close menu when clicking on menu links
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+          isMenuOpen = false;
+          const menu = document.getElementById('mobileMenu');
+          menu.classList.remove('show');
+          setTimeout(() => menu.style.display = 'none', 200);
+        });
+      });
+    });
+    
+    // Prevent menu from sticking on resize
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        if (window.innerWidth > 768 && isMenuOpen) {
+          isMenuOpen = false;
+          const menu = document.getElementById('mobileMenu');
+          menu.classList.remove('show');
+          menu.style.display = 'none';
+        }
+      }, 100);
     });
   </script>
 
   <!-- Hero Section -->
-  <div id="home" class="section">
-    <h2>Your Laundry, Our Responsibility.</h2>
-    <p class="subheading">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
-  </div>
-
-  <!-- About Section -->
-  <div id="about" class="section">
-    <h2>About Flonze Laundry</h2>
-    <p class="subheading">Your trusted partner for premium laundry services with doorstep convenience.</p>
+  <div id="home" class="section" style="padding: 3rem 5%; min-height: 40vh; display: flex; flex-direction: column; justify-content: center;">
+    <h2 style="font-size: clamp(1.5rem, 4vw, 2.5rem); margin-bottom: 1rem;">Your Laundry, Our Responsibility.</h2>
+    <p class="subheading" style="font-size: clamp(1rem, 2.5vw, 1.3rem);">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
   </div>
 
   <!-- Services Section -->
@@ -303,38 +399,194 @@
     </div>
   </div>
 
+  <!-- How It Works Section -->
+  <section id="how-it-works" style="background: #fef3c7; padding: 4rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 96rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem;">How Flonze Works</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 2rem;">
+        <div style="background: #fff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📱</div>
+          <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">1. Book Online</h3>
+          <p style="color: #4b5563;">Schedule your pickup from our website or app easily.</p>
+        </div>
+        <div style="background: #fff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📦</div>
+          <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">2. We Pickup</h3>
+          <p style="color: #4b5563;">Our partner collects your clothes from your doorstep.</p>
+        </div>
+        <div style="background: #fff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧺</div>
+          <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">3. Clean & Fold</h3>
+          <p style="color: #4b5563;">Clothes are professionally washed, ironed & folded.</p>
+        </div>
+        <div style="background: #fff; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚚</div>
+          <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 0.5rem;">4. Delivered Fresh</h3>
+          <p style="color: #4b5563;">We deliver clean clothes to your home, fresh & ready.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Pricing Section -->
   <div id="pricing" class="section">
     <h2>💸 Transparent Pricing. No Surprises.</h2>
     <p class="subheading">📋 Affordable plans starting at just ₹199. Choose what fits you best.</p>
   </div>
 
-  <!-- How It Works Section -->
-  <div class="section">
-    <h2>🔄 How Flonze Laundry Works</h2>
-    <div class="grid">
-      <div class="service-card">
-        <h3>Book Pickup</h3>
-      </div>
-      <div class="service-card">
-        <h3>We Clean & Pack</h3>
-      </div>
-      <div class="service-card">
-        <h3>We Deliver Fresh Clothes</h3>
+  <!-- Serviceable Areas Section -->
+  <section id="areas" style="padding: 4rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 64rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem;">We Serve All Across Mumbai</h2>
+      <p style="color: #4b5563; margin-bottom: 1.5rem; max-width: 32rem; margin-left: auto; margin-right: auto;">Flonze is available across major localities in Mumbai. Whether you're in Andheri, Bandra, Powai, Dadar, or Navi Mumbai – we're just a tap away.</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;">
+        <span style="background: #e0e7ff; color: #3730a3; padding: 0.5rem 1rem; border-radius: 9999px;">Andheri</span>
+        <span style="background: #e0e7ff; color: #3730a3; padding: 0.5rem 1rem; border-radius: 9999px;">Bandra</span>
+        <span style="background: #e0e7ff; color: #3730a3; padding: 0.5rem 1rem; border-radius: 9999px;">Dadar</span>
+        <span style="background: #e0e7ff; color: #3730a3; padding: 0.5rem 1rem; border-radius: 9999px;">Powai</span>
+        <span style="background: #e0e7ff; color: #3730a3; padding: 0.5rem 1rem; border-radius: 9999px;">Kurla</span>
+        <span style="background: #e0e7ff; color: #3730a3; padding: 0.5rem 1rem; border-radius: 9999px;">Navi Mumbai</span>
+        <span style="background: #e0e7ff; color: #3730a3; padding: 0.5rem 1rem; border-radius: 9999px;">Thane</span>
       </div>
     </div>
-    <p class="subheading">🧭 Simple. Seamless. Smart.</p>
-  </div>
+  </section>
+
+  <!-- Referral Program Section -->
+  <section id="referral" style="background: #f1f5f9; padding: 4rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 64rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 2rem; font-weight: 700; color: #312e81; margin-bottom: 1.5rem;">Refer & Earn with Flonze</h2>
+      <p style="color: #374151; margin-bottom: 2rem; max-width: 36rem; margin-left: auto; margin-right: auto;">Share your referral code with friends & family. When they order, both of you earn ₹100 Flonze credit!</p>
+      <button style="background: #4f46e5; color: #fff; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.75rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border: none; cursor: pointer;">
+        Get My Referral Code
+      </button>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section id="comparison" style="background: #fff; padding: 4rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 80rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 2rem;">Why Choose Flonze Over Others?</h2>
+
+      <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+        <table style="min-width: 600px; width: 100%; border: 1px solid #e5e7eb; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); text-align: left; color: #374151; border-collapse: collapse;">
+          <thead style="background: #4f46e5; color: #fff; font-size: 1rem;">
+            <tr>
+              <th style="padding: 0.75rem 1.5rem; border-bottom: 1px solid #e5e7eb;">Feature</th>
+              <th style="padding: 0.75rem 1.5rem; border-bottom: 1px solid #e5e7eb;">Flonze</th>
+              <th style="padding: 0.75rem 1.5rem; border-bottom: 1px solid #e5e7eb;">Local Dhobi</th>
+              <th style="padding: 0.75rem 1.5rem; border-bottom: 1px solid #e5e7eb;">Laundry App</th>
+            </tr>
+          </thead>
+          <tbody style="background: #fff; font-size: 1rem;">
+            <tr style="border-bottom: 1px solid #e5e7eb;">
+              <td style="padding: 1rem 1.5rem;">Doorstep Pickup & Delivery</td>
+              <td style="padding: 1rem 1.5rem; color: #16a34a; font-weight: 700;">✅</td>
+              <td style="padding: 1rem 1.5rem; color: #dc2626; font-weight: 700;">❌</td>
+              <td style="padding: 1rem 1.5rem; color: #16a34a; font-weight: 700;">✅</td>
+            </tr>
+            <tr style="background: #f9fafb; border-bottom: 1px solid #e5e7eb;">
+              <td style="padding: 1rem 1.5rem;">Eco-Friendly Detergents</td>
+              <td style="padding: 1rem 1.5rem; color: #16a34a; font-weight: 700;">✅</td>
+              <td style="padding: 1rem 1.5rem; color: #dc2626; font-weight: 700;">❌</td>
+              <td style="padding: 1rem 1.5rem; color: #dc2626; font-weight: 700;">❌</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e5e7eb;">
+              <td style="padding: 1rem 1.5rem;">Order Tracking</td>
+              <td style="padding: 1rem 1.5rem; color: #16a34a; font-weight: 700;">✅</td>
+              <td style="padding: 1rem 1.5rem; color: #dc2626; font-weight: 700;">❌</td>
+              <td style="padding: 1rem 1.5rem; color: #dc2626; font-weight: 700;">❌</td>
+            </tr>
+            <tr style="background: #f9fafb; border-bottom: 1px solid #e5e7eb;">
+              <td style="padding: 1rem 1.5rem;">Rewash Guarantee</td>
+              <td style="padding: 1rem 1.5rem; color: #16a34a; font-weight: 700;">✅</td>
+              <td style="padding: 1rem 1.5rem; color: #dc2626; font-weight: 700;">❌</td>
+              <td style="padding: 1rem 1.5rem; color: #dc2626; font-weight: 700;">❌</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e5e7eb;">
+              <td style="padding: 1rem 1.5rem;">Online Payments</td>
+              <td style="padding: 1rem 1.5rem; color: #16a34a; font-weight: 700;">✅</td>
+              <td style="padding: 1rem 1.5rem; color: #dc2626; font-weight: 700;">❌</td>
+              <td style="padding: 1rem 1.5rem; color: #16a34a; font-weight: 700;">✅</td>
+            </tr>
+            <tr style="background: #f9fafb;">
+              <td style="padding: 1rem 1.5rem;">Consistent Quality</td>
+              <td style="padding: 1rem 1.5rem; color: #16a34a; font-weight: 700;">✅</td>
+              <td style="padding: 1rem 1.5rem; color: #dc2626; font-weight: 700;">❌</td>
+              <td style="padding: 1rem 1.5rem; color: #eab308; font-weight: 700;">⚠️</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="margin-top: 2rem; color: #4b5563; font-size: 1rem; max-width: 48rem; margin-left: auto; margin-right: auto;">
+        Choosing Flonze means choosing reliability, hygiene, and peace of mind. We're building the most customer-focused laundry experience in Mumbai.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" style="background-color: #f1f5f9; padding: 3rem 5%; text-align: center; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 64rem; margin: 0 auto;">
+      <h2 style="font-size: 2rem; font-weight: 700; color: #1f2937; margin-bottom: 1.5rem;">About Flonze Laundry</h2>
+      
+      <p style="color: #4b5563; font-size: 1.125rem; line-height: 1.75; margin-bottom: 2rem;">
+        <strong>Flonze Laundry</strong> is your reliable partner for doorstep <strong>laundry pickup and delivery in Mumbai</strong>. 
+        Our mission is to bring ease and excellence to your daily routine by taking the hassle of laundry off your hands. 
+        With a modern, tech-enabled approach, we ensure high-quality washing, eco-friendly products, and on-time delivery.
+      </p>
+
+      <h3 style="font-size: 1.5rem; font-weight: 600; color: #374151; margin-bottom: 1rem;">Why Choose Flonze?</h3>
+
+      <ul style="text-align: left; color: #4b5563; font-size: 1.125rem; line-height: 1.75; list-style: none; margin-bottom: 2rem; max-width: 48rem; margin-left: auto; margin-right: auto;">
+        <li style="margin-bottom: 1rem;">🧺 <strong>Doorstep Pickup & Delivery:</strong> Just schedule and relax — we handle the rest.</li>
+        <li style="margin-bottom: 1rem;">⏱️ <strong>Same-Day or Next-Day Service:</strong> Fast turnaround times for busy Mumbaikars.</li>
+        <li style="margin-bottom: 1rem;">🌱 <strong>Eco-Friendly Detergents:</strong> Gentle on clothes and the planet.</li>
+        <li style="margin-bottom: 1rem;">📱 <strong>Trackable Orders:</strong> Real-time updates via app/WhatsApp/SMS (Coming Soon).</li>
+        <li style="margin-bottom: 1rem;">👕 <strong>Perfect Folding & Packaging:</strong> Clothes returned fresh, clean, and neatly packed.</li>
+        <li style="margin-bottom: 1rem;">🤝 <strong>Customer Satisfaction First:</strong> We guarantee top-notch service every time.</li>
+      </ul>
+
+      <p style="color: #4b5563; font-size: 1.125rem; line-height: 1.75;">
+        Whether it's your everyday wear, work clothes, or household linen — <strong>Flonze</strong> gives you clean, crisp results every time. 
+        With plans to scale across Mumbai by 2027, we're setting new standards for urban laundry care. 
+        <span style="font-weight: 600; color: #4f46e5;">Stay tuned, we're just getting started!</span>
+      </p>
+    </div>
+  </section>
 
   <!-- Contact Section -->
   <div id="contact" class="section">
     <h2>📲 Got Questions? We're Just a Ping Away.</h2>
     <p class="subheading">WhatsApp us or Call for Pickup & Support.</p>
     <div class="contact-buttons">
-      <a href="https://wa.me/1234567890" class="cta-btn">Book Now on WhatsApp</a>
+      <a href="https://wa.me/919876543210" class="cta-btn" target="_blank" rel="noopener noreferrer">Book Now on WhatsApp</a>
       <a href="#pricing" class="cta-btn">View Plans</a>
       <a href="#subscribe" class="cta-btn">Subscribe & Save</a>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer style="background-color: #f8f9fa; padding: 30px 20px; text-align: center; font-family: Arial, sans-serif;">
+    <h3 style="margin-bottom: 10px; color: #333;">Flonze Laundry</h3>
+
+    <p style="margin: 5px 0; font-size: 15px; color: #555;">
+      Mumbai, Maharashtra | 
+      <a href="mailto:mithunyadav245@gmail.com" style="color: #007bff; text-decoration: none;">mithunyadav245@gmail.com</a>
+    </p>
+
+    <div style="margin: 15px 0;">
+      <a href="https://www.linkedin.com/company/flonze/" target="_blank" rel="noopener noreferrer" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="28" height="28" style="vertical-align: middle;" loading="lazy" />
+      </a>
+
+      <a href="https://www.facebook.com/share/15tLiDr14W/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="28" height="28" style="vertical-align: middle;" loading="lazy" />
+      </a>
+    </div>
+
+    <p style="font-size: 13px; color: #aaa;">
+      &copy; 2025 Flonze Laundry. All rights reserved.
+    </p>
+  </footer>
 </body>
 </html>
