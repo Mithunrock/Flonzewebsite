@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Flonze Laundry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      color: white;
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffeb3b;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffeb3b;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(124, 58, 237, 0.8));
+      padding: 2rem 5%;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Pricing Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 5%;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .pricing-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+      border-color: #4f46e5;
+    }
+
+    .pricing-card.popular {
+      border-color: #4f46e5;
+      transform: scale(1.05);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.75rem;
+    }
+
+    .price {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #4f46e5;
+      margin-bottom: 0.75rem;
+    }
+
+    .price-unit {
+      font-size: 1rem;
+      color: #6b7280;
+      font-weight: 400;
+    }
+
+    .features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .features li {
+      padding: 0.375rem 0;
+      color: #4b5563;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .features li::before {
+      content: '✓';
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .book-btn {
+      width: 100%;
+      padding: 0.625rem;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    /* Additional Services */
+    .additional-services {
+      margin-top: 4rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .additional-services h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .services-table th,
+    .services-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .services-table th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .services-table td:last-child {
+      font-weight: 600;
+      color: #4f46e5;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 3rem 5%;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      background: #ffeb3b;
+      color: #1f2937;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .pricing-card.popular {
+        transform: none;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .services-table {
+        font-size: 0.9rem;
+      }
+
+      .services-table th,
+      .services-table td {
+        padding: 0.75rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">FLONZE</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="login.html">Login</a>
+        <a href="signin.html">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>💰 Our Pricing Plans</h1>
+    <p>Transparent, affordable pricing for all your laundry needs. No hidden charges, just quality service.</p>
+  </section>
+
+  <!-- Pricing Container -->
+  <div class="container">
+    <div class="pricing-grid">
+      <!-- Basic Plan -->
+      <div class="pricing-card">
+        <span class="service-icon">🧺</span>
+        <h3>Basic Wash</h3>
+        <div class="price">₹69 <span class="price-unit">per kg</span></div>
+        <ul class="features">
+          <li>Professional washing</li>
+          <li>Neat folding</li>
+          <li>48-hour delivery</li>
+          <li>Eco-friendly detergents</li>
+          <li>Hygienic packaging</li>
+        </ul>
+        <button class="book-btn" onclick="bookService('basic')">Book Basic Wash</button>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="pricing-card popular">
+        <div class="popular-badge">Most Popular</div>
+        <span class="service-icon">👕</span>
+        <h3>Premium Care</h3>
+        <div class="price">₹99 <span class="price-unit">per kg</span></div>
+        <ul class="features">
+          <li>Wash + Iron + Fold</li>
+          <li>24-hour delivery</li>
+          <li>Free pickup & delivery</li>
+          <li>Wrinkle-free guarantee</li>
+          <li>Premium detergents</li>
+          <li>Special fabric care</li>
+        </ul>
+        <button class="book-btn" onclick="bookService('premium')">Book Premium Care</button>
+      </div>
+
+      <!-- Family Plan -->
+      <div class="pricing-card">
+        <span class="service-icon">👨‍👩‍👧‍👦</span>
+        <h3>Family Plan</h3>
+        <div class="price">₹599 <span class="price-unit">per month</span></div>
+        <ul class="features">
+          <li>Up to 8kg per week</li>
+          <li>Wash + Iron included</li>
+          <li>Priority pickup</li>
+          <li>Free rewash guarantee</li>
+          <li>30% savings</li>
+          <li>Flexible scheduling</li>
+        </ul>
+        <button class="book-btn" onclick="bookService('family')">Subscribe Family Plan</button>
+      </div>
+    </div>
+
+    <!-- Additional Services -->
+    <div class="additional-services">
+      <h2>Additional Services</h2>
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>✨ Dry Cleaning</td>
+            <td>Suits, formal wear, delicate fabrics</td>
+            <td>₹149/piece</td>
+          </tr>
+          <tr>
+            <td>⚡ Express Service</td>
+            <td>12-hour delivery (50% surcharge)</td>
+            <td>+50% of base price</td>
+          </tr>
+          <tr>
+            <td>🛏️ Bed Sheets</td>
+            <td>Single/Double bed sheets</td>
+            <td>₹49/piece</td>
+          </tr>
+          <tr>
+            <td>🪟 Curtains</td>
+            <td>Window curtains (per panel)</td>
+            <td>₹89/piece</td>
+          </tr>
+          <tr>
+            <td>🧸 Blankets</td>
+            <td>Single/Double blankets</td>
+            <td>₹129/piece</td>
+          </tr>
+          <tr>
+            <td>👔 Shirts (Iron Only)</td>
+            <td>Professional ironing</td>
+            <td>₹25/piece</td>
+          </tr>
+          <tr>
+            <td>👗 Sarees</td>
+            <td>Wash + Iron + Fold</td>
+            <td>₹79/piece</td>
+          </tr>
+          <tr>
+            <td>🧥 Jackets</td>
+            <td>Dry cleaning recommended</td>
+            <td>₹199/piece</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2>📞 Ready to Get Started?</h2>
+    <p>Choose your plan and book your first pickup today! Questions? We're here to help.</p>
+    <div class="contact-buttons">
+      <a href="https://wa.me/919876543210?text=Hi! I want to know more about your pricing plans." class="contact-btn" target="_blank">WhatsApp Us</a>
+      <a href="contact.html" class="contact-btn">Contact Us</a>
+      <a href="index.html" class="contact-btn">Back to Home</a>
+    </div>
+  </section>
+
+  <script>
+    function bookService(planType) {
+      const messages = {
+        'basic': 'Hi! I want to book Basic Wash (₹69/kg). Please arrange pickup.',
+        'premium': 'Hi! I want to book Premium Care (₹99/kg). Please arrange pickup.',
+        'family': 'Hi! I\'m interested in Family Plan (₹599/month). Please share more details.'
+      };
+      
+      const message = messages[planType] || 'Hi! I want to book laundry service.';
+      const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+      
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</body>
+</html>

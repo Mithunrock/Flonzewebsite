@@ -121,7 +121,7 @@
 
     .mobile-menu a {
       text-decoration: none;
-      color: #fff;
+      color: #fff !important;
       font-size: 1rem;
       padding: 0.3125rem 0.625rem;
       border-radius: 0.3125rem;
@@ -129,7 +129,7 @@
 
     .mobile-menu a:hover {
       background: #ffeb3b;
-      color: #111;
+      color: #111 !important;
     }
 
     .menu-icon {
@@ -293,9 +293,9 @@
     </div>
     <div class="desktop-menu">
       <a href="#home">Home</a>
-      <a href="#about">About Us</a>
+      <a href="about.html">About Us</a>
       <a href="services.html">Services</a>
-      <a href="#pricing">Pricing</a>
+      <a href="pricing.html">Pricing</a>
       <a href="login.html" class="cta-btn">Login</a>
       <a href="signin.html" class="cta-btn">Sign Up</a>
     </div>
@@ -308,9 +308,9 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#home">Home</a>
-    <a href="#about">About Us</a>
+    <a href="about.html">About Us</a>
     <a href="services.html">Services</a>
-    <a href="#pricing">Pricing</a>
+    <a href="pricing.html">Pricing</a>
     <a href="login.html" class="cta-btn">Login</a>
     <a href="signin.html" class="cta-btn">Sign Up</a>
   </div>
@@ -396,109 +396,109 @@
   </script>
 
   <!-- Hero Section -->
-  <div id="home" class="section" style="padding: 2.5rem 5%; min-height: 50vh; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(99, 102, 241, 0.8)), url('./images/Laundry service.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+  <div id="home" class="section" style="padding: 2rem 5%; min-height: 40vh; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(99, 102, 241, 0.8)), url('./images/Laundry service.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.3); z-index: 1;"></div>
     <div style="position: relative; z-index: 2; text-align: center;">
-      <h2 style="font-size: clamp(1.5rem, 4vw, 2.5rem); margin-bottom: 1rem; color: #fff; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Your Laundry, Our Responsibility.</h2>
-      <p style="font-size: clamp(0.9rem, 2.5vw, 1.2rem); color: #f1f5f9; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); margin-bottom: 1.5rem;">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
-      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-        <a href="services.html" style="background: #ffeb3b; color: #111; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(255, 235, 59, 0.4); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 235, 59, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 235, 59, 0.4)'">Our Services</a>
-        <a href="https://wa.me/919876543210?text=Hi! I want to book laundry service. Please provide pickup details." target="_blank" rel="noopener noreferrer" style="background: transparent; color: #fff; padding: 0.75rem 1.5rem; border: 2px solid #fff; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#fff'; this.style.color='#4f46e5'" onmouseout="this.style.background='transparent'; this.style.color='#fff'">Book Now</a>
+      <h2 style="font-size: clamp(1.3rem, 3.5vw, 2rem); margin-bottom: 0.75rem; color: #fff; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Your Laundry, Our Responsibility.</h2>
+      <p style="font-size: clamp(0.8rem, 2vw, 1rem); color: #f1f5f9; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); margin-bottom: 1.25rem;">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
+      <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+        <a href="services.html" style="background: #ffeb3b; color: #111; padding: 0.625rem 1.25rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.85rem; box-shadow: 0 4px 15px rgba(255, 235, 59, 0.4); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 235, 59, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 235, 59, 0.4)'">Our Services</a>
+        <a href="https://wa.me/919876543210?text=Hi! I want to book laundry service. Please provide pickup details." target="_blank" rel="noopener noreferrer" style="background: transparent; color: #fff; padding: 0.625rem 1.25rem; border: 2px solid #fff; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease;" onmouseover="this.style.background='#fff'; this.style.color='#4f46e5'" onmouseout="this.style.background='transparent'; this.style.color='#fff'">Book Now</a>
       </div>
     </div>
   </div>
 
   <!-- Services Section -->
-  <section id="services" style="background: #f9fafb; padding: 1.5rem 5%; font-family: 'Poppins', sans-serif;">
-    <div style="max-width: 60rem; margin: 0 auto; text-align: center;">
-      <h2 style="font-size: 1.25rem; font-weight: 700; color: #1f2937; margin-bottom: 0.25rem;">🧼 Our Services</h2>
-      <p style="color: #4b5563; font-size: 0.875rem; margin-bottom: 1.25rem;">📌 Professional care for your everyday wear.</p>
+  <section id="services" style="background: #f9fafb; padding: 1.25rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 50rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 1.125rem; font-weight: 700; color: #1f2937; margin-bottom: 0.25rem;">🧼 Our Services</h2>
+      <p style="color: #4b5563; font-size: 0.8rem; margin-bottom: 1rem;">📌 Professional care for your everyday wear.</p>
       
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem;">
-        <button class="service-btn" onclick="bookService('wash-fold')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'">
-          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🧺</div>
-          <h3 style="font-size: 0.9rem; font-weight: 600; margin: 0;">Wash & Fold</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: 0.75rem;">
+        <button class="service-btn" onclick="bookService('wash-fold')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border: none; padding: 1rem 0.75rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'">
+          <div style="font-size: 1.5rem; margin-bottom: 0.375rem;">🧺</div>
+          <h3 style="font-size: 0.8rem; font-weight: 600; margin: 0;">Wash & Fold</h3>
         </button>
         
-        <button class="service-btn" onclick="bookService('wash-iron')" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(240, 147, 251, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(240, 147, 251, 0.3)'">
-          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">👕</div>
-          <h3 style="font-size: 0.9rem; font-weight: 600; margin: 0;">Wash & Iron</h3>
+        <button class="service-btn" onclick="bookService('wash-iron')" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #fff; border: none; padding: 1rem 0.75rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(240, 147, 251, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(240, 147, 251, 0.3)'">
+          <div style="font-size: 1.5rem; margin-bottom: 0.375rem;">👕</div>
+          <h3 style="font-size: 0.8rem; font-weight: 600; margin: 0;">Wash & Iron</h3>
         </button>
         
-        <button class="service-btn" onclick="bookService('dry-clean')" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(79, 172, 254, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(79, 172, 254, 0.3)'">
-          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">✨</div>
-          <h3 style="font-size: 0.9rem; font-weight: 600; margin: 0;">Dry Cleaning</h3>
+        <button class="service-btn" onclick="bookService('dry-clean')" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #fff; border: none; padding: 1rem 0.75rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(79, 172, 254, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(79, 172, 254, 0.3)'">
+          <div style="font-size: 1.5rem; margin-bottom: 0.375rem;">✨</div>
+          <h3 style="font-size: 0.8rem; font-weight: 600; margin: 0;">Dry Cleaning</h3>
         </button>
         
-        <button class="service-btn" onclick="bookService('monthly-plan')" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(250, 112, 154, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(250, 112, 154, 0.3)'">
-          <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📅</div>
-          <h3 style="font-size: 0.9rem; font-weight: 600; margin: 0;">Monthly Plans</h3>
+        <button class="service-btn" onclick="bookService('monthly-plan')" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: #fff; border: none; padding: 1rem 0.75rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(250, 112, 154, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(250, 112, 154, 0.3)'">
+          <div style="font-size: 1.5rem; margin-bottom: 0.375rem;">📅</div>
+          <h3 style="font-size: 0.8rem; font-weight: 600; margin: 0;">Monthly Plans</h3>
         </button>
       </div>
     </div>
   </section>
 
   <!-- How It Works Section -->
-  <section id="how-it-works" style="background: #fef3c7; padding: 1.5rem 5%; font-family: 'Poppins', sans-serif;">
-    <div style="max-width: 60rem; margin: 0 auto; text-align: center;">
-      <h2 style="font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem;">How Flonze Works</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1rem;">
-        <div style="background: #fff; padding: 0.75rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📱</div>
-          <h3 style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.375rem;">1. Book Online</h3>
-          <p style="color: #4b5563; font-size: 0.75rem;">Schedule your pickup from our website or app easily.</p>
+  <section id="how-it-works" style="background: #fef3c7; padding: 1.25rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 50rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem;">How Flonze Works</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.75rem;">
+        <div style="background: #fff; padding: 0.625rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <div style="font-size: 1.25rem; margin-bottom: 0.375rem;">📱</div>
+          <h3 style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.25rem;">1. Book Online</h3>
+          <p style="color: #4b5563; font-size: 0.65rem;">Schedule your pickup from our website or app easily.</p>
         </div>
-        <div style="background: #fff; padding: 0.75rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📦</div>
-          <h3 style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.375rem;">2. We Pickup</h3>
-          <p style="color: #4b5563; font-size: 0.75rem;">Our partner collects your clothes from your doorstep.</p>
+        <div style="background: #fff; padding: 0.625rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <div style="font-size: 1.25rem; margin-bottom: 0.375rem;">📦</div>
+          <h3 style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.25rem;">2. We Pickup</h3>
+          <p style="color: #4b5563; font-size: 0.65rem;">Our partner collects your clothes from your doorstep.</p>
         </div>
-        <div style="background: #fff; padding: 0.75rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🧺</div>
-          <h3 style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.375rem;">3. Clean & Fold</h3>
-          <p style="color: #4b5563; font-size: 0.75rem;">Clothes are professionally washed, ironed & folded.</p>
+        <div style="background: #fff; padding: 0.625rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <div style="font-size: 1.25rem; margin-bottom: 0.375rem;">🧺</div>
+          <h3 style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.25rem;">3. Clean & Fold</h3>
+          <p style="color: #4b5563; font-size: 0.65rem;">Clothes are professionally washed, ironed & folded.</p>
         </div>
-        <div style="background: #fff; padding: 0.75rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🚚</div>
-          <h3 style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.375rem;">4. Delivered Fresh</h3>
-          <p style="color: #4b5563; font-size: 0.75rem;">We deliver clean clothes to your home, fresh & ready.</p>
+        <div style="background: #fff; padding: 0.625rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <div style="font-size: 1.25rem; margin-bottom: 0.375rem;">🚚</div>
+          <h3 style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.25rem;">4. Delivered Fresh</h3>
+          <p style="color: #4b5563; font-size: 0.65rem;">We deliver clean clothes to your home, fresh & ready.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Pricing Section -->
-  <section id="pricing" style="background: #fff; padding: 1.5rem 5%; font-family: 'Poppins', sans-serif;">
-    <div style="max-width: 60rem; margin: 0 auto; text-align: center;">
-      <h2 style="font-size: 1.125rem; font-weight: 700; color: #1f2937; margin-bottom: 1rem;">Our Pricing Plans</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1rem;">
-        <div style="background: #fef3c7; padding: 0.875rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-          <h3 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.375rem;">Basic Wash</h3>
-          <p style="color: #4b5563; margin-bottom: 0.5rem; font-size: 0.8rem;">Just ₹69/kg</p>
-          <ul style="color: #4b5563; margin-bottom: 0.5rem; text-align: left; list-style: none; font-size: 0.75rem;">
+  <section id="pricing" style="background: #fff; padding: 1.25rem 5%; font-family: 'Poppins', sans-serif;">
+    <div style="max-width: 50rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 1rem; font-weight: 700; color: #1f2937; margin-bottom: 0.75rem;">Our Pricing Plans</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0.75rem;">
+        <div style="background: #fef3c7; padding: 0.75rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <h3 style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem;">Basic Wash</h3>
+          <p style="color: #4b5563; margin-bottom: 0.375rem; font-size: 0.7rem;">Just ₹69/kg</p>
+          <ul style="color: #4b5563; margin-bottom: 0.375rem; text-align: left; list-style: none; font-size: 0.65rem;">
             <li>✅ Wash & Fold</li>
             <li>✅ 48-Hour Delivery</li>
           </ul>
-          <button style="background: #4f46e5; color: #fff; padding: 0.375rem 0.625rem; border-radius: 0.375rem; border: none; cursor: pointer; font-size: 0.75rem;">Choose Plan</button>
+          <button style="background: #4f46e5; color: #fff; padding: 0.3rem 0.5rem; border-radius: 0.375rem; border: none; cursor: pointer; font-size: 0.65rem;">Choose Plan</button>
         </div>
-        <div style="background: #4f46e5; color: #fff; padding: 0.875rem; border-radius: 0.375rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transform: scale(1.02);">
-          <h3 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.375rem;">Premium Care</h3>
-          <p style="margin-bottom: 0.5rem; font-size: 0.8rem;">₹99/kg</p>
-          <ul style="margin-bottom: 0.5rem; text-align: left; list-style: none; font-size: 0.75rem;">
+        <div style="background: #4f46e5; color: #fff; padding: 0.75rem; border-radius: 0.375rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transform: scale(1.01);">
+          <h3 style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem;">Premium Care</h3>
+          <p style="margin-bottom: 0.375rem; font-size: 0.7rem;">₹99/kg</p>
+          <ul style="margin-bottom: 0.375rem; text-align: left; list-style: none; font-size: 0.65rem;">
             <li>✨ Wash, Iron & Fold</li>
             <li>✨ 24-Hour Delivery</li>
             <li>✨ Free Pickup & Drop</li>
           </ul>
-          <button style="background: #fff; color: #4f46e5; padding: 0.375rem 0.625rem; border-radius: 0.375rem; border: none; cursor: pointer; font-size: 0.75rem;">Most Popular</button>
+          <button style="background: #fff; color: #4f46e5; padding: 0.3rem 0.5rem; border-radius: 0.375rem; border: none; cursor: pointer; font-size: 0.65rem;">Most Popular</button>
         </div>
-        <div style="background: #fef3c7; padding: 0.875rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-          <h3 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.375rem;">Family Plan</h3>
-          <p style="color: #4b5563; margin-bottom: 0.5rem; font-size: 0.8rem;">₹599/month</p>
-          <ul style="color: #4b5563; margin-bottom: 0.5rem; text-align: left; list-style: none; font-size: 0.75rem;">
+        <div style="background: #fef3c7; padding: 0.75rem; border-radius: 0.375rem; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+          <h3 style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem;">Family Plan</h3>
+          <p style="color: #4b5563; margin-bottom: 0.375rem; font-size: 0.7rem;">₹599/month</p>
+          <ul style="color: #4b5563; margin-bottom: 0.375rem; text-align: left; list-style: none; font-size: 0.65rem;">
             <li>👨‍👩‍👧‍👦 Up to 8 kg/week</li>
             <li>👕 Free Rewash</li>
           </ul>
-          <button style="background: #4f46e5; color: #fff; padding: 0.375rem 0.625rem; border-radius: 0.375rem; border: none; cursor: pointer; font-size: 0.75rem;">Subscribe Now</button>
+          <button style="background: #4f46e5; color: #fff; padding: 0.3rem 0.5rem; border-radius: 0.375rem; border: none; cursor: pointer; font-size: 0.65rem;">Subscribe Now</button>
         </div>
       </div>
     </div>
