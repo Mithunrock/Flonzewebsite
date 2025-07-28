@@ -106,30 +106,38 @@
       flex-direction: column;
       gap: 0.625rem;
       background: #dc2626;
-      padding: 0.625rem;
-      position: absolute;
-      top: 3.75rem;
-      right: 5%;
-      border-radius: 0.3125rem;
-      box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
-      z-index: 1001;
-      min-width: 12rem;
-      transform: translateY(-0.5rem);
+      padding: 1rem;
+      position: fixed;
+      top: 60px;
+      right: 15px;
+      left: 15px;
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      max-width: 300px;
+      margin: 0 auto;
+      transform: translateY(-10px);
       opacity: 0;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
     }
 
     .mobile-menu a {
       text-decoration: none;
       color: #fff !important;
       font-size: 1rem;
-      padding: 0.3125rem 0.625rem;
-      border-radius: 0.3125rem;
+      padding: 12px 16px;
+      border-radius: 6px;
+      display: block;
+      text-align: center;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
     }
 
-    .mobile-menu a:hover {
+    .mobile-menu a:hover,
+    .mobile-menu a:active {
       background: #ffeb3b;
       color: #111 !important;
+      transform: translateY(-1px);
     }
 
     .menu-icon {
@@ -137,19 +145,47 @@
       color: #fff;
       cursor: pointer;
       display: none;
-      padding: 0.25rem;
-      border-radius: 0.25rem;
-      transition: background 0.2s ease;
+      padding: 8px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
       user-select: none;
       -webkit-tap-highlight-color: transparent;
+      min-width: 40px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .menu-icon:hover {
       background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.05);
     }
     
     .menu-icon:active {
       background: rgba(255, 255, 255, 0.2);
+      transform: scale(0.95);
+    }
+
+    /* Body scroll lock */
+    body.menu-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
+
+    /* Menu overlay */
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     /* Section styling */
@@ -229,7 +265,13 @@
       }
 
       .menu-icon {
-        display: block;
+        display: flex !important;
+      }
+
+      .mobile-menu {
+        right: 10px;
+        left: 10px;
+        top: 70px;
       }
 
       .navbar {
@@ -341,82 +383,112 @@
     </div>
   </div>
 
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#home">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="services.html">Services</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="login.html" class="cta-btn">Login</a>
-    <a href="signin.html" class="cta-btn">Sign Up</a>
+    <a href="#home">🏠 Home</a>
+    <a href="about.html">ℹ️ About Us</a>
+    <a href="services.html">🧺 Services</a>
+    <a href="pricing.html">💰 Pricing</a>
+    <a href="contact.html">📞 Contact Us</a>
+    <a href="login.html" style="background: #ffeb3b; color: #111; font-weight: 600;">🔐 Login</a>
+    <a href="signin.html" style="background: #fff; color: #dc2626; font-weight: 600;">✨ Sign Up</a>
   </div>
 
   <script>
     let isMenuOpen = false;
+    let scrollPosition = 0;
     
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
-      if (!menu) return;
+      const overlay = document.getElementById('menuOverlay');
+      const body = document.body;
+      
+      if (!menu || !overlay) return;
       
       isMenuOpen = !isMenuOpen;
       
       if (isMenuOpen) {
+        // Store scroll position and lock body
+        scrollPosition = window.pageYOffset;
+        body.style.top = `-${scrollPosition}px`;
+        body.classList.add('menu-open');
+        
+        // Show overlay
+        overlay.style.display = 'block';
+        setTimeout(() => overlay.style.opacity = '1', 10);
+        
+        // Show menu
         menu.style.display = 'flex';
-        menu.style.opacity = '0';
-        menu.style.transform = 'translateY(-0.5rem)';
         setTimeout(() => {
           menu.style.opacity = '1';
           menu.style.transform = 'translateY(0)';
         }, 10);
       } else {
-        menu.style.opacity = '0';
-        menu.style.transform = 'translateY(-0.5rem)';
-        setTimeout(() => {
-          menu.style.display = 'none';
-        }, 200);
+        closeMenu();
       }
+    }
+    
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const overlay = document.getElementById('menuOverlay');
+      const body = document.body;
+      
+      if (!menu || !overlay) return;
+      
+      isMenuOpen = false;
+      
+      // Hide menu
+      menu.style.opacity = '0';
+      menu.style.transform = 'translateY(-10px)';
+      
+      // Hide overlay
+      overlay.style.opacity = '0';
+      
+      setTimeout(() => {
+        menu.style.display = 'none';
+        overlay.style.display = 'none';
+        
+        // Restore body scroll
+        body.classList.remove('menu-open');
+        body.style.top = '';
+        window.scrollTo(0, scrollPosition);
+      }, 300);
     }
 
     // Initialize when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
       const menu = document.getElementById('mobileMenu');
+      const overlay = document.getElementById('menuOverlay');
       const menuIcon = document.querySelector('.menu-icon');
       
-      if (!menu || !menuIcon) return;
+      if (!menu || !overlay || !menuIcon) return;
       
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', function(event) {
-        if (isMenuOpen && !menu.contains(event.target) && !menuIcon.contains(event.target)) {
-          isMenuOpen = false;
-          menu.style.opacity = '0';
-          menu.style.transform = 'translateY(-0.5rem)';
-          setTimeout(() => menu.style.display = 'none', 200);
-        }
-      });
+      // Close menu when clicking overlay
+      overlay.addEventListener('click', closeMenu);
       
       // Close menu when clicking on menu links
       document.querySelectorAll('.mobile-menu a').forEach(link => {
-        link.addEventListener('click', function() {
-          isMenuOpen = false;
-          menu.style.opacity = '0';
-          menu.style.transform = 'translateY(-0.5rem)';
-          setTimeout(() => menu.style.display = 'none', 200);
+        link.addEventListener('click', function(e) {
+          // Add small delay for better UX
+          setTimeout(closeMenu, 100);
         });
       });
       
-      // Prevent menu from sticking on resize
+      // Handle resize
       window.addEventListener('resize', function() {
         if (window.innerWidth > 768 && isMenuOpen) {
-          isMenuOpen = false;
-          menu.style.display = 'none';
-          menu.style.opacity = '0';
-          menu.style.transform = 'translateY(-0.5rem)';
+          closeMenu();
         }
       });
+      
+      // Prevent menu from closing when clicking inside menu
+      menu.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
     });
-
-
   </script>
 
   <!-- Hero Section -->
@@ -455,10 +527,6 @@
           <h3 style="font-size: 0.8rem; font-weight: 600; margin: 0;">Dry Cleaning</h3>
         </div>
         
-        <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: #fff; padding: 1rem 0.75rem; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.375rem;">📅</div>
-          <h3 style="font-size: 0.8rem; font-weight: 600; margin: 0;">Monthly Plans</h3>
-        </div>
       </div>
     </div>
   </section>
