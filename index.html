@@ -26,7 +26,7 @@
 
     /* Navbar styling */
     .navbar {
-      background: #c40a0a;
+      background: #111;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -65,6 +65,75 @@
 
     .navbar-icons .icon:hover {
       transform: scale(1.2);
+    }
+
+    /* Desktop Menu */
+    .desktop-menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    .desktop-menu a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .desktop-menu a:hover {
+      background: #ffeb3b;
+      color: #111;
+    }
+
+    .cta-btn {
+      background: #ffeb3b;
+      color: #111;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #fff;
+      color: #111;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      background: #111;
+      padding: 10px;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      background: #ffeb3b;
+      color: #111;
+    }
+
+    .menu-icon {
+      font-size: 1.5em;
+      color: #fff;
+      cursor: pointer;
     }
 
     /* Section styling */
@@ -108,24 +177,16 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .cta-btn {
-      background: #c40a0a;
-      color: #fff;
-      padding: 10px 15px;
-      border-radius: 6px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      margin: 10px;
-      transition: background 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background: #ff0000;
-    }
-
     /* Responsive Design */
     @media (max-width: 768px) {
+      .desktop-menu {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: flex;
+      }
+
       .logo {
         font-size: 1.2em;
       }
@@ -160,11 +221,36 @@
       <img src="images/logo.png" alt="Flonze Logo">
       <span>FLONZE</span>
     </div>
+    <div class="desktop-menu">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing List</a>
+      <a href="#login" class="cta-btn">Login/Signup</a>
+      <a href="#franchise" class="cta-btn">Franchise</a>
+    </div>
     <div class="navbar-icons">
-      <span class="icon">🔔</span> <!-- Notification Icon -->
       <span class="icon">👤</span> <!-- Profile Icon -->
+      <span class="menu-icon" onclick="toggleMenu()">☰</span> <!-- Mobile Menu Icon -->
     </div>
   </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing List</a>
+    <a href="#login" class="cta-btn">Login/Signup</a>
+    <a href="#franchise" class="cta-btn">Franchise</a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
 
   <!-- Hero Section -->
   <div class="section">
@@ -219,9 +305,9 @@
   <div class="section">
     <h2>📲 Got Questions? We're Just a Ping Away.</h2>
     <p class="subheading">WhatsApp us or Call for Pickup & Support.</p>
-    <a href="https://wa.me/1234567890" class="cta-btn">✅ Book Now on WhatsApp</a>
-    <a href="#pricing" class="cta-btn">✅ View Plans</a>
-    <a href="#subscribe" class="cta-btn">✅ Subscribe & Save</a>
+    <a href="https://wa.me/1234567890" class="cta-btn">Book Now on WhatsApp</a>
+    <a href="#pricing" class="cta-btn">View Plans</a>
+    <a href="#subscribe" class="cta-btn">Subscribe & Save</a>
   </div>
 </body>
 </html>
