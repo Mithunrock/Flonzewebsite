@@ -55,9 +55,16 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.625rem 5%;
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
+    }
+    
+    /* Add padding to body to compensate for fixed navbar */
+    body {
+      padding-top: 70px;
     }
 
     .logo {
@@ -127,7 +134,7 @@
       background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
       padding: 1rem;
       position: fixed;
-      top: 60px;
+      top: 70px;
       right: 15px;
       left: 15px;
       border-radius: 8px;
@@ -387,8 +394,8 @@
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact Us</a>
-      <a href="tel:+918108395367" style="color: #ffeb3b; font-weight: 600;">📞 Call Now</a>
       <a href="login.html" class="cta-btn">Login</a>
+      <a href="signin.html" class="cta-btn">Sign Up</a>
     </div>
     <div class="navbar-icons">
       <span class="menu-icon" onclick="toggleMenu()">☰</span> <!-- Mobile Menu Icon -->
@@ -404,9 +411,9 @@
     <a href="about.html">ℹ️ About Us</a>
     <a href="services.html">🧺 Services</a>
     <a href="pricing.html">💰 Pricing</a>
-    <a href="tel:+918108395367" style="background: #ffeb3b; color: #111; font-weight: 600;">📞 Call: +91 81083 95367</a>
     <a href="contact.html">📞 Contact Us</a>
-    <a href="login.html" style="background: #fff; color: #dc2626; font-weight: 600;">🔐 Login</a>
+    <a href="login.html" style="background: #ffeb3b; color: #111; font-weight: 600;">🔐 Login</a>
+    <a href="signin.html" style="background: #fff; color: #dc2626; font-weight: 600;">✨ Sign Up</a>
   </div>
 
   <script>
