@@ -866,39 +866,6 @@
       <button class="capsule-btn">📦 <strong>Multi-Warehouse</strong><br>Enable JIT Inventory</button>
       <button class="capsule-btn">📊 <strong>Smart Dashboard</strong><br>Track & Analyze</button>
       <button class="capsule-btn">⚙️ <strong>API Integration</strong><br>ERP, CRM, D2C Ready</button>
-  <div class="logistics-services">
-    <h2 class="services-heading">Choose Your Service</h2>
-    <div class="services-grid">
-      <div class="service-item" data-service="Truck">
-        <img src="images/Truck.png" alt="Truck Service">
-        <p>Truck</p>
-      </div>
-      <div class="service-item" data-service="Two Wheeler">
-        <img src="images/Bike.png" alt="Two Wheeler Service">
-        <p>Two Wheeler</p>
-      </div>
-      <div class="service-item" data-service="Packers & Movers">
-        <img src="images/Packager Mover.png" alt="Packers & Movers">
-        <p>Packers & Movers</p>
-      </div>
-      <div class="service-item estimate" id="estimateBtn">
-        <p>Get an Estimate<br><span>(takes ~2 mins)</span></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="login-signin-section" style="display: flex; justify-content: space-between; margin-top: 20px;">
-    <a href="login.html" class="cta-btn" style="margin-right: 10px;">Login</a>
-    <a href="signin.html" class="cta-btn">Sign In</a>
-  </div>
-
-  <div class="contact-section">
-    <h2 style="font-size: 1.2em;">Contact Us</h2>
-    <p style="font-size: 0.9em;">Feel free to reach out to us for any inquiries or support.</p>
-    <div class="contact-details" style="font-size: 0.85em;">
-      <div>📍 <strong>Address:</strong> Mumbai, India</div>
-      <div>📧 <strong>Email:</strong> <a href="mailto:flonzesupport@gmail.com">flonzesupport@gmail.com</a></div>
-      <div>📞 <strong>Phone:</strong> +91 22 4000 0000</div>
     </div>
   </div>
 
@@ -976,12 +943,6 @@
     popupOverlay.addEventListener('click', (e) => {
       if (e.target === popupOverlay) {
         popupOverlay.style.display = 'none';
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!mobileNav.contains(e.target) && e.target !== menuBtn) {
-        mobileNav.classList.remove('active');
       }
     });
   </script>
