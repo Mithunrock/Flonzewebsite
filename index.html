@@ -294,10 +294,10 @@
     <div class="desktop-menu">
       <a href="#home">Home</a>
       <a href="#about">About Us</a>
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing List</a>
-      <a href="#login" class="cta-btn">Login/Signup</a>
-      <a href="#franchise" class="cta-btn">Franchise</a>
+      <a href="services.html">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="login.html" class="cta-btn">Login</a>
+      <a href="signin.html" class="cta-btn">Sign Up</a>
     </div>
     <div class="navbar-icons">
       <span class="icon">👤</span> <!-- Profile Icon -->
@@ -309,10 +309,10 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#home">Home</a>
     <a href="#about">About Us</a>
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing List</a>
-    <a href="#login" class="cta-btn">Login/Signup</a>
-    <a href="#franchise" class="cta-btn">Franchise</a>
+    <a href="services.html">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="login.html" class="cta-btn">Login</a>
+    <a href="signin.html" class="cta-btn">Sign Up</a>
   </div>
 
   <script>
@@ -378,6 +378,21 @@
         }
       });
     });
+
+    // Service booking function
+    function bookService(serviceType) {
+      const messages = {
+        'wash-fold': 'Hi! I want to book Wash & Fold service. Please provide pickup details.',
+        'wash-iron': 'Hi! I want to book Wash & Iron service. Please provide pickup details.',
+        'dry-clean': 'Hi! I want to book Dry Cleaning service. Please provide pickup details.',
+        'monthly-plan': 'Hi! I\'m interested in Monthly Plans. Please share more details.'
+      };
+      
+      const message = messages[serviceType] || 'Hi! I want to book laundry service.';
+      const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+      
+      window.open(whatsappUrl, '_blank');
+    }
   </script>
 
   <!-- Hero Section -->
@@ -387,8 +402,8 @@
       <h2 style="font-size: clamp(1.5rem, 4vw, 2.5rem); margin-bottom: 1rem; color: #fff; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Your Laundry, Our Responsibility.</h2>
       <p style="font-size: clamp(0.9rem, 2.5vw, 1.2rem); color: #f1f5f9; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); margin-bottom: 1.5rem;">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
       <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-        <a href="#services" style="background: #ffeb3b; color: #111; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(255, 235, 59, 0.4); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 235, 59, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 235, 59, 0.4)'">Our Services</a>
-        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" style="background: transparent; color: #fff; padding: 0.75rem 1.5rem; border: 2px solid #fff; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#fff'; this.style.color='#4f46e5'" onmouseout="this.style.background='transparent'; this.style.color='#fff'">Book Now</a>
+        <a href="services.html" style="background: #ffeb3b; color: #111; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(255, 235, 59, 0.4); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(255, 235, 59, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 235, 59, 0.4)'">Our Services</a>
+        <a href="https://wa.me/919876543210?text=Hi! I want to book laundry service. Please provide pickup details." target="_blank" rel="noopener noreferrer" style="background: transparent; color: #fff; padding: 0.75rem 1.5rem; border: 2px solid #fff; border-radius: 0.5rem; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onmouseover="this.style.background='#fff'; this.style.color='#4f46e5'" onmouseout="this.style.background='transparent'; this.style.color='#fff'">Book Now</a>
       </div>
     </div>
   </div>
@@ -400,22 +415,22 @@
       <p style="color: #4b5563; font-size: 0.875rem; margin-bottom: 1.25rem;">📌 Professional care for your everyday wear.</p>
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 1rem;">
-        <button class="service-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'">
+        <button class="service-btn" onclick="bookService('wash-fold')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'">
           <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🧺</div>
           <h3 style="font-size: 0.9rem; font-weight: 600; margin: 0;">Wash & Fold</h3>
         </button>
         
-        <button class="service-btn" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(240, 147, 251, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(240, 147, 251, 0.3)'">
+        <button class="service-btn" onclick="bookService('wash-iron')" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(240, 147, 251, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(240, 147, 251, 0.3)'">
           <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">👕</div>
           <h3 style="font-size: 0.9rem; font-weight: 600; margin: 0;">Wash & Iron</h3>
         </button>
         
-        <button class="service-btn" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(79, 172, 254, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(79, 172, 254, 0.3)'">
+        <button class="service-btn" onclick="bookService('dry-clean')" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(79, 172, 254, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(79, 172, 254, 0.3)'">
           <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">✨</div>
           <h3 style="font-size: 0.9rem; font-weight: 600; margin: 0;">Dry Cleaning</h3>
         </button>
         
-        <button class="service-btn" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(250, 112, 154, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(250, 112, 154, 0.3)'">
+        <button class="service-btn" onclick="bookService('monthly-plan')" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: #fff; border: none; padding: 1.25rem 1rem; border-radius: 0.5rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(250, 112, 154, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(250, 112, 154, 0.3)'">
           <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">📅</div>
           <h3 style="font-size: 0.9rem; font-weight: 600; margin: 0;">Monthly Plans</h3>
         </button>
@@ -639,9 +654,9 @@
     <h2>📲 Got Questions? We're Just a Ping Away.</h2>
     <p class="subheading">WhatsApp us or Call for Pickup & Support.</p>
     <div class="contact-buttons">
-      <a href="https://wa.me/919876543210" class="cta-btn" target="_blank" rel="noopener noreferrer">Book Now on WhatsApp</a>
-      <a href="#pricing" class="cta-btn">View Plans</a>
-      <a href="#subscribe" class="cta-btn">Subscribe & Save</a>
+      <a href="https://wa.me/919876543210?text=Hi! I want to book laundry service. Please provide pickup details." class="cta-btn" target="_blank" rel="noopener noreferrer">Book Now on WhatsApp</a>
+      <a href="services.html" class="cta-btn">View Services</a>
+      <a href="contact.html" class="cta-btn">Contact Us</a>
     </div>
   </div>
 

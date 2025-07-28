@@ -2,133 +2,431 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Flonze – Our Services</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | Flonze Laundry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f7f7f7;
-    color: #333;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  header {
-    background: #000;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+    }
 
-  nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
-  }
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      color: white;
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
 
-  nav a:hover {
-    color: #00c6ff;
-  }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-  .container {
-    padding: 40px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffeb3b;
+    }
 
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #003366;
-    font-size: 1.8em;
-  }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
 
-  .service-box {
-    background: #f5f5f5;
-    padding: 24px;
-    margin-bottom: 24px;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
 
-  .service-box:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
-    background: #e3f2fd;
-  }
+    .nav-links a:hover {
+      color: #ffeb3b;
+    }
 
-  .service-icon {
-    font-size: 32px;
-    color: #2e7d32;
-    flex-shrink: 0;
-  }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(124, 58, 237, 0.8));
+      padding: 3rem 5%;
+      text-align: center;
+      color: white;
+    }
 
-  .service-box h3 {
-    margin: 0 0 8px 0;
-    color: #d32f2f;
-    font-size: 1.2em;
-  }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
 
-  @media (max-width: 600px) {
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Services Container */
     .container {
-      padding: 12px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 5%;
     }
 
-    .service-box {
-      flex-direction: column;
-      gap: 8px;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
-    .service-box h3 {
-      font-size: 1em;
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
     }
-  }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+      border-color: #4f46e5;
+    }
+
+    .service-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      padding: 1rem;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .service-card p {
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features li {
+      padding: 0.5rem 0;
+      color: #4b5563;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-features li::before {
+      content: '✓';
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .price-tag {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #92400e;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      padding: 3rem 5%;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      background: #ffeb3b;
+      color: #1f2937;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .service-card {
+        padding: 1.5rem;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h2>Flonze</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="track.html">Track</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">FLONZE</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="login.html">Login</a>
+        <a href="signin.html">Sign Up</a>
+      </nav>
+    </div>
   </header>
 
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>🧼 Our Laundry Services</h1>
+    <p>Professional doorstep laundry services in Mumbai. Choose the perfect plan for your needs.</p>
+  </section>
+
+  <!-- Services Container -->
   <div class="container">
-    <h2>Our Core Services</h2>
-    <div class="service-box">
-      <span class="service-icon">📦</span>
-      <div>
-        <h3>Parcel Delivery</h3>
-        <p>Fast and affordable delivery for B2C Local, Zonal & National shipments.</p>
+    <div class="services-grid">
+      <!-- Wash & Fold Service -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">🧺</div>
+          <h3>Wash & Fold</h3>
+        </div>
+        <p>Our most popular service! We wash, dry, and neatly fold your clothes with care using premium detergents.</p>
+        <ul class="service-features">
+          <li>Professional washing with eco-friendly detergents</li>
+          <li>Proper drying and neat folding</li>
+          <li>48-hour turnaround time</li>
+          <li>Fabric-specific care instructions followed</li>
+          <li>Hygienic packaging</li>
+        </ul>
+        <div class="price-tag">Starting at ₹69/kg</div>
+        <button class="cta-button" onclick="bookService('wash-fold')">Book Now</button>
       </div>
-    </div>
-    <div class="service-box">
-      <span class="service-icon">🚚</span>
-      <div>
-        <h3>E-commerce Logistics</h3>
-        <p>Pickup + Delivery service for D2C brands and Shopify sellers.</p>
+
+      <!-- Wash & Iron Service -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">👕</div>
+          <h3>Wash & Iron</h3>
+        </div>
+        <p>Complete laundry solution with professional washing, drying, and crisp ironing for that perfect finish.</p>
+        <ul class="service-features">
+          <li>Premium washing and drying</li>
+          <li>Professional ironing service</li>
+          <li>24-hour express delivery available</li>
+          <li>Wrinkle-free guarantee</li>
+          <li>Free pickup and delivery</li>
+        </ul>
+        <div class="price-tag">Starting at ₹99/kg</div>
+        <button class="cta-button" onclick="bookService('wash-iron')">Book Now</button>
       </div>
-    </div>
-    <div class="service-box">
-      <span class="service-icon">🏬</span>
-      <div>
-        <h3>3PL Warehousing</h3>
-        <p>Flexible storage and dispatch hubs in major cities for your business.</p>
+
+      <!-- Dry Cleaning Service -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">✨</div>
+          <h3>Dry Cleaning</h3>
+        </div>
+        <p>Specialized dry cleaning for delicate fabrics, formal wear, and garments requiring special care.</p>
+        <ul class="service-features">
+          <li>Expert handling of delicate fabrics</li>
+          <li>Stain removal specialists</li>
+          <li>Formal wear and suit cleaning</li>
+          <li>Leather and suede cleaning</li>
+          <li>Quality guarantee</li>
+        </ul>
+        <div class="price-tag">Starting at ₹149/piece</div>
+        <button class="cta-button" onclick="bookService('dry-clean')">Book Now</button>
+      </div>
+
+      <!-- Monthly Plans -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">📅</div>
+          <h3>Monthly Plans</h3>
+        </div>
+        <p>Convenient monthly subscription plans for regular laundry needs with significant savings and priority service.</p>
+        <ul class="service-features">
+          <li>Up to 8kg laundry per week</li>
+          <li>Priority pickup and delivery</li>
+          <li>Free rewash guarantee</li>
+          <li>Flexible scheduling</li>
+          <li>30% savings compared to per-order pricing</li>
+        </ul>
+        <div class="price-tag">Starting at ₹599/month</div>
+        <button class="cta-button" onclick="bookService('monthly-plan')">Subscribe Now</button>
+      </div>
+
+      <!-- Express Service -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">⚡</div>
+          <h3>Express Service</h3>
+        </div>
+        <p>Need your clothes cleaned urgently? Our express service delivers fresh, clean clothes within 12 hours.</p>
+        <ul class="service-features">
+          <li>12-hour turnaround time</li>
+          <li>Same-day pickup and delivery</li>
+          <li>Priority processing</li>
+          <li>Available 7 days a week</li>
+          <li>Perfect for emergencies</li>
+        </ul>
+        <div class="price-tag">50% surcharge on regular prices</div>
+        <button class="cta-button" onclick="bookService('express')">Book Express</button>
+      </div>
+
+      <!-- Household Items -->
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">🏠</div>
+          <h3>Household Items</h3>
+        </div>
+        <p>Professional cleaning for bed sheets, curtains, blankets, and other household textiles.</p>
+        <ul class="service-features">
+          <li>Bed sheets and pillow covers</li>
+          <li>Curtains and drapes</li>
+          <li>Blankets and comforters</li>
+          <li>Table cloths and towels</li>
+          <li>Specialized care for different materials</li>
+        </ul>
+        <div class="price-tag">Starting at ₹49/piece</div>
+        <button class="cta-button" onclick="bookService('household')">Book Now</button>
       </div>
     </div>
   </div>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2>📲 Ready to Get Started?</h2>
+    <p>Book your first order now and experience the convenience of doorstep laundry service!</p>
+    <div class="contact-buttons">
+      <a href="https://wa.me/919876543210" class="contact-btn" target="_blank">Book on WhatsApp</a>
+      <a href="signin.html" class="contact-btn">Create Account</a>
+      <a href="index.html" class="contact-btn">Back to Home</a>
+    </div>
+  </section>
+
+  <script>
+    function bookService(serviceType) {
+      // Create WhatsApp message based on service type
+      const messages = {
+        'wash-fold': 'Hi! I want to book Wash & Fold service. Please provide pickup details.',
+        'wash-iron': 'Hi! I want to book Wash & Iron service. Please provide pickup details.',
+        'dry-clean': 'Hi! I want to book Dry Cleaning service. Please provide pickup details.',
+        'monthly-plan': 'Hi! I\'m interested in Monthly Plans. Please share more details.',
+        'express': 'Hi! I need Express Service (12-hour delivery). Please arrange pickup.',
+        'household': 'Hi! I want to book Household Items cleaning. Please provide pickup details.'
+      };
+      
+      const message = messages[serviceType] || 'Hi! I want to book laundry service.';
+      const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+      
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
 </body>
 </html>

@@ -3,202 +3,351 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up | Flonze</title>
+  <title>Sign Up | Flonze Laundry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-  html {
-    scroll-behavior: smooth;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-
-  .signup-container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-  }
-
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 1.8em;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.2s ease;
-  }
-
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="password"]:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-
-  button {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-
-  button:hover {
-    background: linear-gradient(90deg, #0056b3 0%, #0099cc 100%);
-    transform: translateY(-2px);
-  }
-
-  .success-msg,
-  .error-msg {
-    margin-top: 15px;
-    text-align: center;
-    display: none;
-    font-size: 14px;
-  }
-
-  .success-msg {
-    color: green;
-  }
-
-  .error-msg {
-    color: red;
-  }
-
-  @media (max-width: 600px) {
-    .signup-container {
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       padding: 20px;
     }
 
-    h2 {
-      font-size: 1.5em;
+    .signup-container {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 420px;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo h1 {
+      color: #4f46e5;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .logo p {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #374151;
+      font-weight: 500;
+      font-size: 0.9rem;
     }
 
     input[type="text"],
     input[type="email"],
-    input[type="password"] {
-      font-size: 14px;
+    input[type="password"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: #f9fafb;
     }
 
-    button {
-      font-size: 14px;
+    input:focus {
+      border-color: #4f46e5;
+      outline: none;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     }
-  }
 
-    header {
-      background: #007bff;
+    .signup-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
       color: white;
-      padding: 10px 0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .signup-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    .signup-btn:active {
+      transform: translateY(0);
+    }
+
+    .signup-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .success-msg,
+    .error-msg {
+      padding: 12px;
+      border-radius: 8px;
       text-align: center;
+      display: none;
+      font-size: 14px;
+      margin-bottom: 1rem;
     }
 
-    header h2 {
-      margin: 0;
-      font-size: 24px;
+    .success-msg {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
     }
 
-    nav {
-      margin-top: 10px;
+    .error-msg {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
     }
 
-    nav a {
-      color: white;
+    .password-requirements {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: 0.5rem;
+    }
+
+    .password-requirements ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .password-requirements li {
+      margin: 0.25rem 0;
+    }
+
+    .password-requirements .valid {
+      color: #059669;
+    }
+
+    .password-requirements .invalid {
+      color: #dc2626;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .links a {
+      color: #4f46e5;
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+      font-size: 0.9rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
     }
 
-    nav a:hover {
+    .links a:hover {
+      color: #7c3aed;
       text-decoration: underline;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 1.5rem 0;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      .signup-container {
+        padding: 1.5rem;
+        margin: 10px;
+      }
+
+      .logo h1 {
+        font-size: 1.5rem;
+      }
+
+      input {
+        font-size: 16px; /* Prevents zoom on iOS */
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h2>Flonze</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="track.html">Track</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
   <div class="signup-container">
-    <h2>Create Account</h2>
+    <div class="logo">
+      <h1>FLONZE</h1>
+      <p>Join Our Laundry Service</p>
+    </div>
+
     <form id="signup-form">
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <button type="submit">Sign Up</button>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required />
+        <div class="password-requirements">
+          <ul id="password-requirements">
+            <li id="length" class="invalid">• At least 8 characters</li>
+            <li id="uppercase" class="invalid">• One uppercase letter</li>
+            <li id="lowercase" class="invalid">• One lowercase letter</li>
+            <li id="number" class="invalid">• One number</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="success-msg" id="success">✅ Account created successfully! Redirecting...</div>
+      <div class="error-msg" id="error">❌ Please fix the errors above.</div>
+      
+      <button type="submit" class="signup-btn">Create Account</button>
     </form>
-    <div class="success-msg" id="success">✅ Signup successful!</div>
-    <div class="error-msg" id="error">❌ Something went wrong.</div>
+
+    <div class="divider">or</div>
+    
+    <div class="links">
+      <a href="index.html">← Back to Home</a>
+      <a href="login.html">Already have an account?</a>
+    </div>
   </div>
 
   <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycby64beGIbpfVp9kt16r0zAHXqti4aLJaedxrBVZlKMTHmu21-50xPeKDKPrCjMG9EFqfA/exec'; // Updated with your Google Apps Script URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby64beGIbpfVp9kt16r0zAHXqti4aLJaedxrBVZlKMTHmu21-50xPeKDKPrCjMG9EFqfA/exec';
 
-  const form = document.getElementById('signup-form');
-  const successMsg = document.getElementById('success');
-  const errorMsg = document.getElementById('error');
+    const form = document.getElementById('signup-form');
+    const successMsg = document.getElementById('success');
+    const errorMsg = document.getElementById('error');
+    const submitBtn = form.querySelector('.signup-btn');
+    const passwordInput = document.getElementById('password');
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+    // Password validation
+    passwordInput.addEventListener('input', function() {
+      const password = this.value;
+      const requirements = {
+        length: password.length >= 8,
+        uppercase: /[A-Z]/.test(password),
+        lowercase: /[a-z]/.test(password),
+        number: /\d/.test(password)
+      };
 
-    const formData = {
-      name: form.name.value,
-      email: form.email.value,
-      password: form.password.value
-    };
-
-    fetch(scriptURL, {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => {
-      if (res.ok) {
-        successMsg.style.display = 'block';
-        errorMsg.style.display = 'none';
-        form.reset();
-      } else {
-        res.json().then(data => {
-          errorMsg.textContent = `❌ ${data.error || 'Something went wrong.'}`;
-          errorMsg.style.display = 'block';
-        });
-      }
-    })
-    .catch(err => {
-      errorMsg.textContent = `❌ ${err.message}`;
-      errorMsg.style.display = 'block';
-      console.error('Error!', err);
+      Object.keys(requirements).forEach(req => {
+        const element = document.getElementById(req);
+        element.className = requirements[req] ? 'valid' : 'invalid';
+      });
     });
-  });
+
+    // Form validation
+    function validateForm() {
+      const password = passwordInput.value;
+      const isValidPassword = password.length >= 8 && 
+                             /[A-Z]/.test(password) && 
+                             /[a-z]/.test(password) && 
+                             /\d/.test(password);
+      
+      const email = form.email.value;
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      
+      const phone = form.phone.value;
+      const isValidPhone = /^[\d\s\-\+\(\)]{10,}$/.test(phone);
+      
+      return isValidPassword && isValidEmail && isValidPhone && form.name.value.trim();
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (!validateForm()) {
+        errorMsg.textContent = '❌ Please fill all fields correctly and meet password requirements.';
+        errorMsg.style.display = 'block';
+        successMsg.style.display = 'none';
+        return;
+      }
+      
+      // Show loading state
+      submitBtn.textContent = 'Creating Account...';
+      submitBtn.disabled = true;
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        password: formData.get('password')
+      };
+
+      try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+          
+          // Reset password requirements display
+          document.querySelectorAll('.password-requirements li').forEach(li => {
+            li.className = 'invalid';
+          });
+          
+          // Redirect after 2 seconds
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
+        } else {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Registration failed');
+        }
+      } catch (error) {
+        errorMsg.textContent = `❌ ${error.message}`;
+        errorMsg.style.display = 'block';
+        console.error('Signup error:', error);
+      } finally {
+        // Reset button state
+        submitBtn.textContent = 'Create Account';
+        submitBtn.disabled = false;
+      }
+    });
   </script>
 </body>
 </html>

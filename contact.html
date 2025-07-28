@@ -2,130 +2,495 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Us – Flonze</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Flonze Laundry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f7f7f7;
-    color: #333;
-  }
-
-  header {
-    background: #000;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-
-  nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
-  }
-
-  nav a:hover {
-    color: #00c6ff;
-  }
-
-  .container {
-    padding: 40px;
-    max-width: 600px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  }
-
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #222;
-    letter-spacing: 1px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 7px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    background: #fafafa;
-    transition: border 0.2s;
-  }
-
-  input:focus, textarea:focus {
-    border: 1.5px solid #0077ff;
-    outline: none;
-    background: #fff;
-  }
-
-  button {
-    background: linear-gradient(90deg, #0077ff 0%, #00c6ff 100%);
-    color: white;
-    padding: 12px 0;
-    margin-top: 10px;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: bold;
-    box-shadow: 0 2px 8px rgba(0, 119, 255, 0.08);
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  button:hover {
-    background: linear-gradient(90deg, #005bb5 0%, #0099cc 100%);
-    transform: translateY(-2px) scale(1.03);
-  }
-
-  @media (max-width: 600px) {
-    .container {
-      padding: 20px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    input, textarea {
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(79, 70, 229, 0.95);
+      color: white;
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffeb3b;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffeb3b;
+    }
+
+    /* Main Container */
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 5%;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      height: fit-content;
+    }
+
+    .contact-info h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #4f46e5;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+      color: #6b7280;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: #f9fafb;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      background: #e0e7ff;
+      transform: translateX(5px);
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      color: #4f46e5;
+      width: 40px;
+      text-align: center;
+    }
+
+    .contact-details h4 {
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-details span {
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+
+    .quick-actions {
+      margin-top: 2rem;
+    }
+
+    .quick-actions h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1.25rem;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    .action-btn.whatsapp {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+    }
+
+    .action-btn.whatsapp:hover {
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #4f46e5;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #374151;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: #f9fafb;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: #4f46e5;
+      outline: none;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .success-msg,
+    .error-msg {
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      display: none;
       font-size: 14px;
+      margin-bottom: 1rem;
     }
 
-    button {
-      font-size: 15px;
+    .success-msg {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
     }
-  }
+
+    .error-msg {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .main-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin: 2rem auto;
+      }
+
+      .contact-info,
+      .contact-form {
+        padding: 1.5rem;
+      }
+
+      .contact-info h2,
+      .contact-form h2 {
+        font-size: 1.5rem;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h2>Flonze</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="track.html">Track</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">FLONZE</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="login.html">Login</a>
+        <a href="signin.html">Sign Up</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="container">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h2>📞 Get in Touch</h2>
+      <p>Have questions about our laundry services? Need to schedule a pickup? We're here to help! Reach out to us through any of the channels below.</p>
+
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div class="contact-details">
+          <h4>Phone & WhatsApp</h4>
+          <span>+91 98765 43210</span>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-details">
+          <h4>Email</h4>
+          <span>mithunyadav245@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-details">
+          <h4>Service Area</h4>
+          <span>Mumbai, Maharashtra</span>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">🕒</div>
+        <div class="contact-details">
+          <h4>Service Hours</h4>
+          <span>Mon-Sun: 7:00 AM - 9:00 PM</span>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <h3>Quick Actions</h3>
+        <div class="action-buttons">
+          <a href="https://wa.me/919876543210?text=Hi! I want to book laundry service." class="action-btn whatsapp" target="_blank">
+            <span>💬</span> Book on WhatsApp
+          </a>
+          <a href="tel:+919876543210" class="action-btn">
+            <span>📞</span> Call Now
+          </a>
+          <a href="services.html" class="action-btn">
+            <span>🧼</span> View Services
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h2>💬 Send us a Message</h2>
+      
+      <div class="success-msg" id="success">✅ Message sent successfully! We'll get back to you soon.</div>
+      <div class="error-msg" id="error">❌ Please fill all fields correctly.</div>
+
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service Interested In</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="wash-fold">Wash & Fold</option>
+            <option value="wash-iron">Wash & Iron</option>
+            <option value="dry-cleaning">Dry Cleaning</option>
+            <option value="monthly-plan">Monthly Plan</option>
+            <option value="express">Express Service</option>
+            <option value="household">Household Items</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your laundry needs, pickup address, or any questions you have..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
   </div>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('success');
+    const errorMsg = document.getElementById('error');
+    const submitBtn = form.querySelector('.submit-btn');
+
+    // Google Apps Script URL for form submission
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwpMWGD9t41Isi3R-jSr6DxEOFE6s8fmuClmPPGHa2UQbUYvIZdgjkAkCIPax9QG5ZAhw/exec';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Show loading state
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      // Validate form
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        service: formData.get('service'),
+        message: formData.get('message'),
+        type: 'contact'
+      };
+
+      // Basic validation
+      if (!data.name || !data.email || !data.phone || !data.service || !data.message) {
+        errorMsg.textContent = '❌ Please fill all fields.';
+        errorMsg.style.display = 'block';
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+        return;
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(data.email)) {
+        errorMsg.textContent = '❌ Please enter a valid email address.';
+        errorMsg.style.display = 'block';
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+        return;
+      }
+
+      try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+          
+          // Scroll to success message
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      } catch (error) {
+        errorMsg.textContent = '❌ Failed to send message. Please try again or contact us directly.';
+        errorMsg.style.display = 'block';
+        console.error('Error:', error);
+      } finally {
+        // Reset button state
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
