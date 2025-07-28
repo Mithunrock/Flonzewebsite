@@ -25,6 +25,20 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      will-change: scroll-position;
+    }
+
+    /* Performance optimizations */
+    img {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    button, a {
+      will-change: transform;
+      transform: translateZ(0);
     }
 
 
@@ -325,29 +339,22 @@
       }
     }
 
-    /* Blinking Button Animation */
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0.7; }
-    }
-    
-    @keyframes glow {
-      0% { box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4); }
-      50% { box-shadow: 0 8px 30px rgba(79, 70, 229, 0.8), 0 0 20px rgba(255, 235, 59, 0.6); }
-      100% { box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4); }
+    /* Optimized Button Animation */
+    @keyframes subtleGlow {
+      0%, 100% { box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4); }
+      50% { box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6); }
     }
     
     .highlight-btn {
-      animation: blink 1.5s infinite, glow 2s infinite;
+      animation: subtleGlow 3s ease-in-out infinite;
       background: linear-gradient(45deg, #4f46e5, #ffeb3b, #4f46e5) !important;
       background-size: 200% 200% !important;
-      animation: blink 1.5s infinite, glow 2s infinite, gradient 3s ease infinite !important;
+      will-change: transform, box-shadow;
+      transform: translateZ(0);
     }
     
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .highlight-btn:hover {
+      animation-play-state: paused;
     }
 
     /* Large Desktop */
@@ -418,14 +425,14 @@
         
         // Show overlay
         overlay.style.display = 'block';
-        setTimeout(() => overlay.style.opacity = '1', 10);
+        requestAnimationFrame(() => overlay.style.opacity = '1');
         
         // Show menu
         menu.style.display = 'flex';
-        setTimeout(() => {
+        requestAnimationFrame(() => {
           menu.style.opacity = '1';
           menu.style.transform = 'translateY(0)';
-        }, 10);
+        });
       } else {
         closeMenu();
       }
@@ -447,15 +454,30 @@
       // Hide overlay
       overlay.style.opacity = '0';
       
-      setTimeout(() => {
-        menu.style.display = 'none';
-        overlay.style.display = 'none';
-        
-        // Restore body scroll
-        body.classList.remove('menu-open');
-        body.style.top = '';
-        window.scrollTo(0, scrollPosition);
-      }, 300);
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          menu.style.display = 'none';
+          overlay.style.display = 'none';
+          
+          // Restore body scroll
+          body.classList.remove('menu-open');
+          body.style.top = '';
+          window.scrollTo(0, scrollPosition);
+        }, 250);
+      });
+    }
+
+    // Debounce function for performance
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
     }
 
     // Initialize when DOM is loaded
@@ -467,27 +489,38 @@
       if (!menu || !overlay || !menuIcon) return;
       
       // Close menu when clicking overlay
-      overlay.addEventListener('click', closeMenu);
+      overlay.addEventListener('click', closeMenu, { passive: true });
       
       // Close menu when clicking on menu links
       document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', function(e) {
           // Add small delay for better UX
-          setTimeout(closeMenu, 100);
-        });
+          setTimeout(closeMenu, 50);
+        }, { passive: true });
       });
       
-      // Handle resize
-      window.addEventListener('resize', function() {
+      // Handle resize with debounce
+      window.addEventListener('resize', debounce(function() {
         if (window.innerWidth > 768 && isMenuOpen) {
           closeMenu();
         }
-      });
+      }, 100), { passive: true });
       
       // Prevent menu from closing when clicking inside menu
       menu.addEventListener('click', function(e) {
         e.stopPropagation();
-      });
+      }, { passive: true });
+      
+      // Optimize scroll performance
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
     });
   </script>
 
@@ -498,7 +531,7 @@
       <h2 style="font-size: clamp(1.3rem, 3.5vw, 2rem); margin-bottom: 0.75rem; color: #fff; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Your Laundry, Our Responsibility.</h2>
       <p style="font-size: clamp(0.8rem, 2vw, 1rem); color: #f1f5f9; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); margin-bottom: 1.25rem;">🕒 Doorstep pickup & delivery. No more laundry stress.</p>
       
-      <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdB9JxvXZOCTevQm74WFLlFUCIi2roczvsmPWUmbzRU2FWRmw/viewform?usp=header', '_blank')" class="highlight-btn" style="background: linear-gradient(45deg, #4f46e5, #ffeb3b, #4f46e5); background-size: 200% 200%; color: #fff; padding: 15px 30px; border: none; border-radius: 10px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4); transition: all 0.3s ease; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);" onmouseover="this.style.transform='translateY(-3px) scale(1.05)'" onmouseout="this.style.transform='translateY(0) scale(1)'">🚀 Book Your Service - Click Here</button>
+      <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdB9JxvXZOCTevQm74WFLlFUCIi2roczvsmPWUmbzRU2FWRmw/viewform?usp=header', '_blank')" class="highlight-btn" style="background: linear-gradient(45deg, #4f46e5, #ffeb3b, #4f46e5); background-size: 200% 200%; color: #fff; padding: 15px 30px; border: none; border-radius: 10px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4); transition: transform 0.2s ease; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">🚀 Book Your Service - Click Here</button>
       
 
 
