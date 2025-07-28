@@ -425,14 +425,14 @@
         
         // Show overlay
         overlay.style.display = 'block';
-        requestAnimationFrame(() => overlay.style.opacity = '1');
+        setTimeout(() => overlay.style.opacity = '1', 10);
         
         // Show menu
         menu.style.display = 'flex';
-        requestAnimationFrame(() => {
+        setTimeout(() => {
           menu.style.opacity = '1';
           menu.style.transform = 'translateY(0)';
-        });
+        }, 10);
       } else {
         closeMenu();
       }
@@ -454,30 +454,15 @@
       // Hide overlay
       overlay.style.opacity = '0';
       
-      requestAnimationFrame(() => {
-        setTimeout(() => {
-          menu.style.display = 'none';
-          overlay.style.display = 'none';
-          
-          // Restore body scroll
-          body.classList.remove('menu-open');
-          body.style.top = '';
-          window.scrollTo(0, scrollPosition);
-        }, 250);
-      });
-    }
-
-    // Debounce function for performance
-    function debounce(func, wait) {
-      let timeout;
-      return function executedFunction(...args) {
-        const later = () => {
-          clearTimeout(timeout);
-          func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-      };
+      setTimeout(() => {
+        menu.style.display = 'none';
+        overlay.style.display = 'none';
+        
+        // Restore body scroll
+        body.classList.remove('menu-open');
+        body.style.top = '';
+        window.scrollTo(0, scrollPosition);
+      }, 300);
     }
 
     // Initialize when DOM is loaded
@@ -489,38 +474,27 @@
       if (!menu || !overlay || !menuIcon) return;
       
       // Close menu when clicking overlay
-      overlay.addEventListener('click', closeMenu, { passive: true });
+      overlay.addEventListener('click', closeMenu);
       
       // Close menu when clicking on menu links
       document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', function(e) {
           // Add small delay for better UX
-          setTimeout(closeMenu, 50);
-        }, { passive: true });
+          setTimeout(closeMenu, 100);
+        });
       });
       
-      // Handle resize with debounce
-      window.addEventListener('resize', debounce(function() {
+      // Handle resize
+      window.addEventListener('resize', function() {
         if (window.innerWidth > 768 && isMenuOpen) {
           closeMenu();
         }
-      }, 100), { passive: true });
+      });
       
       // Prevent menu from closing when clicking inside menu
       menu.addEventListener('click', function(e) {
         e.stopPropagation();
-      }, { passive: true });
-      
-      // Optimize scroll performance
-      let ticking = false;
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          requestAnimationFrame(function() {
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, { passive: true });
+      });
     });
   </script>
 
