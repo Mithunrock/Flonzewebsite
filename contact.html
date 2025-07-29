@@ -204,7 +204,6 @@
       border: 2px solid #e5e7eb;
       border-radius: 8px;
       font-size: 16px;
-      transition: all 0.3s ease;
       background: #f9fafb;
       font-family: 'Poppins', sans-serif;
     }
@@ -215,7 +214,6 @@
       border-color: #4f46e5;
       outline: none;
       background: #ffffff;
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     }
 
     .form-group textarea {
@@ -226,26 +224,23 @@
     .submit-btn {
       width: 100%;
       padding: 12px;
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      background: #4f46e5;
       color: white;
       border: none;
       border-radius: 8px;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
       margin-top: 1rem;
     }
 
     .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+      background: #3730a3;
     }
 
     .submit-btn:disabled {
-      opacity: 0.7;
+      background: #9ca3af;
       cursor: not-allowed;
-      transform: none;
     }
 
     .success-msg,
@@ -417,81 +412,113 @@
   </div>
 
   <script>
-    const form = document.getElementById('contact-form');
-    const successMsg = document.getElementById('success');
-    const errorMsg = document.getElementById('error');
-    const submitBtn = form.querySelector('.submit-btn');
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contact-form');
+      const successMsg = document.getElementById('success');
+      const errorMsg = document.getElementById('error');
+      const submitBtn = form.querySelector('.submit-btn');
 
-    // Google Apps Script URL for form submission
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwpMWGD9t41Isi3R-jSr6DxEOFE6s8fmuClmPPGHa2UQbUYvIZdgjkAkCIPax9QG5ZAhw/exec';
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+      // Google Apps Script URL for form submission
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwpMWGD9t41Isi3R-jSr6DxEOFE6s8fmuClmPPGHa2UQbUYvIZdgjkAkCIPax9QG5ZAhw/exec';
       
-      // Show loading state
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-      successMsg.style.display = 'none';
-      errorMsg.style.display = 'none';
+      // Prevent multiple submissions
+      let isSubmitting = false;
 
-      // Validate form
-      const formData = new FormData(form);
-      const data = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        service: formData.get('service'),
-        message: formData.get('message'),
-        type: 'contact'
-      };
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Prevent multiple submissions
+        if (isSubmitting) return;
+        isSubmitting = true;
+        
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
 
-      // Basic validation
-      if (!data.name || !data.email || !data.phone || !data.service || !data.message) {
-        errorMsg.textContent = '❌ Please fill all fields.';
-        errorMsg.style.display = 'block';
-        submitBtn.textContent = 'Send Message';
-        submitBtn.disabled = false;
-        return;
-      }
+        // Validate form
+        const formData = new FormData(form);
+        const data = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          service: formData.get('service'),
+          message: formData.get('message'),
+          type: 'contact'
+        };
 
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(data.email)) {
-        errorMsg.textContent = '❌ Please enter a valid email address.';
-        errorMsg.style.display = 'block';
-        submitBtn.textContent = 'Send Message';
-        submitBtn.disabled = false;
-        return;
-      }
-
-      try {
-        const response = await fetch(scriptURL, {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-
-        if (response.ok) {
-          successMsg.style.display = 'block';
-          form.reset();
-          
-          // Scroll to success message
-          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          throw new Error('Network response was not ok');
+        // Basic validation
+        if (!data.name || !data.email || !data.phone || !data.service || !data.message) {
+          errorMsg.textContent = '❌ Please fill all fields.';
+          errorMsg.style.display = 'block';
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+          isSubmitting = false;
+          return;
         }
-      } catch (error) {
-        errorMsg.textContent = '❌ Failed to send message. Please try again or contact us directly.';
-        errorMsg.style.display = 'block';
-        console.error('Error:', error);
-      } finally {
-        // Reset button state
-        submitBtn.textContent = 'Send Message';
-        submitBtn.disabled = false;
-      }
-    });
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+          errorMsg.textContent = '❌ Please enter a valid email address.';
+          errorMsg.style.display = 'block';
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+          isSubmitting = false;
+          return;
+        }
+
+        // Add timeout to prevent hanging
+        const timeoutId = setTimeout(() => {
+          errorMsg.textContent = '⏰ Request timeout. Please try again.';
+          errorMsg.style.display = 'block';
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+          isSubmitting = false;
+        }, 10000); // 10 second timeout
+
+        try {
+          const response = await Promise.race([
+            fetch(scriptURL, {
+              method: 'POST',
+              body: JSON.stringify(data),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }),
+            new Promise((_, reject) => 
+              setTimeout(() => reject(new Error('Timeout')), 8000)
+            )
+          ]);
+
+          clearTimeout(timeoutId);
+
+          if (response.ok) {
+            successMsg.style.display = 'block';
+            form.reset();
+            
+            // Scroll to success message
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            throw new Error('Network response was not ok');
+          }
+        } catch (error) {
+          clearTimeout(timeoutId);
+          errorMsg.textContent = error.message === 'Timeout' ? 
+            '⏰ Connection timeout. Please try again.' : 
+            '❌ Failed to send message. Please try again or contact us directly.';
+          errorMsg.style.display = 'block';
+        } finally {
+          // Reset button state
+          submitBtn.textContent = 'Send Message';
+          submitBtn.disabled = false;
+          isSubmitting = false;
+        }
+      });
+      
+    }); // End DOMContentLoaded
   </script>
 </body>
 </html>

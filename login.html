@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #667eea;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -26,10 +26,9 @@
       background: #ffffff;
       padding: 2rem;
       border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 400px;
-      backdrop-filter: blur(10px);
     }
 
     .logo {
@@ -68,7 +67,6 @@
       border: 2px solid #e5e7eb;
       border-radius: 8px;
       font-size: 16px;
-      transition: all 0.3s ease;
       background: #f9fafb;
     }
 
@@ -77,30 +75,28 @@
       border-color: #4f46e5;
       outline: none;
       background: #ffffff;
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     }
 
     .login-btn {
       width: 100%;
       padding: 12px;
-      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      background: #4f46e5;
       color: white;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
       font-weight: 600;
-      transition: all 0.3s ease;
       margin-bottom: 1rem;
     }
 
     .login-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+      background: #3730a3;
     }
 
-    .login-btn:active {
-      transform: translateY(0);
+    .login-btn:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
     }
 
     .success-msg,
@@ -135,11 +131,10 @@
       text-decoration: none;
       font-size: 0.9rem;
       margin: 0 10px;
-      transition: color 0.3s ease;
     }
 
     .links a:hover {
-      color: #7c3aed;
+      color: #3730a3;
       text-decoration: underline;
     }
 
@@ -202,13 +197,22 @@
   <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbwpMWGD9t41Isi3R-jSr6DxEOFE6s8fmuClmPPGHa2UQbUYvIZdgjkAkCIPax9QG5ZAhw/exec";
 
-    const form = document.getElementById('login-form');
-    const successMsg = document.getElementById('success');
-    const errorMsg = document.getElementById('error');
-    const submitBtn = form.querySelector('.login-btn');
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('login-form');
+      const successMsg = document.getElementById('success');
+      const errorMsg = document.getElementById('error');
+      const submitBtn = form.querySelector('.login-btn');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+      // Prevent multiple submissions
+      let isSubmitting = false;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Prevent multiple submissions
+        if (isSubmitting) return;
+        isSubmitting = true;
       
       // Show loading state
       submitBtn.textContent = 'Signing In...';
@@ -222,35 +226,56 @@
         password: formData.get('password')
       };
 
+      // Add timeout to prevent hanging
+      const timeoutId = setTimeout(() => {
+        errorMsg.textContent = '⏰ Request timeout. Please try again.';
+        errorMsg.style.display = 'block';
+        submitBtn.textContent = 'Sign In';
+        submitBtn.disabled = false;
+      }, 10000); // 10 second timeout
+
       try {
-        const response = await fetch(scriptURL, {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
+        const response = await Promise.race([
+          fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }),
+          new Promise((_, reject) => 
+            setTimeout(() => reject(new Error('Timeout')), 8000)
+          )
+        ]);
+
+        clearTimeout(timeoutId);
 
         if (response.ok) {
           successMsg.style.display = 'block';
           form.reset();
           
-          // Redirect after 2 seconds
+          // Redirect after 1.5 seconds
           setTimeout(() => {
             window.location.href = 'index.html';
-          }, 2000);
+          }, 1500);
         } else {
           throw new Error('Login failed');
         }
       } catch (error) {
+        clearTimeout(timeoutId);
+        errorMsg.textContent = error.message === 'Timeout' ? 
+          '⏰ Connection timeout. Please try again.' : 
+          '❌ Login failed. Please check your credentials.';
         errorMsg.style.display = 'block';
-        console.error('Login error:', error);
       } finally {
         // Reset button state
         submitBtn.textContent = 'Sign In';
         submitBtn.disabled = false;
+        isSubmitting = false;
       }
     });
+    
+    }); // End DOMContentLoaded
   </script>
 </body>
 </html>
