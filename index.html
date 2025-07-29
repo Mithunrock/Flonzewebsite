@@ -60,19 +60,21 @@
 
     /* Navbar styling */
     .navbar {
-      background: #dc2626;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.625rem 5%;
+      background: #dc2626 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 0.625rem 5% !important;
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
       right: 0 !important;
-      z-index: 9999 !important;
-      height: 80px;
-      width: 100% !important;
-      box-sizing: border-box;
+      z-index: 99999 !important;
+      height: 80px !important;
+      width: 100vw !important;
+      box-sizing: border-box !important;
+      transform: translateZ(0) !important;
+      will-change: auto !important;
     }
 
     .logo {
@@ -438,22 +440,14 @@
       }
     }
 
-    /* Optimized Button Animation */
-    @keyframes subtleGlow {
-      0%, 100% { box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4); }
-      50% { box-shadow: 0 6px 20px rgba(79, 70, 229, 0.6); }
-    }
-    
+    /* Simplified Button Styling */
     .highlight-btn {
-      animation: subtleGlow 3s ease-in-out infinite;
-      background: linear-gradient(45deg, #4f46e5, #ffeb3b, #4f46e5) !important;
-      background-size: 200% 200% !important;
-      will-change: transform, box-shadow;
-      transform: translateZ(0);
+      background: #4f46e5 !important;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
     }
     
     .highlight-btn:hover {
-      animation-play-state: paused;
+      background: #3730a3 !important;
     }
 
     /* Large Desktop */
@@ -766,34 +760,34 @@
       
       <!-- First 3 Services - Horizontal Layout -->
       <div class="services-row" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-        <div class="service-card-small" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s ease; position: relative; flex: 1; min-width: 120px; max-width: 180px;" onclick="openServiceBooking('wash-fold')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.15)'">
+        <div class="service-card-small" style="background: #fff; color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; position: relative; flex: 1; min-width: 120px; max-width: 180px; border: 1px solid #e5e7eb;" onclick="openBookingForm(); setTimeout(function(){document.querySelector('#bookingPopup select').value='wash-fold';}, 100);">
           <div style="font-size: 1.2rem; margin-bottom: 0.2rem;">🧺</div>
           <h3 style="font-size: 0.7rem; font-weight: 700; margin-bottom: 0.2rem; color: #667eea;">Wash & Fold</h3>
           <p style="font-size: 0.55rem; color: #6b7280; margin-bottom: 0.4rem;">Everyday clothes</p>
-          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; padding: 0.2rem 0.4rem; border-radius: 10px; font-size: 0.5rem; font-weight: 600; display: inline-block; margin-bottom: 0.3rem;">₹69/kg</div>
+          <div style="background: #667eea; color: #fff; padding: 0.2rem 0.4rem; border-radius: 10px; font-size: 0.5rem; font-weight: 600; display: inline-block; margin-bottom: 0.3rem;">₹69/kg</div>
           <div style="color: #667eea; font-size: 0.55rem; font-weight: 600;">Book →</div>
         </div>
         
-        <div class="service-card-small" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s ease; position: relative; flex: 1; min-width: 120px; max-width: 180px;" onclick="openServiceBooking('dry-clean')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.15)'">
+        <div class="service-card-small" style="background: #fff; color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; position: relative; flex: 1; min-width: 120px; max-width: 180px; border: 1px solid #e5e7eb;" onclick="openBookingForm(); setTimeout(function(){document.querySelector('#bookingPopup select').value='dry-clean';}, 100);">
           <div style="font-size: 1.2rem; margin-bottom: 0.2rem;">✨</div>
           <h3 style="font-size: 0.7rem; font-weight: 700; margin-bottom: 0.2rem; color: #4facfe;">Dry Cleaning</h3>
           <p style="font-size: 0.55rem; color: #6b7280; margin-bottom: 0.4rem;">Delicate fabrics</p>
-          <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #fff; padding: 0.2rem 0.4rem; border-radius: 10px; font-size: 0.5rem; font-weight: 600; display: inline-block; margin-bottom: 0.3rem;">₹150/piece</div>
+          <div style="background: #4facfe; color: #fff; padding: 0.2rem 0.4rem; border-radius: 10px; font-size: 0.5rem; font-weight: 600; display: inline-block; margin-bottom: 0.3rem;">₹150/piece</div>
           <div style="color: #4facfe; font-size: 0.55rem; font-weight: 600;">Book →</div>
         </div>
         
-        <div class="service-card-small" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s ease; position: relative; flex: 1; min-width: 120px; max-width: 180px;" onclick="openServiceBooking('wash-iron')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.15)'">
+        <div class="service-card-small" style="background: #fff; color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; position: relative; flex: 1; min-width: 120px; max-width: 180px; border: 1px solid #e5e7eb;" onclick="openBookingForm(); setTimeout(function(){document.querySelector('#bookingPopup select').value='wash-iron';}, 100);">
           <div style="font-size: 1.2rem; margin-bottom: 0.2rem;">👕</div>
           <h3 style="font-size: 0.7rem; font-weight: 700; margin-bottom: 0.2rem; color: #f093fb;">Wash & Iron</h3>
           <p style="font-size: 0.55rem; color: #6b7280; margin-bottom: 0.4rem;">With pressing</p>
-          <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #fff; padding: 0.2rem 0.4rem; border-radius: 10px; font-size: 0.5rem; font-weight: 600; display: inline-block; margin-bottom: 0.3rem;">₹99/kg</div>
+          <div style="background: #f093fb; color: #fff; padding: 0.2rem 0.4rem; border-radius: 10px; font-size: 0.5rem; font-weight: 600; display: inline-block; margin-bottom: 0.3rem;">₹99/kg</div>
           <div style="color: #f093fb; font-size: 0.55rem; font-weight: 600;">Book →</div>
         </div>
       </div>
       
       <!-- Home Cleaning Service - Full Width Below -->
       <div class="home-cleaning-container" style="display: flex; justify-content: center;">
-        <div class="home-cleaning-card" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative; max-width: 600px; width: 100%;" onclick="openServiceBooking('home-cleaning')" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
+        <div class="home-cleaning-card" style="background: #fff; color: #1f2937; padding: 1rem; border-radius: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: pointer; position: relative; max-width: 600px; width: 100%; border: 1px solid #e5e7eb;" onclick="openBookingForm(); setTimeout(function(){document.querySelector('#bookingPopup select').value='home-cleaning';}, 100);">
           <div style="font-size: 1.8rem; margin-bottom: 0.4rem;">🏠</div>
           <h3 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; color: #10b981;">Home Cleaning</h3>
           <p style="font-size: 0.65rem; color: #6b7280; margin-bottom: 0.6rem;">Kitchen + Full Home Deep Clean</p>
