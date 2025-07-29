@@ -371,39 +371,68 @@
         margin-bottom: 0.8rem !important;
       }
       
-      #services > div > div {
-        grid-template-columns: 1fr !important;
-        gap: 0.8rem !important;
+      /* Mobile - First 3 Services Row */
+      .services-row {
+        flex-direction: row !important;
+        gap: 0.5rem !important;
+        margin-bottom: 1rem !important;
       }
       
-      #services > div > div > div {
-        padding: 1rem 0.8rem !important;
-        margin: 0 !important;
+      .service-card-small {
+        padding: 0.4rem 0.3rem !important;
+        min-width: 90px !important;
+        max-width: 110px !important;
+        flex: 1 !important;
       }
       
-      #services > div > div > div > div:first-child {
-        font-size: 1.5rem !important;
+      .service-card-small div:first-child {
+        font-size: 1rem !important;
+        margin-bottom: 0.1rem !important;
+      }
+      
+      .service-card-small h3 {
+        font-size: 0.6rem !important;
+        margin-bottom: 0.1rem !important;
+      }
+      
+      .service-card-small p {
+        font-size: 0.45rem !important;
         margin-bottom: 0.3rem !important;
       }
       
-      #services > div > div > div > h3 {
-        font-size: 0.9rem !important;
+      .service-card-small div:nth-child(4) {
+        font-size: 0.4rem !important;
+        padding: 0.1rem 0.3rem !important;
         margin-bottom: 0.2rem !important;
       }
       
-      #services > div > div > div > p {
-        font-size: 0.7rem !important;
-        margin-bottom: 0.6rem !important;
+      .service-card-small div:last-child {
+        font-size: 0.45rem !important;
       }
       
-      #services > div > div > div > div:nth-child(4) {
-        font-size: 0.65rem !important;
-        padding: 0.25rem 0.6rem !important;
-        margin-bottom: 0.4rem !important;
+      /* Mobile - Home Cleaning Card */
+      .home-cleaning-card {
+        padding: 0.8rem !important;
+        max-width: 100% !important;
       }
       
-      #services > div > div > div > div:last-child {
-        font-size: 0.7rem !important;
+      .home-cleaning-card div:first-child {
+        font-size: 1.4rem !important;
+        margin-bottom: 0.3rem !important;
+      }
+      
+      .home-cleaning-card h3 {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.2rem !important;
+      }
+      
+      .home-cleaning-card p {
+        font-size: 0.55rem !important;
+        margin-bottom: 0.5rem !important;
+      }
+      
+      .home-cleaning-card div:last-child {
+        font-size: 0.6rem !important;
       }
     }
 
@@ -733,8 +762,9 @@
       <h2 style="font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🧼 Our Services</h2>
       <p style="color: #f1f5f9; font-size: 0.85rem; margin-bottom: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">📌 Click any service to book instantly</p>
       
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
-        <div style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s ease; position: relative;" onclick="openServiceBooking('wash-fold')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.15)'">
+      <!-- First 3 Services - Horizontal Layout -->
+      <div class="services-row" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <div class="service-card-small" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s ease; position: relative; flex: 1; min-width: 120px; max-width: 180px;" onclick="openServiceBooking('wash-fold')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.15)'">
           <div style="font-size: 1.2rem; margin-bottom: 0.2rem;">🧺</div>
           <h3 style="font-size: 0.7rem; font-weight: 700; margin-bottom: 0.2rem; color: #667eea;">Wash & Fold</h3>
           <p style="font-size: 0.55rem; color: #6b7280; margin-bottom: 0.4rem;">Everyday clothes</p>
@@ -742,7 +772,7 @@
           <div style="color: #667eea; font-size: 0.55rem; font-weight: 600;">Book →</div>
         </div>
         
-        <div style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s ease; position: relative;" onclick="openServiceBooking('dry-clean')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.15)'">
+        <div class="service-card-small" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s ease; position: relative; flex: 1; min-width: 120px; max-width: 180px;" onclick="openServiceBooking('dry-clean')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.15)'">
           <div style="font-size: 1.2rem; margin-bottom: 0.2rem;">✨</div>
           <h3 style="font-size: 0.7rem; font-weight: 700; margin-bottom: 0.2rem; color: #4facfe;">Dry Cleaning</h3>
           <p style="font-size: 0.55rem; color: #6b7280; margin-bottom: 0.4rem;">Delicate fabrics</p>
@@ -750,15 +780,18 @@
           <div style="color: #4facfe; font-size: 0.55rem; font-weight: 600;">Book →</div>
         </div>
         
-        <div style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s ease; position: relative;" onclick="openServiceBooking('wash-iron')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.15)'">
+        <div class="service-card-small" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 0.6rem 0.5rem; border-radius: 0.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s ease; position: relative; flex: 1; min-width: 120px; max-width: 180px;" onclick="openServiceBooking('wash-iron')" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 15px rgba(0,0,0,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(0,0,0,0.15)'">
           <div style="font-size: 1.2rem; margin-bottom: 0.2rem;">👕</div>
           <h3 style="font-size: 0.7rem; font-weight: 700; margin-bottom: 0.2rem; color: #f093fb;">Wash & Iron</h3>
           <p style="font-size: 0.55rem; color: #6b7280; margin-bottom: 0.4rem;">With pressing</p>
           <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #fff; padding: 0.2rem 0.4rem; border-radius: 10px; font-size: 0.5rem; font-weight: 600; display: inline-block; margin-bottom: 0.3rem;">₹99/kg</div>
           <div style="color: #f093fb; font-size: 0.55rem; font-weight: 600;">Book →</div>
         </div>
-        
-        <div style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative;" onclick="openServiceBooking('home-cleaning')" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
+      </div>
+      
+      <!-- Home Cleaning Service - Full Width Below -->
+      <div class="home-cleaning-container" style="display: flex; justify-content: center;">
+        <div class="home-cleaning-card" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative; max-width: 600px; width: 100%;" onclick="openServiceBooking('home-cleaning')" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
           <div style="font-size: 1.8rem; margin-bottom: 0.4rem;">🏠</div>
           <h3 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; color: #10b981;">Home Cleaning</h3>
           <p style="font-size: 0.65rem; color: #6b7280; margin-bottom: 0.6rem;">Kitchen + Full Home Deep Clean</p>
