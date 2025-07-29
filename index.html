@@ -355,6 +355,56 @@
         max-width: 18rem;
         text-align: center;
       }
+      
+      /* Mobile Services Section */
+      #services {
+        padding: 1rem 3% !important;
+      }
+      
+      #services h2 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.2rem !important;
+      }
+      
+      #services p {
+        font-size: 0.75rem !important;
+        margin-bottom: 0.8rem !important;
+      }
+      
+      #services > div > div {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+      }
+      
+      #services > div > div > div {
+        padding: 1rem 0.8rem !important;
+        margin: 0 !important;
+      }
+      
+      #services > div > div > div > div:first-child {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.3rem !important;
+      }
+      
+      #services > div > div > div > h3 {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.2rem !important;
+      }
+      
+      #services > div > div > div > p {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.6rem !important;
+      }
+      
+      #services > div > div > div > div:nth-child(4) {
+        font-size: 0.65rem !important;
+        padding: 0.25rem 0.6rem !important;
+        margin-bottom: 0.4rem !important;
+      }
+      
+      #services > div > div > div > div:last-child {
+        font-size: 0.7rem !important;
+      }
     }
 
     /* Optimized Button Animation */
@@ -596,7 +646,12 @@
       const service = event.target[3].value;
       const date = event.target[4].value;
       
-      const message = `Hi! I want to book laundry service.\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nService: ${service}\nDate: ${date}`;
+      let message = `Hi! I want to book service.\n\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nService: ${service}\nDate: ${date}`;
+      
+      // Add pricing info for home cleaning
+      if (service === 'home-cleaning') {
+        message += `\n\nHome Cleaning Rates:\n1BHK: ₹3100\n2BHK: ₹3900\n3BHK: ₹4800\n4BHK: ₹6000\n5BHK: ₹6850\n\nIncludes: Kitchen + Full Home Deep Cleaning\nEquipment: Scrubber, Vacuum, Mops, Dry Cloth`;
+      }
       const whatsappUrl = `https://wa.me/918108395367?text=${encodeURIComponent(message)}`;
       
       window.open(whatsappUrl, '_blank');
@@ -606,25 +661,31 @@
     
     // Service-specific booking function
     function openServiceBooking(service) {
+      console.log('Service clicked:', service); // Debug log
+      
       const serviceNames = {
         'wash-fold': 'Wash & Fold',
         'dry-clean': 'Dry Cleaning', 
-        'wash-iron': 'Wash & Iron'
+        'wash-iron': 'Wash & Iron',
+        'home-cleaning': 'Home Cleaning'
       };
       
-      // Pre-select the service in the form
-      const selectElement = document.querySelector('#bookingPopup select');
-      if (selectElement) {
-        selectElement.value = service;
-      }
-      
-      // Update form title
-      const formTitle = document.querySelector('#bookingPopup h3');
-      if (formTitle) {
-        formTitle.textContent = `Book ${serviceNames[service]} Service`;
-      }
-      
+      // Open the booking form first
       openBookingForm();
+      
+      // Then pre-select the service in the form
+      setTimeout(() => {
+        const selectElement = document.querySelector('#bookingPopup select');
+        if (selectElement) {
+          selectElement.value = service;
+        }
+        
+        // Update form title
+        const formTitle = document.querySelector('#bookingPopup h3');
+        if (formTitle) {
+          formTitle.textContent = `Book ${serviceNames[service]} Service`;
+        }
+      }, 100);
     }
     
     // Close booking form when clicking outside - with DOM ready check
@@ -672,8 +733,8 @@
       <h2 style="font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🧼 Our Services</h2>
       <p style="color: #f1f5f9; font-size: 0.85rem; margin-bottom: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">📌 Click any service to book instantly</p>
       
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-        <div onclick="openServiceBooking('wash-fold')" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1.2rem 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+        <div style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1.2rem 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative;" onclick="openServiceBooking('wash-fold')" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
           <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧺</div>
           <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; color: #667eea;">Wash & Fold</h3>
           <p style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.8rem;">Perfect for everyday clothes</p>
@@ -681,7 +742,7 @@
           <div style="color: #667eea; font-size: 0.8rem; font-weight: 600;">Click to Book →</div>
         </div>
         
-        <div onclick="openServiceBooking('dry-clean')" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1.2rem 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
+        <div style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1.2rem 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative;" onclick="openServiceBooking('dry-clean')" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
           <div style="font-size: 2rem; margin-bottom: 0.5rem;">✨</div>
           <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; color: #4facfe;">Dry Cleaning</h3>
           <p style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.8rem;">Premium care for delicate fabrics</p>
@@ -689,12 +750,20 @@
           <div style="color: #4facfe; font-size: 0.8rem; font-weight: 600;">Click to Book →</div>
         </div>
         
-        <div onclick="openServiceBooking('wash-iron')" style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1.2rem 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
+        <div style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1.2rem 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative;" onclick="openServiceBooking('wash-iron')" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
           <div style="font-size: 2rem; margin-bottom: 0.5rem;">👕</div>
           <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; color: #f093fb;">Wash & Iron</h3>
           <p style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.8rem;">Complete service with pressing</p>
           <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #fff; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.7rem; font-weight: 600; display: inline-block; margin-bottom: 0.5rem;">Starting ₹99/kg</div>
           <div style="color: #f093fb; font-size: 0.8rem; font-weight: 600;">Click to Book →</div>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, #fff 0%, #f8fafc 100%); color: #1f2937; padding: 1.2rem 1rem; border-radius: 0.8rem; box-shadow: 0 6px 20px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; position: relative;" onclick="openServiceBooking('home-cleaning')" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 25px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏠</div>
+          <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; color: #10b981;">Home Cleaning</h3>
+          <p style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.8rem;">Deep cleaning with professional equipment</p>
+          <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #fff; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.7rem; font-weight: 600; display: inline-block; margin-bottom: 0.5rem;">Starting ₹3100</div>
+          <div style="color: #10b981; font-size: 0.8rem; font-weight: 600;">Click to Book →</div>
         </div>
       </div>
       
@@ -939,7 +1008,149 @@
     </div>
   </section>
 
-
+  <!-- Home Cleaning Service Section -->
+  <section id="home-cleaning-details" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 2rem 5%; font-family: 'Poppins', sans-serif; color: #fff;">
+    <div style="max-width: 60rem; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🏠 Home Cleaning Service</h2>
+      <p style="font-size: 1rem; margin-bottom: 1.5rem; opacity: 0.9;">Professional deep cleaning with advanced equipment for your entire home</p>
+      
+      <!-- Service Details -->
+      <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">🧽 What's Included</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: left;">
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: #ffeb3b;">🍳 Kitchen Deep Clean</h4>
+            <ul style="font-size: 0.85rem; list-style: none; padding: 0;">
+              <li>• Countertops & Cabinets</li>
+              <li>• Appliance Cleaning</li>
+              <li>• Sink & Faucet Polish</li>
+              <li>• Floor Scrubbing</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: #ffeb3b;">🏠 Full Home Clean</h4>
+            <ul style="font-size: 0.85rem; list-style: none; padding: 0;">
+              <li>• All Rooms & Bathrooms</li>
+              <li>• Dusting & Vacuuming</li>
+              <li>• Floor Mopping</li>
+              <li>• Window & Mirror Clean</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Equipment Used -->
+      <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; backdrop-filter: blur(10px);">
+        <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">🛠️ Professional Equipment</h3>
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧽</div>
+            <p style="font-size: 0.9rem; font-weight: 600;">Scrubber</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌪️</div>
+            <p style="font-size: 0.9rem; font-weight: 600;">Vacuum Cleaner</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧼</div>
+            <p style="font-size: 0.9rem; font-weight: 600;">Professional Mops</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧻</div>
+            <p style="font-size: 0.9rem; font-weight: 600;">Dry Cloth</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pricing Table -->
+      <div style="background: rgba(255,255,255,0.95); color: #1f2937; padding: 2rem; border-radius: 1rem; margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; color: #10b981;">💰 Home Cleaning Pricing</h3>
+        
+        <!-- Regular Cleaning -->
+        <div style="margin-bottom: 2rem;">
+          <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: #059669;">🏠 Regular Home Cleaning</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+            <div style="background: #f0fdf4; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #10b981;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">1 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #10b981; margin: 0;">₹3,100</p>
+            </div>
+            <div style="background: #f0fdf4; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #10b981;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">2 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #10b981; margin: 0;">₹3,900</p>
+            </div>
+            <div style="background: #f0fdf4; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #10b981;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">3 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #10b981; margin: 0;">₹4,800</p>
+            </div>
+            <div style="background: #f0fdf4; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #10b981;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">4 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #10b981; margin: 0;">₹6,000</p>
+            </div>
+            <div style="background: #f0fdf4; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #10b981;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">5 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #10b981; margin: 0;">₹6,850</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Re-cleaning Service -->
+        <div style="margin-bottom: 2rem;">
+          <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: #059669;">🔄 Re-cleaning Service</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #f59e0b;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">1 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #f59e0b; margin: 0;">₹1,900</p>
+            </div>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #f59e0b;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">2 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #f59e0b; margin: 0;">₹2,200</p>
+            </div>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #f59e0b;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">3 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #f59e0b; margin: 0;">₹2,600</p>
+            </div>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #f59e0b;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">4 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #f59e0b; margin: 0;">₹2,900</p>
+            </div>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #f59e0b;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">5 BHK</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #f59e0b; margin: 0;">₹3,300</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Villa Cleaning -->
+        <div>
+          <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: #059669;">🏰 Villa Cleaning</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+            <div style="background: #fdf2f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #ec4899;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">2 BHK Villa</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #ec4899; margin: 0;">₹5,399</p>
+            </div>
+            <div style="background: #fdf2f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #ec4899;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">3 BHK Villa</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #ec4899; margin: 0;">₹6,750</p>
+            </div>
+            <div style="background: #fdf2f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #ec4899;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">4 BHK Villa</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #ec4899; margin: 0;">₹8,500</p>
+            </div>
+            <div style="background: #fdf2f8; padding: 1rem; border-radius: 0.5rem; border-left: 4px solid #ec4899;">
+              <h5 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">5 BHK Villa</h5>
+              <p style="font-size: 1.2rem; font-weight: 700; color: #ec4899; margin: 0;">₹12,000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Book Home Cleaning CTA -->
+      <div style="text-align: center;">
+        <button onclick="openServiceBooking('home-cleaning')" style="background: #ffeb3b; color: #1f2937; padding: 1rem 2rem; border: none; border-radius: 0.5rem; font-size: 1.1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 235, 59, 0.4); transition: transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">🏠 Book Home Cleaning Service</button>
+        <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.9;">📞 Call +91 81083 95367 for custom quotes and bulk bookings</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Quick Booking Form -->
   <div class="booking-popup" id="bookingPopup">
@@ -957,6 +1168,7 @@
           <option value="wash-fold">Wash & Fold</option>
           <option value="dry-clean">Dry Cleaning</option>
           <option value="wash-iron">Wash & Iron</option>
+          <option value="home-cleaning">Home Cleaning</option>
         </select>
         <input type="date" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;">
         <button type="submit" style="width: 100%; background: #4f46e5; color: #fff; padding: 12px; border: none; border-radius: 5px; font-weight: 600; cursor: pointer;">Book Now</button>
