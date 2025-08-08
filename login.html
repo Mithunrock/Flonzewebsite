@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login | Flonze Laundry</title>
+  <title>Login | Flonze News</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #667eea;
+      background: #e30613;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -37,7 +37,7 @@
     }
 
     .logo h1 {
-      color: #4f46e5;
+      color: #e30613;
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
@@ -72,7 +72,7 @@
 
     input[type="email"]:focus,
     input[type="password"]:focus {
-      border-color: #4f46e5;
+      border-color: #e30613;
       outline: none;
       background: #ffffff;
     }
@@ -80,7 +80,7 @@
     .login-btn {
       width: 100%;
       padding: 12px;
-      background: #4f46e5;
+      background: #e30613;
       color: white;
       border: none;
       border-radius: 8px;
@@ -91,7 +91,7 @@
     }
 
     .login-btn:hover {
-      background: #3730a3;
+      background: #b91c1c;
     }
 
     .login-btn:disabled {
@@ -127,14 +127,14 @@
     }
 
     .links a {
-      color: #4f46e5;
+      color: #e30613;
       text-decoration: none;
       font-size: 0.9rem;
       margin: 0 10px;
     }
 
     .links a:hover {
-      color: #3730a3;
+      color: #b91c1c;
       text-decoration: underline;
     }
 
@@ -157,7 +157,7 @@
 
       input[type="email"],
       input[type="password"] {
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px;
       }
     }
   </style>
@@ -165,8 +165,8 @@
 <body>
   <div class="login-container">
     <div class="logo">
-      <h1>FLONZE</h1>
-      <p>Doorstep Laundry Service</p>
+      <h1>FLONZE NEWS</h1>
+      <p>Every Update That Matters</p>
     </div>
 
     <form id="login-form">
@@ -197,24 +197,20 @@
   <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbwpMWGD9t41Isi3R-jSr6DxEOFE6s8fmuClmPPGHa2UQbUYvIZdgjkAkCIPax9QG5ZAhw/exec";
 
-    // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('login-form');
       const successMsg = document.getElementById('success');
       const errorMsg = document.getElementById('error');
       const submitBtn = form.querySelector('.login-btn');
 
-      // Prevent multiple submissions
       let isSubmitting = false;
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Prevent multiple submissions
         if (isSubmitting) return;
         isSubmitting = true;
       
-      // Show loading state
       submitBtn.textContent = 'Signing In...';
       submitBtn.disabled = true;
       successMsg.style.display = 'none';
@@ -226,13 +222,12 @@
         password: formData.get('password')
       };
 
-      // Add timeout to prevent hanging
       const timeoutId = setTimeout(() => {
         errorMsg.textContent = '⏰ Request timeout. Please try again.';
         errorMsg.style.display = 'block';
         submitBtn.textContent = 'Sign In';
         submitBtn.disabled = false;
-      }, 10000); // 10 second timeout
+      }, 10000);
 
       try {
         const response = await Promise.race([
@@ -254,7 +249,6 @@
           successMsg.style.display = 'block';
           form.reset();
           
-          // Redirect after 1.5 seconds
           setTimeout(() => {
             window.location.href = 'index.html';
           }, 1500);
@@ -268,14 +262,13 @@
           '❌ Login failed. Please check your credentials.';
         errorMsg.style.display = 'block';
       } finally {
-        // Reset button state
         submitBtn.textContent = 'Sign In';
         submitBtn.disabled = false;
         isSubmitting = false;
       }
     });
     
-    }); // End DOMContentLoaded
+    });
   </script>
 </body>
 </html>

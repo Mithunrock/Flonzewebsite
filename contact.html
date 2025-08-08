@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Flonze Laundry</title>
+  <title>Contact Us | Flonze News</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,34 +14,33 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      color: #333;
+      background: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
     }
 
     /* Header */
     .header {
-      background: rgba(79, 70, 229, 0.95);
+      background: #e30613;
       color: white;
-      padding: 1rem 5%;
+      padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(10px);
     }
 
     .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 0 2rem;
     }
 
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #ffeb3b;
     }
 
     .nav-links {
@@ -53,72 +52,64 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
     }
 
     .nav-links a:hover {
-      color: #ffeb3b;
+      text-decoration: underline;
     }
 
     /* Main Container */
     .main-container {
+      max-width: 1200px;
+      margin: 3rem auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 5%;
+      padding: 0 2rem;
     }
 
     /* Contact Info */
     .contact-info {
       background: white;
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       height: fit-content;
     }
 
     .contact-info h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #4f46e5;
-      margin-bottom: 1.5rem;
+      color: #e30613;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
     }
 
     .contact-info p {
       color: #6b7280;
       margin-bottom: 2rem;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
       margin-bottom: 1.5rem;
       padding: 1rem;
-      background: #f9fafb;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-    }
-
-    .contact-item:hover {
-      background: #e0e7ff;
-      transform: translateX(5px);
+      background: #f8fafc;
+      border-radius: 8px;
+      border-left: 4px solid #e30613;
     }
 
     .contact-icon {
       font-size: 1.5rem;
-      color: #4f46e5;
+      margin-right: 1rem;
       width: 40px;
       text-align: center;
     }
 
     .contact-details h4 {
-      font-weight: 600;
       color: #1f2937;
       margin-bottom: 0.25rem;
+      font-size: 1rem;
     }
 
     .contact-details span {
@@ -128,13 +119,14 @@
 
     .quick-actions {
       margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e5e7eb;
     }
 
     .quick-actions h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
       color: #1f2937;
       margin-bottom: 1rem;
+      font-size: 1.2rem;
     }
 
     .action-buttons {
@@ -146,42 +138,45 @@
     .action-btn {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.875rem 1.25rem;
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      padding: 0.75rem 1rem;
+      background: #e30613;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 6px;
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: background 0.2s ease;
     }
 
     .action-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+      background: #b91c1c;
     }
 
-    .action-btn.whatsapp {
-      background: linear-gradient(135deg, #25d366, #128c7e);
+    .action-btn span {
+      margin-right: 0.5rem;
+      font-size: 1.1rem;
     }
 
-    .action-btn.whatsapp:hover {
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    .whatsapp {
+      background: #25d366;
+    }
+
+    .whatsapp:hover {
+      background: #1da851;
     }
 
     /* Contact Form */
     .contact-form {
       background: white;
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      height: fit-content;
     }
 
     .contact-form h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #4f46e5;
+      color: #e30613;
       margin-bottom: 1.5rem;
+      font-size: 1.8rem;
     }
 
     .form-group {
@@ -193,27 +188,25 @@
       margin-bottom: 0.5rem;
       color: #374151;
       font-weight: 500;
-      font-size: 0.9rem;
     }
 
     .form-group input,
-    .form-group textarea,
-    .form-group select {
+    .form-group select,
+    .form-group textarea {
       width: 100%;
-      padding: 12px 16px;
+      padding: 0.75rem;
       border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 6px;
+      font-size: 1rem;
       background: #f9fafb;
-      font-family: 'Poppins', sans-serif;
     }
 
     .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: #4f46e5;
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #e30613;
       outline: none;
-      background: #ffffff;
+      background: white;
     }
 
     .form-group textarea {
@@ -223,19 +216,19 @@
 
     .submit-btn {
       width: 100%;
-      padding: 12px;
-      background: #4f46e5;
+      padding: 0.75rem;
+      background: #e30613;
       color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 6px;
+      font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       margin-top: 1rem;
     }
 
     .submit-btn:hover {
-      background: #3730a3;
+      background: #b91c1c;
     }
 
     .submit-btn:disabled {
@@ -297,12 +290,12 @@
   <!-- Header -->
   <header class="header">
     <div class="nav-container">
-      <div class="logo">FLONZE</div>
+      <div class="logo">FLONZE NEWS</div>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="pricing.html">Pricing</a>
+        <a href="services.html">Categories</a>
+        <a href="pricing.html">Subscribe</a>
         <a href="login.html">Login</a>
         <a href="signin.html">Sign Up</a>
       </nav>
@@ -314,7 +307,7 @@
     <!-- Contact Information -->
     <div class="contact-info">
       <h2>📞 Get in Touch</h2>
-      <p>Have questions about our laundry services? Need to schedule a pickup? We're here to help! Reach out to us through any of the channels below.</p>
+      <p>Have news tips to share? Want to subscribe to our updates? Need support with our services? We're here to help! Reach out to us through any of the channels below.</p>
 
       <div class="contact-item">
         <div class="contact-icon">📱</div>
@@ -328,37 +321,37 @@
         <div class="contact-icon">✉️</div>
         <div class="contact-details">
           <h4>Email</h4>
-          <span>flonzescontect@gmail.com</span>
+          <span>flonzescontact@gmail.com</span>
         </div>
       </div>
 
       <div class="contact-item">
         <div class="contact-icon">📍</div>
         <div class="contact-details">
-          <h4>Service Area</h4>
-          <span>Mumbai, Maharashtra</span>
+          <h4>Coverage Area</h4>
+          <span>Mumbai, Maharashtra & India</span>
         </div>
       </div>
 
       <div class="contact-item">
         <div class="contact-icon">🕒</div>
         <div class="contact-details">
-          <h4>Service Hours</h4>
-          <span>Mon-Sun: 7:00 AM - 9:00 PM</span>
+          <h4>Newsroom Hours</h4>
+          <span>24/7 Breaking News Coverage</span>
         </div>
       </div>
 
       <div class="quick-actions">
         <h3>Quick Actions</h3>
         <div class="action-buttons">
-          <a href="https://wa.me/918108395367?text=Hi! I want to book laundry service." class="action-btn whatsapp" target="_blank">
-            <span>💬</span> Book on WhatsApp
+          <a href="https://wa.me/918108395367?text=Hi! I have a news tip to share." class="action-btn whatsapp" target="_blank">
+            <span>💬</span> Share News Tip
           </a>
           <a href="tel:+918108395367" class="action-btn">
-            <span>📞</span> Call Now
+            <span>📞</span> Call Newsroom
           </a>
           <a href="services.html" class="action-btn">
-            <span>🧼</span> View Services
+            <span>📰</span> View Categories
           </a>
         </div>
       </div>
@@ -388,22 +381,22 @@
         </div>
 
         <div class="form-group">
-          <label for="service">Service Interested In</label>
+          <label for="service">Inquiry Type</label>
           <select id="service" name="service" required>
-            <option value="">Select a service</option>
-            <option value="wash-fold">Wash & Fold</option>
-            <option value="wash-iron">Wash & Iron</option>
-            <option value="dry-cleaning">Dry Cleaning</option>
-            <option value="monthly-plan">Monthly Plan</option>
-            <option value="express">Express Service</option>
-            <option value="household">Household Items</option>
+            <option value="">Select inquiry type</option>
+            <option value="news-tip">News Tip</option>
+            <option value="subscription">Subscription</option>
+            <option value="press-release">Press Release</option>
+            <option value="partnership">Partnership</option>
+            <option value="feedback">Feedback</option>
+            <option value="technical-support">Technical Support</option>
             <option value="other">Other</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us about your laundry needs, pickup address, or any questions you have..." required></textarea>
+          <textarea id="message" name="message" placeholder="Share your news tip, feedback, or any questions you have..." required></textarea>
         </div>
 
         <button type="submit" class="submit-btn">Send Message</button>
@@ -412,33 +405,27 @@
   </div>
 
   <script>
-    // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('contact-form');
       const successMsg = document.getElementById('success');
       const errorMsg = document.getElementById('error');
       const submitBtn = form.querySelector('.submit-btn');
 
-      // Google Apps Script URL for form submission
       const scriptURL = 'https://script.google.com/macros/s/AKfycbwpMWGD9t41Isi3R-jSr6DxEOFE6s8fmuClmPPGHa2UQbUYvIZdgjkAkCIPax9QG5ZAhw/exec';
       
-      // Prevent multiple submissions
       let isSubmitting = false;
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Prevent multiple submissions
         if (isSubmitting) return;
         isSubmitting = true;
         
-        // Show loading state
         submitBtn.textContent = 'Sending...';
         submitBtn.disabled = true;
         successMsg.style.display = 'none';
         errorMsg.style.display = 'none';
 
-        // Validate form
         const formData = new FormData(form);
         const data = {
           name: formData.get('name'),
@@ -449,7 +436,6 @@
           type: 'contact'
         };
 
-        // Basic validation
         if (!data.name || !data.email || !data.phone || !data.service || !data.message) {
           errorMsg.textContent = '❌ Please fill all fields.';
           errorMsg.style.display = 'block';
@@ -459,7 +445,6 @@
           return;
         }
 
-        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
           errorMsg.textContent = '❌ Please enter a valid email address.';
@@ -470,14 +455,13 @@
           return;
         }
 
-        // Add timeout to prevent hanging
         const timeoutId = setTimeout(() => {
           errorMsg.textContent = '⏰ Request timeout. Please try again.';
           errorMsg.style.display = 'block';
           submitBtn.textContent = 'Send Message';
           submitBtn.disabled = false;
           isSubmitting = false;
-        }, 10000); // 10 second timeout
+        }, 10000);
 
         try {
           const response = await Promise.race([
@@ -499,7 +483,6 @@
             successMsg.style.display = 'block';
             form.reset();
             
-            // Scroll to success message
             successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
           } else {
             throw new Error('Network response was not ok');
@@ -511,14 +494,13 @@
             '❌ Failed to send message. Please try again or contact us directly.';
           errorMsg.style.display = 'block';
         } finally {
-          // Reset button state
           submitBtn.textContent = 'Send Message';
           submitBtn.disabled = false;
           isSubmitting = false;
         }
       });
       
-    }); // End DOMContentLoaded
+    });
   </script>
 </body>
 </html>

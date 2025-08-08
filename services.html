@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Services | Flonze Laundry</title>
+  <title>News Categories | Flonze News</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -15,33 +15,32 @@
     body {
       font-family: 'Poppins', sans-serif;
       background: #f9fafb;
-      color: #333;
+      color: #1f2937;
       line-height: 1.6;
     }
 
     /* Header */
     .header {
-      background: #4f46e5;
+      background: #e30613;
       color: white;
-      padding: 1rem 5%;
+      padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 0 2rem;
     }
 
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #ffeb3b;
     }
 
     .nav-links {
@@ -56,121 +55,114 @@
     }
 
     .nav-links a:hover {
-      color: #ffeb3b;
+      text-decoration: underline;
     }
 
     /* Hero Section */
     .hero {
-      background: #4f46e5;
-      padding: 2rem 5%;
-      text-align: center;
+      background: linear-gradient(135deg, #e30613, #b91c1c);
       color: white;
+      text-align: center;
+      padding: 3rem 2rem;
     }
 
     .hero h1 {
-      font-size: 1.8rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
     }
 
     .hero p {
-      font-size: 1rem;
+      font-size: 1.2rem;
       opacity: 0.9;
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    /* Services Container */
+    /* Container */
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 5%;
+      padding: 3rem 2rem;
     }
 
-    .services-grid {
+    /* Categories Grid */
+    .categories-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
 
-    .service-card {
+    .category-card {
       background: white;
-      padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e5e7eb;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #e30613;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .service-card:hover {
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-      border-color: #4f46e5;
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
-    .service-header {
+    .category-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
       margin-bottom: 1rem;
     }
 
-    .service-icon {
+    .category-icon {
       font-size: 2rem;
-      padding: 0.75rem;
-      background: #4f46e5;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin-right: 1rem;
     }
 
-    .service-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
+    .category-card h3 {
+      font-size: 1.5rem;
       color: #1f2937;
-      margin: 0;
+      margin-bottom: 0.5rem;
     }
 
-    .service-card p {
+    .category-card p {
       color: #6b7280;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       line-height: 1.6;
-      font-size: 0.9rem;
     }
 
-    .service-features {
+    .category-features {
       list-style: none;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
-    .service-features li {
-      padding: 0.375rem 0;
+    .category-features li {
+      padding: 0.5rem 0;
       color: #4b5563;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f3f4f6;
     }
 
-    .service-features li::before {
-      content: '✓';
+    .category-features li:before {
+      content: "✓";
       color: #10b981;
       font-weight: bold;
+      margin-right: 0.5rem;
     }
 
-    .price-tag {
+    .update-frequency {
       background: #fef3c7;
-      padding: 0.5rem 0.75rem;
-      border-radius: 6px;
-      font-weight: 600;
       color: #92400e;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
       text-align: center;
       margin-top: 0.75rem;
-      font-size: 0.9rem;
     }
 
     .cta-button {
-      background: #4f46e5;
+      background: #e30613;
       color: white;
       padding: 0.625rem 1rem;
       border: none;
@@ -183,12 +175,12 @@
     }
 
     .cta-button:hover {
-      background: #3730a3;
+      background: #b91c1c;
     }
 
     /* Contact Section */
     .contact-section {
-      background: #4f46e5;
+      background: #e30613;
       color: white;
       padding: 2rem 5%;
       text-align: center;
@@ -242,12 +234,12 @@
         font-size: 1rem;
       }
 
-      .services-grid {
+      .categories-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
 
-      .service-card {
+      .category-card {
         padding: 1.25rem;
       }
 
@@ -267,12 +259,12 @@
   <!-- Header -->
   <header class="header">
     <div class="nav-container">
-      <div class="logo">FLONZE</div>
+      <div class="logo">FLONZE NEWS</div>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="pricing.html">Pricing</a>
+        <a href="services.html">Categories</a>
+        <a href="pricing.html">Subscribe</a>
         <a href="login.html">Login</a>
         <a href="signin.html">Sign Up</a>
       </nav>
@@ -281,163 +273,159 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>🧼 Our Laundry Services</h1>
-    <p>Professional doorstep laundry services in Mumbai. Choose the perfect plan for your needs.</p>
+    <h1>📰 News Categories</h1>
+    <p>Stay informed with comprehensive coverage across all major news categories. Choose your interests and never miss an update.</p>
   </section>
 
-  <!-- Services Container -->
+  <!-- Categories Container -->
   <div class="container">
-    <div class="services-grid">
-      <!-- Wash & Fold Service -->
-      <div class="service-card">
-        <div class="service-header">
-          <div class="service-icon">🧺</div>
-          <h3>Wash & Fold</h3>
+    <div class="categories-grid">
+      <!-- Politics Category -->
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon">🏛️</div>
+          <h3>Politics</h3>
         </div>
-        <p>Our most popular service! We wash, dry, and neatly fold your clothes with care using premium detergents.</p>
-        <ul class="service-features">
-          <li>Professional washing with eco-friendly detergents</li>
-          <li>Proper drying and neat folding</li>
-          <li>48-hour turnaround time</li>
-          <li>Fabric-specific care instructions followed</li>
-          <li>Hygienic packaging</li>
+        <p>Comprehensive coverage of political developments, government policies, elections, and legislative updates from India and around the world.</p>
+        <ul class="category-features">
+          <li>Breaking political news and analysis</li>
+          <li>Election coverage and results</li>
+          <li>Government policy updates</li>
+          <li>Parliamentary proceedings</li>
+          <li>Expert political commentary</li>
         </ul>
-        <div class="price-tag">Starting at ₹69/kg</div>
-        <button class="cta-button" onclick="bookService('wash-fold')">Book Now</button>
+        <div class="update-frequency">Updated Hourly</div>
+        <button class="cta-button" onclick="subscribeCategory('politics')">Subscribe to Politics</button>
       </div>
 
-      <!-- Wash & Iron Service -->
-      <div class="service-card">
-        <div class="service-header">
-          <div class="service-icon">👕</div>
-          <h3>Wash & Iron</h3>
+      <!-- Business Category -->
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon">💼</div>
+          <h3>Business</h3>
         </div>
-        <p>Complete laundry solution with professional washing, drying, and crisp ironing for that perfect finish.</p>
-        <ul class="service-features">
-          <li>Premium washing and drying</li>
-          <li>Professional ironing service</li>
-          <li>24-hour express delivery available</li>
-          <li>Wrinkle-free guarantee</li>
-          <li>Free pickup and delivery</li>
+        <p>Real-time market updates, corporate news, economic analysis, and business insights from Indian and global markets.</p>
+        <ul class="category-features">
+          <li>Stock market updates and analysis</li>
+          <li>Corporate earnings and news</li>
+          <li>Economic policy and trends</li>
+          <li>Startup and investment news</li>
+          <li>Industry reports and insights</li>
         </ul>
-        <div class="price-tag">Starting at ₹99/kg</div>
-        <button class="cta-button" onclick="bookService('wash-iron')">Book Now</button>
+        <div class="update-frequency">Real-time Updates</div>
+        <button class="cta-button" onclick="subscribeCategory('business')">Subscribe to Business</button>
       </div>
 
-      <!-- Dry Cleaning Service -->
-      <div class="service-card">
-        <div class="service-header">
-          <div class="service-icon">✨</div>
-          <h3>Dry Cleaning</h3>
+      <!-- Technology Category -->
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon">💻</div>
+          <h3>Technology</h3>
         </div>
-        <p>Specialized dry cleaning for delicate fabrics, formal wear, and garments requiring special care.</p>
-        <ul class="service-features">
-          <li>Expert handling of delicate fabrics</li>
-          <li>Stain removal specialists</li>
-          <li>Formal wear and suit cleaning</li>
-          <li>Leather and suede cleaning</li>
-          <li>Quality guarantee</li>
+        <p>Latest tech news, product launches, innovation stories, and digital transformation updates from the technology world.</p>
+        <ul class="category-features">
+          <li>Tech product launches and reviews</li>
+          <li>AI and emerging technology news</li>
+          <li>Startup and innovation stories</li>
+          <li>Digital transformation updates</li>
+          <li>Cybersecurity and privacy news</li>
         </ul>
-        <div class="price-tag">Starting at ₹149/piece</div>
-        <button class="cta-button" onclick="bookService('dry-clean')">Book Now</button>
+        <div class="update-frequency">Updated Daily</div>
+        <button class="cta-button" onclick="subscribeCategory('technology')">Subscribe to Tech</button>
       </div>
 
-      <!-- Monthly Plans -->
-      <div class="service-card">
-        <div class="service-header">
-          <div class="service-icon">📅</div>
-          <h3>Monthly Plans</h3>
+      <!-- Sports Category -->
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon">⚽</div>
+          <h3>Sports</h3>
         </div>
-        <p>Convenient monthly subscription plans for regular laundry needs with significant savings and priority service.</p>
-        <ul class="service-features">
-          <li>Up to 8kg laundry per week</li>
-          <li>Priority pickup and delivery</li>
-          <li>Free rewash guarantee</li>
-          <li>Flexible scheduling</li>
-          <li>30% savings compared to per-order pricing</li>
+        <p>Complete sports coverage including cricket, football, Olympics, and other major sporting events with live scores and analysis.</p>
+        <ul class="category-features">
+          <li>Live scores and match updates</li>
+          <li>Cricket and football coverage</li>
+          <li>Olympic and international sports</li>
+          <li>Player interviews and analysis</li>
+          <li>Sports business and transfers</li>
         </ul>
-        <div class="price-tag">Starting at ₹599/month</div>
-        <button class="cta-button" onclick="bookService('monthly-plan')">Subscribe Now</button>
+        <div class="update-frequency">Live Coverage</div>
+        <button class="cta-button" onclick="subscribeCategory('sports')">Subscribe to Sports</button>
       </div>
 
-      <!-- Express Service -->
-      <div class="service-card">
-        <div class="service-header">
-          <div class="service-icon">⚡</div>
-          <h3>Express Service</h3>
+      <!-- Entertainment Category -->
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon">🎬</div>
+          <h3>Entertainment</h3>
         </div>
-        <p>Need your clothes cleaned urgently? Our express service delivers fresh, clean clothes within 12 hours.</p>
-        <ul class="service-features">
-          <li>12-hour turnaround time</li>
-          <li>Same-day pickup and delivery</li>
-          <li>Priority processing</li>
-          <li>Available 7 days a week</li>
-          <li>Perfect for emergencies</li>
+        <p>Bollywood, Hollywood, TV shows, celebrity news, movie reviews, and entertainment industry updates.</p>
+        <ul class="category-features">
+          <li>Bollywood and Hollywood news</li>
+          <li>Celebrity interviews and updates</li>
+          <li>Movie and TV show reviews</li>
+          <li>Music and streaming updates</li>
+          <li>Entertainment industry insights</li>
         </ul>
-        <div class="price-tag">50% surcharge on regular prices</div>
-        <button class="cta-button" onclick="bookService('express')">Book Express</button>
+        <div class="update-frequency">Updated Daily</div>
+        <button class="cta-button" onclick="subscribeCategory('entertainment')">Subscribe to Entertainment</button>
       </div>
 
-      <!-- Household Items -->
-      <div class="service-card">
-        <div class="service-header">
-          <div class="service-icon">🏠</div>
-          <h3>Household Items</h3>
+      <!-- Lifestyle Category -->
+      <div class="category-card">
+        <div class="category-header">
+          <div class="category-icon">🌟</div>
+          <h3>Lifestyle</h3>
         </div>
-        <p>Professional cleaning for bed sheets, curtains, blankets, and other household textiles.</p>
-        <ul class="service-features">
-          <li>Bed sheets and pillow covers</li>
-          <li>Curtains and drapes</li>
-          <li>Blankets and comforters</li>
-          <li>Table cloths and towels</li>
-          <li>Specialized care for different materials</li>
+        <p>Health, wellness, travel, food, fashion, and lifestyle trends to help you live your best life.</p>
+        <ul class="category-features">
+          <li>Health and wellness tips</li>
+          <li>Travel guides and destinations</li>
+          <li>Food and recipe updates</li>
+          <li>Fashion and beauty trends</li>
+          <li>Personal development content</li>
         </ul>
-        <div class="price-tag">Starting at ₹49/piece</div>
-        <button class="cta-button" onclick="bookService('household')">Book Now</button>
+        <div class="update-frequency">Updated Weekly</div>
+        <button class="cta-button" onclick="subscribeCategory('lifestyle')">Subscribe to Lifestyle</button>
       </div>
     </div>
   </div>
 
   <!-- Contact Section -->
   <section class="contact-section">
-    <h2>📲 Ready to Get Started?</h2>
-    <p>Book your first order now and experience the convenience of doorstep laundry service!</p>
+    <h2>📲 Stay Updated with Breaking News</h2>
+    <p>Subscribe to your favorite categories and get instant notifications for breaking news!</p>
     <div class="contact-buttons">
-      <a href="https://wa.me/919876543210" class="contact-btn" target="_blank">Book on WhatsApp</a>
+      <a href="https://wa.me/918108395367?text=Hi! I want to subscribe to news updates." class="contact-btn" target="_blank">Subscribe on WhatsApp</a>
       <a href="signin.html" class="contact-btn">Create Account</a>
       <a href="index.html" class="contact-btn">Back to Home</a>
     </div>
   </section>
 
   <script>
-    // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
       
-      function bookService(serviceType) {
+      function subscribeCategory(categoryType) {
         try {
-          // Create WhatsApp message based on service type
           const messages = {
-            'wash-fold': 'Hi! I want to book Wash & Fold service. Please provide pickup details.',
-            'wash-iron': 'Hi! I want to book Wash & Iron service. Please provide pickup details.',
-            'dry-clean': 'Hi! I want to book Dry Cleaning service. Please provide pickup details.',
-            'monthly-plan': 'Hi! I\'m interested in Monthly Plans. Please share more details.',
-            'express': 'Hi! I need Express Service (12-hour delivery). Please arrange pickup.',
-            'household': 'Hi! I want to book Household Items cleaning. Please provide pickup details.'
+            'politics': 'Hi! I want to subscribe to Politics news updates. Please send me breaking political news.',
+            'business': 'Hi! I want to subscribe to Business news updates. Please send me market and corporate news.',
+            'technology': 'Hi! I want to subscribe to Technology news updates. Please send me latest tech news.',
+            'sports': 'Hi! I want to subscribe to Sports news updates. Please send me live scores and sports news.',
+            'entertainment': 'Hi! I want to subscribe to Entertainment news updates. Please send me Bollywood and celebrity news.',
+            'lifestyle': 'Hi! I want to subscribe to Lifestyle news updates. Please send me health, travel, and lifestyle content.'
           };
           
-          const message = messages[serviceType] || 'Hi! I want to book laundry service.';
+          const message = messages[categoryType] || 'Hi! I want to subscribe to news updates.';
           const whatsappUrl = `https://wa.me/918108395367?text=${encodeURIComponent(message)}`;
           
           window.open(whatsappUrl, '_blank');
         } catch (error) {
-          console.error('Error booking service:', error);
-          // Fallback to direct WhatsApp
+          console.error('Error subscribing to category:', error);
           window.open('https://wa.me/918108395367', '_blank');
         }
       }
       
-      // Make function globally available
-      window.bookService = bookService;
+      window.subscribeCategory = subscribeCategory;
       
     });
   </script>

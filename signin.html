@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sign Up | Flonze Laundry</title>
+  <title>Sign Up | Flonze News</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #667eea;
+      background: #e30613;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -37,7 +37,7 @@
     }
 
     .logo h1 {
-      color: #4f46e5;
+      color: #e30613;
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
@@ -73,7 +73,7 @@
     }
 
     input:focus {
-      border-color: #4f46e5;
+      border-color: #e30613;
       outline: none;
       background: #ffffff;
     }
@@ -81,7 +81,7 @@
     .signup-btn {
       width: 100%;
       padding: 12px;
-      background: #4f46e5;
+      background: #e30613;
       color: white;
       border: none;
       border-radius: 8px;
@@ -92,7 +92,7 @@
     }
 
     .signup-btn:hover {
-      background: #3730a3;
+      background: #b91c1c;
     }
 
     .signup-btn:disabled {
@@ -151,14 +151,14 @@
     }
 
     .links a {
-      color: #4f46e5;
+      color: #e30613;
       text-decoration: none;
       font-size: 0.9rem;
       margin: 0 10px;
     }
 
     .links a:hover {
-      color: #3730a3;
+      color: #b91c1c;
       text-decoration: underline;
     }
 
@@ -180,7 +180,7 @@
       }
 
       input {
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px;
       }
     }
   </style>
@@ -188,8 +188,8 @@
 <body>
   <div class="signup-container">
     <div class="logo">
-      <h1>FLONZE</h1>
-      <p>Join Our Laundry Service</p>
+      <h1>FLONZE NEWS</h1>
+      <p>Join Our News Community</p>
     </div>
 
     <form id="signup-form">
@@ -238,7 +238,6 @@
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycby64beGIbpfVp9kt16r0zAHXqti4aLJaedxrBVZlKMTHmu21-50xPeKDKPrCjMG9EFqfA/exec';
 
-    // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('signup-form');
       const successMsg = document.getElementById('success');
@@ -246,10 +245,8 @@
       const submitBtn = form.querySelector('.signup-btn');
       const passwordInput = document.getElementById('password');
       
-      // Prevent multiple submissions
       let isSubmitting = false;
 
-      // Password validation
       passwordInput.addEventListener('input', function() {
         const password = this.value;
         const requirements = {
@@ -265,7 +262,6 @@
         });
       });
 
-      // Form validation
       function validateForm() {
         const password = passwordInput.value;
         const isValidPassword = password.length >= 8 && 
@@ -285,7 +281,6 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Prevent multiple submissions
         if (isSubmitting) return;
         isSubmitting = true;
         
@@ -297,7 +292,6 @@
           return;
         }
         
-        // Show loading state
         submitBtn.textContent = 'Creating Account...';
         submitBtn.disabled = true;
         successMsg.style.display = 'none';
@@ -311,14 +305,13 @@
           password: formData.get('password')
         };
 
-        // Add timeout to prevent hanging
         const timeoutId = setTimeout(() => {
           errorMsg.textContent = '⏰ Request timeout. Please try again.';
           errorMsg.style.display = 'block';
           submitBtn.textContent = 'Create Account';
           submitBtn.disabled = false;
           isSubmitting = false;
-        }, 10000); // 10 second timeout
+        }, 10000);
 
         try {
           const response = await Promise.race([
@@ -340,12 +333,10 @@
             successMsg.style.display = 'block';
             form.reset();
             
-            // Reset password requirements display
             document.querySelectorAll('.password-requirements li').forEach(li => {
               li.className = 'invalid';
             });
             
-            // Redirect after 1.5 seconds
             setTimeout(() => {
               window.location.href = 'login.html';
             }, 1500);
@@ -360,14 +351,13 @@
             `❌ ${error.message}`;
           errorMsg.style.display = 'block';
         } finally {
-          // Reset button state
           submitBtn.textContent = 'Create Account';
           submitBtn.disabled = false;
           isSubmitting = false;
         }
       });
       
-    }); // End DOMContentLoaded
+    });
   </script>
 </body>
 </html>
