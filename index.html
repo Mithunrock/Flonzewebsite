@@ -902,7 +902,60 @@ function toggleLanguage() {
 
 // Load More News
 function loadMoreNews() {
-    alert('Loading more news... (Feature to be implemented)');
+    const button = document.querySelector('.load-more button');
+    const mainContent = document.querySelector('.main-content');
+    
+    // Show loading state
+    button.textContent = 'Loading...';
+    button.disabled = true;
+    
+    // Simulate loading with timeout
+    setTimeout(() => {
+        // Add new news cards
+        const newNews = `
+        <div class="category-section">
+            <h3>🌍 World News</h3>
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="https://source.unsplash.com/300x150/?world,news" alt="World News">
+                    <div class="news-card-content">
+                        <h4>Global Climate Summit Begins</h4>
+                        <p>World leaders gather to discuss climate action...</p>
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn share-whatsapp">WhatsApp</a>
+                            <a href="#" class="share-btn share-twitter">Twitter</a>
+                            <a href="#" class="share-btn share-facebook">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="https://source.unsplash.com/300x150/?economy,global" alt="Economy News">
+                    <div class="news-card-content">
+                        <h4>Global Economy Shows Recovery</h4>
+                        <p>International markets respond positively...</p>
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn share-whatsapp">WhatsApp</a>
+                            <a href="#" class="share-btn share-twitter">Twitter</a>
+                            <a href="#" class="share-btn share-facebook">Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+        
+        // Insert before load more button
+        const loadMoreDiv = document.querySelector('.load-more');
+        loadMoreDiv.insertAdjacentHTML('beforebegin', newNews);
+        
+        // Reset button
+        button.textContent = 'Load More News';
+        button.disabled = false;
+        
+        // Smooth scroll to new content
+        const newSection = mainContent.lastElementChild.previousElementSibling;
+        newSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+    }, 1500);
 }
 
 // Mobile Menu Toggle
@@ -913,10 +966,12 @@ function toggleMobileMenu() {
 
 // Infinite Scroll
 let loading = false;
+let loadCount = 0;
 window.addEventListener('scroll', () => {
-    if (loading) return;
+    if (loading || loadCount >= 3) return; // Limit to 3 auto-loads
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000) {
         loading = true;
+        loadCount++;
         setTimeout(() => {
             loadMoreNews();
             loading = false;
@@ -939,7 +994,7 @@ document.addEventListener('touchend', e => {
 
 function handleSwipe() {
     if (touchEndY < touchStartY - 50) {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 && loadCount < 3) {
             loadMoreNews();
         }
     }
