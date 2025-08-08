@@ -51,19 +51,22 @@
     .logo {
         background: #e30613;
         padding: 10px 20px;
-        display: flex;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
         align-items: center;
-        justify-content: space-between;
+        gap: 20px;
     }
     .logo h1 {
         color: white;
         margin: 0;
         font-size: 26px;
+        text-align: center;
+        justify-self: center;
     }
     .logo-img {
         height: 40px;
         width: auto;
-        margin-right: 10px;
+        justify-self: start;
     }
     .nav-links {
         display: flex;
@@ -488,6 +491,10 @@
             display: block;
         }
         
+        .logo {
+            grid-template-columns: auto 1fr auto;
+        }
+        
         .container {
             grid-template-columns: 1fr;
             gap: 10px;
@@ -546,6 +553,10 @@
     @media (max-width: 480px) {
         .logo h1 {
             font-size: 1.2rem;
+        }
+        
+        .logo-img {
+            height: 30px;
         }
         
         .hero-slider {
@@ -616,6 +627,7 @@
 <!-- Logo and Main Nav -->
 <div class="logo">
     <img src="logo.png" alt="Flonze News" class="logo-img">
+    <h1>Flonze</h1>
     <div class="nav-links">
         <a href="#">NEWS</a>
         <a href="#">STARTUP</a>
