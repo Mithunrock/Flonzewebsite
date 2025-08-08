@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flonze News - Mobile</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: #f5f5f5;
+        color: #333;
+    }
+    
+    /* Header */
+    .header {
+        background: #e30613;
+        color: white;
+        padding: 15px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    /* Breaking News Ticker */
+    .ticker {
+        background: #000;
+        color: white;
+        padding: 8px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    
+    .ticker-content {
+        display: inline-block;
+        animation: scroll 20s linear infinite;
+        font-size: 14px;
+    }
+    
+    @keyframes scroll {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+    
+    /* Main News */
+    .main-news {
+        padding: 15px;
+    }
+    
+    .featured-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    
+    .featured-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .featured-content {
+        padding: 15px;
+    }
+    
+    .featured-content h2 {
+        color: #e30613;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .featured-content p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    /* News Categories */
+    .category {
+        margin-bottom: 25px;
+    }
+    
+    .category h3 {
+        color: #e30613;
+        font-size: 16px;
+        margin-bottom: 15px;
+        padding: 0 15px;
+        border-left: 4px solid #e30613;
+        padding-left: 12px;
+    }
+    
+    .news-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 15px;
+    }
+    
+    .news-item {
+        background: white;
+        border-radius: 8px;
+        padding: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: flex;
+        gap: 12px;
+    }
+    
+    .news-item img {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 6px;
+        flex-shrink: 0;
+    }
+    
+    .news-text h4 {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 4px;
+        line-height: 1.3;
+    }
+    
+    .news-text p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.4;
+    }
+    
+    /* Load More */
+    .load-more {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .load-btn {
+        background: linear-gradient(45deg, #e30613, #ff4757);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(227, 6, 19, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .load-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(227, 6, 19, 0.4);
+    }
+    
+    /* Bottom Navigation */
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-item {
+        text-align: center;
+        color: #666;
+        text-decoration: none;
+        font-size: 12px;
+        padding: 5px;
+    }
+    
+    .nav-item.active {
+        color: #e30613;
+    }
+    
+    .nav-icon {
+        font-size: 18px;
+        margin-bottom: 2px;
+        display: block;
+    }
+    
+    /* Footer Spacing */
+    .footer-space {
+        height: 70px;
+    }
+    
+    /* Share Buttons */
+    .share-btns {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+    }
+    
+    .share-btn {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .whatsapp { background: #25d366; }
+    .twitter { background: #1da1f2; }
+    .facebook { background: #3b5998; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <h1>📰 Flonze News</h1>
+</div>
+
+<!-- Breaking News Ticker -->
+<div class="ticker">
+    <div class="ticker-content">
+        🔥 BREAKING: Market hits record high • Tech stocks surge • New policy announced • Election updates live
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-news">
+    <!-- Featured News -->
+    <div class="featured-card">
+        <img src="https://source.unsplash.com/400x200/?breaking,news" alt="Breaking News">
+        <div class="featured-content">
+            <h2>Major Economic Policy Announced</h2>
+            <p>Government unveils new economic reforms expected to boost GDP growth and create employment opportunities...</p>
+            <div class="share-btns">
+                <a href="#" class="share-btn whatsapp">WhatsApp</a>
+                <a href="#" class="share-btn twitter">Twitter</a>
+                <a href="#" class="share-btn facebook">Facebook</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Politics -->
+    <div class="category">
+        <h3>🏛️ Politics</h3>
+        <div class="news-list">
+            <div class="news-item">
+                <img src="https://source.unsplash.com/80x60/?politics,india" alt="Politics">
+                <div class="news-text">
+                    <h4>Parliament Session Begins Today</h4>
+                    <p>Key bills to be discussed in winter session...</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="https://source.unsplash.com/80x60/?government,policy" alt="Policy">
+                <div class="news-text">
+                    <h4>New Healthcare Policy Launched</h4>
+                    <p>Universal healthcare coverage expanded...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Business -->
+    <div class="category">
+        <h3>💼 Business</h3>
+        <div class="news-list">
+            <div class="news-item">
+                <img src="https://source.unsplash.com/80x60/?business,finance" alt="Business">
+                <div class="news-text">
+                    <h4>Startup Funding Hits Record High</h4>
+                    <p>Q4 sees unprecedented investment in Indian startups...</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="https://source.unsplash.com/80x60/?stock,market" alt="Market">
+                <div class="news-text">
+                    <h4>Banking Sector Shows Growth</h4>
+                    <p>Major banks report strong quarterly results...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Technology -->
+    <div class="category">
+        <h3>💻 Technology</h3>
+        <div class="news-list">
+            <div class="news-item">
+                <img src="https://source.unsplash.com/80x60/?ai,technology" alt="AI">
+                <div class="news-text">
+                    <h4>AI Revolution in Healthcare</h4>
+                    <p>New AI tools transforming medical diagnosis...</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="https://source.unsplash.com/80x60/?5g,network" alt="5G">
+                <div class="news-text">
+                    <h4>5G Network Expansion</h4>
+                    <p>Major telecom operators roll out 5G...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sports -->
+    <div class="category">
+        <h3>⚽ Sports</h3>
+        <div class="news-list">
+            <div class="news-item">
+                <img src="https://source.unsplash.com/80x60/?cricket,india" alt="Cricket">
+                <div class="news-text">
+                    <h4>India Wins Test Series 3-1</h4>
+                    <p>Dominant performance secures series victory...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Entertainment -->
+    <div class="category">
+        <h3>🎬 Entertainment</h3>
+        <div class="news-list">
+            <div class="news-item">
+                <img src="https://source.unsplash.com/80x60/?bollywood,movie" alt="Bollywood">
+                <div class="news-text">
+                    <h4>Bollywood Box Office Records</h4>
+                    <p>Latest releases break opening weekend records...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Load More -->
+<div class="load-more">
+    <button class="load-btn" onclick="loadMore()">Load More News</button>
+</div>
+
+<!-- Footer Space -->
+<div class="footer-space"></div>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+    <a href="#" class="nav-item active">
+        <span class="nav-icon">🏠</span>
+        Home
+    </a>
+    <a href="#" class="nav-item">
+        <span class="nav-icon">📰</span>
+        News
+    </a>
+    <a href="#" class="nav-item">
+        <span class="nav-icon">📺</span>
+        Videos
+    </a>
+    <a href="#" class="nav-item">
+        <span class="nav-icon">🔔</span>
+        Alerts
+    </a>
+    <a href="#" class="nav-item">
+        <span class="nav-icon">👤</span>
+        Profile
+    </a>
+</div>
+
+<script>
+// Load More Function
+function loadMore() {
+    const btn = document.querySelector('.load-btn');
+    btn.textContent = 'Loading...';
+    btn.disabled = true;
+    
+    setTimeout(() => {
+        // Add new news items
+        const newCategory = `
+        <div class="category">
+            <h3>🌍 World News</h3>
+            <div class="news-list">
+                <div class="news-item">
+                    <img src="https://source.unsplash.com/80x60/?world,news" alt="World">
+                    <div class="news-text">
+                        <h4>Global Climate Summit Begins</h4>
+                        <p>World leaders gather to discuss climate action...</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img src="https://source.unsplash.com/80x60/?economy,global" alt="Economy">
+                    <div class="news-text">
+                        <h4>Global Economy Recovery</h4>
+                        <p>International markets show positive trends...</p>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+        
+        document.querySelector('.load-more').insertAdjacentHTML('beforebegin', newCategory);
+        
+        btn.textContent = 'Load More News';
+        btn.disabled = false;
+    }, 1000);
+}
+
+// Bottom Navigation
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+</script>
+
+</body>
+</html>
