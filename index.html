@@ -60,6 +60,11 @@
         margin: 0;
         font-size: 26px;
     }
+    .logo-img {
+        height: 40px;
+        width: auto;
+        margin-right: 10px;
+    }
     .nav-links {
         display: flex;
         gap: 20px;
@@ -606,33 +611,16 @@
 </head>
 <body>
 
-<!-- Top Navigation -->
-<div class="topbar">
-    <div>
-        <a href="#">MEDIA</a>
-        <a href="#">DATALABS</a>
-        <a href="#">REPORTS</a>
-        <a href="#">EVENTS</a>
-        <a href="#">COURSES</a>
-        <a href="#">ABOUT</a>
-    </div>
-    <div>
-        <button class="lang-switch" onclick="toggleLanguage()">हिंदी</button>
-        <button class="dark-toggle" onclick="toggleDarkMode()">🌙</button>
-        <a href="#">LOGIN</a>
-        <a href="#">JOIN</a>
-    </div>
-</div>
+
 
 <!-- Logo and Main Nav -->
 <div class="logo">
-    <h1>Flonze</h1>
+    <img src="logo.png" alt="Flonze News" class="logo-img">
     <div class="nav-links">
         <a href="#">NEWS</a>
         <a href="#">STARTUP</a>
         <a href="#">TECH</a>
         <a href="#">BUSINESS</a>
-        <a href="#">LIFESTYLE</a>
     </div>
     <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
 </div>
@@ -643,7 +631,6 @@
     <a href="#" onclick="toggleMobileMenu()">STARTUP</a>
     <a href="#" onclick="toggleMobileMenu()">TECH</a>
     <a href="#" onclick="toggleMobileMenu()">BUSINESS</a>
-    <a href="#" onclick="toggleMobileMenu()">LIFESTYLE</a>
     <button onclick="toggleMobileMenu()" style="background:none;border:none;color:white;font-size:2rem;margin-top:2rem;">×</button>
 </div>
 
@@ -731,19 +718,7 @@
             </div>
         </div>
 
-        <!-- Lifestyle Section -->
-        <div class="category-section">
-            <h3>🌟 Lifestyle</h3>
-            <div class="news-grid">
-                <div class="news-card">
-                    <img src="https://source.unsplash.com/300x150/?lifestyle,health" alt="Lifestyle News">
-                    <div class="news-card-content">
-                        <h4>Health & Wellness Trends</h4>
-                        <p>Latest lifestyle and wellness updates...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Load More Button -->
         <div class="load-more">
@@ -768,7 +743,6 @@
                 <li><a href="#">1. Startup Funding News</a></li>
                 <li><a href="#">2. Tech Innovation Updates</a></li>
                 <li><a href="#">3. Business Market Analysis</a></li>
-                <li><a href="#">4. Lifestyle Trends</a></li>
             </ul>
         </div>
 
