@@ -24,6 +24,7 @@
         background: var(--bg-color);
         color: var(--text-color);
         transition: all 0.3s ease;
+        padding-top: 100px;
     }
     /* Header / Nav */
     .topbar {
@@ -55,6 +56,11 @@
         grid-template-columns: auto 1fr auto;
         align-items: center;
         gap: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
     }
     .logo h1 {
         color: white;
@@ -88,6 +94,11 @@
         padding: 8px 0;
         overflow: hidden;
         white-space: nowrap;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        z-index: 999;
     }
     .ticker-content {
         display: inline-block;
@@ -557,6 +568,14 @@
         
         .logo-img {
             height: 30px;
+        }
+        
+        body {
+            padding-top: 90px;
+        }
+        
+        .ticker {
+            top: 50px;
         }
         
         .hero-slider {
