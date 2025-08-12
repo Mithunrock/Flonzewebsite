@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flonze Fulfillment - E-commerce Logistics Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -35,53 +35,44 @@
   </header>
 
   <!-- Hero Banner Section -->
-  <section class="hero-banner" id="home">
-    <div class="relative w-full max-w-screen-2xl mx-auto overflow-hidden">
-      <!-- Hero Image -->
-      <div class="hero-image-container">
-        <img 
-          src="hero-banner.png" 
-          alt="Fast & Reliable Delivery Service" 
-          loading="eager" 
-          class="w-full h-auto object-cover hero-image"
+  <section class="hero-banner" id="home" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 8rem 0 4rem; margin-top: 70px;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center; color: white;">
+      <h1 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 1.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.4); letter-spacing: -0.025em; text-transform: uppercase;">GLOBAL LOGISTICS POWERHOUSE</h1>
+      <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); text-transform: uppercase; letter-spacing: 0.05em;">
+        DOMINATING E-COMMERCE FULFILLMENT • 10,000+ ORDERS DAILY • 99.8% DELIVERY SUCCESS RATE • ENTERPRISE-GRADE INFRASTRUCTURE
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a 
+          href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services" 
+          style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(220,38,38,0.3);"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 35px rgba(220,38,38,0.4)'"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(220,38,38,0.3)'"
         >
+          START NOW
+        </a>
+        <a 
+          href="#calculator" 
+          style="color: white; padding: 1rem 2.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.3s ease; border: 3px solid white;"
+          onmouseover="this.style.backgroundColor='white'; this.style.color='#0f172a'; this.style.transform='translateY(-2px)'"
+          onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'; this.style.transform='translateY(0)'"
+        >
+          GET QUOTE
+        </a>
       </div>
-
-      <!-- Overlay Content -->
-      <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-start p-6 md:p-12 text-white">
-        <div class="max-w-2xl">
-          <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Fast & Reliable E-commerce Fulfillment</h1>
-          <p class="mb-8 max-w-lg text-lg md:text-xl leading-relaxed">
-            From warehouse to your customer's doorstep — Flonze ensures safe, fast, and cost-effective deliveries for your e-commerce business.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a 
-              href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services" 
-              class="bg-blue-600 hover:bg-blue-700 transition-all duration-300 px-8 py-4 rounded-lg font-semibold text-lg inline-block text-center transform hover:scale-105"
-            >
-              Get Started Now
-            </a>
-            <a 
-              href="#calculator" 
-              class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 transition-all duration-300 px-8 py-4 rounded-lg font-semibold text-lg inline-block text-center"
-            >
-              Calculate Shipping
-            </a>
-          </div>
+      
+      <!-- Stats -->
+      <div style="margin-top: 3rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        <div style="text-align: center; padding: 1.5rem; background: rgba(220,38,38,0.1); border-radius: 12px; border: 2px solid rgba(220,38,38,0.3);">
+          <span style="display: block; font-size: 3rem; font-weight: 900; color: #dc2626; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);" id="order-count">2,847</span>
+          <span style="font-size: 1rem; color: white; font-weight: 700; text-transform: uppercase;">ORDERS PROCESSED TODAY</span>
         </div>
-      </div>
-
-      <!-- Stats Overlay -->
-      <div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-lg p-4 hidden md:block">
-        <div class="flex gap-6 text-center">
-          <div class="stat-item">
-            <span class="block text-2xl font-bold text-blue-600" id="order-count">142</span>
-            <span class="text-sm text-gray-600">Orders Today</span>
-          </div>
-          <div class="stat-item">
-            <span class="block text-2xl font-bold text-blue-600" id="city-count">25</span>
-            <span class="text-sm text-gray-600">Cities Served</span>
-          </div>
+        <div style="text-align: center; padding: 1.5rem; background: rgba(220,38,38,0.1); border-radius: 12px; border: 2px solid rgba(220,38,38,0.3);">
+          <span style="display: block; font-size: 3rem; font-weight: 900; color: #dc2626; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);" id="city-count">500+</span>
+          <span style="font-size: 1rem; color: white; font-weight: 700; text-transform: uppercase;">DELIVERY HUBS NATIONWIDE</span>
+        </div>
+        <div style="text-align: center; padding: 1.5rem; background: rgba(220,38,38,0.1); border-radius: 12px; border: 2px solid rgba(220,38,38,0.3);">
+          <span style="display: block; font-size: 3rem; font-weight: 900; color: #dc2626; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">99.8%</span>
+          <span style="font-size: 1rem; color: white; font-weight: 700; text-transform: uppercase;">SUCCESS RATE</span>
         </div>
       </div>
     </div>
@@ -90,37 +81,37 @@
   <!-- Quick Services Section -->
   <section class="services-quick" id="services">
     <div class="container">
-      <h2 class="section-title">Quick Services</h2>
+      <h2 class="section-title" style="font-weight: 800; color: #0f172a; font-size: 2.25rem; text-transform: uppercase; letter-spacing: 0.05em;">CORE SERVICES</h2>
       <div class="services-grid">
-        <a href="#book" class="service-card">
-          <div class="service-icon">📦</div>
-          <h3>Book Shipment</h3>
-          <p>Schedule pickup & delivery instantly</p>
+        <a href="#book" class="service-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 2px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'; this.style.borderColor='#e2e8f0'">
+          <div class="service-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: bold;">01</div>
+          <h3 style="font-weight: 700; color: #0f172a; font-size: 1.25rem; margin-bottom: 0.75rem;">SHIPMENT BOOKING</h3>
+          <p style="color: #475569; font-weight: 500;">Enterprise-grade logistics scheduling and dispatch management</p>
         </a>
-        <a href="#track" class="service-card">
-          <div class="service-icon">📍</div>
-          <h3>Track Parcel</h3>
-          <p>Real-time tracking updates</p>
+        <a href="#track" class="service-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 2px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'; this.style.borderColor='#e2e8f0'">
+          <div class="service-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: bold;">02</div>
+          <h3 style="font-weight: 700; color: #0f172a; font-size: 1.25rem; margin-bottom: 0.75rem;">REAL-TIME TRACKING</h3>
+          <p style="color: #475569; font-weight: 500;">Advanced GPS monitoring and delivery status updates</p>
         </a>
-        <a href="#calculator" class="service-card">
-          <div class="service-icon">💰</div>
-          <h3>Rate Calculator</h3>
-          <p>Instant shipping cost quotes</p>
+        <a href="#calculator" class="service-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 2px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'; this.style.borderColor='#e2e8f0'">
+          <div class="service-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: bold;">03</div>
+          <h3 style="font-weight: 700; color: #0f172a; font-size: 1.25rem; margin-bottom: 0.75rem;">COST CALCULATOR</h3>
+          <p style="color: #475569; font-weight: 500;">Transparent pricing with instant quotations</p>
         </a>
-        <a href="#schedule" class="service-card">
-          <div class="service-icon">📅</div>
-          <h3>Schedule Pickup</h3>
-          <p>Choose convenient time slots</p>
+        <a href="#schedule" class="service-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 2px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'; this.style.borderColor='#e2e8f0'">
+          <div class="service-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: bold;">04</div>
+          <h3 style="font-weight: 700; color: #0f172a; font-size: 1.25rem; margin-bottom: 0.75rem;">PICKUP SCHEDULING</h3>
+          <p style="color: #475569; font-weight: 500;">Flexible time slots and route optimization</p>
         </a>
-        <a href="#areas" class="service-card">
-          <div class="service-icon">🗺️</div>
-          <h3>Service Areas</h3>
-          <p>Check coverage in your city</p>
+        <a href="#areas" class="service-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 2px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'; this.style.borderColor='#e2e8f0'">
+          <div class="service-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: bold;">05</div>
+          <h3 style="font-weight: 700; color: #0f172a; font-size: 1.25rem; margin-bottom: 0.75rem;">SERVICE COVERAGE</h3>
+          <p style="color: #475569; font-weight: 500;">Pan-India network with 500+ delivery hubs</p>
         </a>
-        <a href="#support" class="service-card">
-          <div class="service-icon">💬</div>
-          <h3>Live Support</h3>
-          <p>24/7 customer assistance</p>
+        <a href="#support" class="service-card" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 2px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.15)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'; this.style.borderColor='#e2e8f0'">
+          <div class="service-icon" style="width: 60px; height: 60px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: bold;">06</div>
+          <h3 style="font-weight: 700; color: #0f172a; font-size: 1.25rem; margin-bottom: 0.75rem;">CUSTOMER SUPPORT</h3>
+          <p style="color: #475569; font-weight: 500;">24/7 dedicated account management and support</p>
         </a>
       </div>
     </div>
@@ -129,7 +120,7 @@
   <!-- Shipping Calculator -->
   <section class="calculator" id="calculator">
     <div class="container">
-      <h2 class="section-title">Shipping Cost Calculator</h2>
+      <h2 class="section-title" style="font-weight: 800; color: #0f172a; font-size: 2rem; text-transform: uppercase;">ENTERPRISE PRICING CALCULATOR</h2>
       <div class="calculator-form">
         <div class="form-group">
           <label>Package Weight (kg)</label>
@@ -154,8 +145,8 @@
   <!-- Dispatch Challenges Section -->
   <section class="challenges-section">
     <div class="container">
-      <h2 class="section-title">Common Dispatch Challenges We Solve</h2>
-      <p class="section-subtitle">Stop losing customers due to poor fulfillment. We fix the problems that hurt your business most.</p>
+      <h2 class="section-title" style="font-size: 2.5rem; font-weight: 900; color: #0f172a; text-transform: uppercase; text-align: center; margin-bottom: 1rem;">CRUSHING COMPETITION CHALLENGES</h2>
+      <p class="section-subtitle" style="font-size: 1.25rem; font-weight: 700; color: #475569; text-transform: uppercase; text-align: center; margin-bottom: 3rem;">WHILE OTHERS FAIL, WE DOMINATE. ENTERPRISE SOLUTIONS THAT DESTROY LOGISTICS PROBLEMS.</p>
       <div class="challenges-grid">
         <div class="challenge-card">
           <div class="challenge-icon">⏰</div>
@@ -250,20 +241,20 @@
     <div class="container">
       <h2 class="section-title">Our Vision & Mission</h2>
       <div class="vision-grid">
-        <div class="vision-card">
-          <div class="vision-icon">🎯</div>
-          <h3>Our Vision</h3>
-          <p>To become India's #1 trusted e-commerce fulfillment partner, helping 10,000+ sellers grow their businesses without logistics worries by 2027.</p>
+        <div class="vision-card" style="background: linear-gradient(135deg, rgba(220,38,38,0.1) 0%, rgba(220,38,38,0.05) 100%); border: 2px solid rgba(220,38,38,0.2);">
+          <div class="vision-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; color: white; font-size: 2rem; font-weight: 900;">01</div>
+          <h3 style="font-size: 1.5rem; font-weight: 800; color: white; text-transform: uppercase; margin-bottom: 1rem;">MARKET DOMINATION</h3>
+          <p style="color: rgba(255,255,255,0.9); font-weight: 600;">Becoming India's undisputed logistics leader. 50,000+ enterprises will depend on our infrastructure by 2027. Total market control.</p>
         </div>
-        <div class="vision-card">
-          <div class="vision-icon">🚀</div>
-          <h3>Our Mission</h3>
-          <p>Making e-commerce fulfillment simple and affordable for every seller. We handle storage, packing, and shipping so you can focus on growing your business.</p>
+        <div class="vision-card" style="background: linear-gradient(135deg, rgba(220,38,38,0.1) 0%, rgba(220,38,38,0.05) 100%); border: 2px solid rgba(220,38,38,0.2);">
+          <div class="vision-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; color: white; font-size: 2rem; font-weight: 900;">02</div>
+          <h3 style="font-size: 1.5rem; font-weight: 800; color: white; text-transform: uppercase; margin-bottom: 1rem;">OPERATIONAL SUPREMACY</h3>
+          <p style="color: rgba(255,255,255,0.9); font-weight: 600;">Crushing logistics complexity with military precision. Zero-failure systems that make competitors obsolete. Pure operational excellence.</p>
         </div>
-        <div class="vision-card">
-          <div class="vision-icon">💡</div>
-          <h3>Our Values</h3>
-          <p>Reliability, Transparency, and Customer Success. We believe in honest pricing, quality service, and building long-term partnerships with our sellers.</p>
+        <div class="vision-card" style="background: linear-gradient(135deg, rgba(220,38,38,0.1) 0%, rgba(220,38,38,0.05) 100%); border: 2px solid rgba(220,38,38,0.2);">
+          <div class="vision-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; color: white; font-size: 2rem; font-weight: 900;">03</div>
+          <h3 style="font-size: 1.5rem; font-weight: 800; color: white; text-transform: uppercase; margin-bottom: 1rem;">ENTERPRISE POWER</h3>
+          <p style="color: rgba(255,255,255,0.9); font-weight: 600;">Uncompromising standards. Bulletproof reliability. Transparent dominance. Building unstoppable business empires through logistics mastery.</p>
         </div>
       </div>
     </div>
@@ -302,6 +293,83 @@
     </div>
   </section>
 
+  <!-- CTA Section -->
+  <section class="cta-section" id="contact" style="background: linear-gradient(135deg, #0f172a 0%, #dc2626 100%); padding: 6rem 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>'); opacity: 0.3;"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <h2 style="font-size: 3rem; font-weight: 900; color: white; text-transform: uppercase; text-shadow: 3px 3px 6px rgba(0,0,0,0.5); margin-bottom: 1rem;">DOMINATE YOUR MARKET</h2>
+      <p style="font-size: 1.5rem; font-weight: 700; color: white; text-transform: uppercase; margin-bottom: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">JOIN 10,000+ ENTERPRISES CRUSHING COMPETITION WITH FLONZE POWER</p>
+      <div class="hero-buttons" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); color: #0f172a; padding: 1.5rem 3rem; border-radius: 8px; font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 40px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.3)'">UNLEASH POWER NOW</a>
+        <a href="#calculator" style="background: transparent; color: white; padding: 1.5rem 3rem; border-radius: 8px; font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 1.25rem; border: 3px solid white; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='white'; this.style.color='#0f172a'; this.style.transform='translateY(-5px)'" onmouseout="this.style.backgroundColor='transparent'; this.style.color='white'; this.style.transform='translateY(0)'">CALCULATE DOMINANCE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Features Section -->
+  <section class="features-section" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 6rem 0;">
+    <div class="container">
+      <h2 class="section-title" style="font-size: 2.5rem; font-weight: 900; color: white; text-transform: uppercase; text-align: center; margin-bottom: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">ENTERPRISE ARSENAL</h2>
+      <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div class="feature-card" style="background: linear-gradient(135deg, rgba(220,38,38,0.1) 0%, rgba(220,38,38,0.05) 100%); border: 2px solid rgba(220,38,38,0.3); padding: 2.5rem; border-radius: 12px; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(220,38,38,0.3)'">
+          <div class="feature-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: 900;">A</div>
+          <h3 style="font-weight: 800; color: white; text-transform: uppercase; margin-bottom: 1rem; font-size: 1.25rem;">TOTAL COMMAND HISTORY</h3>
+          <p style="color: rgba(255,255,255,0.8); font-weight: 600;">Military-grade tracking system. Complete operational intelligence and forensic audit trails.</p>
+        </div>
+        <div class="feature-card" style="background: linear-gradient(135deg, rgba(220,38,38,0.1) 0%, rgba(220,38,38,0.05) 100%); border: 2px solid rgba(220,38,38,0.3); padding: 2.5rem; border-radius: 12px; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(220,38,38,0.3)'">
+          <div class="feature-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: 900;">B</div>
+          <h3 style="font-weight: 800; color: white; text-transform: uppercase; margin-bottom: 1rem; font-size: 1.25rem;">MASS DEPLOYMENT SYSTEM</h3>
+          <p style="color: rgba(255,255,255,0.8); font-weight: 600;">Instant bulk processing. Deploy thousands of orders with enterprise-grade automation.</p>
+        </div>
+        <div class="feature-card" style="background: linear-gradient(135deg, rgba(220,38,38,0.1) 0%, rgba(220,38,38,0.05) 100%); border: 2px solid rgba(220,38,38,0.3); padding: 2.5rem; border-radius: 12px; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(220,38,38,0.3)'">
+          <div class="feature-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: 900;">C</div>
+          <h3 style="font-weight: 800; color: white; text-transform: uppercase; margin-bottom: 1rem; font-size: 1.25rem;">FORTRESS PAYMENT GATEWAY</h3>
+          <p style="color: rgba(255,255,255,0.8); font-weight: 600;">Bulletproof financial infrastructure. Bank-grade security with instant processing power.</p>
+        </div>
+        <div class="feature-card" style="background: linear-gradient(135deg, rgba(220,38,38,0.1) 0%, rgba(220,38,38,0.05) 100%); border: 2px solid rgba(220,38,38,0.3); padding: 2.5rem; border-radius: 12px; text-align: center; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#dc2626'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(220,38,38,0.3)'">
+          <div class="feature-icon" style="width: 70px; height: 70px; background: linear-gradient(135deg, #dc2626, #b91c1c); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: white; font-size: 1.5rem; font-weight: 900;">D</div>
+          <h3 style="font-weight: 800; color: white; text-transform: uppercase; margin-bottom: 1rem; font-size: 1.25rem;">COMPETITIVE ADVANTAGE PRICING</h3>
+          <p style="color: rgba(255,255,255,0.8); font-weight: 600;">Destroy competition with unbeatable rates. Strategic pricing that eliminates rivals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect With Us Section -->
+  <section class="connect-section" id="support" style="background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); padding: 6rem 0;">
+    <div class="container">
+      <h2 class="section-title" style="font-size: 2.5rem; font-weight: 900; color: white; text-transform: uppercase; text-align: center; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">COMMAND CENTER ACCESS</h2>
+      <p class="section-subtitle" style="font-size: 1.25rem; font-weight: 700; color: white; text-transform: uppercase; text-align: center; margin-bottom: 3rem;">DIRECT LINE TO LOGISTICS COMMANDERS</p>
+      <div class="connect-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services" class="connect-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2); padding: 2.5rem; border-radius: 12px; text-align: center; text-decoration: none; color: white; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.transform='translateY(-8px)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)'">
+          <div class="connect-icon" style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 900;">W</div>
+          <h3 style="font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; font-size: 1.25rem;">INSTANT STRIKE FORCE</h3>
+          <p style="margin-bottom: 1.5rem; font-weight: 600;">Lightning-fast response team ready for immediate deployment</p>
+          <span class="connect-action" style="background: white; color: #dc2626; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 800; text-transform: uppercase;">DEPLOY NOW</span>
+        </a>
+        <a href="tel:+918108395367" class="connect-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2); padding: 2.5rem; border-radius: 12px; text-align: center; text-decoration: none; color: white; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.transform='translateY(-8px)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)'">
+          <div class="connect-icon" style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 900;">P</div>
+          <h3 style="font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; font-size: 1.25rem;">DIRECT COMMAND LINE</h3>
+          <p style="margin-bottom: 1.5rem; font-weight: 600;">Speak directly with logistics generals and operations commanders</p>
+          <span class="connect-action" style="background: white; color: #dc2626; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 800; text-transform: uppercase;">CALL COMMAND</span>
+        </a>
+        <a href="mailto:hello@flonzefulfillment.com" class="connect-card" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2); padding: 2.5rem; border-radius: 12px; text-align: center; text-decoration: none; color: white; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.transform='translateY(-8px)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.transform='translateY(0)'">
+          <div class="connect-icon" style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; font-weight: 900;">E</div>
+          <h3 style="font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; font-size: 1.25rem;">STRATEGIC BRIEFING</h3>
+          <p style="margin-bottom: 1.5rem; font-weight: 600;">Submit detailed operational requirements for enterprise solutions</p>
+          <span class="connect-action" style="background: white; color: #dc2626; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 800; text-transform: uppercase;">SEND INTEL</span>
+        </a>
+      </div>
+      <div class="social-follow" style="text-align: center;">
+        <p style="color: white; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem;">FOLLOW THE EMPIRE:</p>
+        <div class="social-links-simple" style="display: flex; gap: 2rem; justify-content: center;">
+          <a href="https://facebook.com/flonzefulfillment" style="color: white; font-weight: 700; text-transform: uppercase; text-decoration: none;">FACEBOOK FORTRESS</a>
+          <a href="https://linkedin.com/company/flonzefulfillment" style="color: white; font-weight: 700; text-transform: uppercase; text-decoration: none;">LINKEDIN LEGION</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Company Info Section -->
   <section class="company-info">
     <div class="container">
@@ -332,86 +400,10 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="cta-section" id="contact">
-    <div class="container">
-      <h2>Ready to Scale Your Business?</h2>
-      <p>Join 500+ sellers who trust Flonze for their fulfillment needs</p>
-      <div class="hero-buttons">
-        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services" class="btn-primary">Get Started Now</a>
-        <a href="#calculator" class="btn-secondary">Book Free Demo</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Additional Features Section -->
-  <section class="features-section">
-    <div class="container">
-      <h2 class="section-title">Advanced Features</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📋</div>
-          <h3>Order History</h3>
-          <p>Track all past shipments and download invoices</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Bulk Upload</h3>
-          <p>Upload multiple orders via Excel/CSV files</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💳</div>
-          <h3>Online Payment</h3>
-          <p>Secure payment gateway for all transactions</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎁</div>
-          <h3>Offers & Discounts</h3>
-          <p>Special rates and promotional pricing</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Connect With Us Section -->
-  <section class="connect-section" id="support">
-    <div class="container">
-      <h2 class="section-title">Connect With Us</h2>
-      <p class="section-subtitle">Get in touch through your preferred channel</p>
-      <div class="connect-grid">
-        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services" class="connect-card whatsapp-card">
-          <div class="connect-icon">💬</div>
-          <h3>WhatsApp</h3>
-          <p>Quick chat for instant answers</p>
-          <span class="connect-action">Message Now</span>
-        </a>
-        <a href="tel:+918108395367" class="connect-card phone-card">
-          <div class="connect-icon">📞</div>
-          <h3>Phone Call</h3>
-          <p>Speak directly with our team</p>
-          <span class="connect-action">Call +91 81083 95367</span>
-        </a>
-        <a href="mailto:hello@flonzefulfillment.com" class="connect-card email-card">
-          <div class="connect-icon">✉️</div>
-          <h3>Email</h3>
-          <p>Send detailed requirements</p>
-          <span class="connect-action">Send Email</span>
-        </a>
-      </div>
-      <div class="social-follow">
-        <p>Follow us for updates:</p>
-        <div class="social-links-simple">
-          <a href="https://facebook.com/flonzefulfillment">📘 Facebook</a>
-          <a href="https://linkedin.com/company/flonzefulfillment">💼 LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-bottom">
-      <p>&copy; 2025 Flonze Fulfillment. All rights reserved.</p>
+  <footer class="footer" style="background: #0f172a; padding: 2rem 0; border-top: 3px solid #dc2626;">
+    <div class="footer-bottom" style="text-align: center;">
+      <p style="color: white; font-weight: 700; text-transform: uppercase; margin: 0;">&copy; 2025 FLONZE FULFILLMENT EMPIRE. TOTAL MARKET DOMINATION.</p>
     </div>
   </footer>
 
