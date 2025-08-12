@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Flonze Fulfillment</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Contact Us - Flonze Fulfillment</title>
   <style>
     * {
       margin: 0;
@@ -13,34 +12,33 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f9fafb;
-      color: #1f2937;
-      line-height: 1.4;
-      font-size: 14px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f8fafc;
     }
 
-    /* Header */
     .header {
-      background: #e30613;
-      color: white;
-      padding: 1rem 0;
-      position: sticky;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
+      padding: 1rem 5%;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .logo {
-      font-size: 1.5rem;
+      color: white;
+      font-size: 1.2rem;
       font-weight: 700;
     }
 
@@ -53,39 +51,40 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
 
     .nav-links a:hover {
-      text-decoration: underline;
+      color: #FFD700;
     }
 
-    /* Main Container */
     .main-container {
       max-width: 1200px;
-      margin: 3rem auto;
+      margin: 6rem auto 2rem;
+      padding: 0 5%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      padding: 0 2rem;
     }
 
-    /* Contact Info */
-    .contact-info {
+    .contact-info,
+    .contact-form {
       background: white;
-      padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      height: fit-content;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
-    .contact-info h2 {
-      color: #e30613;
-      margin-bottom: 1rem;
+    .contact-info h2,
+    .contact-form h2 {
+      color: #0D1B2A;
       font-size: 1.8rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
 
     .contact-info p {
-      color: #6b7280;
+      color: #64748b;
       margin-bottom: 2rem;
       line-height: 1.6;
     }
@@ -93,91 +92,69 @@
     .contact-item {
       display: flex;
       align-items: center;
+      gap: 1rem;
       margin-bottom: 1.5rem;
       padding: 1rem;
       background: #f8fafc;
       border-radius: 8px;
-      border-left: 4px solid #e30613;
     }
 
     .contact-icon {
       font-size: 1.5rem;
-      margin-right: 1rem;
-      width: 40px;
-      text-align: center;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .contact-details h4 {
-      color: #1f2937;
-      margin-bottom: 0.25rem;
+      color: #0D1B2A;
       font-size: 1rem;
+      margin-bottom: 0.25rem;
     }
 
     .contact-details span {
-      color: #6b7280;
+      color: #64748b;
       font-size: 0.9rem;
     }
 
     .quick-actions {
       margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid #e5e7eb;
     }
 
     .quick-actions h3 {
-      color: #1f2937;
+      color: #0D1B2A;
       margin-bottom: 1rem;
       font-size: 1.2rem;
     }
 
     .action-buttons {
       display: flex;
-      flex-direction: column;
       gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .action-btn {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #0D1B2A;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      padding: 0.75rem 1rem;
-      background: #e30613;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background 0.2s ease;
+      gap: 0.5rem;
     }
 
     .action-btn:hover {
-      background: #b91c1c;
-    }
-
-    .action-btn span {
-      margin-right: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    .whatsapp {
-      background: #25d366;
-    }
-
-    .whatsapp:hover {
-      background: #1da851;
-    }
-
-    /* Contact Form */
-    .contact-form {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      height: fit-content;
-    }
-
-    .contact-form h2 {
-      color: #e30613;
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
     }
 
     .form-group {
@@ -186,9 +163,10 @@
 
     .form-group label {
       display: block;
+      color: #0D1B2A;
+      font-weight: 600;
       margin-bottom: 0.5rem;
-      color: #374151;
-      font-weight: 500;
+      font-size: 0.9rem;
     }
 
     .form-group input,
@@ -196,44 +174,41 @@
     .form-group textarea {
       width: 100%;
       padding: 0.75rem;
-      border: 2px solid #e5e7eb;
+      border: 2px solid #e2e8f0;
       border-radius: 6px;
-      font-size: 1rem;
-      background: #f9fafb;
+      font-size: 0.9rem;
+      transition: border-color 0.3s ease;
+      background: white;
     }
 
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
-      border-color: #FFD700;
       outline: none;
-      background: white;
+      border-color: #0D1B2A;
     }
 
     .form-group textarea {
+      height: 120px;
       resize: vertical;
-      min-height: 120px;
     }
 
     .submit-btn {
-      width: 100%;
-      padding: 0.75rem;
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-      color: #0D1B2A;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
+      color: white;
+      padding: 0.75rem 2rem;
       border: none;
       border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
-      margin-top: 1rem;
+      width: 100%;
+      font-size: 1rem;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
     }
 
     .submit-btn:hover {
-      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+      box-shadow: 0 4px 15px rgba(13,27,42,0.3);
     }
 
     .submit-btn:disabled {
@@ -263,7 +238,6 @@
       border: 1px solid #fca5a5;
     }
 
-    /* Mobile Responsive */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -292,7 +266,6 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
     <div class="nav-container">
       <div class="logo">FLONZE FULFILLMENT</div>
@@ -306,9 +279,7 @@
     </div>
   </header>
 
-  <!-- Main Container -->
   <div class="main-container">
-    <!-- Contact Information -->
     <div class="contact-info">
       <h2>📞 Get in Touch</h2>
       <p>Ready to scale your e-commerce business? Need help with fulfillment services? Want a custom quote? We're here to help! Reach out to us through any of the channels below.</p>
@@ -361,7 +332,6 @@
       </div>
     </div>
 
-    <!-- Contact Form -->
     <div class="contact-form">
       <h2>💬 Send us a Message</h2>
       
@@ -509,7 +479,6 @@
           isSubmitting = false;
         }
       });
-      
     });
   </script>
 </body>

@@ -221,63 +221,62 @@
         if (isSubmitting) return;
         isSubmitting = true;
       
-      submitBtn.textContent = 'Signing In...';
-      submitBtn.disabled = true;
-      successMsg.style.display = 'none';
-      errorMsg.style.display = 'none';
+        submitBtn.textContent = 'Signing In...';
+        submitBtn.disabled = true;
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
 
-      const formData = new FormData(form);
-      const data = {
-        email: formData.get('email'),
-        password: formData.get('password')
-      };
+        const formData = new FormData(form);
+        const data = {
+          email: formData.get('email'),
+          password: formData.get('password')
+        };
 
-      const timeoutId = setTimeout(() => {
-        errorMsg.textContent = '⏰ Request timeout. Please try again.';
-        errorMsg.style.display = 'block';
-        submitBtn.textContent = 'Sign In';
-        submitBtn.disabled = false;
-      }, 10000);
+        const timeoutId = setTimeout(() => {
+          errorMsg.textContent = '⏰ Request timeout. Please try again.';
+          errorMsg.style.display = 'block';
+          submitBtn.textContent = 'Sign In';
+          submitBtn.disabled = false;
+        }, 10000);
 
-      try {
-        const response = await Promise.race([
-          fetch(scriptURL, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          }),
-          new Promise((_, reject) => 
-            setTimeout(() => reject(new Error('Timeout')), 8000)
-          )
-        ]);
+        try {
+          const response = await Promise.race([
+            fetch(scriptURL, {
+              method: 'POST',
+              body: JSON.stringify(data),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }),
+            new Promise((_, reject) => 
+              setTimeout(() => reject(new Error('Timeout')), 8000)
+            )
+          ]);
 
-        clearTimeout(timeoutId);
+          clearTimeout(timeoutId);
 
-        if (response.ok) {
-          successMsg.style.display = 'block';
-          form.reset();
-          
-          setTimeout(() => {
-            window.location.href = 'index.html';
-          }, 1500);
-        } else {
-          throw new Error('Login failed');
+          if (response.ok) {
+            successMsg.style.display = 'block';
+            form.reset();
+            
+            setTimeout(() => {
+              window.location.href = 'index.html';
+            }, 1500);
+          } else {
+            throw new Error('Login failed');
+          }
+        } catch (error) {
+          clearTimeout(timeoutId);
+          errorMsg.textContent = error.message === 'Timeout' ? 
+            '⏰ Connection timeout. Please try again.' : 
+            '❌ Login failed. Please check your credentials.';
+          errorMsg.style.display = 'block';
+        } finally {
+          submitBtn.textContent = 'Sign In';
+          submitBtn.disabled = false;
+          isSubmitting = false;
         }
-      } catch (error) {
-        clearTimeout(timeoutId);
-        errorMsg.textContent = error.message === 'Timeout' ? 
-          '⏰ Connection timeout. Please try again.' : 
-          '❌ Login failed. Please check your credentials.';
-        errorMsg.style.display = 'block';
-      } finally {
-        submitBtn.textContent = 'Sign In';
-        submitBtn.disabled = false;
-        isSubmitting = false;
-      }
-    });
-    
+      });
     });
   </script>
 </body>
