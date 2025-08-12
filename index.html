@@ -14,9 +14,9 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      line-height: 1.5;
+      line-height: 1.4;
       color: #333;
-      font-size: 14px;
+      font-size: 12px;
     }
 
     /* Header */
@@ -135,7 +135,7 @@
     .hero {
       background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 50%, #0D1B2A 100%);
       color: white;
-      padding: 8rem 5% 4rem;
+      padding: 5rem 5% 2.5rem;
       text-align: center;
       margin-top: 80px;
       position: relative;
@@ -210,7 +210,7 @@
 
     /* Why Choose Us */
     .features {
-      padding: 4rem 5%;
+      padding: 2rem 5%;
       background: #f8fafc;
     }
 
@@ -1026,12 +1026,12 @@
         <span class="logo-text">Flonze Fulfillment</span>
       </div>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-      <a href="#contact" class="cta-btn">Get Started</a>
+      <a href="contact.html" class="cta-btn">Get Started</a>
       <button class="mobile-menu-btn">☰</button>
       <div class="mobile-nav">
         <a href="#services">Services</a>
@@ -1258,12 +1258,69 @@
     <div class="container">
       <h2 class="section-title">Why Sellers Trust Us</h2>
       <div class="badges-grid">
-        <div class="badge">🏆 ISO Certified Warehouse</div>
-        <div class="badge">🔒 Secure Storage</div>
-        <div class="badge">📱 API Integration</div>
-        <div class="badge">🚚 15+ Courier Partners</div>
-        <div class="badge">📊 Real-time Tracking</div>
-        <div class="badge">💳 COD Available</div>
+        <div class="badge floating-badge">🏆 ISO Certified Warehouse</div>
+        <div class="badge floating-badge">🔒 Secure Storage</div>
+        <div class="badge floating-badge">📱 API Integration</div>
+        <div class="badge floating-badge">🚚 15+ Courier Partners</div>
+        <div class="badge floating-badge">📊 Real-time Tracking</div>
+        <div class="badge floating-badge">💳 COD Available</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Comparison Table -->
+  <section class="pricing-table-section">
+    <div class="container">
+      <h2 class="section-title">Compare Our Plans</h2>
+      <div class="table-container">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Features</th>
+              <th class="highlight-column">Starter</th>
+              <th class="highlight-column">Growth</th>
+              <th class="highlight-column">Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row-animate">
+              <td>Per Order Cost</td>
+              <td>₹15</td>
+              <td>₹12</td>
+              <td>Custom</td>
+            </tr>
+            <tr class="table-row-animate">
+              <td>Storage (30 days)</td>
+              <td>✅ Free</td>
+              <td>✅ Free</td>
+              <td>✅ Free</td>
+            </tr>
+            <tr class="table-row-animate">
+              <td>Same Day Dispatch</td>
+              <td>✅</td>
+              <td>✅</td>
+              <td>✅</td>
+            </tr>
+            <tr class="table-row-animate">
+              <td>API Integration</td>
+              <td>❌</td>
+              <td>✅</td>
+              <td>✅</td>
+            </tr>
+            <tr class="table-row-animate">
+              <td>Dedicated Manager</td>
+              <td>❌</td>
+              <td>❌</td>
+              <td>✅</td>
+            </tr>
+            <tr class="table-row-animate">
+              <td>Custom Packaging</td>
+              <td>❌</td>
+              <td>✅</td>
+              <td>✅</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
@@ -1316,24 +1373,106 @@
     </div>
   </section>
 
+  <!-- Dispatch Challenges Section -->
+  <section class="challenges-section">
+    <div class="container">
+      <h2 class="section-title">Common Dispatch Challenges We Solve</h2>
+      <div class="challenges-grid">
+        <div class="challenge-card card-3d">
+          <div class="challenge-icon">⏰</div>
+          <h3>Delayed Dispatch</h3>
+          <p class="problem">❌ Orders sitting for 2-3 days</p>
+          <p class="solution">✅ Same-day dispatch guarantee</p>
+        </div>
+        <div class="challenge-card card-3d">
+          <div class="challenge-icon">📦</div>
+          <h3>Poor Packaging</h3>
+          <p class="problem">❌ 15% damage during transit</p>
+          <p class="solution">✅ Professional packaging, <2% damage</p>
+        </div>
+        <div class="challenge-card card-3d">
+          <div class="challenge-icon">🚚</div>
+          <h3>High Shipping Costs</h3>
+          <p class="problem">❌ ₹80-120 per shipment</p>
+          <p class="solution">✅ ₹25-45 with bulk rates</p>
+        </div>
+        <div class="challenge-card card-3d">
+          <div class="challenge-icon">📱</div>
+          <h3>No Real-time Updates</h3>
+          <p class="problem">❌ Customers asking "Where's my order?"</p>
+          <p class="solution">✅ Live tracking + SMS updates</p>
+        </div>
+        <div class="challenge-card card-3d">
+          <div class="challenge-icon">🔄</div>
+          <h3>Return Headaches</h3>
+          <p class="problem">❌ Manual return processing</p>
+          <p class="solution">✅ Automated return management</p>
+        </div>
+        <div class="challenge-card card-3d">
+          <div class="challenge-icon">📊</div>
+          <h3>No Analytics</h3>
+          <p class="problem">❌ Blind to performance metrics</p>
+          <p class="solution">✅ Detailed reports & insights</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Slider Section -->
+  <section class="vision-section">
+    <div class="container">
+      <h2 class="section-title">Our Vision & Mission</h2>
+      <div class="vision-slider">
+        <div class="slide-container">
+          <div class="vision-slide active" data-slide="0">
+            <div class="vision-content">
+              <div class="vision-icon">🎯</div>
+              <h3>Our Vision</h3>
+              <p>To become India's most trusted e-commerce fulfillment partner, empowering 10,000+ sellers to scale their businesses effortlessly by 2027.</p>
+            </div>
+          </div>
+          <div class="vision-slide" data-slide="1">
+            <div class="vision-content">
+              <div class="vision-icon">🚀</div>
+              <h3>Our Mission</h3>
+              <p>Simplifying e-commerce logistics through technology, enabling sellers to focus on growth while we handle storage, packaging, and delivery with excellence.</p>
+            </div>
+          </div>
+          <div class="vision-slide" data-slide="2">
+            <div class="vision-content">
+              <div class="vision-icon">💡</div>
+              <h3>Our Values</h3>
+              <p>Reliability, Innovation, and Customer Success drive everything we do. We believe in transparent pricing, quality service, and building long-term partnerships.</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn active" onclick="changeSlide(0)">Vision</button>
+          <button class="slider-btn" onclick="changeSlide(1)">Mission</button>
+          <button class="slider-btn" onclick="changeSlide(2)">Values</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ Section -->
   <section class="faq" id="about">
     <div class="container">
       <h2 class="section-title">Frequently Asked Questions</h2>
       <div class="faq-grid">
-        <div class="faq-item">
+        <div class="faq-item card-3d">
           <h3>How quickly can you start fulfilling my orders?</h3>
           <p>Once you send your inventory to our warehouse, we can start fulfilling orders within 2-3 business days after setup.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item card-3d">
           <h3>What platforms do you integrate with?</h3>
           <p>We integrate with Shopify, WooCommerce, Amazon, Flipkart, and can create custom integrations for any platform.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item card-3d">
           <h3>Do you handle returns and exchanges?</h3>
           <p>Yes, we provide complete return management including quality checks, restocking, and customer communication.</p>
         </div>
-        <div class="faq-item">
+        <div class="faq-item card-3d">
           <h3>What are your storage charges?</h3>
           <p>First 30 days storage is free. After that, it's ₹2 per cubic foot per month with no minimum commitment.</p>
         </div>
@@ -1353,19 +1492,51 @@
     </div>
   </section>
 
+  <!-- Social Media Section -->
+  <section class="social-section">
+    <div class="container">
+      <h2 class="section-title">Connect With Us</h2>
+      <div class="social-grid">
+        <a href="https://facebook.com/flonzefulfillment" target="_blank" class="social-card facebook-card">
+          <div class="social-icon">📘</div>
+          <h3>Facebook</h3>
+          <p>Follow us for updates and tips</p>
+          <span class="social-followers">2.5K+ Followers</span>
+        </a>
+        <a href="https://linkedin.com/company/flonzefulfillment" target="_blank" class="social-card linkedin-card">
+          <div class="social-icon">💼</div>
+          <h3>LinkedIn</h3>
+          <p>Connect with our business network</p>
+          <span class="social-followers">1.8K+ Connections</span>
+        </a>
+        <a href="https://wa.me/918108395367" target="_blank" class="social-card whatsapp-card">
+          <div class="social-icon">💬</div>
+          <h3>WhatsApp</h3>
+          <p>Get instant support</p>
+          <span class="social-followers">24/7 Available</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section">
         <h3>Flonze Fulfillment</h3>
         <p>Your trusted partner for e-commerce logistics and fulfillment solutions.</p>
+        <div class="social-links">
+          <a href="https://facebook.com/flonzefulfillment" target="_blank" class="social-link facebook">📘</a>
+          <a href="https://linkedin.com/company/flonzefulfillment" target="_blank" class="social-link linkedin">💼</a>
+          <a href="https://wa.me/918108395367" target="_blank" class="social-link whatsapp">💬</a>
+        </div>
       </div>
       <div class="footer-section">
         <h3>Services</h3>
-        <a href="#">Warehousing</a>
-        <a href="#">Order Fulfillment</a>
-        <a href="#">Shipping</a>
-        <a href="#">Returns Management</a>
+        <a href="services.html">Warehousing</a>
+        <a href="services.html">Order Fulfillment</a>
+        <a href="services.html">Shipping</a>
+        <a href="services.html">Returns Management</a>
       </div>
       <div class="footer-section">
         <h3>Contact</h3>
@@ -1458,6 +1629,708 @@
       const cost = Math.ceil(weight * rates[destination]);
       result.innerHTML = `💰 Estimated Cost: ₹${cost} (${weight}kg to ${destination.charAt(0).toUpperCase() + destination.slice(1)})`;
     }
+
+    // Floating Animation for Trust Badges
+    function initFloatingAnimation() {
+      const badges = document.querySelectorAll('.floating-badge');
+      badges.forEach((badge, index) => {
+        badge.style.animationDelay = `${index * 0.2}s`;
+      });
+    }
+
+    // Table Row Animation on Scroll
+    function initTableAnimation() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      });
+
+      document.querySelectorAll('.table-row-animate').forEach(row => {
+        observer.observe(row);
+      });
+    }
+
+    // Social Cards Hover Effect
+    function initSocialCards() {
+      const socialCards = document.querySelectorAll('.social-card');
+      socialCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px) scale(1.05)';
+        });
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+      });
+    }
+
+    // Particle Background Effect
+    function createParticles() {
+      const particleContainer = document.createElement('div');
+      particleContainer.className = 'particles';
+      document.body.appendChild(particleContainer);
+
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        particleContainer.appendChild(particle);
+      }
+    }
+
+    // Vision Slider Functionality
+    let currentSlide = 0;
+    const totalSlides = 3;
+
+    function changeSlide(slideIndex) {
+      // Remove active class from current slide and button
+      document.querySelector('.vision-slide.active').classList.remove('active');
+      document.querySelector('.slider-btn.active').classList.remove('active');
+      
+      // Add active class to new slide and button
+      document.querySelector(`[data-slide="${slideIndex}"]`).classList.add('active');
+      document.querySelectorAll('.slider-btn')[slideIndex].classList.add('active');
+      
+      currentSlide = slideIndex;
+    }
+
+    // Auto-advance slider
+    function autoSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      changeSlide(currentSlide);
+    }
+
+    // 3D Card Effects
+    function init3DCards() {
+      const cards = document.querySelectorAll('.card-3d');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 10;
+          const rotateY = (centerX - x) / 10;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+      });
+    }
+
+    // Parallax Scroll Effect
+    function initParallax() {
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.parallax');
+        
+        parallaxElements.forEach(element => {
+          const speed = element.dataset.speed || 0.5;
+          const yPos = -(scrolled * speed);
+          element.style.transform = `translateY(${yPos}px)`;
+        });
+      });
+    }
+
+    // Advanced Interactive Features
+    class FlonzeWebsite {
+      constructor() {
+        this.isLoaded = false;
+        this.userInteractions = 0;
+        this.scrollProgress = 0;
+        this.mousePosition = { x: 0, y: 0 };
+        this.init();
+      }
+
+      init() {
+        this.setupEventListeners();
+        this.createAdvancedAnimations();
+        this.initializeComponents();
+        this.setupAnalytics();
+        this.createInteractiveElements();
+      }
+
+      setupEventListeners() {
+        // Mouse tracking for advanced effects
+        document.addEventListener('mousemove', (e) => {
+          this.mousePosition.x = e.clientX;
+          this.mousePosition.y = e.clientY;
+          this.updateMouseEffects();
+        });
+
+        // Scroll progress tracking
+        window.addEventListener('scroll', () => {
+          this.updateScrollProgress();
+          this.handleScrollAnimations();
+        });
+
+        // Click tracking
+        document.addEventListener('click', (e) => {
+          this.trackUserInteraction(e);
+          this.createClickRipple(e);
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+          this.handleKeyboardShortcuts(e);
+        });
+
+        // Window resize handling
+        window.addEventListener('resize', () => {
+          this.handleResize();
+        });
+      }
+
+      updateMouseEffects() {
+        const cursor = document.querySelector('.custom-cursor');
+        if (!cursor) {
+          this.createCustomCursor();
+        } else {
+          cursor.style.left = this.mousePosition.x + 'px';
+          cursor.style.top = this.mousePosition.y + 'px';
+        }
+
+        // Update parallax elements based on mouse position
+        const parallaxElements = document.querySelectorAll('.mouse-parallax');
+        parallaxElements.forEach(element => {
+          const speed = element.dataset.speed || 0.1;
+          const x = (this.mousePosition.x - window.innerWidth / 2) * speed;
+          const y = (this.mousePosition.y - window.innerHeight / 2) * speed;
+          element.style.transform = `translate(${x}px, ${y}px)`;
+        });
+      }
+
+      createCustomCursor() {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        cursor.innerHTML = '<div class="cursor-dot"></div><div class="cursor-ring"></div>';
+        document.body.appendChild(cursor);
+      }
+
+      updateScrollProgress() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        this.scrollProgress = (scrollTop / docHeight) * 100;
+        
+        // Update progress bar
+        const progressBar = document.querySelector('.scroll-progress');
+        if (progressBar) {
+          progressBar.style.width = this.scrollProgress + '%';
+        }
+      }
+
+      handleScrollAnimations() {
+        const elements = document.querySelectorAll('.scroll-animate');
+        elements.forEach(element => {
+          const rect = element.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+          
+          if (isVisible) {
+            element.classList.add('animate-in');
+          }
+        });
+      }
+
+      trackUserInteraction(event) {
+        this.userInteractions++;
+        const data = {
+          type: 'click',
+          target: event.target.tagName,
+          timestamp: Date.now(),
+          position: { x: event.clientX, y: event.clientY }
+        };
+        this.sendAnalytics(data);
+      }
+
+      createClickRipple(event) {
+        const ripple = document.createElement('div');
+        ripple.className = 'click-ripple';
+        ripple.style.left = event.clientX + 'px';
+        ripple.style.top = event.clientY + 'px';
+        document.body.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 1000);
+      }
+
+      handleKeyboardShortcuts(event) {
+        const shortcuts = {
+          'KeyH': () => this.scrollToSection('hero'),
+          'KeyS': () => this.scrollToSection('services'),
+          'KeyC': () => this.scrollToSection('contact'),
+          'KeyT': () => this.toggleTheme(),
+          'Escape': () => this.closeAllModals()
+        };
+
+        if (event.ctrlKey && shortcuts[event.code]) {
+          event.preventDefault();
+          shortcuts[event.code]();
+        }
+      }
+
+      scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+
+      toggleTheme() {
+        document.body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+      }
+
+      createAdvancedAnimations() {
+        // Morphing shapes animation
+        this.createMorphingShapes();
+        
+        // Floating elements
+        this.createFloatingElements();
+        
+        // Text typing effect
+        this.initTypeWriter();
+        
+        // Number counting animation
+        this.initCounters();
+        
+        // Loading screen
+        this.createLoadingScreen();
+      }
+
+      createMorphingShapes() {
+        const shapesContainer = document.createElement('div');
+        shapesContainer.className = 'morphing-shapes';
+        
+        for (let i = 0; i < 5; i++) {
+          const shape = document.createElement('div');
+          shape.className = 'morphing-shape';
+          shape.style.left = Math.random() * 100 + '%';
+          shape.style.top = Math.random() * 100 + '%';
+          shape.style.animationDelay = i * 0.5 + 's';
+          shapesContainer.appendChild(shape);
+        }
+        
+        document.body.appendChild(shapesContainer);
+      }
+
+      createFloatingElements() {
+        const floatingContainer = document.createElement('div');
+        floatingContainer.className = 'floating-elements';
+        
+        const elements = ['📦', '🚚', '⚡', '🎯', '💎', '🔥'];
+        elements.forEach((emoji, index) => {
+          const element = document.createElement('div');
+          element.className = 'floating-element';
+          element.textContent = emoji;
+          element.style.left = (index * 15 + 10) + '%';
+          element.style.animationDelay = index * 0.3 + 's';
+          floatingContainer.appendChild(element);
+        });
+        
+        document.body.appendChild(floatingContainer);
+      }
+
+      initTypeWriter() {
+        const typewriterElements = document.querySelectorAll('.typewriter');
+        typewriterElements.forEach(element => {
+          const text = element.textContent;
+          element.textContent = '';
+          let i = 0;
+          
+          const typeInterval = setInterval(() => {
+            element.textContent += text.charAt(i);
+            i++;
+            if (i > text.length) {
+              clearInterval(typeInterval);
+            }
+          }, 100);
+        });
+      }
+
+      initCounters() {
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+          const target = parseInt(counter.dataset.target);
+          const duration = parseInt(counter.dataset.duration) || 2000;
+          const increment = target / (duration / 16);
+          let current = 0;
+          
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+          
+          updateCounter();
+        });
+      }
+
+      createLoadingScreen() {
+        const loader = document.createElement('div');
+        loader.className = 'loading-screen';
+        loader.innerHTML = `
+          <div class="loader-content">
+            <div class="loader-logo">🚀 Flonze</div>
+            <div class="loader-progress">
+              <div class="loader-bar"></div>
+            </div>
+            <div class="loader-text">Loading amazing experience...</div>
+          </div>
+        `;
+        document.body.appendChild(loader);
+        
+        setTimeout(() => {
+          loader.classList.add('fade-out');
+          setTimeout(() => loader.remove(), 500);
+        }, 2000);
+      }
+
+      initializeComponents() {
+        this.createInteractiveMap();
+        this.setupFormValidation();
+        this.initChatBot();
+        this.createNotificationSystem();
+        this.setupSearchFunctionality();
+      }
+
+      createInteractiveMap() {
+        const mapContainer = document.createElement('div');
+        mapContainer.className = 'interactive-map';
+        mapContainer.innerHTML = `
+          <div class="map-header">Our Service Areas</div>
+          <div class="map-content">
+            <div class="city-marker" data-city="mumbai" style="top: 60%; left: 20%;">Mumbai</div>
+            <div class="city-marker" data-city="delhi" style="top: 30%; left: 25%;">Delhi</div>
+            <div class="city-marker" data-city="bangalore" style="top: 80%; left: 30%;">Bangalore</div>
+            <div class="city-marker" data-city="pune" style="top: 65%; left: 22%;">Pune</div>
+          </div>
+        `;
+        
+        const mapSection = document.querySelector('.trust-badges');
+        if (mapSection) {
+          mapSection.appendChild(mapContainer);
+        }
+      }
+
+      setupFormValidation() {
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+          form.addEventListener('submit', (e) => {
+            if (!this.validateForm(form)) {
+              e.preventDefault();
+              this.showNotification('Please fill all required fields', 'error');
+            }
+          });
+        });
+      }
+
+      validateForm(form) {
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+          if (!field.value.trim()) {
+            field.classList.add('error');
+            isValid = false;
+          } else {
+            field.classList.remove('error');
+          }
+        });
+        
+        return isValid;
+      }
+
+      initChatBot() {
+        const chatBot = document.createElement('div');
+        chatBot.className = 'chatbot';
+        chatBot.innerHTML = `
+          <div class="chatbot-header">
+            <span>💬 Flonze Assistant</span>
+            <button class="chatbot-toggle">−</button>
+          </div>
+          <div class="chatbot-messages"></div>
+          <div class="chatbot-input">
+            <input type="text" placeholder="Ask me anything...">
+            <button>Send</button>
+          </div>
+        `;
+        document.body.appendChild(chatBot);
+        
+        this.setupChatBotLogic(chatBot);
+      }
+
+      setupChatBotLogic(chatBot) {
+        const responses = {
+          'hello': 'Hi! How can I help you with your fulfillment needs?',
+          'pricing': 'Our pricing starts at ₹15 per order. Would you like detailed pricing?',
+          'services': 'We offer warehousing, fulfillment, shipping, and returns management.',
+          'contact': 'You can reach us at +91 81083 95367 or hello@flonzefulfillment.com'
+        };
+        
+        const input = chatBot.querySelector('input');
+        const sendBtn = chatBot.querySelector('button');
+        const messages = chatBot.querySelector('.chatbot-messages');
+        
+        const sendMessage = () => {
+          const message = input.value.toLowerCase().trim();
+          if (message) {
+            this.addChatMessage(messages, message, 'user');
+            const response = this.getChatResponse(message, responses);
+            setTimeout(() => {
+              this.addChatMessage(messages, response, 'bot');
+            }, 500);
+            input.value = '';
+          }
+        };
+        
+        sendBtn.addEventListener('click', sendMessage);
+        input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') sendMessage();
+        });
+      }
+
+      addChatMessage(container, message, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${type}`;
+        messageDiv.textContent = message;
+        container.appendChild(messageDiv);
+        container.scrollTop = container.scrollHeight;
+      }
+
+      getChatResponse(message, responses) {
+        for (let key in responses) {
+          if (message.includes(key)) {
+            return responses[key];
+          }
+        }
+        return "I'm here to help! Try asking about pricing, services, or contact info.";
+      }
+
+      createNotificationSystem() {
+        const notificationContainer = document.createElement('div');
+        notificationContainer.className = 'notification-container';
+        document.body.appendChild(notificationContainer);
+      }
+
+      showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        const container = document.querySelector('.notification-container');
+        container.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.classList.add('show');
+        }, 100);
+        
+        setTimeout(() => {
+          notification.classList.remove('show');
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }
+
+      setupSearchFunctionality() {
+        const searchInput = document.createElement('input');
+        searchInput.type = 'text';
+        searchInput.placeholder = 'Search our services...';
+        searchInput.className = 'search-input';
+        
+        const searchResults = document.createElement('div');
+        searchResults.className = 'search-results';
+        
+        searchInput.addEventListener('input', (e) => {
+          this.performSearch(e.target.value, searchResults);
+        });
+        
+        const header = document.querySelector('header .nav-container');
+        if (header) {
+          header.appendChild(searchInput);
+          header.appendChild(searchResults);
+        }
+      }
+
+      performSearch(query, resultsContainer) {
+        const searchData = [
+          { title: 'Warehousing', url: 'services.html', description: 'Secure storage solutions' },
+          { title: 'Order Fulfillment', url: 'services.html', description: 'Complete order processing' },
+          { title: 'Shipping', url: 'services.html', description: 'Fast delivery services' },
+          { title: 'Pricing', url: 'pricing.html', description: 'Transparent pricing plans' }
+        ];
+        
+        if (query.length < 2) {
+          resultsContainer.innerHTML = '';
+          return;
+        }
+        
+        const results = searchData.filter(item => 
+          item.title.toLowerCase().includes(query.toLowerCase()) ||
+          item.description.toLowerCase().includes(query.toLowerCase())
+        );
+        
+        resultsContainer.innerHTML = results.map(result => `
+          <div class="search-result">
+            <a href="${result.url}">
+              <strong>${result.title}</strong>
+              <p>${result.description}</p>
+            </a>
+          </div>
+        `).join('');
+      }
+
+      setupAnalytics() {
+        // Simulated analytics tracking
+        this.analytics = {
+          pageViews: 0,
+          interactions: 0,
+          timeOnPage: Date.now()
+        };
+        
+        setInterval(() => {
+          this.sendAnalytics({
+            type: 'heartbeat',
+            timeOnPage: Date.now() - this.analytics.timeOnPage,
+            interactions: this.userInteractions
+          });
+        }, 30000);
+      }
+
+      sendAnalytics(data) {
+        // Simulate sending to analytics service
+        console.log('Analytics:', data);
+        
+        // In real implementation, you would send to your analytics service
+        // fetch('/api/analytics', { method: 'POST', body: JSON.stringify(data) });
+      }
+
+      createInteractiveElements() {
+        this.createScrollProgressBar();
+        this.createBackToTopButton();
+        this.createThemeToggle();
+        this.createFullscreenToggle();
+        this.createScreenshotTool();
+      }
+
+      createScrollProgressBar() {
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        document.body.appendChild(progressBar);
+      }
+
+      createBackToTopButton() {
+        const backToTop = document.createElement('button');
+        backToTop.className = 'back-to-top';
+        backToTop.innerHTML = '↑';
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        document.body.appendChild(backToTop);
+        
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            backToTop.classList.add('show');
+          } else {
+            backToTop.classList.remove('show');
+          }
+        });
+      }
+
+      createThemeToggle() {
+        const themeToggle = document.createElement('button');
+        themeToggle.className = 'theme-toggle';
+        themeToggle.innerHTML = '🌙';
+        themeToggle.addEventListener('click', () => {
+          this.toggleTheme();
+          themeToggle.innerHTML = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+        });
+        document.body.appendChild(themeToggle);
+      }
+
+      createFullscreenToggle() {
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'fullscreen-toggle';
+        fullscreenBtn.innerHTML = '⛶';
+        fullscreenBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+          } else {
+            document.exitFullscreen();
+          }
+        });
+        document.body.appendChild(fullscreenBtn);
+      }
+
+      createScreenshotTool() {
+        const screenshotBtn = document.createElement('button');
+        screenshotBtn.className = 'screenshot-btn';
+        screenshotBtn.innerHTML = '📷';
+        screenshotBtn.addEventListener('click', () => {
+          this.takeScreenshot();
+        });
+        document.body.appendChild(screenshotBtn);
+      }
+
+      takeScreenshot() {
+        // Simulate screenshot functionality
+        this.showNotification('Screenshot feature would be implemented with html2canvas library', 'info');
+      }
+
+      handleResize() {
+        // Recalculate animations and layouts on resize
+        this.updateScrollProgress();
+        this.repositionFloatingElements();
+      }
+
+      repositionFloatingElements() {
+        const floatingElements = document.querySelectorAll('.floating-element');
+        floatingElements.forEach((element, index) => {
+          element.style.left = (index * 15 + 10) + '%';
+        });
+      }
+
+      closeAllModals() {
+        const modals = document.querySelectorAll('.modal.active');
+        modals.forEach(modal => modal.classList.remove('active'));
+      }
+    }
+
+    // Initialize the advanced website functionality
+    const flonzeWebsite = new FlonzeWebsite();
+
+    // Initialize all animations
+    document.addEventListener('DOMContentLoaded', function() {
+      initFloatingAnimation();
+      initTableAnimation();
+      initSocialCards();
+      createParticles();
+      init3DCards();
+      initParallax();
+      
+      // Start auto-slider after 5 seconds
+      setTimeout(() => {
+        setInterval(autoSlide, 4000);
+      }, 5000);
+      
+      // Show welcome notification
+      setTimeout(() => {
+        flonzeWebsite.showNotification('Welcome to Flonze Fulfillment! 🚀', 'success');
+      }, 3000);
+    });
   </script>
 </body>
 </html>

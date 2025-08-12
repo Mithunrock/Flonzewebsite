@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Services | Flonze Fulfillment</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,144 +13,162 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: #f9fafb;
       color: #1f2937;
-      line-height: 1.6;
+      line-height: 1.4;
+      font-size: 14px;
     }
 
-    /* Header */
     .header {
-      background: #e30613;
-      color: white;
-      padding: 1rem 0;
-      position: sticky;
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(13,27,42,0.1);
+      position: fixed;
+      width: 100%;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 2rem;
+      padding: 1rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .logo {
-      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-img {
+      height: 32px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
       font-weight: 700;
+      color: #0D1B2A;
     }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      list-style: none;
+      gap: 1.5rem;
     }
 
     .nav-links a {
-      color: white;
+      color: #374151;
       text-decoration: none;
       font-weight: 500;
     }
 
     .nav-links a:hover {
-      text-decoration: underline;
+      color: #0D1B2A;
     }
 
-    /* Hero Section */
+    .cta-btn {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #0D1B2A;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+    }
+
     .hero {
-      background: linear-gradient(135deg, #e30613, #b91c1c);
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
       color: white;
       text-align: center;
-      padding: 3rem 2rem;
+      padding: 6rem 5% 3rem;
+      margin-top: 80px;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
       font-weight: 700;
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1rem;
       opacity: 0.9;
       max-width: 600px;
       margin: 0 auto;
     }
 
-    /* Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 3rem 2rem;
+      padding: 3rem 5%;
     }
 
-    /* Categories Grid */
-    .categories-grid {
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin-bottom: 3rem;
     }
 
-    .category-card {
+    .service-card {
       background: white;
       border-radius: 12px;
       padding: 2rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-left: 4px solid #e30613;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-left: 4px solid #FFD700;
+      transition: transform 0.2s ease;
     }
 
-    .category-card:hover {
+    .service-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
-    .category-header {
+    .service-header {
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
     }
 
-    .category-icon {
+    .service-icon {
       font-size: 2rem;
       margin-right: 1rem;
     }
 
-    .category-card h3 {
-      font-size: 1.5rem;
-      color: #1f2937;
+    .service-card h3 {
+      font-size: 1.3rem;
+      color: #0D1B2A;
       margin-bottom: 0.5rem;
     }
 
-    .category-card p {
+    .service-card p {
       color: #6b7280;
       margin-bottom: 1.5rem;
       line-height: 1.6;
     }
 
-    .category-features {
+    .service-features {
       list-style: none;
       margin-bottom: 1.5rem;
     }
 
-    .category-features li {
-      padding: 0.5rem 0;
+    .service-features li {
+      padding: 0.4rem 0;
       color: #4b5563;
       font-size: 0.9rem;
-      border-bottom: 1px solid #f3f4f6;
     }
 
-    .category-features li:before {
+    .service-features li:before {
       content: "✓";
       color: #10b981;
       font-weight: bold;
       margin-right: 0.5rem;
     }
 
-    .update-frequency {
+    .pricing {
       background: #fef3c7;
       color: #92400e;
       padding: 0.5rem 1rem;
@@ -158,46 +176,44 @@
       font-size: 0.8rem;
       font-weight: 600;
       text-align: center;
-      margin-top: 0.75rem;
+      margin-bottom: 1rem;
     }
 
-    .cta-button {
-      background: #e30613;
-      color: white;
-      padding: 0.625rem 1rem;
+    .service-btn {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #0D1B2A;
+      padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 6px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       width: 100%;
-      margin-top: 0.75rem;
       font-size: 0.9rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
     }
 
-    .cta-button:hover {
+    .service-btn:hover {
       background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(255,215,0,0.4);
     }
 
-    /* Contact Section */
     .contact-section {
       background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
       color: white;
-      padding: 2rem 5%;
+      padding: 3rem 5%;
       text-align: center;
-      margin-top: 2rem;
     }
 
     .contact-section h2 {
       font-size: 1.5rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
 
     .contact-section p {
-      font-size: 1rem;
+      margin-bottom: 2rem;
       opacity: 0.9;
-      margin-bottom: 1.5rem;
     }
 
     .contact-buttons {
@@ -211,11 +227,9 @@
       background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
       color: #0D1B2A;
       padding: 0.75rem 1.5rem;
-      border: none;
       border-radius: 6px;
-      font-weight: 700;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-weight: 700;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(255,215,0,0.3);
     }
@@ -223,30 +237,20 @@
     .contact-btn:hover {
       background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
     }
 
-    /* Mobile Responsive */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
 
       .hero h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
       }
 
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .categories-grid {
+      .services-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
-      }
-
-      .category-card {
-        padding: 1.25rem;
       }
 
       .contact-buttons {
@@ -262,177 +266,157 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
-    <div class="nav-container">
-      <div class="logo">FLONZE FULFILLMENT</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html">Login</a>
-        <a href="signin.html">Sign Up</a>
-      </nav>
-    </div>
+    <nav class="nav">
+      <div class="logo">
+        <img src="logo.png" alt="Flonze Fulfillment" class="logo-img">
+        <span class="logo-text">Flonze Fulfillment</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="cta-btn">Get Started</a>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <h1>🚚 Our Fulfillment Services</h1>
     <p>Complete e-commerce logistics solutions to scale your business. From warehousing to last-mile delivery, we handle it all.</p>
   </section>
 
-  <!-- Categories Container -->
   <div class="container">
-    <div class="categories-grid">
-      <!-- Politics Category -->
-      <div class="category-card">
-        <div class="category-header">
-          <div class="category-icon">🏛️</div>
-          <h3>Politics</h3>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">🏢</div>
+          <h3>Warehousing</h3>
         </div>
-        <p>Comprehensive coverage of political developments, government policies, elections, and legislative updates from India and around the world.</p>
-        <ul class="category-features">
-          <li>Breaking political news and analysis</li>
-          <li>Election coverage and results</li>
-          <li>Government policy updates</li>
-          <li>Parliamentary proceedings</li>
-          <li>Expert political commentary</li>
+        <p>Secure, climate-controlled storage facilities with advanced inventory management systems to keep your products safe and organized.</p>
+        <ul class="service-features">
+          <li>Climate-controlled storage</li>
+          <li>Real-time inventory tracking</li>
+          <li>Quality control and inspection</li>
+          <li>24/7 security monitoring</li>
         </ul>
-        <div class="update-frequency">Updated Hourly</div>
-        <button class="cta-button" onclick="subscribeCategory('politics')">Subscribe to Politics</button>
+        <div class="pricing">Starting ₹2/cubic ft</div>
+        <button class="service-btn" onclick="getQuote('warehousing')">Get Warehousing Quote</button>
       </div>
 
-      <!-- Business Category -->
-      <div class="category-card">
-        <div class="category-header">
-          <div class="category-icon">💼</div>
-          <h3>Business</h3>
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">📦</div>
+          <h3>Order Fulfillment</h3>
         </div>
-        <p>Real-time market updates, corporate news, economic analysis, and business insights from Indian and global markets.</p>
-        <ul class="category-features">
-          <li>Stock market updates and analysis</li>
-          <li>Corporate earnings and news</li>
-          <li>Economic policy and trends</li>
-          <li>Startup and investment news</li>
-          <li>Industry reports and insights</li>
+        <p>End-to-end order processing from pick and pack to shipping, ensuring fast and accurate delivery to your customers.</p>
+        <ul class="service-features">
+          <li>Same-day order processing</li>
+          <li>Custom packaging solutions</li>
+          <li>Multi-channel integration</li>
+          <li>Real-time order tracking</li>
         </ul>
-        <div class="update-frequency">Real-time Updates</div>
-        <button class="cta-button" onclick="subscribeCategory('business')">Subscribe to Business</button>
+        <div class="pricing">Starting ₹12/order</div>
+        <button class="service-btn" onclick="getQuote('fulfillment')">Start Order Fulfillment</button>
       </div>
 
-      <!-- Technology Category -->
-      <div class="category-card">
-        <div class="category-header">
-          <div class="category-icon">💻</div>
-          <h3>Technology</h3>
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">🚚</div>
+          <h3>Shipping</h3>
         </div>
-        <p>Latest tech news, product launches, innovation stories, and digital transformation updates from the technology world.</p>
-        <ul class="category-features">
-          <li>Tech product launches and reviews</li>
-          <li>AI and emerging technology news</li>
-          <li>Startup and innovation stories</li>
-          <li>Digital transformation updates</li>
-          <li>Cybersecurity and privacy news</li>
+        <p>Fast and reliable shipping solutions with 15+ courier partners, ensuring optimal delivery rates and customer satisfaction.</p>
+        <ul class="service-features">
+          <li>15+ courier partner network</li>
+          <li>Same-day dispatch available</li>
+          <li>Real-time shipment tracking</li>
+          <li>COD and prepaid options</li>
         </ul>
-        <div class="update-frequency">Updated Daily</div>
-        <button class="cta-button" onclick="subscribeCategory('technology')">Subscribe to Tech</button>
+        <div class="pricing">Starting ₹25/shipment</div>
+        <button class="service-btn" onclick="getQuote('shipping')">Get Shipping Rates</button>
       </div>
 
-      <!-- Sports Category -->
-      <div class="category-card">
-        <div class="category-header">
-          <div class="category-icon">⚽</div>
-          <h3>Sports</h3>
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">🔄</div>
+          <h3>Returns Management</h3>
         </div>
-        <p>Complete sports coverage including cricket, football, Olympics, and other major sporting events with live scores and analysis.</p>
-        <ul class="category-features">
-          <li>Live scores and match updates</li>
-          <li>Cricket and football coverage</li>
-          <li>Olympic and international sports</li>
-          <li>Player interviews and analysis</li>
-          <li>Sports business and transfers</li>
+        <p>Complete returns processing including quality checks, restocking, refunds, and customer communication for hassle-free returns.</p>
+        <ul class="service-features">
+          <li>Automated returns processing</li>
+          <li>Quality inspection and sorting</li>
+          <li>Refund and exchange handling</li>
+          <li>Customer communication</li>
         </ul>
-        <div class="update-frequency">Live Coverage</div>
-        <button class="cta-button" onclick="subscribeCategory('sports')">Subscribe to Sports</button>
+        <div class="pricing">Starting ₹8/return</div>
+        <button class="service-btn" onclick="getQuote('returns')">Setup Returns Management</button>
       </div>
 
-      <!-- Entertainment Category -->
-      <div class="category-card">
-        <div class="category-header">
-          <div class="category-icon">🎬</div>
-          <h3>Entertainment</h3>
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">🔗</div>
+          <h3>API Integration</h3>
         </div>
-        <p>Bollywood, Hollywood, TV shows, celebrity news, movie reviews, and entertainment industry updates.</p>
-        <ul class="category-features">
-          <li>Bollywood and Hollywood news</li>
-          <li>Celebrity interviews and updates</li>
-          <li>Movie and TV show reviews</li>
-          <li>Music and streaming updates</li>
-          <li>Entertainment industry insights</li>
+        <p>Seamless integration with your e-commerce platforms including Shopify, Amazon, Flipkart, and custom solutions.</p>
+        <ul class="service-features">
+          <li>Shopify & WooCommerce integration</li>
+          <li>Amazon & Flipkart connectivity</li>
+          <li>Custom API development</li>
+          <li>Real-time data synchronization</li>
         </ul>
-        <div class="update-frequency">Updated Daily</div>
-        <button class="cta-button" onclick="subscribeCategory('entertainment')">Subscribe to Entertainment</button>
+        <div class="pricing">Free Setup</div>
+        <button class="service-btn" onclick="getQuote('integration')">Setup Integration</button>
       </div>
 
-      <!-- Lifestyle Category -->
-      <div class="category-card">
-        <div class="category-header">
-          <div class="category-icon">🌟</div>
-          <h3>Lifestyle</h3>
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">📊</div>
+          <h3>Analytics & Reporting</h3>
         </div>
-        <p>Health, wellness, travel, food, fashion, and lifestyle trends to help you live your best life.</p>
-        <ul class="category-features">
-          <li>Health and wellness tips</li>
-          <li>Travel guides and destinations</li>
-          <li>Food and recipe updates</li>
-          <li>Fashion and beauty trends</li>
-          <li>Personal development content</li>
+        <p>Comprehensive business insights with real-time dashboards, performance metrics, and detailed reports to optimize your operations.</p>
+        <ul class="service-features">
+          <li>Real-time performance dashboard</li>
+          <li>Inventory and sales analytics</li>
+          <li>Shipping performance metrics</li>
+          <li>Customer behavior insights</li>
         </ul>
-        <div class="update-frequency">Updated Weekly</div>
-        <button class="cta-button" onclick="subscribeCategory('lifestyle')">Subscribe to Lifestyle</button>
+        <div class="pricing">Included Free</div>
+        <button class="service-btn" onclick="getQuote('analytics')">View Analytics Demo</button>
       </div>
     </div>
   </div>
 
-  <!-- Contact Section -->
   <section class="contact-section">
     <h2>🚀 Ready to Scale Your Business?</h2>
     <p>Choose the services you need and let us handle your e-commerce fulfillment while you focus on growth!</p>
     <div class="contact-buttons">
       <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services for my e-commerce business." class="contact-btn" target="_blank">Get Started on WhatsApp</a>
-      <a href="signin.html" class="contact-btn">Create Account</a>
-      <a href="index.html" class="contact-btn">Back to Home</a>
+      <a href="contact.html" class="contact-btn">Contact Us</a>
     </div>
   </section>
 
+  <section style="background: #f8fafc; padding: 2rem 5%; text-align: center;">
+    <a href="index.html" style="background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%); color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">← Back to Home</a>
+  </section>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    function getQuote(serviceType) {
+      const messages = {
+        'warehousing': 'Hi! I want to know about Warehousing services. Please send me pricing and details for secure storage solutions.',
+        'fulfillment': 'Hi! I want to start Order Fulfillment services. Please send me details about pick, pack, and ship solutions.',
+        'shipping': 'Hi! I want to know about Shipping services. Please send me rates and courier partner details.',
+        'returns': 'Hi! I want to setup Returns Management. Please send me details about returns processing and handling.',
+        'integration': 'Hi! I want API Integration services. Please help me connect my e-commerce platform with your system.',
+        'analytics': 'Hi! I want to see Analytics & Reporting demo. Please show me the dashboard and reporting features.'
+      };
       
-      function subscribeCategory(categoryType) {
-        try {
-          const messages = {
-            'politics': 'Hi! I want to subscribe to Politics news updates. Please send me breaking political news.',
-            'business': 'Hi! I want to subscribe to Business news updates. Please send me market and corporate news.',
-            'technology': 'Hi! I want to subscribe to Technology news updates. Please send me latest tech news.',
-            'sports': 'Hi! I want to subscribe to Sports news updates. Please send me live scores and sports news.',
-            'entertainment': 'Hi! I want to subscribe to Entertainment news updates. Please send me Bollywood and celebrity news.',
-            'lifestyle': 'Hi! I want to subscribe to Lifestyle news updates. Please send me health, travel, and lifestyle content.'
-          };
-          
-          const message = messages[categoryType] || 'Hi! I want to subscribe to news updates.';
-          const whatsappUrl = `https://wa.me/918108395367?text=${encodeURIComponent(message)}`;
-          
-          window.open(whatsappUrl, '_blank');
-        } catch (error) {
-          console.error('Error subscribing to category:', error);
-          window.open('https://wa.me/918108395367', '_blank');
-        }
-      }
+      const message = messages[serviceType] || 'Hi! I want to know about Flonze Fulfillment services for my e-commerce business.';
+      const whatsappUrl = `https://wa.me/918108395367?text=${encodeURIComponent(message)}`;
       
-      window.subscribeCategory = subscribeCategory;
-      
-    });
+      window.open(whatsappUrl, '_blank');
+    }
   </script>
 </body>
 </html>

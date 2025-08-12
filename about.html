@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Flonze Laundry</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>About Us | Flonze Fulfillment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,246 +13,115 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #f9fafb;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.4;
       color: #333;
-      line-height: 1.6;
+      font-size: 14px;
     }
 
-    /* Header */
     .header {
-      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-      color: white;
-      padding: 1rem 5%;
-      position: sticky;
+      background: #fff;
+      box-shadow: 0 2px 20px rgba(13,27,42,0.1);
+      position: fixed;
+      width: 100%;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
 
-    .nav-container {
+    .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1rem 5%;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .logo {
-      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-img {
+      height: 32px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.2rem;
       font-weight: 700;
-      color: #ffeb3b;
+      color: #0D1B2A;
     }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #ffeb3b;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.9), rgba(124, 58, 237, 0.8));
-      padding: 2.5rem 5%;
-      text-align: center;
-      color: white;
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero p {
-      font-size: 1rem;
-      opacity: 0.9;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    /* Main Container */
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2.5rem 5%;
-    }
-
-    /* About Content */
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      margin-bottom: 2.5rem;
-      align-items: center;
-    }
-
-    .about-text h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #4f46e5;
-      margin-bottom: 1rem;
-    }
-
-    .about-text p {
-      font-size: 0.95rem;
-      color: #6b7280;
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-    .about-image {
-      text-align: center;
-      font-size: 5rem;
-    }
-
-    /* Mission Vision */
-    .mission-vision {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .mission, .vision {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      text-align: center;
-    }
-
-    .mission h3, .vision h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #4f46e5;
-      margin-bottom: 0.75rem;
-    }
-
-    .mission p, .vision p {
-      color: #6b7280;
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    .mission-icon, .vision-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    /* Why Choose Us */
-    .why-choose {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      margin-bottom: 2.5rem;
-    }
-
-    .why-choose h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #1f2937;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      list-style: none;
       gap: 1.5rem;
     }
 
-    .feature-card {
-      padding: 1.25rem;
-      background: #f9fafb;
-      border-radius: 10px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .feature-card:hover {
-      background: #e0e7ff;
-      transform: translateY(-5px);
-    }
-
-    .feature-icon {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .feature-card h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #1f2937;
-      margin-bottom: 0.5rem;
-    }
-
-    .feature-card p {
-      color: #6b7280;
-      font-size: 0.85rem;
-    }
-
-    /* Team Section */
-    .team-section {
-      background: white;
-      padding: 3rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      margin-bottom: 4rem;
-      text-align: center;
-    }
-
-    .team-section h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1f2937;
-      margin-bottom: 2rem;
-    }
-
-    .team-member {
-      display: inline-block;
-      margin: 1rem;
-      padding: 2rem;
-      background: #f9fafb;
-      border-radius: 12px;
-      max-width: 300px;
-    }
-
-    .team-avatar {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-    }
-
-    .team-member h4 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #4f46e5;
-      margin-bottom: 0.5rem;
-    }
-
-    .team-member p {
-      color: #6b7280;
+    .nav-links a {
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
       font-size: 0.9rem;
     }
 
-    /* Stats Section */
-    .stats-section {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    .nav-links a:hover {
+      color: #0D1B2A;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #0D1B2A;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
       color: white;
-      padding: 2rem;
-      border-radius: 12px;
-      margin-bottom: 2.5rem;
+      padding: 6rem 5% 3rem;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .about {
+      padding: 3rem 5%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about h2 {
+      font-size: 1.4rem;
+      color: #0D1B2A;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .stats {
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
+      color: white;
+      padding: 2rem 5%;
     }
 
     .stats-grid {
@@ -260,257 +129,109 @@
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 1.5rem;
       text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .stat-item h3 {
-      font-size: 2.2rem;
+    .stat-number {
+      font-size: 1.8rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
     }
 
-    .stat-item p {
-      font-size: 0.95rem;
+    .stat-label {
+      font-size: 0.8rem;
       opacity: 0.9;
     }
 
-    /* Contact CTA */
-    .contact-cta {
-      background: white;
-      padding: 3rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    .footer {
+      background: #1f2937;
+      color: white;
+      padding: 2rem 5% 1rem;
       text-align: center;
     }
 
-    .contact-cta h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #1f2937;
-      margin-bottom: 1rem;
+    .footer p {
+      font-size: 0.8rem;
+      color: #9ca3af;
     }
 
-    .contact-cta p {
-      color: #6b7280;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .cta-btn {
-      background: linear-gradient(135deg, #4f46e5, #7c3aed);
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
-    }
-
-    .cta-btn.secondary {
-      background: transparent;
-      border: 2px solid #4f46e5;
-      color: #4f46e5;
-    }
-
-    .cta-btn.secondary:hover {
-      background: #4f46e5;
-      color: white;
-    }
-
-    /* Mobile Responsive */
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
 
       .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .about-text h2 {
-        font-size: 2rem;
-      }
-
-      .about-image {
-        font-size: 5rem;
-      }
-
-      .mission-vision {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
+        font-size: 1.4rem;
       }
 
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .cta-btn {
-        width: 100%;
-        max-width: 300px;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
-    <div class="nav-container">
-      <div class="logo">FLONZE</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="login.html">Login</a>
-        <a href="signin.html">Sign Up</a>
-      </nav>
-    </div>
+    <nav class="nav">
+      <div class="logo">
+        <img src="logo.png" alt="Flonze Fulfillment" class="logo-img">
+        <span class="logo-text">Flonze Fulfillment</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="cta-btn">Get Started</a>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
-    <h1>🏢 About Flonze Laundry</h1>
-    <p>Your trusted partner for doorstep laundry services in Mumbai. We're revolutionizing the way you think about laundry care.</p>
+    <h1>About Flonze Fulfillment</h1>
+    <p>Your trusted partner for e-commerce logistics and fulfillment solutions</p>
   </section>
 
-  <!-- Main Container -->
-  <div class="container">
-    <!-- About Content -->
-    <div class="about-content">
-      <div class="about-text">
-        <h2>Who We Are</h2>
-        <p><strong>Flonze Laundry</strong> is Mumbai's premier doorstep laundry service, founded with a simple mission: to make laundry effortless for busy urban professionals and families.</p>
-        <p>Since our inception, we've been committed to providing high-quality, eco-friendly laundry solutions that save you time while ensuring your clothes receive the best possible care.</p>
-        <p>With our modern, tech-enabled approach and customer-first philosophy, we're setting new standards in the laundry industry across Mumbai.</p>
-      </div>
-      <div class="about-image">
-        🧺
-      </div>
-    </div>
+  <section class="about">
+    <h2>Our Mission</h2>
+    <p>We help small and medium e-commerce businesses scale by providing reliable, affordable, and fast fulfillment services. From warehousing to last-mile delivery, we handle your logistics so you can focus on growing your business.</p>
 
-    <!-- Mission & Vision -->
-    <div class="mission-vision">
-      <div class="mission">
-        <div class="mission-icon">🎯</div>
-        <h3>Our Mission</h3>
-        <p>To revolutionize laundry care by providing convenient, eco-friendly, and reliable doorstep services that give our customers more time for what matters most in their lives.</p>
-      </div>
-      <div class="vision">
-        <div class="vision-icon">🌟</div>
-        <h3>Our Vision</h3>
-        <p>To become Mumbai's most trusted laundry service provider, expanding across India while maintaining our commitment to quality, sustainability, and customer satisfaction.</p>
-      </div>
-    </div>
+    <h2>Why Choose Us</h2>
+    <p>With 500+ happy sellers and 50,000+ orders fulfilled, we understand the challenges of e-commerce logistics. Our same-day dispatch, multi-courier network, and real-time tracking ensure your customers receive their orders quickly and safely.</p>
 
-    <!-- Why Choose Us -->
-    <div class="why-choose">
-      <h2>Why Choose Flonze?</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🚚</div>
-          <h4>Doorstep Convenience</h4>
-          <p>Free pickup and delivery at your doorstep. No need to visit laundry shops.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌱</div>
-          <h4>Eco-Friendly</h4>
-          <p>We use biodegradable detergents that are gentle on clothes and the environment.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h4>Quick Turnaround</h4>
-          <p>24-48 hour delivery with express options available for urgent needs.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h4>Quality Guarantee</h4>
-          <p>100% satisfaction guarantee with free rewash if you're not happy.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h4>Tech-Enabled</h4>
-          <p>Easy booking through WhatsApp with real-time order tracking.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <h4>Transparent Pricing</h4>
-          <p>No hidden charges. Clear, upfront pricing for all our services.</p>
-        </div>
-      </div>
-    </div>
+    <h2>Our Promise</h2>
+    <p>Transparent pricing, reliable service, and dedicated support. We're not just a fulfillment partner - we're your growth partner.</p>
+  </section>
 
-    <!-- Stats Section -->
-    <div class="stats-section">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <h3>1000+</h3>
-          <p>Happy Customers</p>
-        </div>
-        <div class="stat-item">
-          <h3>5000+</h3>
-          <p>Orders Completed</p>
-        </div>
-        <div class="stat-item">
-          <h3>15+</h3>
-          <p>Areas Covered</p>
-        </div>
-        <div class="stat-item">
-          <h3>99%</h3>
-          <p>Customer Satisfaction</p>
-        </div>
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Happy Sellers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Orders Fulfilled</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">99.5%</div>
+        <div class="stat-label">On-Time Delivery</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Support</div>
       </div>
     </div>
+  </section>
 
-    <!-- Team Section -->
-    <div class="team-section">
-      <h2>Meet Our Team</h2>
-      <div class="team-member">
-        <div class="team-avatar">👨‍💼</div>
-        <h4>Mithun Yadav</h4>
-        <p>Founder & CEO<br>Passionate about revolutionizing laundry services in Mumbai</p>
-      </div>
-    </div>
+  <section style="background: #f8fafc; padding: 2rem 5%; text-align: center;">
+    <a href="index.html" style="background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%); color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">← Back to Home</a>
+  </section>
 
-    <!-- Contact CTA -->
-    <div class="contact-cta">
-      <h2>Ready to Experience Flonze?</h2>
-      <p>Join thousands of satisfied customers who trust us with their laundry needs. Book your first pickup today!</p>
-      <div class="cta-buttons">
-        <a href="https://wa.me/919876543210?text=Hi! I want to book laundry service." class="cta-btn" target="_blank">Book Now on WhatsApp</a>
-        <a href="services.html" class="cta-btn secondary">View Our Services</a>
-        <a href="contact.html" class="cta-btn secondary">Contact Us</a>
-      </div>
-    </div>
-  </div>
+  <footer class="footer">
+    <p>&copy; 2025 Flonze Fulfillment. All rights reserved.</p>
+  </footer>
 </body>
 </html>
