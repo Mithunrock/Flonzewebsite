@@ -163,6 +163,19 @@ a:hover {
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 991px) {
+  .mobile-menu-btn {
+    display: block;
+  }
 }
 
 .mobile-nav {
@@ -175,6 +188,13 @@ a:hover {
   flex-direction: column;
   padding: 1rem;
   box-shadow: var(--shadow-medium);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-nav.active {
+  max-height: 300px;
 }
 
 .mobile-nav.active {
@@ -805,7 +825,43 @@ a:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .section-title {
+    font-size: 2.75rem;
+  }
+  
+  .hero-image-container {
+    height: 80vh;
+  }
+}
+
+/* Desktop (992px - 1199px) */
+@media (max-width: 1199px) {
+  .container {
+    max-width: 960px;
+  }
+  
+  .challenges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .vision-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+  .container {
+    max-width: 720px;
+  }
+  
   .nav {
     display: none;
   }
@@ -824,25 +880,64 @@ a:hover {
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
   
   .challenges-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .challenge-card {
-    padding: 1.5rem;
+    gap: 2rem;
   }
   
   .vision-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
   
-  .vision-card {
-    padding: 2rem 1.5rem;
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .connect-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Mobile Large (576px - 767px) */
+@media (max-width: 767px) {
+  .container {
+    max-width: 540px;
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .hero-image-container {
+    height: 50vh;
+    min-height: 350px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .connect-grid {
@@ -850,13 +945,26 @@ a:hover {
     gap: 1.5rem;
   }
   
-  .connect-card {
-    padding: 2rem 1.5rem;
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
   .faq-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+  
+  .challenge-card {
+    padding: 1.5rem;
+  }
+  
+  .vision-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .connect-card {
+    padding: 2rem 1.5rem;
   }
   
   .faq-item {
@@ -866,21 +974,23 @@ a:hover {
   .social-links-simple {
     flex-direction: column;
     align-items: center;
-  }
-  
-  .container {
-    padding: 0 1rem;
+    gap: 0.5rem;
   }
 }
 
-@media (max-width: 480px) {
-  .hero-image-container {
-    height: 50vh;
-    min-height: 350px;
+/* Mobile Medium (480px - 575px) */
+@media (max-width: 575px) {
+  .container {
+    padding: 0 0.75rem;
   }
   
   .section-title {
     font-size: 1.75rem;
+  }
+  
+  .hero-image-container {
+    height: 45vh;
+    min-height: 300px;
   }
   
   .btn-primary, .btn-secondary {
@@ -901,6 +1011,119 @@ a:hover {
   }
   
   .faq-item {
+    padding: 1rem;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile Small (320px - 479px) */
+@media (max-width: 479px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-image-container {
+    height: 40vh;
+    min-height: 280px;
+  }
+  
+  .nav-container {
+    padding: 0 0.5rem;
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .challenge-card,
+  .vision-card,
+  .connect-card,
+  .faq-item,
+  .service-card,
+  .feature-card {
+    padding: 1rem 0.75rem;
+  }
+  
+  .challenge-icon,
+  .vision-icon,
+  .connect-icon,
+  .service-icon,
+  .feature-icon {
+    font-size: 2rem;
+  }
+  
+  .social-links {
+    gap: 0.5rem;
+  }
+  
+  .social-link {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 1rem;
+  }
+}
+
+/* Extra Small Mobile (max 319px) */
+@media (max-width: 319px) {
+  .container {
+    padding: 0 0.25rem;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+  }
+  
+  .hero-image-container {
+    height: 35vh;
+    min-height: 250px;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .challenge-card,
+  .vision-card,
+  .connect-card,
+  .faq-item,
+  .service-card,
+  .feature-card {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-image-container {
+    height: 80vh;
+    min-height: 300px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .challenge-card,
+  .vision-card,
+  .connect-card {
     padding: 1rem;
   }
 }
