@@ -1,1118 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flonze Fulfillment - E-commerce Logistics & Warehousing Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.4;
-      color: #333;
-      font-size: 12px;
-    }
-
-    /* Header */
-    .header {
-      background: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 5%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .logo-img {
-      height: 40px;
-      width: auto;
-    }
-
-    .logo-text {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #0D1B2A;
-      text-shadow: 0 1px 2px rgba(255,215,0,0.3);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #374151;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover {
-      color: #0D1B2A;
-    }
-
-    .cta-btn {
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-      color: #0D1B2A;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
-      transition: all 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #374151;
-    }
-
-    .mobile-nav {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: white;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      padding: 1rem 0;
-    }
-
-    .mobile-nav.active {
-      display: block;
-    }
-
-    .mobile-nav a {
-      display: block;
-      padding: 1rem 5%;
-      text-decoration: none;
-      color: #374151;
-      font-weight: 500;
-      border-bottom: 1px solid #f3f4f6;
-    }
-
-    .mobile-nav a:hover {
-      background: #f9fafb;
-      color: #2563eb;
-    }
-
-    .nav {
-      position: relative;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 50%, #0D1B2A 100%);
-      color: white;
-      padding: 5rem 5% 2.5rem;
-      text-align: center;
-      margin-top: 80px;
-      position: relative;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 30% 20%, rgba(255,215,0,0.1) 0%, transparent 50%);
-    }
-
-    .hero h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .hero p {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-      color: #0D1B2A;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: white;
-      padding: 1rem 2rem;
-      border: 2px solid rgba(255,215,0,0.8);
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,215,0,0.1);
-      border-color: #FFD700;
-      color: #FFD700;
-    }
-
-    /* Why Choose Us */
-    .features {
-      padding: 2rem 5%;
-      background: #f8fafc;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      color: #0D1B2A;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, #FFD700, #FFA500);
-      border-radius: 2px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .feature-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-
-    .feature-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .feature-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-
-    /* How It Works */
-    .how-it-works {
-      padding: 4rem 5%;
-      background: white;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .step {
-      text-align: center;
-      position: relative;
-    }
-
-    .step-number {
-      background: #2563eb;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0 auto 1rem;
-    }
-
-    .step h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-
-    /* Testimonials */
-    .testimonials {
-      padding: 4rem 5%;
-      background: #f8fafc;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .testimonial {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
-
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 1rem;
-      color: #4b5563;
-    }
-
-    .testimonial-author {
-      font-weight: 600;
-      color: #2563eb;
-    }
-
-    /* CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
-      color: white;
-      padding: 4rem 5%;
-      text-align: center;
-      position: relative;
-    }
-
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 70% 80%, rgba(255,215,0,0.1) 0%, transparent 50%);
-    }
-
-    .cta-section h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-
-    /* Footer */
-    .footer {
-      background: #1f2937;
-      color: white;
-      padding: 3rem 5% 2rem;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .footer-section h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #f9fafb;
-    }
-
-    .footer-section a {
-      color: #d1d5db;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-section a:hover {
-      color: #3b82f6;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid #374151;
-      color: #9ca3af;
-    }
-
-    /* Stats Section */
-    .stats {
-      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
-      color: white;
-      padding: 3rem 5%;
-      position: relative;
-    }
-
-    .stats::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 20% 50%, rgba(255,215,0,0.1) 0%, transparent 50%);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-
-    /* Pricing Section */
-    .pricing {
-      padding: 4rem 5%;
-      background: #f8fafc;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .pricing-card {
-      background: white;
-      padding: 2.5rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      text-align: center;
-      position: relative;
-    }
-
-    .pricing-card.featured {
-      border: 2px solid #2563eb;
-      transform: scale(1.05);
-    }
-
-    .popular-badge {
-      background: #2563eb;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .pricing-card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-
-    .price {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #2563eb;
-      margin-bottom: 2rem;
-    }
-
-    .price span {
-      font-size: 1rem;
-      color: #6b7280;
-    }
-
-    .pricing-card ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 2rem;
-    }
-
-    .pricing-card li {
-      padding: 0.5rem 0;
-      color: #4b5563;
-    }
-
-    .pricing-btn {
-      background: #2563eb;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-block;
-      width: 100%;
-    }
-
-    .pricing-btn:hover {
-      background: #1d4ed8;
-    }
-
-    /* Trust Badges */
-    .trust-badges {
-      padding: 3rem 5%;
-      background: white;
-    }
-
-    .badges-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .badge {
-      background: #f0f9ff;
-      color: #2563eb;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: 600;
-      border: 1px solid #e0f2fe;
-    }
-
-    /* FAQ Section */
-    .faq {
-      padding: 4rem 5%;
-      background: white;
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .faq-item {
-      background: #f8fafc;
-      padding: 2rem;
-      border-radius: 12px;
-    }
-
-    .faq-item h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-
-    .faq-item p {
-      color: #4b5563;
-      line-height: 1.6;
-    }
-
-    /* Live Counter */
-    .live-counter {
-      background: #f0f9ff;
-      padding: 1rem 5%;
-      border-bottom: 1px solid #e0f2fe;
-    }
-
-    .counter-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-weight: 600;
-      color: #1f2937;
-    }
-
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      background: #22c55e;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    /* Shipping Calculator */
-    .calculator {
-      padding: 4rem 5%;
-      background: #f8fafc;
-    }
-
-    .calc-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
-
-    .calc-inputs {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .calc-inputs input, .calc-inputs select, .calc-inputs button {
-      padding: 1rem;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    .calc-inputs button {
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-      color: #0D1B2A;
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
-    }
-
-    .calc-inputs button:hover {
-      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
-    }
-
-    .calc-result {
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #0D1B2A;
-      min-height: 2rem;
-    }
-
-    /* Partners Section */
-    .partners {
-      padding: 3rem 5%;
-      background: white;
-    }
-
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .partner {
-      background: #f8fafc;
-      padding: 1.5rem 1rem;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: 600;
-      color: #374151;
-      border: 1px solid #e5e7eb;
-    }
-
-    /* Case Study */
-    .case-study {
-      padding: 4rem 5%;
-      background: #f0f9ff;
-    }
-
-    .case-content h3 {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 3rem;
-      color: #1f2937;
-    }
-
-    .case-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .case-item {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
-
-    .case-item h4 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #2563eb;
-    }
-
-    .case-item p {
-      color: #4b5563;
-      line-height: 1.6;
-    }
-
-    /* Blog Section */
-    .blog {
-      padding: 4rem 5%;
-      background: white;
-    }
-
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .blog-card {
-      background: #f8fafc;
-      padding: 2rem;
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
-      text-align: center;
-    }
-
-    .blog-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .blog-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-
-    .blog-card p {
-      color: #4b5563;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .blog-link {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .blog-link:hover {
-      color: #1d4ed8;
-    }
-
-    /* Tablet Responsive */
-    @media (max-width: 1024px) {
-      .nav {
-        padding: 1rem 3%;
-      }
-
-      .hero {
-        padding: 8rem 3% 4rem;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .features, .how-it-works, .pricing, .testimonials, .faq {
-        padding: 3rem 3%;
-      }
-
-      .pricing-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-
-      .pricing-card.featured {
-        transform: scale(1.02);
-      }
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .nav-links, .cta-btn {
-        display: none;
-      }
-
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      .hero {
-        padding: 7rem 5% 3rem;
-        text-align: center;
-      }
-
-      .hero h1 {
-        font-size: 1.6rem;
-        line-height: 1.2;
-      }
-
-      .hero p {
-        font-size: 0.9rem;
-        margin-bottom: 2rem;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-      }
-
-      .btn-primary, .btn-secondary {
-        width: 100%;
-        max-width: 280px;
-        text-align: center;
-      }
-
-      .section-title {
-        font-size: 1.4rem;
-        text-align: center;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .pricing-card.featured {
-        transform: none;
-        order: -1;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-
-      .stat-label {
-        font-size: 0.9rem;
-      }
-
-      .badges-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .testimonial-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .faq-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .cta-section h2 {
-        font-size: 1.4rem;
-      }
-
-      .cta-section p {
-        font-size: 0.9rem;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-      }
-    }
-
-    /* Small Mobile */
-    @media (max-width: 480px) {
-      .nav {
-        padding: 0.8rem 4%;
-      }
-
-      .logo-text {
-        font-size: 1.1rem;
-      }
-
-      .logo-img {
-        height: 32px;
-      }
-
-      .hero {
-        padding: 6rem 4% 2rem;
-      }
-
-      .hero h1 {
-        font-size: 1.6rem;
-      }
-
-      .hero p {
-        font-size: 0.9rem;
-      }
-
-      .section-title {
-        font-size: 1.5rem;
-      }
-
-      .features, .how-it-works, .pricing, .testimonials, .faq, .stats, .trust-badges {
-        padding: 2rem 4%;
-      }
-
-      .feature-card, .testimonial, .faq-item {
-        padding: 1.5rem;
-      }
-
-      .pricing-card {
-        padding: 2rem 1.5rem;
-      }
-
-      .price {
-        font-size: 2.5rem;
-      }
-
-      .step-number {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .stat-number {
-        font-size: 2.5rem;
-      }
-
-      .cta-section h2 {
-        font-size: 1.5rem;
-      }
-
-      .footer {
-        padding: 2rem 4% 1rem;
-      }
-
-      .calc-inputs {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .partners-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .case-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .blog-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-    }
-
-    /* Large Desktop */
-    @media (min-width: 1200px) {
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .hero h1 {
-        font-size: 4rem;
-      }
-
-      .hero p {
-        font-size: 1.3rem;
-      }
-
-      .section-title {
-        font-size: 3rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flonze Fulfillment - E-commerce Logistics Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Header -->
   <header class="header">
-    <nav class="nav">
+    <div class="nav-container">
       <div class="logo">
-        <img src="logo.png" alt="Flonze Fulfillment" class="logo-img">
-        <span class="logo-text">Flonze Fulfillment</span>
+        <img src="logo.png" alt="Flonze Logo" class="logo-img">
+        Flonze Fulfillment
       </div>
-      <ul class="nav-links">
-        <li><a href="services.html">Services</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <a href="contact.html" class="cta-btn">Get Started</a>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
       <button class="mobile-menu-btn">☰</button>
-      <div class="mobile-nav">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#contact">Get Started</a>
-      </div>
-    </nav>
+    </div>
+    <div class="mobile-nav">
+      <a href="#home">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>Fast, Reliable & Affordable E-commerce Fulfillment</h1>
-      <p>From storage to doorstep delivery — we handle it all so you can focus on growing your business</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn-primary">Get Started Now</a>
-        <a href="#calculator" class="btn-secondary">Calculate Shipping Cost</a>
+  <!-- Hero Banner Section -->
+  <section class="hero-banner" id="home">
+    <div class="relative w-full max-w-screen-2xl mx-auto overflow-hidden">
+      <!-- Hero Image -->
+      <div class="hero-image-container">
+        <img 
+          src="hero-banner.png" 
+          alt="Fast & Reliable Delivery Service" 
+          loading="eager" 
+          class="w-full h-auto object-cover hero-image"
+        >
       </div>
-    </div>
-  </section>
 
-  <!-- Live Order Counter -->
-  <section class="live-counter">
-    <div class="container">
-      <div class="counter-box">
-        <span class="live-dot"></span>
-        <p>🚚 Today we shipped <span id="order-count">147</span> orders across <span id="city-count">23</span> cities in India!</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section class="features" id="services">
-    <div class="container">
-      <h2 class="section-title">Why Choose Flonze Fulfillment?</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📦</div>
-          <h3>Same-Day Dispatch</h3>
-          <p>Orders received before 2 PM are dispatched the same day. Fast fulfillment for happy customers.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🚚</div>
-          <h3>Multi-Courier Integration</h3>
-          <p>Connected with 15+ courier partners including Delhivery, Bluedart, and Ecom Express for best rates.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <h3>Affordable Pricing</h3>
-          <p>Transparent pricing with no hidden costs. Pay only for what you use with flexible plans.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Real-Time Dashboard</h3>
-          <p>Track inventory, orders, and shipments in real-time. Complete visibility of your business.</p>
+      <!-- Overlay Content -->
+      <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-start p-6 md:p-12 text-white">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Fast & Reliable E-commerce Fulfillment</h1>
+          <p class="mb-8 max-w-lg text-lg md:text-xl leading-relaxed">
+            From warehouse to your customer's doorstep — Flonze ensures safe, fast, and cost-effective deliveries for your e-commerce business.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a 
+              href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services" 
+              class="bg-blue-600 hover:bg-blue-700 transition-all duration-300 px-8 py-4 rounded-lg font-semibold text-lg inline-block text-center transform hover:scale-105"
+            >
+              Get Started Now
+            </a>
+            <a 
+              href="#calculator" 
+              class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 transition-all duration-300 px-8 py-4 rounded-lg font-semibold text-lg inline-block text-center"
+            >
+              Calculate Shipping
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Stats Section -->
-  <section class="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat">
-          <div class="stat-number">500+</div>
-          <div class="stat-label">Happy Sellers</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">50K+</div>
-          <div class="stat-label">Orders Fulfilled</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">99.5%</div>
-          <div class="stat-label">On-Time Delivery</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Support</div>
+      <!-- Stats Overlay -->
+      <div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-lg p-4 hidden md:block">
+        <div class="flex gap-6 text-center">
+          <div class="stat-item">
+            <span class="block text-2xl font-bold text-blue-600" id="order-count">142</span>
+            <span class="text-sm text-gray-600">Orders Today</span>
+          </div>
+          <div class="stat-item">
+            <span class="block text-2xl font-bold text-blue-600" id="city-count">25</span>
+            <span class="text-sm text-gray-600">Cities Served</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1121,254 +90,24 @@
   <!-- Shipping Calculator -->
   <section class="calculator" id="calculator">
     <div class="container">
-      <h2 class="section-title">Calculate Your Shipping Cost</h2>
-      <p style="text-align: center; margin-bottom: 2rem; color: #6b7280;">Enter weight & destination to know your shipping cost instantly</p>
-      <div class="calc-form">
-        <div class="calc-inputs">
-          <input type="number" placeholder="Weight (kg)" id="weight">
+      <h2 class="section-title">Shipping Cost Calculator</h2>
+      <div class="calculator-form">
+        <div class="form-group">
+          <label>Package Weight (kg)</label>
+          <input type="number" id="weight" placeholder="Enter weight">
+        </div>
+        <div class="form-group">
+          <label>Destination</label>
           <select id="destination">
-            <option value="">Select Destination</option>
+            <option value="">Select destination</option>
             <option value="local">Local (Same City)</option>
             <option value="metro">Metro Cities</option>
             <option value="tier2">Tier 2 Cities</option>
             <option value="remote">Remote Areas</option>
           </select>
-          <button onclick="calculateShipping()">Calculate Cost</button>
         </div>
-        <div class="calc-result" id="result"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works -->
-  <section class="how-it-works">
-    <div class="container">
-      <h2 class="section-title">How It Works</h2>
-      <div class="steps-grid">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Send Inventory</h3>
-          <p>Ship your products to our secure warehouse. We'll receive, inspect, and store them safely.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Orders Synced</h3>
-          <p>Connect your store (Shopify, Amazon, etc.). Orders automatically sync to our system.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Pack & Dispatch</h3>
-          <p>We pick, pack with your branding, and dispatch orders within 24 hours.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Customer Receives</h3>
-          <p>Fast delivery to customers with real-time tracking and return management.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Section -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <h2 class="section-title">Simple, Transparent Pricing</h2>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <h3>Starter</h3>
-          <div class="price">₹15<span>/order</span></div>
-          <ul>
-            <li>✓ Pick, Pack & Ship</li>
-            <li>✓ Free Storage (first 30 days)</li>
-            <li>✓ Basic Dashboard</li>
-            <li>✓ Email Support</li>
-          </ul>
-          <a href="#contact" class="pricing-btn">Get Started</a>
-        </div>
-        <div class="pricing-card featured">
-          <div class="popular-badge">Most Popular</div>
-          <h3>Growth</h3>
-          <div class="price">₹12<span>/order</span></div>
-          <ul>
-            <li>✓ Everything in Starter</li>
-            <li>✓ Custom Packaging</li>
-            <li>✓ Priority Support</li>
-            <li>✓ Advanced Analytics</li>
-            <li>✓ Return Management</li>
-          </ul>
-          <a href="#contact" class="pricing-btn">Choose Plan</a>
-        </div>
-        <div class="pricing-card">
-          <h3>Enterprise</h3>
-          <div class="price">Custom</div>
-          <ul>
-            <li>✓ Everything in Growth</li>
-            <li>✓ Dedicated Manager</li>
-            <li>✓ Custom Integrations</li>
-            <li>✓ Volume Discounts</li>
-            <li>✓ SLA Guarantee</li>
-          </ul>
-          <a href="#contact" class="pricing-btn">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Courier Partners -->
-  <section class="partners">
-    <div class="container">
-      <h2 class="section-title">Our Courier Partners</h2>
-      <div class="partners-grid">
-        <div class="partner">📦 Delhivery</div>
-        <div class="partner">🚚 DTDC</div>
-        <div class="partner">⚡ Xpressbees</div>
-        <div class="partner">🔵 Bluedart</div>
-        <div class="partner">🟢 Ecom Express</div>
-        <div class="partner">📮 India Post</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Study -->
-  <section class="case-study">
-    <div class="container">
-      <h2 class="section-title">Success Story</h2>
-      <div class="case-content">
-        <h3>How We Helped ABC Crafts Deliver 500+ Orders in a Month</h3>
-        <div class="case-grid">
-          <div class="case-item">
-            <h4>Problem</h4>
-            <p>Slow delivery & high RTO rates affecting customer satisfaction</p>
-          </div>
-          <div class="case-item">
-            <h4>Solution</h4>
-            <p>Same-day dispatch + multi-courier routing for optimal delivery</p>
-          </div>
-          <div class="case-item">
-            <h4>Result</h4>
-            <p>32% faster deliveries, RTO dropped by 18%, customer rating improved to 4.8/5</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Trust Badges -->
-  <section class="trust-badges">
-    <div class="container">
-      <h2 class="section-title">Why Sellers Trust Us</h2>
-      <div class="badges-grid">
-        <div class="badge floating-badge">🏆 ISO Certified Warehouse</div>
-        <div class="badge floating-badge">🔒 Secure Storage</div>
-        <div class="badge floating-badge">📱 API Integration</div>
-        <div class="badge floating-badge">🚚 15+ Courier Partners</div>
-        <div class="badge floating-badge">📊 Real-time Tracking</div>
-        <div class="badge floating-badge">💳 COD Available</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Comparison Table -->
-  <section class="pricing-table-section">
-    <div class="container">
-      <h2 class="section-title">Compare Our Plans</h2>
-      <div class="table-container">
-        <table class="pricing-table">
-          <thead>
-            <tr>
-              <th>Features</th>
-              <th class="highlight-column">Starter</th>
-              <th class="highlight-column">Growth</th>
-              <th class="highlight-column">Enterprise</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="table-row-animate">
-              <td>Per Order Cost</td>
-              <td>₹15</td>
-              <td>₹12</td>
-              <td>Custom</td>
-            </tr>
-            <tr class="table-row-animate">
-              <td>Storage (30 days)</td>
-              <td>✅ Free</td>
-              <td>✅ Free</td>
-              <td>✅ Free</td>
-            </tr>
-            <tr class="table-row-animate">
-              <td>Same Day Dispatch</td>
-              <td>✅</td>
-              <td>✅</td>
-              <td>✅</td>
-            </tr>
-            <tr class="table-row-animate">
-              <td>API Integration</td>
-              <td>❌</td>
-              <td>✅</td>
-              <td>✅</td>
-            </tr>
-            <tr class="table-row-animate">
-              <td>Dedicated Manager</td>
-              <td>❌</td>
-              <td>❌</td>
-              <td>✅</td>
-            </tr>
-            <tr class="table-row-animate">
-              <td>Custom Packaging</td>
-              <td>❌</td>
-              <td>✅</td>
-              <td>✅</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonials">
-    <div class="container">
-      <h2 class="section-title">What Our Sellers Say</h2>
-      <div class="testimonial-grid">
-        <div class="testimonial">
-          <p class="testimonial-text">"Flonze helped us scale from 50 to 500 orders/month. Their same-day dispatch is amazing!"</p>
-          <p class="testimonial-author">- Rahul, Fashion Store Owner</p>
-        </div>
-        <div class="testimonial">
-          <div class="testimonial-text">"Best decision for our business. Reduced our fulfillment costs by 40% and improved delivery speed."</div>
-          <p class="testimonial-author">- Priya, Electronics Seller</p>
-        </div>
-        <div class="testimonial">
-          <p class="testimonial-text">"Professional packaging and reliable delivery. Our customers love the experience!"</p>
-          <p class="testimonial-author">- Amit, Home Decor Brand</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section class="blog">
-    <div class="container">
-      <h2 class="section-title">Latest Insights</h2>
-      <div class="blog-grid">
-        <div class="blog-card">
-          <div class="blog-icon">📦</div>
-          <h3>5 Packaging Tips to Reduce Damaged Deliveries</h3>
-          <p>Learn professional packaging techniques that reduce damage rates by 40% and improve customer satisfaction.</p>
-          <a href="#contact" class="blog-link">Read More →</a>
-        </div>
-        <div class="blog-card">
-          <div class="blog-icon">⚡</div>
-          <h3>How Small Sellers Can Offer Same-Day Delivery</h3>
-          <p>Discover strategies to compete with big players by offering lightning-fast delivery to your customers.</p>
-          <a href="#contact" class="blog-link">Read More →</a>
-        </div>
-        <div class="blog-card">
-          <div class="blog-icon">📱</div>
-          <h3>The Ultimate Guide to Selling on Instagram</h3>
-          <p>Turn your Instagram followers into paying customers with these proven e-commerce strategies.</p>
-          <a href="#contact" class="blog-link">Read More →</a>
-        </div>
+        <button onclick="calculateShipping()" class="btn-primary">Calculate Cost</button>
+        <div id="result" class="result"></div>
       </div>
     </div>
   </section>
@@ -1377,79 +116,115 @@
   <section class="challenges-section">
     <div class="container">
       <h2 class="section-title">Common Dispatch Challenges We Solve</h2>
+      <p class="section-subtitle">Stop losing customers due to poor fulfillment. We fix the problems that hurt your business most.</p>
       <div class="challenges-grid">
-        <div class="challenge-card card-3d">
+        <div class="challenge-card">
           <div class="challenge-icon">⏰</div>
-          <h3>Delayed Dispatch</h3>
-          <p class="problem">❌ Orders sitting for 2-3 days</p>
-          <p class="solution">✅ Same-day dispatch guarantee</p>
+          <h3>Slow Dispatch Times</h3>
+          <div class="challenge-content">
+            <div class="problem-box">
+              <span class="problem-label">Your Problem:</span>
+              <p>Orders sit in warehouse for 2-3 days before shipping. Customers get frustrated and cancel orders.</p>
+            </div>
+            <div class="solution-box">
+              <span class="solution-label">Our Solution:</span>
+              <p>Same-day dispatch for orders received before 2 PM. 99% orders shipped within 24 hours.</p>
+            </div>
+          </div>
         </div>
-        <div class="challenge-card card-3d">
+        <div class="challenge-card">
           <div class="challenge-icon">📦</div>
-          <h3>Poor Packaging</h3>
-          <p class="problem">❌ 15% damage during transit</p>
-          <p class="solution">✅ Professional packaging, <2% damage</p>
+          <h3>Damaged Products</h3>
+          <div class="challenge-content">
+            <div class="problem-box">
+              <span class="problem-label">Your Problem:</span>
+              <p>15-20% products arrive damaged. Customers leave bad reviews and demand refunds.</p>
+            </div>
+            <div class="solution-box">
+              <span class="solution-label">Our Solution:</span>
+              <p>Professional packaging with bubble wrap, foam inserts. Less than 2% damage rate.</p>
+            </div>
+          </div>
         </div>
-        <div class="challenge-card card-3d">
-          <div class="challenge-icon">🚚</div>
+        <div class="challenge-card">
+          <div class="challenge-icon">💸</div>
           <h3>High Shipping Costs</h3>
-          <p class="problem">❌ ₹80-120 per shipment</p>
-          <p class="solution">✅ ₹25-45 with bulk rates</p>
+          <div class="challenge-content">
+            <div class="problem-box">
+              <span class="problem-label">Your Problem:</span>
+              <p>Paying ₹80-150 per shipment. Shipping costs eating into your profit margins.</p>
+            </div>
+            <div class="solution-box">
+              <span class="solution-label">Our Solution:</span>
+              <p>Bulk shipping rates as low as ₹25-45. Save 40-60% on shipping costs.</p>
+            </div>
+          </div>
         </div>
-        <div class="challenge-card card-3d">
+        <div class="challenge-card">
           <div class="challenge-icon">📱</div>
-          <h3>No Real-time Updates</h3>
-          <p class="problem">❌ Customers asking "Where's my order?"</p>
-          <p class="solution">✅ Live tracking + SMS updates</p>
+          <h3>No Order Tracking</h3>
+          <div class="challenge-content">
+            <div class="problem-box">
+              <span class="problem-label">Your Problem:</span>
+              <p>Customers constantly ask "Where is my order?" You have no real-time updates to share.</p>
+            </div>
+            <div class="solution-box">
+              <span class="solution-label">Our Solution:</span>
+              <p>Live tracking dashboard + automatic SMS/email updates to customers at every step.</p>
+            </div>
+          </div>
         </div>
-        <div class="challenge-card card-3d">
+        <div class="challenge-card">
           <div class="challenge-icon">🔄</div>
-          <h3>Return Headaches</h3>
-          <p class="problem">❌ Manual return processing</p>
-          <p class="solution">✅ Automated return management</p>
+          <h3>Return Management Chaos</h3>
+          <div class="challenge-content">
+            <div class="problem-box">
+              <span class="problem-label">Your Problem:</span>
+              <p>Returns pile up. Manual processing takes hours. Lost inventory and unhappy customers.</p>
+            </div>
+            <div class="solution-box">
+              <span class="solution-label">Our Solution:</span>
+              <p>Automated return processing, quality checks, and instant refunds. 24-hour turnaround.</p>
+            </div>
+          </div>
         </div>
-        <div class="challenge-card card-3d">
+        <div class="challenge-card">
           <div class="challenge-icon">📊</div>
-          <h3>No Analytics</h3>
-          <p class="problem">❌ Blind to performance metrics</p>
-          <p class="solution">✅ Detailed reports & insights</p>
+          <h3>No Business Insights</h3>
+          <div class="challenge-content">
+            <div class="problem-box">
+              <span class="problem-label">Your Problem:</span>
+              <p>Flying blind with no data. Don't know which products sell best or where to improve.</p>
+            </div>
+            <div class="solution-box">
+              <span class="solution-label">Our Solution:</span>
+              <p>Detailed analytics dashboard with sales trends, inventory alerts, and performance metrics.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Vision Slider Section -->
+  <!-- Vision & Mission Section -->
   <section class="vision-section">
     <div class="container">
       <h2 class="section-title">Our Vision & Mission</h2>
-      <div class="vision-slider">
-        <div class="slide-container">
-          <div class="vision-slide active" data-slide="0">
-            <div class="vision-content">
-              <div class="vision-icon">🎯</div>
-              <h3>Our Vision</h3>
-              <p>To become India's most trusted e-commerce fulfillment partner, empowering 10,000+ sellers to scale their businesses effortlessly by 2027.</p>
-            </div>
-          </div>
-          <div class="vision-slide" data-slide="1">
-            <div class="vision-content">
-              <div class="vision-icon">🚀</div>
-              <h3>Our Mission</h3>
-              <p>Simplifying e-commerce logistics through technology, enabling sellers to focus on growth while we handle storage, packaging, and delivery with excellence.</p>
-            </div>
-          </div>
-          <div class="vision-slide" data-slide="2">
-            <div class="vision-content">
-              <div class="vision-icon">💡</div>
-              <h3>Our Values</h3>
-              <p>Reliability, Innovation, and Customer Success drive everything we do. We believe in transparent pricing, quality service, and building long-term partnerships.</p>
-            </div>
-          </div>
+      <div class="vision-grid">
+        <div class="vision-card">
+          <div class="vision-icon">🎯</div>
+          <h3>Our Vision</h3>
+          <p>To become India's #1 trusted e-commerce fulfillment partner, helping 10,000+ sellers grow their businesses without logistics worries by 2027.</p>
         </div>
-        <div class="slider-controls">
-          <button class="slider-btn active" onclick="changeSlide(0)">Vision</button>
-          <button class="slider-btn" onclick="changeSlide(1)">Mission</button>
-          <button class="slider-btn" onclick="changeSlide(2)">Values</button>
+        <div class="vision-card">
+          <div class="vision-icon">🚀</div>
+          <h3>Our Mission</h3>
+          <p>Making e-commerce fulfillment simple and affordable for every seller. We handle storage, packing, and shipping so you can focus on growing your business.</p>
+        </div>
+        <div class="vision-card">
+          <div class="vision-icon">💡</div>
+          <h3>Our Values</h3>
+          <p>Reliability, Transparency, and Customer Success. We believe in honest pricing, quality service, and building long-term partnerships with our sellers.</p>
         </div>
       </div>
     </div>
@@ -1460,21 +235,29 @@
     <div class="container">
       <h2 class="section-title">Frequently Asked Questions</h2>
       <div class="faq-grid">
-        <div class="faq-item card-3d">
-          <h3>How quickly can you start fulfilling my orders?</h3>
-          <p>Once you send your inventory to our warehouse, we can start fulfilling orders within 2-3 business days after setup.</p>
+        <div class="faq-item">
+          <h3>How quickly can I start using your service?</h3>
+          <p>Very fast! Send us your inventory, we'll set up your account in 1-2 days, and start fulfilling orders immediately. No lengthy contracts or setup fees.</p>
         </div>
-        <div class="faq-item card-3d">
-          <h3>What platforms do you integrate with?</h3>
-          <p>We integrate with Shopify, WooCommerce, Amazon, Flipkart, and can create custom integrations for any platform.</p>
+        <div class="faq-item">
+          <h3>Which platforms do you work with?</h3>
+          <p>All major platforms - Shopify, Amazon, Flipkart, WooCommerce, Meesho, and more. We can also integrate with any custom platform you use.</p>
         </div>
-        <div class="faq-item card-3d">
-          <h3>Do you handle returns and exchanges?</h3>
-          <p>Yes, we provide complete return management including quality checks, restocking, and customer communication.</p>
+        <div class="faq-item">
+          <h3>What if customers want to return products?</h3>
+          <p>We handle everything! Returns, quality checks, restocking, refunds - all automated. You don't need to worry about return management at all.</p>
         </div>
-        <div class="faq-item card-3d">
-          <h3>What are your storage charges?</h3>
-          <p>First 30 days storage is free. After that, it's ₹2 per cubic foot per month with no minimum commitment.</p>
+        <div class="faq-item">
+          <h3>How much does storage cost?</h3>
+          <p>First 30 days are completely FREE! After that, only ₹2 per cubic foot per month. No hidden charges, no minimum commitment required.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you provide packaging materials?</h3>
+          <p>Yes! We provide all packaging materials - boxes, bubble wrap, tape, labels. Professional packaging is included in our service at no extra cost.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I track my inventory and orders?</h3>
+          <p>Absolutely! You get a real-time dashboard to track inventory levels, order status, sales analytics, and customer details 24/7.</p>
         </div>
       </div>
     </div>
@@ -1486,35 +269,43 @@
       <h2>Ready to Scale Your Business?</h2>
       <p>Join 500+ sellers who trust Flonze for their fulfillment needs</p>
       <div class="hero-buttons">
-        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services for my e-commerce business." class="btn-primary" target="_blank">Get Started Now</a>
+        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services" class="btn-primary">Get Started Now</a>
         <a href="#calculator" class="btn-secondary">Book Free Demo</a>
       </div>
     </div>
   </section>
 
-  <!-- Social Media Section -->
-  <section class="social-section">
+  <!-- Connect With Us Section -->
+  <section class="connect-section">
     <div class="container">
       <h2 class="section-title">Connect With Us</h2>
-      <div class="social-grid">
-        <a href="https://facebook.com/flonzefulfillment" target="_blank" class="social-card facebook-card">
-          <div class="social-icon">📘</div>
-          <h3>Facebook</h3>
-          <p>Follow us for updates and tips</p>
-          <span class="social-followers">2.5K+ Followers</span>
-        </a>
-        <a href="https://linkedin.com/company/flonzefulfillment" target="_blank" class="social-card linkedin-card">
-          <div class="social-icon">💼</div>
-          <h3>LinkedIn</h3>
-          <p>Connect with our business network</p>
-          <span class="social-followers">1.8K+ Connections</span>
-        </a>
-        <a href="https://wa.me/918108395367" target="_blank" class="social-card whatsapp-card">
-          <div class="social-icon">💬</div>
+      <p class="section-subtitle">Get in touch through your preferred channel</p>
+      <div class="connect-grid">
+        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services" class="connect-card whatsapp-card">
+          <div class="connect-icon">💬</div>
           <h3>WhatsApp</h3>
-          <p>Get instant support</p>
-          <span class="social-followers">24/7 Available</span>
+          <p>Quick chat for instant answers</p>
+          <span class="connect-action">Message Now</span>
         </a>
+        <a href="tel:+918108395367" class="connect-card phone-card">
+          <div class="connect-icon">📞</div>
+          <h3>Phone Call</h3>
+          <p>Speak directly with our team</p>
+          <span class="connect-action">Call +91 81083 95367</span>
+        </a>
+        <a href="mailto:hello@flonzefulfillment.com" class="connect-card email-card">
+          <div class="connect-icon">✉️</div>
+          <h3>Email</h3>
+          <p>Send detailed requirements</p>
+          <span class="connect-action">Send Email</span>
+        </a>
+      </div>
+      <div class="social-follow">
+        <p>Follow us for updates:</p>
+        <div class="social-links-simple">
+          <a href="https://facebook.com/flonzefulfillment">📘 Facebook</a>
+          <a href="https://linkedin.com/company/flonzefulfillment">💼 LinkedIn</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1526,9 +317,9 @@
         <h3>Flonze Fulfillment</h3>
         <p>Your trusted partner for e-commerce logistics and fulfillment solutions.</p>
         <div class="social-links">
-          <a href="https://facebook.com/flonzefulfillment" target="_blank" class="social-link facebook">📘</a>
-          <a href="https://linkedin.com/company/flonzefulfillment" target="_blank" class="social-link linkedin">💼</a>
-          <a href="https://wa.me/918108395367" target="_blank" class="social-link whatsapp">💬</a>
+          <a href="https://facebook.com/flonzefulfillment" class="social-link facebook">📘</a>
+          <a href="https://linkedin.com/company/flonzefulfillment" class="social-link linkedin">💼</a>
+          <a href="https://wa.me/918108395367" class="social-link whatsapp">💬</a>
         </div>
       </div>
       <div class="footer-section">
@@ -1560,23 +351,6 @@
         mobileMenuBtn.addEventListener('click', function() {
           mobileNav.classList.toggle('active');
           this.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
-        });
-
-        // Close mobile menu when clicking on links
-        const mobileLinks = mobileNav.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-          link.addEventListener('click', function() {
-            mobileNav.classList.remove('active');
-            mobileMenuBtn.textContent = '☰';
-          });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-          if (!mobileMenuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
-            mobileNav.classList.remove('active');
-            mobileMenuBtn.textContent = '☰';
-          }
         });
       }
     });
@@ -1629,708 +403,6 @@
       const cost = Math.ceil(weight * rates[destination]);
       result.innerHTML = `💰 Estimated Cost: ₹${cost} (${weight}kg to ${destination.charAt(0).toUpperCase() + destination.slice(1)})`;
     }
-
-    // Floating Animation for Trust Badges
-    function initFloatingAnimation() {
-      const badges = document.querySelectorAll('.floating-badge');
-      badges.forEach((badge, index) => {
-        badge.style.animationDelay = `${index * 0.2}s`;
-      });
-    }
-
-    // Table Row Animation on Scroll
-    function initTableAnimation() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = 'running';
-          }
-        });
-      });
-
-      document.querySelectorAll('.table-row-animate').forEach(row => {
-        observer.observe(row);
-      });
-    }
-
-    // Social Cards Hover Effect
-    function initSocialCards() {
-      const socialCards = document.querySelectorAll('.social-card');
-      socialCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-10px) scale(1.05)';
-        });
-        card.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0) scale(1)';
-        });
-      });
-    }
-
-    // Particle Background Effect
-    function createParticles() {
-      const particleContainer = document.createElement('div');
-      particleContainer.className = 'particles';
-      document.body.appendChild(particleContainer);
-
-      for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 20 + 's';
-        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-        particleContainer.appendChild(particle);
-      }
-    }
-
-    // Vision Slider Functionality
-    let currentSlide = 0;
-    const totalSlides = 3;
-
-    function changeSlide(slideIndex) {
-      // Remove active class from current slide and button
-      document.querySelector('.vision-slide.active').classList.remove('active');
-      document.querySelector('.slider-btn.active').classList.remove('active');
-      
-      // Add active class to new slide and button
-      document.querySelector(`[data-slide="${slideIndex}"]`).classList.add('active');
-      document.querySelectorAll('.slider-btn')[slideIndex].classList.add('active');
-      
-      currentSlide = slideIndex;
-    }
-
-    // Auto-advance slider
-    function autoSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      changeSlide(currentSlide);
-    }
-
-    // 3D Card Effects
-    function init3DCards() {
-      const cards = document.querySelectorAll('.card-3d');
-      cards.forEach(card => {
-        card.addEventListener('mousemove', function(e) {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          
-          const rotateX = (y - centerY) / 10;
-          const rotateY = (centerX - x) / 10;
-          
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-        });
-        
-        card.addEventListener('mouseleave', function() {
-          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-        });
-      });
-    }
-
-    // Parallax Scroll Effect
-    function initParallax() {
-      window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.parallax');
-        
-        parallaxElements.forEach(element => {
-          const speed = element.dataset.speed || 0.5;
-          const yPos = -(scrolled * speed);
-          element.style.transform = `translateY(${yPos}px)`;
-        });
-      });
-    }
-
-    // Advanced Interactive Features
-    class FlonzeWebsite {
-      constructor() {
-        this.isLoaded = false;
-        this.userInteractions = 0;
-        this.scrollProgress = 0;
-        this.mousePosition = { x: 0, y: 0 };
-        this.init();
-      }
-
-      init() {
-        this.setupEventListeners();
-        this.createAdvancedAnimations();
-        this.initializeComponents();
-        this.setupAnalytics();
-        this.createInteractiveElements();
-      }
-
-      setupEventListeners() {
-        // Mouse tracking for advanced effects
-        document.addEventListener('mousemove', (e) => {
-          this.mousePosition.x = e.clientX;
-          this.mousePosition.y = e.clientY;
-          this.updateMouseEffects();
-        });
-
-        // Scroll progress tracking
-        window.addEventListener('scroll', () => {
-          this.updateScrollProgress();
-          this.handleScrollAnimations();
-        });
-
-        // Click tracking
-        document.addEventListener('click', (e) => {
-          this.trackUserInteraction(e);
-          this.createClickRipple(e);
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-          this.handleKeyboardShortcuts(e);
-        });
-
-        // Window resize handling
-        window.addEventListener('resize', () => {
-          this.handleResize();
-        });
-      }
-
-      updateMouseEffects() {
-        const cursor = document.querySelector('.custom-cursor');
-        if (!cursor) {
-          this.createCustomCursor();
-        } else {
-          cursor.style.left = this.mousePosition.x + 'px';
-          cursor.style.top = this.mousePosition.y + 'px';
-        }
-
-        // Update parallax elements based on mouse position
-        const parallaxElements = document.querySelectorAll('.mouse-parallax');
-        parallaxElements.forEach(element => {
-          const speed = element.dataset.speed || 0.1;
-          const x = (this.mousePosition.x - window.innerWidth / 2) * speed;
-          const y = (this.mousePosition.y - window.innerHeight / 2) * speed;
-          element.style.transform = `translate(${x}px, ${y}px)`;
-        });
-      }
-
-      createCustomCursor() {
-        const cursor = document.createElement('div');
-        cursor.className = 'custom-cursor';
-        cursor.innerHTML = '<div class="cursor-dot"></div><div class="cursor-ring"></div>';
-        document.body.appendChild(cursor);
-      }
-
-      updateScrollProgress() {
-        const scrollTop = window.pageYOffset;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        this.scrollProgress = (scrollTop / docHeight) * 100;
-        
-        // Update progress bar
-        const progressBar = document.querySelector('.scroll-progress');
-        if (progressBar) {
-          progressBar.style.width = this.scrollProgress + '%';
-        }
-      }
-
-      handleScrollAnimations() {
-        const elements = document.querySelectorAll('.scroll-animate');
-        elements.forEach(element => {
-          const rect = element.getBoundingClientRect();
-          const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-          
-          if (isVisible) {
-            element.classList.add('animate-in');
-          }
-        });
-      }
-
-      trackUserInteraction(event) {
-        this.userInteractions++;
-        const data = {
-          type: 'click',
-          target: event.target.tagName,
-          timestamp: Date.now(),
-          position: { x: event.clientX, y: event.clientY }
-        };
-        this.sendAnalytics(data);
-      }
-
-      createClickRipple(event) {
-        const ripple = document.createElement('div');
-        ripple.className = 'click-ripple';
-        ripple.style.left = event.clientX + 'px';
-        ripple.style.top = event.clientY + 'px';
-        document.body.appendChild(ripple);
-        
-        setTimeout(() => {
-          ripple.remove();
-        }, 1000);
-      }
-
-      handleKeyboardShortcuts(event) {
-        const shortcuts = {
-          'KeyH': () => this.scrollToSection('hero'),
-          'KeyS': () => this.scrollToSection('services'),
-          'KeyC': () => this.scrollToSection('contact'),
-          'KeyT': () => this.toggleTheme(),
-          'Escape': () => this.closeAllModals()
-        };
-
-        if (event.ctrlKey && shortcuts[event.code]) {
-          event.preventDefault();
-          shortcuts[event.code]();
-        }
-      }
-
-      scrollToSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-
-      toggleTheme() {
-        document.body.classList.toggle('dark-theme');
-        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-      }
-
-      createAdvancedAnimations() {
-        // Morphing shapes animation
-        this.createMorphingShapes();
-        
-        // Floating elements
-        this.createFloatingElements();
-        
-        // Text typing effect
-        this.initTypeWriter();
-        
-        // Number counting animation
-        this.initCounters();
-        
-        // Loading screen
-        this.createLoadingScreen();
-      }
-
-      createMorphingShapes() {
-        const shapesContainer = document.createElement('div');
-        shapesContainer.className = 'morphing-shapes';
-        
-        for (let i = 0; i < 5; i++) {
-          const shape = document.createElement('div');
-          shape.className = 'morphing-shape';
-          shape.style.left = Math.random() * 100 + '%';
-          shape.style.top = Math.random() * 100 + '%';
-          shape.style.animationDelay = i * 0.5 + 's';
-          shapesContainer.appendChild(shape);
-        }
-        
-        document.body.appendChild(shapesContainer);
-      }
-
-      createFloatingElements() {
-        const floatingContainer = document.createElement('div');
-        floatingContainer.className = 'floating-elements';
-        
-        const elements = ['📦', '🚚', '⚡', '🎯', '💎', '🔥'];
-        elements.forEach((emoji, index) => {
-          const element = document.createElement('div');
-          element.className = 'floating-element';
-          element.textContent = emoji;
-          element.style.left = (index * 15 + 10) + '%';
-          element.style.animationDelay = index * 0.3 + 's';
-          floatingContainer.appendChild(element);
-        });
-        
-        document.body.appendChild(floatingContainer);
-      }
-
-      initTypeWriter() {
-        const typewriterElements = document.querySelectorAll('.typewriter');
-        typewriterElements.forEach(element => {
-          const text = element.textContent;
-          element.textContent = '';
-          let i = 0;
-          
-          const typeInterval = setInterval(() => {
-            element.textContent += text.charAt(i);
-            i++;
-            if (i > text.length) {
-              clearInterval(typeInterval);
-            }
-          }, 100);
-        });
-      }
-
-      initCounters() {
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-          const target = parseInt(counter.dataset.target);
-          const duration = parseInt(counter.dataset.duration) || 2000;
-          const increment = target / (duration / 16);
-          let current = 0;
-          
-          const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-              counter.textContent = Math.floor(current);
-              requestAnimationFrame(updateCounter);
-            } else {
-              counter.textContent = target;
-            }
-          };
-          
-          updateCounter();
-        });
-      }
-
-      createLoadingScreen() {
-        const loader = document.createElement('div');
-        loader.className = 'loading-screen';
-        loader.innerHTML = `
-          <div class="loader-content">
-            <div class="loader-logo">🚀 Flonze</div>
-            <div class="loader-progress">
-              <div class="loader-bar"></div>
-            </div>
-            <div class="loader-text">Loading amazing experience...</div>
-          </div>
-        `;
-        document.body.appendChild(loader);
-        
-        setTimeout(() => {
-          loader.classList.add('fade-out');
-          setTimeout(() => loader.remove(), 500);
-        }, 2000);
-      }
-
-      initializeComponents() {
-        this.createInteractiveMap();
-        this.setupFormValidation();
-        this.initChatBot();
-        this.createNotificationSystem();
-        this.setupSearchFunctionality();
-      }
-
-      createInteractiveMap() {
-        const mapContainer = document.createElement('div');
-        mapContainer.className = 'interactive-map';
-        mapContainer.innerHTML = `
-          <div class="map-header">Our Service Areas</div>
-          <div class="map-content">
-            <div class="city-marker" data-city="mumbai" style="top: 60%; left: 20%;">Mumbai</div>
-            <div class="city-marker" data-city="delhi" style="top: 30%; left: 25%;">Delhi</div>
-            <div class="city-marker" data-city="bangalore" style="top: 80%; left: 30%;">Bangalore</div>
-            <div class="city-marker" data-city="pune" style="top: 65%; left: 22%;">Pune</div>
-          </div>
-        `;
-        
-        const mapSection = document.querySelector('.trust-badges');
-        if (mapSection) {
-          mapSection.appendChild(mapContainer);
-        }
-      }
-
-      setupFormValidation() {
-        const forms = document.querySelectorAll('form');
-        forms.forEach(form => {
-          form.addEventListener('submit', (e) => {
-            if (!this.validateForm(form)) {
-              e.preventDefault();
-              this.showNotification('Please fill all required fields', 'error');
-            }
-          });
-        });
-      }
-
-      validateForm(form) {
-        const requiredFields = form.querySelectorAll('[required]');
-        let isValid = true;
-        
-        requiredFields.forEach(field => {
-          if (!field.value.trim()) {
-            field.classList.add('error');
-            isValid = false;
-          } else {
-            field.classList.remove('error');
-          }
-        });
-        
-        return isValid;
-      }
-
-      initChatBot() {
-        const chatBot = document.createElement('div');
-        chatBot.className = 'chatbot';
-        chatBot.innerHTML = `
-          <div class="chatbot-header">
-            <span>💬 Flonze Assistant</span>
-            <button class="chatbot-toggle">−</button>
-          </div>
-          <div class="chatbot-messages"></div>
-          <div class="chatbot-input">
-            <input type="text" placeholder="Ask me anything...">
-            <button>Send</button>
-          </div>
-        `;
-        document.body.appendChild(chatBot);
-        
-        this.setupChatBotLogic(chatBot);
-      }
-
-      setupChatBotLogic(chatBot) {
-        const responses = {
-          'hello': 'Hi! How can I help you with your fulfillment needs?',
-          'pricing': 'Our pricing starts at ₹15 per order. Would you like detailed pricing?',
-          'services': 'We offer warehousing, fulfillment, shipping, and returns management.',
-          'contact': 'You can reach us at +91 81083 95367 or hello@flonzefulfillment.com'
-        };
-        
-        const input = chatBot.querySelector('input');
-        const sendBtn = chatBot.querySelector('button');
-        const messages = chatBot.querySelector('.chatbot-messages');
-        
-        const sendMessage = () => {
-          const message = input.value.toLowerCase().trim();
-          if (message) {
-            this.addChatMessage(messages, message, 'user');
-            const response = this.getChatResponse(message, responses);
-            setTimeout(() => {
-              this.addChatMessage(messages, response, 'bot');
-            }, 500);
-            input.value = '';
-          }
-        };
-        
-        sendBtn.addEventListener('click', sendMessage);
-        input.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') sendMessage();
-        });
-      }
-
-      addChatMessage(container, message, type) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `chat-message ${type}`;
-        messageDiv.textContent = message;
-        container.appendChild(messageDiv);
-        container.scrollTop = container.scrollHeight;
-      }
-
-      getChatResponse(message, responses) {
-        for (let key in responses) {
-          if (message.includes(key)) {
-            return responses[key];
-          }
-        }
-        return "I'm here to help! Try asking about pricing, services, or contact info.";
-      }
-
-      createNotificationSystem() {
-        const notificationContainer = document.createElement('div');
-        notificationContainer.className = 'notification-container';
-        document.body.appendChild(notificationContainer);
-      }
-
-      showNotification(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.textContent = message;
-        
-        const container = document.querySelector('.notification-container');
-        container.appendChild(notification);
-        
-        setTimeout(() => {
-          notification.classList.add('show');
-        }, 100);
-        
-        setTimeout(() => {
-          notification.classList.remove('show');
-          setTimeout(() => notification.remove(), 300);
-        }, 3000);
-      }
-
-      setupSearchFunctionality() {
-        const searchInput = document.createElement('input');
-        searchInput.type = 'text';
-        searchInput.placeholder = 'Search our services...';
-        searchInput.className = 'search-input';
-        
-        const searchResults = document.createElement('div');
-        searchResults.className = 'search-results';
-        
-        searchInput.addEventListener('input', (e) => {
-          this.performSearch(e.target.value, searchResults);
-        });
-        
-        const header = document.querySelector('header .nav-container');
-        if (header) {
-          header.appendChild(searchInput);
-          header.appendChild(searchResults);
-        }
-      }
-
-      performSearch(query, resultsContainer) {
-        const searchData = [
-          { title: 'Warehousing', url: 'services.html', description: 'Secure storage solutions' },
-          { title: 'Order Fulfillment', url: 'services.html', description: 'Complete order processing' },
-          { title: 'Shipping', url: 'services.html', description: 'Fast delivery services' },
-          { title: 'Pricing', url: 'pricing.html', description: 'Transparent pricing plans' }
-        ];
-        
-        if (query.length < 2) {
-          resultsContainer.innerHTML = '';
-          return;
-        }
-        
-        const results = searchData.filter(item => 
-          item.title.toLowerCase().includes(query.toLowerCase()) ||
-          item.description.toLowerCase().includes(query.toLowerCase())
-        );
-        
-        resultsContainer.innerHTML = results.map(result => `
-          <div class="search-result">
-            <a href="${result.url}">
-              <strong>${result.title}</strong>
-              <p>${result.description}</p>
-            </a>
-          </div>
-        `).join('');
-      }
-
-      setupAnalytics() {
-        // Simulated analytics tracking
-        this.analytics = {
-          pageViews: 0,
-          interactions: 0,
-          timeOnPage: Date.now()
-        };
-        
-        setInterval(() => {
-          this.sendAnalytics({
-            type: 'heartbeat',
-            timeOnPage: Date.now() - this.analytics.timeOnPage,
-            interactions: this.userInteractions
-          });
-        }, 30000);
-      }
-
-      sendAnalytics(data) {
-        // Simulate sending to analytics service
-        console.log('Analytics:', data);
-        
-        // In real implementation, you would send to your analytics service
-        // fetch('/api/analytics', { method: 'POST', body: JSON.stringify(data) });
-      }
-
-      createInteractiveElements() {
-        this.createScrollProgressBar();
-        this.createBackToTopButton();
-        this.createThemeToggle();
-        this.createFullscreenToggle();
-        this.createScreenshotTool();
-      }
-
-      createScrollProgressBar() {
-        const progressBar = document.createElement('div');
-        progressBar.className = 'scroll-progress';
-        document.body.appendChild(progressBar);
-      }
-
-      createBackToTopButton() {
-        const backToTop = document.createElement('button');
-        backToTop.className = 'back-to-top';
-        backToTop.innerHTML = '↑';
-        backToTop.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        document.body.appendChild(backToTop);
-        
-        window.addEventListener('scroll', () => {
-          if (window.pageYOffset > 300) {
-            backToTop.classList.add('show');
-          } else {
-            backToTop.classList.remove('show');
-          }
-        });
-      }
-
-      createThemeToggle() {
-        const themeToggle = document.createElement('button');
-        themeToggle.className = 'theme-toggle';
-        themeToggle.innerHTML = '🌙';
-        themeToggle.addEventListener('click', () => {
-          this.toggleTheme();
-          themeToggle.innerHTML = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
-        });
-        document.body.appendChild(themeToggle);
-      }
-
-      createFullscreenToggle() {
-        const fullscreenBtn = document.createElement('button');
-        fullscreenBtn.className = 'fullscreen-toggle';
-        fullscreenBtn.innerHTML = '⛶';
-        fullscreenBtn.addEventListener('click', () => {
-          if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-          } else {
-            document.exitFullscreen();
-          }
-        });
-        document.body.appendChild(fullscreenBtn);
-      }
-
-      createScreenshotTool() {
-        const screenshotBtn = document.createElement('button');
-        screenshotBtn.className = 'screenshot-btn';
-        screenshotBtn.innerHTML = '📷';
-        screenshotBtn.addEventListener('click', () => {
-          this.takeScreenshot();
-        });
-        document.body.appendChild(screenshotBtn);
-      }
-
-      takeScreenshot() {
-        // Simulate screenshot functionality
-        this.showNotification('Screenshot feature would be implemented with html2canvas library', 'info');
-      }
-
-      handleResize() {
-        // Recalculate animations and layouts on resize
-        this.updateScrollProgress();
-        this.repositionFloatingElements();
-      }
-
-      repositionFloatingElements() {
-        const floatingElements = document.querySelectorAll('.floating-element');
-        floatingElements.forEach((element, index) => {
-          element.style.left = (index * 15 + 10) + '%';
-        });
-      }
-
-      closeAllModals() {
-        const modals = document.querySelectorAll('.modal.active');
-        modals.forEach(modal => modal.classList.remove('active'));
-      }
-    }
-
-    // Initialize the advanced website functionality
-    const flonzeWebsite = new FlonzeWebsite();
-
-    // Initialize all animations
-    document.addEventListener('DOMContentLoaded', function() {
-      initFloatingAnimation();
-      initTableAnimation();
-      initSocialCards();
-      createParticles();
-      init3DCards();
-      initParallax();
-      
-      // Start auto-slider after 5 seconds
-      setTimeout(() => {
-        setInterval(autoSlide, 4000);
-      }, 5000);
-      
-      // Show welcome notification
-      setTimeout(() => {
-        flonzeWebsite.showNotification('Welcome to Flonze Fulfillment! 🚀', 'success');
-      }, 3000);
-    });
   </script>
 </body>
 </html>
