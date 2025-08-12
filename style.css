@@ -1,4 +1,4 @@
-/* Flonze News - Global Styles */
+/* Flonze Fulfillment - Global Styles */
 
 * {
   margin: 0;
@@ -17,13 +17,13 @@ body {
 
 /* Header Styles */
 header {
-  background: #e30613;
+  background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
   color: white;
   padding: 1rem 5%;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 20px rgba(13,27,42,0.1);
 }
 
 .nav-container {
@@ -55,8 +55,8 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffeb3b;
-  background: rgba(255, 255, 255, 0.1);
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.1);
   transform: translateY(-1px);
 }
 
@@ -104,7 +104,7 @@ main {
 
 .featured h2 {
   margin: 10px 0;
-  color: #e30613;
+  color: #0D1B2A;
   font-size: 1.5rem;
 }
 
@@ -119,14 +119,14 @@ main {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  border-left: 4px solid #e30613;
+  border-left: 4px solid #FFD700;
   margin-bottom: 20px;
 }
 
 .category-section h3 {
-  color: #e30613;
+  color: #0D1B2A;
   margin-bottom: 15px;
-  border-bottom: 2px solid #e30613;
+  border-bottom: 2px solid #FFD700;
   padding-bottom: 5px;
 }
 
@@ -173,8 +173,8 @@ main {
 
 /* Sidebar Styles */
 .sidebar h3 {
-  color: #e30613;
-  border-bottom: 2px solid #e30613;
+  color: #0D1B2A;
+  border-bottom: 2px solid #FFD700;
   padding-bottom: 5px;
   margin-bottom: 15px;
 }
@@ -197,7 +197,7 @@ main {
 }
 
 .sidebar li a:hover {
-  color: #e30613;
+  color: #0D1B2A;
 }
 
 /* Breaking News Ticker */
@@ -260,31 +260,33 @@ main {
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: #e30613;
-  color: white;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #0D1B2A;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
   font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(255,215,0,0.3);
 }
 
 .btn:hover {
-  background: #b91c1c;
+  background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,215,0,0.4);
 }
 
 .btn-secondary {
   background: transparent;
-  border: 2px solid #e30613;
-  color: #e30613;
+  border: 2px solid #FFD700;
+  color: #0D1B2A;
 }
 
 .btn-secondary:hover {
-  background: #e30613;
-  color: white;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #0D1B2A;
 }
 
 /* Cards */
@@ -299,8 +301,8 @@ main {
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(227, 6, 19, 0.15);
-  border-color: #e30613;
+  box-shadow: 0 20px 40px rgba(255, 215, 0, 0.15);
+  border-color: #FFD700;
 }
 
 /* Newsletter */
@@ -321,12 +323,13 @@ main {
 
 .newsletter button {
   padding: 10px 20px;
-  background: #e30613;
-  color: white;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #0D1B2A;
   border: none;
   border-radius: 3px;
   margin-left: 5px;
   cursor: pointer;
+  font-weight: 700;
 }
 
 /* Social Share */
@@ -363,7 +366,7 @@ main {
 
 /* Footer */
 footer {
-  background: #000;
+  background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
   color: white;
   padding: 20px;
   text-align: center;
@@ -500,6 +503,6 @@ a:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid #e30613;
+  outline: 2px solid #FFD700;
   outline-offset: 2px;
 }

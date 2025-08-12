@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Flonze News</title>
+  <title>Contact Us | Flonze Fulfillment</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -204,7 +204,7 @@
     .form-group input:focus,
     .form-group select:focus,
     .form-group textarea:focus {
-      border-color: #e30613;
+      border-color: #FFD700;
       outline: none;
       background: white;
     }
@@ -217,18 +217,22 @@
     .submit-btn {
       width: 100%;
       padding: 0.75rem;
-      background: #e30613;
-      color: white;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #0D1B2A;
       border: none;
       border-radius: 6px;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       margin-top: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
     }
 
     .submit-btn:hover {
-      background: #b91c1c;
+      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
     }
 
     .submit-btn:disabled {
@@ -290,12 +294,11 @@
   <!-- Header -->
   <header class="header">
     <div class="nav-container">
-      <div class="logo">FLONZE NEWS</div>
+      <div class="logo">FLONZE FULFILLMENT</div>
       <nav class="nav-links">
         <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Categories</a>
-        <a href="pricing.html">Subscribe</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
         <a href="login.html">Login</a>
         <a href="signin.html">Sign Up</a>
       </nav>
@@ -307,7 +310,7 @@
     <!-- Contact Information -->
     <div class="contact-info">
       <h2>📞 Get in Touch</h2>
-      <p>Have news tips to share? Want to subscribe to our updates? Need support with our services? We're here to help! Reach out to us through any of the channels below.</p>
+      <p>Ready to scale your e-commerce business? Need help with fulfillment services? Want a custom quote? We're here to help! Reach out to us through any of the channels below.</p>
 
       <div class="contact-item">
         <div class="contact-icon">📱</div>
@@ -321,37 +324,37 @@
         <div class="contact-icon">✉️</div>
         <div class="contact-details">
           <h4>Email</h4>
-          <span>flonzescontact@gmail.com</span>
+          <span>hello@flonzefulfillment.com</span>
         </div>
       </div>
 
       <div class="contact-item">
         <div class="contact-icon">📍</div>
         <div class="contact-details">
-          <h4>Coverage Area</h4>
-          <span>Mumbai, Maharashtra & India</span>
+          <h4>Service Area</h4>
+          <span>Mumbai, Maharashtra & Pan India</span>
         </div>
       </div>
 
       <div class="contact-item">
         <div class="contact-icon">🕒</div>
         <div class="contact-details">
-          <h4>Newsroom Hours</h4>
-          <span>24/7 Breaking News Coverage</span>
+          <h4>Business Hours</h4>
+          <span>Mon-Sat: 9 AM - 7 PM IST</span>
         </div>
       </div>
 
       <div class="quick-actions">
         <h3>Quick Actions</h3>
         <div class="action-buttons">
-          <a href="https://wa.me/918108395367?text=Hi! I have a news tip to share." class="action-btn whatsapp" target="_blank">
-            <span>💬</span> Share News Tip
+          <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services for my e-commerce business." class="action-btn whatsapp" target="_blank">
+            <span>💬</span> Get Quote
           </a>
           <a href="tel:+918108395367" class="action-btn">
-            <span>📞</span> Call Newsroom
+            <span>📞</span> Call Us
           </a>
           <a href="services.html" class="action-btn">
-            <span>📰</span> View Categories
+            <span>📦</span> View Services
           </a>
         </div>
       </div>
@@ -384,19 +387,21 @@
           <label for="service">Inquiry Type</label>
           <select id="service" name="service" required>
             <option value="">Select inquiry type</option>
-            <option value="news-tip">News Tip</option>
-            <option value="subscription">Subscription</option>
-            <option value="press-release">Press Release</option>
+            <option value="warehousing">Warehousing Services</option>
+            <option value="fulfillment">Order Fulfillment</option>
+            <option value="shipping">Shipping Solutions</option>
+            <option value="returns">Returns Management</option>
+            <option value="integration">API Integration</option>
+            <option value="pricing">Pricing & Quotes</option>
             <option value="partnership">Partnership</option>
-            <option value="feedback">Feedback</option>
-            <option value="technical-support">Technical Support</option>
+            <option value="support">Technical Support</option>
             <option value="other">Other</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Share your news tip, feedback, or any questions you have..." required></textarea>
+          <textarea id="message" name="message" placeholder="Tell us about your business needs, order volume, or any questions about our fulfillment services..." required></textarea>
         </div>
 
         <button type="submit" class="submit-btn">Send Message</button>

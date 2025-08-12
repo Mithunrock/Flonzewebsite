@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: #e30613;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -37,7 +37,7 @@
     }
 
     .logo h1 {
-      color: #e30613;
+      color: #0D1B2A;
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
@@ -73,7 +73,7 @@
     }
 
     input:focus {
-      border-color: #e30613;
+      border-color: #FFD700;
       outline: none;
       background: #ffffff;
     }
@@ -81,18 +81,22 @@
     .signup-btn {
       width: 100%;
       padding: 12px;
-      background: #e30613;
-      color: white;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #0D1B2A;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
     }
 
     .signup-btn:hover {
-      background: #b91c1c;
+      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
     }
 
     .signup-btn:disabled {
@@ -151,14 +155,14 @@
     }
 
     .links a {
-      color: #e30613;
+      color: #0D1B2A;
       text-decoration: none;
       font-size: 0.9rem;
       margin: 0 10px;
     }
 
     .links a:hover {
-      color: #b91c1c;
+      color: #FFD700;
       text-decoration: underline;
     }
 
@@ -188,8 +192,8 @@
 <body>
   <div class="signup-container">
     <div class="logo">
-      <h1>FLONZE NEWS</h1>
-      <p>Join Our News Community</p>
+      <h1>FLONZE FULFILLMENT</h1>
+      <p>Start Your E-commerce Journey</p>
     </div>
 
     <form id="signup-form">
@@ -221,7 +225,7 @@
         </div>
       </div>
       
-      <div class="success-msg" id="success">✅ Account created successfully! Redirecting...</div>
+      <div class="success-msg" id="success">✅ Account created! Welcome to Flonze Fulfillment...</div>
       <div class="error-msg" id="error">❌ Please fix the errors above.</div>
       
       <button type="submit" class="signup-btn">Create Account</button>
