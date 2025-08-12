@@ -1,1115 +1,1031 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flonze News - Every Update That Matters</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-    :root {
-        --bg-color: #fff;
-        --text-color: #333;
-        --card-bg: #f7f7f7;
-        --border-color: #eee;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flonze Fulfillment - E-commerce Logistics & Warehousing Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    [data-theme="dark"] {
-        --bg-color: #1a1a1a;
-        --text-color: #fff;
-        --card-bg: #2d2d2d;
-        --border-color: #444;
-    }
+
     body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        background: var(--bg-color);
-        color: var(--text-color);
-        transition: all 0.3s ease;
-        padding-top: 100px;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
     }
-    /* Header / Nav */
-    .topbar {
-        background: #000;
-        padding: 8px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+
+    /* Header */
+    .header {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
-    .topbar a {
-        color: white;
-        margin-right: 15px;
-        text-decoration: none;
-        font-size: 14px;
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .lang-switch, .dark-toggle {
-        background: #e30613;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 3px;
-        cursor: pointer;
-        margin-left: 10px;
-    }
+
     .logo {
-        background: #e30613;
-        padding: 10px 20px;
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-        gap: 20px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2563eb;
     }
-    .logo h1 {
-        color: white;
-        margin: 0;
-        font-size: 26px;
-        text-align: center;
-        justify-self: center;
-    }
-    .logo-img {
-        height: 40px;
-        width: auto;
-        justify-self: start;
-    }
+
     .nav-links {
-        display: flex;
-        gap: 20px;
+      display: flex;
+      gap: 2rem;
+      list-style: none;
     }
+
     .nav-links a {
-        color: white;
-        font-weight: 500;
-        text-decoration: none;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
     }
+
     .nav-links a:hover {
-        text-decoration: underline;
+      color: #2563eb;
     }
 
-    /* Trending Ticker */
-    .ticker {
-        background: #000;
-        color: white;
-        padding: 8px 0;
-        overflow: hidden;
-        white-space: nowrap;
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        z-index: 999;
-    }
-    .ticker-content {
-        display: inline-block;
-        animation: scroll 30s linear infinite;
-    }
-    @keyframes scroll {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
+    .cta-btn {
+      background: #2563eb;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    /* Hero Slider */
-    .hero-slider {
-        position: relative;
-        height: 400px;
-        overflow: hidden;
-        margin: 20px;
-        border-radius: 10px;
-    }
-    .slide {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1s ease;
-    }
-    .slide.active {
-        opacity: 1;
-    }
-    .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .slide-content {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0,0,0,0.8));
-        color: white;
-        padding: 40px 20px 20px;
+    .cta-btn:hover {
+      background: #1d4ed8;
     }
 
-    /* Layout */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #374151;
+    }
+
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+    }
+
+    .mobile-nav.active {
+      display: block;
+    }
+
+    .mobile-nav a {
+      display: block;
+      padding: 1rem 5%;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 500;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mobile-nav a:hover {
+      background: #f9fafb;
+      color: #2563eb;
+    }
+
+    .nav {
+      position: relative;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      color: white;
+      padding: 8rem 5% 4rem;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #2563eb;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 1rem 2rem;
+      border: 2px solid white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Why Choose Us */
+    .features {
+      padding: 4rem 5%;
+      background: #f8fafc;
+    }
+
     .container {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 20px;
-        max-width: 1200px;
-        margin: auto;
-        padding: 20px;
-    }
-    .main-content {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    /* Category Sections */
-    .category-section {
-        background: var(--card-bg);
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 4px solid #e30613;
-    }
-    .category-section h3 {
-        color: #e30613;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #e30613;
-        padding-bottom: 5px;
-    }
-    .news-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-    }
-    .news-card {
-        background: var(--bg-color);
-        border: 1px solid var(--border-color);
-        border-radius: 5px;
-        overflow: hidden;
-        transition: transform 0.2s;
-    }
-    .news-card:hover {
-        transform: translateY(-2px);
-    }
-    .news-card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-    }
-    .news-card-content {
-        padding: 10px;
-    }
-    .news-card h4 {
-        margin: 0 0 5px 0;
-        font-size: 14px;
-    }
-    .news-card p {
-        font-size: 12px;
-        color: #666;
-        margin: 0;
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: #1f2937;
     }
 
-    /* Video Section */
-    .video-section {
-        background: var(--card-bg);
-        padding: 20px;
-        border-radius: 8px;
-    }
-    .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin-top: 15px;
-    }
-    .video-card {
-        position: relative;
-        background: #000;
-        border-radius: 5px;
-        overflow: hidden;
-    }
-    .video-card::before {
-        content: "▶";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        font-size: 24px;
-        z-index: 1;
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
-    /* Sidebar */
-    .sidebar {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-    .sidebar-section {
-        background: var(--card-bg);
-        padding: 15px;
-        border-radius: 5px;
-        border-left: 2px solid var(--border-color);
-    }
-    .sidebar-section h3 {
-        color: #e30613;
-        border-bottom: 2px solid #e30613;
-        padding-bottom: 5px;
-        margin-bottom: 15px;
-    }
-    .sidebar-section ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    .sidebar-section li {
-        margin-bottom: 10px;
-        font-size: 14px;
-        padding: 5px 0;
-        border-bottom: 1px solid var(--border-color);
-    }
-    .sidebar-section li a {
-        text-decoration: none;
-        color: var(--text-color);
-    }
-    .sidebar-section li a:hover {
-        color: #e30613;
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      text-align: center;
     }
 
-    /* Ad Slots */
-    .ad-slot {
-        background: #f0f0f0;
-        border: 2px dashed #ccc;
-        padding: 20px;
-        text-align: center;
-        color: #666;
-        margin: 20px 0;
-        border-radius: 5px;
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
 
-    /* Social Share */
-    .share-buttons {
-        display: flex;
-        gap: 10px;
-        margin: 10px 0;
-    }
-    .share-btn {
-        padding: 5px 10px;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-        font-size: 12px;
-        text-decoration: none;
-        color: white;
-    }
-    .share-whatsapp { background: #25d366; }
-    .share-twitter { background: #1da1f2; }
-    .share-facebook { background: #3b5998; }
-
-    /* Load More */
-    .load-more {
-        text-align: center;
-        margin: 30px 0;
-    }
-    .load-more button {
-        padding: 15px 40px;
-        background: linear-gradient(45deg, #e30613, #ff6b6b, #e30613);
-        background-size: 200% 200%;
-        color: white;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 16px;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 20px rgba(227, 6, 19, 0.3);
-        animation: gradientShift 3s ease infinite;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-    
-    .load-more button::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        background: rgba(255,255,255,0.3);
-        border-radius: 50%;
-        transition: all 0.3s ease;
-        transform: translate(-50%, -50%);
-    }
-    
-    .load-more button:hover::before {
-        width: 300px;
-        height: 300px;
-    }
-    
-    .load-more button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(227, 6, 19, 0.5);
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1f2937;
     }
 
-    /* Newsletter */
-    .newsletter {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 40px;
-        text-align: center;
-        margin-top: 30px;
-        border-radius: 25px;
-        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
-        color: white;
-        position: relative;
-        overflow: hidden;
+    /* How It Works */
+    .how-it-works {
+      padding: 4rem 5%;
+      background: white;
     }
-    
-    .newsletter::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-        animation: float 6s ease-in-out infinite;
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
-    
-    @keyframes float {
-        0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
-        50% { transform: translate(-30%, -70%) rotate(180deg); }
+
+    .step {
+      text-align: center;
+      position: relative;
     }
-    .newsletter h2 {
-        color: white;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        position: relative;
-        z-index: 1;
+
+    .step-number {
+      background: #2563eb;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1rem;
     }
-    
-    .newsletter input {
-        padding: 12px 20px;
-        width: 300px;
-        border: none;
-        border-radius: 25px;
-        background: rgba(255,255,255,0.9);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        position: relative;
-        z-index: 1;
+
+    .step h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1f2937;
     }
-    
-    .newsletter input:focus {
-        outline: none;
-        background: white;
-        transform: scale(1.05);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+
+    /* Testimonials */
+    .testimonials {
+      padding: 4rem 5%;
+      background: #f8fafc;
     }
-    
-    .newsletter button {
-        padding: 12px 30px;
-        background: linear-gradient(45deg, #e30613, #ff6b6b);
-        color: white;
-        border: none;
-        border-radius: 25px;
-        margin-left: 10px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 5px 15px rgba(227, 6, 19, 0.4);
-        position: relative;
-        z-index: 1;
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
-    
-    .newsletter button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(227, 6, 19, 0.6);
+
+    .testimonial {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #4b5563;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: #2563eb;
+      color: white;
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
     }
 
     /* Footer */
-    footer {
-        background: #000;
-        color: white;
-        padding: 20px;
+    .footer {
+      background: #1f2937;
+      color: white;
+      padding: 3rem 5% 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #f9fafb;
+    }
+
+    .footer-section a {
+      color: #d1d5db;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a:hover {
+      color: #3b82f6;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #374151;
+      color: #9ca3af;
+    }
+
+    /* Stats Section */
+    .stats {
+      background: #2563eb;
+      color: white;
+      padding: 3rem 5%;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Pricing Section */
+    .pricing {
+      padding: 4rem 5%;
+      background: #f8fafc;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .pricing-card {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      text-align: center;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid #2563eb;
+      transform: scale(1.05);
+    }
+
+    .popular-badge {
+      background: #2563eb;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #2563eb;
+      margin-bottom: 2rem;
+    }
+
+    .price span {
+      font-size: 1rem;
+      color: #6b7280;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-card li {
+      padding: 0.5rem 0;
+      color: #4b5563;
+    }
+
+    .pricing-btn {
+      background: #2563eb;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .pricing-btn:hover {
+      background: #1d4ed8;
+    }
+
+    /* Trust Badges */
+    .trust-badges {
+      padding: 3rem 5%;
+      background: white;
+    }
+
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .badge {
+      background: #f0f9ff;
+      color: #2563eb;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      border: 1px solid #e0f2fe;
+    }
+
+    /* FAQ Section */
+    .faq {
+      padding: 4rem 5%;
+      background: white;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .faq-item {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .faq-item h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+
+    .faq-item p {
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    /* Tablet Responsive */
+    @media (max-width: 1024px) {
+      .nav {
+        padding: 1rem 3%;
+      }
+
+      .hero {
+        padding: 8rem 3% 4rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .features, .how-it-works, .pricing, .testimonials, .faq {
+        padding: 3rem 3%;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .pricing-card.featured {
+        transform: scale(1.02);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-links, .cta-btn {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding: 7rem 5% 3rem;
         text-align: center;
-    }
-    .social-icons a {
-        color: white;
-        margin: 0 8px;
-        text-decoration: none;
-        font-size: 18px;
-    }
+      }
 
-    /* Mobile Menu */
-    .mobile-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.9);
-        z-index: 9999;
+      .hero h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .hero-buttons {
         flex-direction: column;
-        justify-content: center;
+        gap: 1rem;
         align-items: center;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
         gap: 2rem;
-    }
-    
-    .mobile-menu.active {
-        display: flex;
-    }
-    
-    .mobile-menu a {
-        color: white;
-        font-size: 1.5rem;
-        text-decoration: none;
-        padding: 1rem;
-    }
-    
-    .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .pricing-card.featured {
+        transform: none;
+        order: -1;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+      }
+
+      .badges-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .cta-section p {
+        font-size: 1rem;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
     }
 
-    /* Responsive Design for All Screen Sizes */
-    
-    /* Ultra-wide screens (1920px+) */
-    @media (min-width: 1920px) {
-        .container {
-            max-width: 1600px;
-        }
-        .logo h1 {
-            font-size: 36px;
-        }
-        .hero-slider {
-            height: 500px;
-        }
+    /* Small Mobile */
+    @media (max-width: 480px) {
+      .nav {
+        padding: 0.8rem 4%;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+      }
+
+      .hero {
+        padding: 6rem 4% 2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .features, .how-it-works, .pricing, .testimonials, .faq, .stats, .trust-badges {
+        padding: 2rem 4%;
+      }
+
+      .feature-card, .testimonial, .faq-item {
+        padding: 1.5rem;
+      }
+
+      .pricing-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .price {
+        font-size: 2.5rem;
+      }
+
+      .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+
+      .cta-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .footer {
+        padding: 2rem 4% 1rem;
+      }
     }
-    
-    /* Extra Large Screens (1440px+) */
-    @media (min-width: 1440px) and (max-width: 1919px) {
-        .container {
-            max-width: 1400px;
-            padding: 30px;
-        }
-        .news-grid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-        .logo h1 {
-            font-size: 32px;
-        }
+
+    /* Large Desktop */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+      }
+
+      .section-title {
+        font-size: 3rem;
+      }
     }
-    
-    /* Large Screens (1200px - 1439px) */
-    @media (max-width: 1439px) and (min-width: 1200px) {
-        .container {
-            max-width: 1200px;
-            padding: 25px;
-        }
-        .news-grid {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-    }
-    
-    /* Medium-Large Screens (1024px - 1199px) */
-    @media (max-width: 1199px) and (min-width: 1024px) {
-        .container {
-            grid-template-columns: 2fr 1fr;
-            gap: 20px;
-            padding: 20px;
-        }
-        .news-grid {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-        .hero-slider {
-            height: 350px;
-        }
-    }
-    
-    /* Tablet Landscape (768px - 1023px) */
-    @media (max-width: 1023px) and (min-width: 768px) {
-        .container {
-            grid-template-columns: 1fr;
-            gap: 15px;
-            padding: 15px;
-        }
-        .news-grid {
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-        }
-        .hero-slider {
-            height: 300px;
-            margin: 15px;
-        }
-        .logo {
-            padding: 8px 15px;
-        }
-        .logo h1 {
-            font-size: 24px;
-        }
-        .nav-links {
-            gap: 15px;
-        }
-        .nav-links a {
-            font-size: 14px;
-        }
-    }
-    
-    /* Tablet Portrait (600px - 767px) */
-    @media (max-width: 767px) and (min-width: 600px) {
-        .nav-links {
-            display: none;
-        }
-        .menu-toggle {
-            display: block;
-        }
-        .container {
-            grid-template-columns: 1fr;
-            gap: 12px;
-            padding: 12px;
-        }
-        .news-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        .hero-slider {
-            height: 250px;
-            margin: 12px;
-        }
-        .logo h1 {
-            font-size: 20px;
-        }
-        .logo-img {
-            height: 35px;
-        }
-        .newsletter input {
-            width: 70%;
-        }
-    }
-    
-    /* Mobile Large (480px - 599px) */
-    @media (max-width: 599px) and (min-width: 480px) {
-        .nav-links {
-            display: none;
-        }
-        .menu-toggle {
-            display: block;
-        }
-        .container {
-            grid-template-columns: 1fr;
-            gap: 10px;
-            padding: 10px;
-        }
-        .news-grid {
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-        .hero-slider {
-            height: 220px;
-            margin: 10px;
-        }
-        .logo h1 {
-            font-size: 18px;
-        }
-        .logo-img {
-            height: 32px;
-        }
-        .newsletter {
-            padding: 20px 10px;
-        }
-        .newsletter input {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-        .newsletter button {
-            width: 100%;
-            margin-left: 0;
-        }
-    }
-    
-    /* Mobile Medium (375px - 479px) */
-    @media (max-width: 479px) and (min-width: 375px) {
-        body {
-            padding-top: 85px;
-        }
-        .nav-links {
-            display: none;
-        }
-        .menu-toggle {
-            display: block;
-        }
-        .logo {
-            padding: 8px 10px;
-        }
-        .logo h1 {
-            font-size: 16px;
-        }
-        .logo-img {
-            height: 28px;
-        }
-        .ticker {
-            top: 45px;
-            font-size: 12px;
-        }
-        .hero-slider {
-            height: 180px;
-            margin: 8px;
-        }
-        .slide-content {
-            padding: 15px 8px 8px;
-        }
-        .slide-content h2 {
-            font-size: 14px;
-        }
-        .slide-content p {
-            font-size: 11px;
-        }
-        .category-section {
-            padding: 12px;
-            margin-bottom: 12px;
-        }
-        .news-card-content {
-            padding: 6px;
-        }
-        .news-card h4 {
-            font-size: 11px;
-        }
-        .news-card p {
-            font-size: 9px;
-        }
-        .load-more button {
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-        }
-    }
-    
-    /* Mobile Small (320px - 374px) */
-    @media (max-width: 374px) {
-        body {
-            padding-top: 80px;
-        }
-        .nav-links {
-            display: none;
-        }
-        .menu-toggle {
-            display: block;
-        }
-        .logo {
-            padding: 6px 8px;
-        }
-        .logo h1 {
-            font-size: 14px;
-        }
-        .logo-img {
-            height: 24px;
-        }
-        .ticker {
-            top: 40px;
-            font-size: 10px;
-            padding: 6px 0;
-        }
-        .hero-slider {
-            height: 150px;
-            margin: 5px;
-        }
-        .slide-content {
-            padding: 10px 5px 5px;
-        }
-        .slide-content h2 {
-            font-size: 12px;
-        }
-        .slide-content p {
-            font-size: 9px;
-        }
-        .container {
-            padding: 5px;
-            gap: 8px;
-        }
-        .category-section {
-            padding: 8px;
-            margin-bottom: 8px;
-        }
-        .category-section h3 {
-            font-size: 14px;
-        }
-        .news-card img {
-            height: 120px;
-        }
-        .news-card-content {
-            padding: 5px;
-        }
-        .news-card h4 {
-            font-size: 10px;
-        }
-        .news-card p {
-            font-size: 8px;
-        }
-        .sidebar-section {
-            padding: 8px;
-        }
-        .sidebar-section h3 {
-            font-size: 12px;
-        }
-        .sidebar-section li {
-            font-size: 10px;
-        }
-        .ad-slot {
-            padding: 10px;
-            margin: 5px 0;
-        }
-        .newsletter {
-            padding: 15px 5px;
-        }
-        .newsletter h2 {
-            font-size: 18px;
-        }
-        .newsletter p {
-            font-size: 12px;
-        }
-        .load-more button {
-            padding: 8px;
-            font-size: 12px;
-        }
-    }
-</style>
+  </style>
 </head>
 <body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">Flonze Fulfillment</div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="cta-btn">Get Started</a>
+      <button class="mobile-menu-btn">☰</button>
+      <div class="mobile-nav">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact">Get Started</a>
+      </div>
+    </nav>
+  </header>
 
-
-
-<!-- Logo and Main Nav -->
-<div class="logo">
-    <img src="logo.png" alt="Flonze News" class="logo-img">
-    <h1>Flonze</h1>
-    <div class="nav-links">
-        <a href="#">NEWS</a>
-        <a href="#">STARTUP</a>
-        <a href="#">TECH</a>
-        <a href="#">BUSINESS</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Fast, Reliable & Affordable E-commerce Fulfillment</h1>
+      <p>From storage to doorstep delivery — we handle it all so you can focus on growing your business</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Book Free Consultation</a>
+        <a href="#services" class="btn-secondary">Learn More</a>
+      </div>
     </div>
-    <button class="menu-toggle" onclick="toggleMobileMenu()">☰</button>
-</div>
+  </section>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-    <a href="#" onclick="toggleMobileMenu()">NEWS</a>
-    <a href="#" onclick="toggleMobileMenu()">STARTUP</a>
-    <a href="#" onclick="toggleMobileMenu()">TECH</a>
-    <a href="#" onclick="toggleMobileMenu()">BUSINESS</a>
-    <button onclick="toggleMobileMenu()" style="background:none;border:none;color:white;font-size:2rem;margin-top:2rem;">×</button>
-</div>
-
-<!-- Trending Ticker -->
-<div class="ticker">
-    <div class="ticker-content">
-        🔥 BREAKING: Market hits all-time high • Tech stocks surge 15% • New policy announced • Election results live • Sports update: India wins series
+  <!-- Why Choose Us -->
+  <section class="features" id="services">
+    <div class="container">
+      <h2 class="section-title">Why Choose Flonze Fulfillment?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>Same-Day Dispatch</h3>
+          <p>Orders received before 2 PM are dispatched the same day. Fast fulfillment for happy customers.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚚</div>
+          <h3>Multi-Courier Integration</h3>
+          <p>Connected with 15+ courier partners including Delhivery, Bluedart, and Ecom Express for best rates.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Affordable Pricing</h3>
+          <p>Transparent pricing with no hidden costs. Pay only for what you use with flexible plans.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Real-Time Dashboard</h3>
+          <p>Track inventory, orders, and shipments in real-time. Complete visibility of your business.</p>
+        </div>
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- Hero Slider -->
-<div class="hero-slider">
-    <div class="slide active">
-        <img src="https://source.unsplash.com/1200x400/?breaking,news" alt="Breaking News">
-        <div class="slide-content">
-            <h2>Breaking: Major Economic Policy Announced</h2>
-            <p>Government unveils new economic reforms expected to boost GDP growth...</p>
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Happy Sellers</div>
         </div>
+        <div class="stat">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Orders Fulfilled</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">99.5%</div>
+          <div class="stat-label">On-Time Delivery</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Support</div>
+        </div>
+      </div>
     </div>
-    <div class="slide">
-        <img src="https://source.unsplash.com/1200x400/?technology,india" alt="Tech News">
-        <div class="slide-content">
-            <h2>Tech Giants Invest $2B in Indian Startups</h2>
-            <p>Major technology companies announce massive investment in Indian startup ecosystem...</p>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Send Inventory</h3>
+          <p>Ship your products to our secure warehouse. We'll receive, inspect, and store them safely.</p>
         </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Orders Synced</h3>
+          <p>Connect your store (Shopify, Amazon, etc.). Orders automatically sync to our system.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Pack & Dispatch</h3>
+          <p>We pick, pack with your branding, and dispatch orders within 24 hours.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Customer Receives</h3>
+          <p>Fast delivery to customers with real-time tracking and return management.</p>
+        </div>
+      </div>
     </div>
-    <div class="slide">
-        <img src="https://source.unsplash.com/1200x400/?business,market" alt="Business News">
-        <div class="slide-content">
-            <h2>Stock Market Reaches New Heights</h2>
-            <p>Sensex crosses 75,000 mark as investor confidence soars...</p>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Starter</h3>
+          <div class="price">₹15<span>/order</span></div>
+          <ul>
+            <li>✓ Pick, Pack & Ship</li>
+            <li>✓ Free Storage (first 30 days)</li>
+            <li>✓ Basic Dashboard</li>
+            <li>✓ Email Support</li>
+          </ul>
+          <a href="#contact" class="pricing-btn">Get Started</a>
         </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge">Most Popular</div>
+          <h3>Growth</h3>
+          <div class="price">₹12<span>/order</span></div>
+          <ul>
+            <li>✓ Everything in Starter</li>
+            <li>✓ Custom Packaging</li>
+            <li>✓ Priority Support</li>
+            <li>✓ Advanced Analytics</li>
+            <li>✓ Return Management</li>
+          </ul>
+          <a href="#contact" class="pricing-btn">Choose Plan</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="price">Custom</div>
+          <ul>
+            <li>✓ Everything in Growth</li>
+            <li>✓ Dedicated Manager</li>
+            <li>✓ Custom Integrations</li>
+            <li>✓ Volume Discounts</li>
+            <li>✓ SLA Guarantee</li>
+          </ul>
+          <a href="#contact" class="pricing-btn">Contact Us</a>
+        </div>
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- Ad Slot -->
-<div class="ad-slot">
-    <strong>Advertisement Space</strong><br>
-    Google AdSense Banner (728x90)
-</div>
-
-<!-- Main Content -->
-<div class="container">
-    <div class="main-content">
-        
-        <!-- Startup Section -->
-        <div class="category-section">
-            <h3>🚀 Startup</h3>
-            <div class="news-grid">
-                <div class="news-card">
-                    <img src="https://source.unsplash.com/300x150/?startup,funding" alt="Startup News">
-                    <div class="news-card-content">
-                        <h4>Startup Funding Hits Record High</h4>
-                        <p>Q4 sees unprecedented investment in Indian startups...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tech Section -->
-        <div class="category-section">
-            <h3>💻 Tech</h3>
-            <div class="news-grid">
-                <div class="news-card">
-                    <img src="https://source.unsplash.com/300x150/?ai,technology" alt="Tech News">
-                    <div class="news-card-content">
-                        <h4>AI Revolution in Healthcare</h4>
-                        <p>New AI tools transforming medical diagnosis...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Business Section -->
-        <div class="category-section">
-            <h3>💼 Business</h3>
-            <div class="news-grid">
-                <div class="news-card">
-                    <img src="https://source.unsplash.com/300x150/?business,finance" alt="Business News">
-                    <div class="news-card-content">
-                        <h4>Banking Sector Shows Growth</h4>
-                        <p>Major banks report strong quarterly results...</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <!-- Load More Button -->
-        <div class="load-more">
-            <button onclick="loadMoreNews()">Load More News</button>
-        </div>
-
+  <!-- Trust Badges -->
+  <section class="trust-badges">
+    <div class="container">
+      <h2 class="section-title">Trusted By Leading Brands</h2>
+      <div class="badges-grid">
+        <div class="badge">🏆 ISO Certified Warehouse</div>
+        <div class="badge">🔒 Secure Storage</div>
+        <div class="badge">📱 API Integration</div>
+        <div class="badge">🚚 15+ Courier Partners</div>
+        <div class="badge">📊 Real-time Tracking</div>
+        <div class="badge">💳 COD Available</div>
+      </div>
     </div>
+  </section>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        
-        <!-- Ad Slot -->
-        <div class="ad-slot">
-            <strong>Advertisement</strong><br>
-            Sidebar Ad (300x250)
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">What Our Sellers Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <p class="testimonial-text">"Flonze helped us scale from 50 to 500 orders/month. Their same-day dispatch is amazing!"</p>
+          <p class="testimonial-author">- Rahul, Fashion Store Owner</p>
         </div>
-
-        <!-- Trending -->
-        <div class="sidebar-section">
-            <h3>🔥 Trending</h3>
-            <ul>
-                <li><a href="#">1. Startup Funding News</a></li>
-                <li><a href="#">2. Tech Innovation Updates</a></li>
-                <li><a href="#">3. Business Market Analysis</a></li>
-            </ul>
+        <div class="testimonial">
+          <div class="testimonial-text">"Best decision for our business. Reduced our fulfillment costs by 40% and improved delivery speed."</div>
+          <p class="testimonial-author">- Priya, Electronics Seller</p>
         </div>
-
-        <!-- Ad Slot -->
-        <div class="ad-slot">
-            <strong>Advertisement</strong><br>
-            Sidebar Ad (300x600)
+        <div class="testimonial">
+          <p class="testimonial-text">"Professional packaging and reliable delivery. Our customers love the experience!"</p>
+          <p class="testimonial-author">- Amit, Home Decor Brand</p>
         </div>
-
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- Newsletter -->
-<div class="newsletter">
-    <h2>Join Our Newsletter</h2>
-    <p>Get the latest news and updates straight to your inbox.</p>
-    <input type="email" placeholder="Enter Your Email">
-    <button>Subscribe</button>
-</div>
-
-<!-- Footer -->
-<footer>
-    <div class="social-icons">
-        <a href="#">FB</a>
-        <a href="#">X</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Instagram</a>
-        <a href="#">YouTube</a>
+  <!-- FAQ Section -->
+  <section class="faq" id="about">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>How quickly can you start fulfilling my orders?</h3>
+          <p>Once you send your inventory to our warehouse, we can start fulfilling orders within 2-3 business days after setup.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What platforms do you integrate with?</h3>
+          <p>We integrate with Shopify, WooCommerce, Amazon, Flipkart, and can create custom integrations for any platform.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you handle returns and exchanges?</h3>
+          <p>Yes, we provide complete return management including quality checks, restocking, and customer communication.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What are your storage charges?</h3>
+          <p>First 30 days storage is free. After that, it's ₹2 per cubic foot per month with no minimum commitment.</p>
+        </div>
+      </div>
     </div>
-    <p>&copy; 2025 Flonze News | Privacy Policy | Terms</p>
-</footer>
+  </section>
 
-<script>
-// Hero Slider
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-function nextSlide() {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-}
-setInterval(nextSlide, 5000);
+  <!-- CTA Section -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <h2>Ready to Scale Your Business?</h2>
+      <p>Join 500+ sellers who trust Flonze for their fulfillment needs</p>
+      <div class="hero-buttons">
+        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services for my e-commerce business." class="btn-primary" target="_blank">WhatsApp Us</a>
+        <a href="tel:+918108395367" class="btn-secondary">Call Now</a>
+      </div>
+    </div>
+  </section>
 
-// Dark Mode Toggle
-function toggleDarkMode() {
-    const body = document.body;
-    const isDark = body.getAttribute('data-theme') === 'dark';
-    body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    document.querySelector('.dark-toggle').textContent = isDark ? '🌙' : '☀️';
-}
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Flonze Fulfillment</h3>
+        <p>Your trusted partner for e-commerce logistics and fulfillment solutions.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Services</h3>
+        <a href="#">Warehousing</a>
+        <a href="#">Order Fulfillment</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns Management</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <a href="tel:+918108395367">+91 81083 95367</a>
+        <a href="mailto:hello@flonzefulfillment.com">hello@flonzefulfillment.com</a>
+        <a href="#">Mumbai, Maharashtra</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Flonze Fulfillment. All rights reserved.</p>
+    </div>
+  </footer>
 
-// Language Toggle
-let isHindi = false;
-function toggleLanguage() {
-    const btn = document.querySelector('.lang-switch');
-    btn.textContent = isHindi ? 'हिंदी' : 'English';
-    isHindi = !isHindi;
-}
+  <script>
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileNav = document.querySelector('.mobile-nav');
+      
+      if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileNav.classList.toggle('active');
+          this.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+        });
 
-// Load More News
-function loadMoreNews() {
-    const button = document.querySelector('.load-more button');
-    const mainContent = document.querySelector('.main-content');
-    
-    // Show loading state
-    button.textContent = 'Loading...';
-    button.disabled = true;
-    
-    // Simulate loading with timeout
-    setTimeout(() => {
-        // Add new news cards
-        const newNews = `
-        <div class="category-section">
-            <h3>🌍 World News</h3>
-            <div class="news-grid">
-                <div class="news-card">
-                    <img src="https://source.unsplash.com/300x150/?world,news" alt="World News">
-                    <div class="news-card-content">
-                        <h4>Global Climate Summit Begins</h4>
-                        <p>World leaders gather to discuss climate action...</p>
-                        <div class="share-buttons">
-                            <a href="#" class="share-btn share-whatsapp">WhatsApp</a>
-                            <a href="#" class="share-btn share-twitter">Twitter</a>
-                            <a href="#" class="share-btn share-facebook">Facebook</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <img src="https://source.unsplash.com/300x150/?economy,global" alt="Economy News">
-                    <div class="news-card-content">
-                        <h4>Global Economy Shows Recovery</h4>
-                        <p>International markets respond positively...</p>
-                        <div class="share-buttons">
-                            <a href="#" class="share-btn share-whatsapp">WhatsApp</a>
-                            <a href="#" class="share-btn share-twitter">Twitter</a>
-                            <a href="#" class="share-btn share-facebook">Facebook</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
-        
-        // Insert before load more button
-        const loadMoreDiv = document.querySelector('.load-more');
-        loadMoreDiv.insertAdjacentHTML('beforebegin', newNews);
-        
-        // Reset button
-        button.textContent = 'Load More News';
-        button.disabled = false;
-        
-        // Smooth scroll to new content
-        const newSection = mainContent.lastElementChild.previousElementSibling;
-        newSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        
-    }, 1500);
-}
+        // Close mobile menu when clicking on links
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            mobileMenuBtn.textContent = '☰';
+          });
+        });
 
-// Mobile Menu Toggle with responsive handling
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('active');
-    
-    // Prevent body scroll when menu is open
-    if (menu.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'auto';
-    }
-}
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!mobileMenuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+            mobileNav.classList.remove('active');
+            mobileMenuBtn.textContent = '☰';
+          }
+        });
+      }
+    });
 
-// Infinite Scroll
-let loading = false;
-let loadCount = 0;
-window.addEventListener('scroll', () => {
-    if (loading || loadCount >= 3) return; // Limit to 3 auto-loads
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000) {
-        loading = true;
-        loadCount++;
-        setTimeout(() => {
-            loadMoreNews();
-            loading = false;
-        }, 1000);
-    }
-});
-
-// Responsive Screen Size Handler
-function handleScreenResize() {
-    const screenWidth = window.innerWidth;
-    const logo = document.querySelector('.logo');
-    const ticker = document.querySelector('.ticker');
-    
-    // Adjust fixed header positions based on screen size
-    if (screenWidth <= 374) {
-        document.body.style.paddingTop = '80px';
-        ticker.style.top = '40px';
-    } else if (screenWidth <= 479) {
-        document.body.style.paddingTop = '85px';
-        ticker.style.top = '45px';
-    } else if (screenWidth <= 599) {
-        document.body.style.paddingTop = '90px';
-        ticker.style.top = '50px';
-    } else {
-        document.body.style.paddingTop = '100px';
-        ticker.style.top = '60px';
-    }
-}
-
-// Touch events for mobile
-let touchStartY = 0;
-let touchEndY = 0;
-
-document.addEventListener('touchstart', e => {
-    touchStartY = e.changedTouches[0].screenY;
-});
-
-document.addEventListener('touchend', e => {
-    touchEndY = e.changedTouches[0].screenY;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    if (touchEndY < touchStartY - 50) {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 && loadCount < 3) {
-            loadMoreNews();
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
-    }
-}
-
-// Window resize handler
-window.addEventListener('resize', handleScreenResize);
-window.addEventListener('load', handleScreenResize);
-
-// Orientation change handler for mobile
-window.addEventListener('orientationchange', () => {
-    setTimeout(handleScreenResize, 100);
-});
-</script>
-
+      });
+    });
+  </script>
 </body>
 </html>
