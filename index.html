@@ -14,8 +14,9 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      line-height: 1.6;
+      line-height: 1.5;
       color: #333;
+      font-size: 14px;
     }
 
     /* Header */
@@ -38,9 +39,21 @@
     }
 
     .logo {
-      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
       font-weight: 700;
-      color: #2563eb;
+      color: #0D1B2A;
+      text-shadow: 0 1px 2px rgba(255,215,0,0.3);
     }
 
     .nav-links {
@@ -56,20 +69,24 @@
     }
 
     .nav-links a:hover {
-      color: #2563eb;
+      color: #0D1B2A;
     }
 
     .cta-btn {
-      background: #2563eb;
-      color: white;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #0D1B2A;
       padding: 0.75rem 1.5rem;
-      border-radius: 6px;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+      transition: all 0.3s ease;
     }
 
     .cta-btn:hover {
-      background: #1d4ed8;
+      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
     }
 
     .mobile-menu-btn {
@@ -116,22 +133,33 @@
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 50%, #0D1B2A 100%);
       color: white;
       padding: 8rem 5% 4rem;
       text-align: center;
       margin-top: 80px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255,215,0,0.1) 0%, transparent 50%);
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 1rem;
       line-height: 1.2;
     }
 
     .hero p {
-      font-size: 1.25rem;
+      font-size: 1rem;
       margin-bottom: 2rem;
       opacity: 0.9;
     }
@@ -144,23 +172,40 @@
     }
 
     .btn-primary {
-      background: #fff;
-      color: #2563eb;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #0D1B2A;
       padding: 1rem 2rem;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
     }
 
     .btn-secondary {
       background: transparent;
       color: white;
       padding: 1rem 2rem;
-      border: 2px solid white;
+      border: 2px solid rgba(255,215,0,0.8);
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,215,0,0.1);
+      border-color: #FFD700;
+      color: #FFD700;
     }
 
     /* Why Choose Us */
@@ -176,10 +221,23 @@
 
     .section-title {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       font-weight: 700;
-      margin-bottom: 3rem;
-      color: #1f2937;
+      margin-bottom: 2rem;
+      color: #0D1B2A;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      border-radius: 2px;
     }
 
     .features-grid {
@@ -280,20 +338,31 @@
 
     /* CTA Section */
     .cta-section {
-      background: #2563eb;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
       color: white;
       padding: 4rem 5%;
       text-align: center;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 70% 80%, rgba(255,215,0,0.1) 0%, transparent 50%);
     }
 
     .cta-section h2 {
-      font-size: 2.5rem;
+      font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 1rem;
     }
 
     .cta-section p {
-      font-size: 1.25rem;
+      font-size: 1rem;
       margin-bottom: 2rem;
       opacity: 0.9;
     }
@@ -341,9 +410,20 @@
 
     /* Stats Section */
     .stats {
-      background: #2563eb;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
       color: white;
       padding: 3rem 5%;
+      position: relative;
+    }
+
+    .stats::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(255,215,0,0.1) 0%, transparent 50%);
     }
 
     .stats-grid {
@@ -354,13 +434,13 @@
     }
 
     .stat-number {
-      font-size: 3rem;
+      font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
 
     .stat-label {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       opacity: 0.9;
     }
 
@@ -502,6 +582,200 @@
       line-height: 1.6;
     }
 
+    /* Live Counter */
+    .live-counter {
+      background: #f0f9ff;
+      padding: 1rem 5%;
+      border-bottom: 1px solid #e0f2fe;
+    }
+
+    .counter-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* Shipping Calculator */
+    .calculator {
+      padding: 4rem 5%;
+      background: #f8fafc;
+    }
+
+    .calc-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .calc-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .calc-inputs input, .calc-inputs select, .calc-inputs button {
+      padding: 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .calc-inputs button {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #0D1B2A;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+    }
+
+    .calc-inputs button:hover {
+      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+    }
+
+    .calc-result {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0D1B2A;
+      min-height: 2rem;
+    }
+
+    /* Partners Section */
+    .partners {
+      padding: 3rem 5%;
+      background: white;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .partner {
+      background: #f8fafc;
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      color: #374151;
+      border: 1px solid #e5e7eb;
+    }
+
+    /* Case Study */
+    .case-study {
+      padding: 4rem 5%;
+      background: #f0f9ff;
+    }
+
+    .case-content h3 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      color: #1f2937;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .case-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .case-item h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2563eb;
+    }
+
+    .case-item p {
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    /* Blog Section */
+    .blog {
+      padding: 4rem 5%;
+      background: white;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .blog-card {
+      background: #f8fafc;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      text-align: center;
+    }
+
+    .blog-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .blog-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+
+    .blog-card p {
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-link {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .blog-link:hover {
+      color: #1d4ed8;
+    }
+
     /* Tablet Responsive */
     @media (max-width: 1024px) {
       .nav {
@@ -545,12 +819,12 @@
       }
 
       .hero h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
         line-height: 1.2;
       }
 
       .hero p {
-        font-size: 1rem;
+        font-size: 0.9rem;
         margin-bottom: 2rem;
       }
 
@@ -567,7 +841,7 @@
       }
 
       .section-title {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         text-align: center;
       }
 
@@ -620,11 +894,11 @@
       }
 
       .cta-section h2 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
       }
 
       .cta-section p {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
 
       .footer-content {
@@ -640,8 +914,12 @@
         padding: 0.8rem 4%;
       }
 
-      .logo {
-        font-size: 1.3rem;
+      .logo-text {
+        font-size: 1.1rem;
+      }
+
+      .logo-img {
+        height: 32px;
       }
 
       .hero {
@@ -698,6 +976,24 @@
       .footer {
         padding: 2rem 4% 1rem;
       }
+
+      .calc-inputs {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
     }
 
     /* Large Desktop */
@@ -725,7 +1021,10 @@
   <!-- Header -->
   <header class="header">
     <nav class="nav">
-      <div class="logo">Flonze Fulfillment</div>
+      <div class="logo">
+        <img src="logo.png" alt="Flonze Fulfillment" class="logo-img">
+        <span class="logo-text">Flonze Fulfillment</span>
+      </div>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
         <li><a href="#pricing">Pricing</a></li>
@@ -750,8 +1049,18 @@
       <h1>Fast, Reliable & Affordable E-commerce Fulfillment</h1>
       <p>From storage to doorstep delivery — we handle it all so you can focus on growing your business</p>
       <div class="hero-buttons">
-        <a href="#contact" class="btn-primary">Book Free Consultation</a>
-        <a href="#services" class="btn-secondary">Learn More</a>
+        <a href="#contact" class="btn-primary">Get Started Now</a>
+        <a href="#calculator" class="btn-secondary">Calculate Shipping Cost</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Order Counter -->
+  <section class="live-counter">
+    <div class="container">
+      <div class="counter-box">
+        <span class="live-dot"></span>
+        <p>🚚 Today we shipped <span id="order-count">147</span> orders across <span id="city-count">23</span> cities in India!</p>
       </div>
     </div>
   </section>
@@ -805,6 +1114,28 @@
           <div class="stat-number">24/7</div>
           <div class="stat-label">Support</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shipping Calculator -->
+  <section class="calculator" id="calculator">
+    <div class="container">
+      <h2 class="section-title">Calculate Your Shipping Cost</h2>
+      <p style="text-align: center; margin-bottom: 2rem; color: #6b7280;">Enter weight & destination to know your shipping cost instantly</p>
+      <div class="calc-form">
+        <div class="calc-inputs">
+          <input type="number" placeholder="Weight (kg)" id="weight">
+          <select id="destination">
+            <option value="">Select Destination</option>
+            <option value="local">Local (Same City)</option>
+            <option value="metro">Metro Cities</option>
+            <option value="tier2">Tier 2 Cities</option>
+            <option value="remote">Remote Areas</option>
+          </select>
+          <button onclick="calculateShipping()">Calculate Cost</button>
+        </div>
+        <div class="calc-result" id="result"></div>
       </div>
     </div>
   </section>
@@ -883,10 +1214,49 @@
     </div>
   </section>
 
+  <!-- Courier Partners -->
+  <section class="partners">
+    <div class="container">
+      <h2 class="section-title">Our Courier Partners</h2>
+      <div class="partners-grid">
+        <div class="partner">📦 Delhivery</div>
+        <div class="partner">🚚 DTDC</div>
+        <div class="partner">⚡ Xpressbees</div>
+        <div class="partner">🔵 Bluedart</div>
+        <div class="partner">🟢 Ecom Express</div>
+        <div class="partner">📮 India Post</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study -->
+  <section class="case-study">
+    <div class="container">
+      <h2 class="section-title">Success Story</h2>
+      <div class="case-content">
+        <h3>How We Helped ABC Crafts Deliver 500+ Orders in a Month</h3>
+        <div class="case-grid">
+          <div class="case-item">
+            <h4>Problem</h4>
+            <p>Slow delivery & high RTO rates affecting customer satisfaction</p>
+          </div>
+          <div class="case-item">
+            <h4>Solution</h4>
+            <p>Same-day dispatch + multi-courier routing for optimal delivery</p>
+          </div>
+          <div class="case-item">
+            <h4>Result</h4>
+            <p>32% faster deliveries, RTO dropped by 18%, customer rating improved to 4.8/5</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Trust Badges -->
   <section class="trust-badges">
     <div class="container">
-      <h2 class="section-title">Trusted By Leading Brands</h2>
+      <h2 class="section-title">Why Sellers Trust Us</h2>
       <div class="badges-grid">
         <div class="badge">🏆 ISO Certified Warehouse</div>
         <div class="badge">🔒 Secure Storage</div>
@@ -914,6 +1284,33 @@
         <div class="testimonial">
           <p class="testimonial-text">"Professional packaging and reliable delivery. Our customers love the experience!"</p>
           <p class="testimonial-author">- Amit, Home Decor Brand</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="blog">
+    <div class="container">
+      <h2 class="section-title">Latest Insights</h2>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-icon">📦</div>
+          <h3>5 Packaging Tips to Reduce Damaged Deliveries</h3>
+          <p>Learn professional packaging techniques that reduce damage rates by 40% and improve customer satisfaction.</p>
+          <a href="#contact" class="blog-link">Read More →</a>
+        </div>
+        <div class="blog-card">
+          <div class="blog-icon">⚡</div>
+          <h3>How Small Sellers Can Offer Same-Day Delivery</h3>
+          <p>Discover strategies to compete with big players by offering lightning-fast delivery to your customers.</p>
+          <a href="#contact" class="blog-link">Read More →</a>
+        </div>
+        <div class="blog-card">
+          <div class="blog-icon">📱</div>
+          <h3>The Ultimate Guide to Selling on Instagram</h3>
+          <p>Turn your Instagram followers into paying customers with these proven e-commerce strategies.</p>
+          <a href="#contact" class="blog-link">Read More →</a>
         </div>
       </div>
     </div>
@@ -950,8 +1347,8 @@
       <h2>Ready to Scale Your Business?</h2>
       <p>Join 500+ sellers who trust Flonze for their fulfillment needs</p>
       <div class="hero-buttons">
-        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services for my e-commerce business." class="btn-primary" target="_blank">WhatsApp Us</a>
-        <a href="tel:+918108395367" class="btn-secondary">Call Now</a>
+        <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services for my e-commerce business." class="btn-primary" target="_blank">Get Started Now</a>
+        <a href="#calculator" class="btn-secondary">Book Free Demo</a>
       </div>
     </div>
   </section>
@@ -1026,6 +1423,41 @@
         }
       });
     });
+
+    // Live Counter Animation
+    function updateCounter() {
+      const orderCount = document.getElementById('order-count');
+      const cityCount = document.getElementById('city-count');
+      if (orderCount && cityCount) {
+        const orders = Math.floor(Math.random() * 50) + 120;
+        const cities = Math.floor(Math.random() * 10) + 18;
+        orderCount.textContent = orders;
+        cityCount.textContent = cities;
+      }
+    }
+    setInterval(updateCounter, 30000);
+
+    // Shipping Calculator
+    function calculateShipping() {
+      const weight = document.getElementById('weight').value;
+      const destination = document.getElementById('destination').value;
+      const result = document.getElementById('result');
+      
+      if (!weight || !destination) {
+        result.innerHTML = '⚠️ Please fill all fields';
+        return;
+      }
+      
+      const rates = {
+        local: 25,
+        metro: 35,
+        tier2: 45,
+        remote: 65
+      };
+      
+      const cost = Math.ceil(weight * rates[destination]);
+      result.innerHTML = `💰 Estimated Cost: ₹${cost} (${weight}kg to ${destination.charAt(0).toUpperCase() + destination.slice(1)})`;
+    }
   </script>
 </body>
 </html>
