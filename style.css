@@ -511,6 +511,8 @@ a:hover {
 .services-quick {
   padding: 4rem 0;
   background: white;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .services-grid {
@@ -529,6 +531,7 @@ a:hover {
   color: var(--text-primary);
   transition: var(--transition);
   border: 2px solid transparent;
+  display: block;
 }
 
 .service-card:hover {
@@ -553,6 +556,54 @@ a:hover {
   color: var(--text-secondary);
   margin: 0;
   font-size: 0.875rem;
+}
+
+/* Mobile specific styles for Quick Services */
+@media (max-width: 767px) {
+  .services-quick {
+    padding: 3rem 0;
+    display: block !important;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .service-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .service-icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .services-quick {
+    padding: 2rem 0;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .service-card {
+    padding: 1.25rem 1rem;
+  }
+  
+  .service-icon {
+    font-size: 1.75rem;
+  }
+  
+  .service-card h3 {
+    font-size: 1rem;
+  }
+  
+  .service-card p {
+    font-size: 0.8rem;
+  }
 }
 
 /* Features Section */
@@ -933,6 +984,7 @@ a:hover {
   .services-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    display: grid !important;
   }
   
   .features-grid {
