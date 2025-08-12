@@ -4,9 +4,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileNav = document.querySelector('.mobile-nav');
     
     if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.preventDefault();
             mobileNav.classList.toggle('active');
             this.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        // Close mobile menu when clicking on links
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            }
         });
     }
 
@@ -15,6 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (dateInput) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
+    }
+    
+    // Force mobile viewport refresh
+    if (window.innerWidth <= 768) {
+        document.body.style.minHeight = '100vh';
+        window.scrollTo(0, 0);
     }
 });
 
