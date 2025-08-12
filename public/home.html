@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flonze - Fast & Reliable Delivery Service</title>
+  <meta name="description" content="India's fastest delivery service. Book instant pickup and delivery with real-time tracking.">
+  <meta property="og:title" content="Flonze - Fast Delivery Service">
+  <meta property="og:description" content="Book instant delivery with real-time tracking">
+  <meta property="og:image" content="/images/og-image.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">🚚 Flonze</div>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="tracking.html">Track</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <div class="auth-section">
+        <button onclick="showLogin()" class="btn-secondary">Login</button>
+        <button onclick="showRegister()" class="btn-primary">Sign Up</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Booking Form -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Fast & Reliable Delivery Service</h1>
+        <p>Book instant pickup and delivery with real-time tracking across India</p>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-number">50K+</span>
+            <span class="stat-label">Deliveries</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Cities</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4.8★</span>
+            <span class="stat-label">Rating</span>
+          </div>
+        </div>
+      </div>
+      <div class="booking-form-container">
+        <form class="instant-booking-form" onsubmit="quickBook(event)">
+          <h3>Book Instant Delivery</h3>
+          <div class="form-row">
+            <input type="text" id="pickup" placeholder="Pickup Location" required>
+            <input type="text" id="drop" placeholder="Drop Location" required>
+          </div>
+          <div class="form-row">
+            <select id="vehicleType" required>
+              <option value="">Vehicle Type</option>
+              <option value="bike">Bike (₹8/km)</option>
+              <option value="auto">Auto (₹12/km)</option>
+              <option value="mini">Mini Truck (₹15/km)</option>
+              <option value="sedan">Sedan (₹18/km)</option>
+            </select>
+            <input type="number" id="weight" placeholder="Weight (kg)" min="0.1" step="0.1" required>
+          </div>
+          <div class="fare-display" id="fareDisplay">
+            <span>Estimated Fare: ₹<span id="estimatedFare">0</span></span>
+          </div>
+          <button type="submit" class="btn-primary btn-large">Book Now</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📦</div>
+          <h3>Parcel Delivery</h3>
+          <p>Same-day delivery for documents and small packages</p>
+          <ul>
+            <li>✓ 2-hour delivery</li>
+            <li>✓ Real-time tracking</li>
+            <li>✓ Secure handling</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛒</div>
+          <h3>E-commerce Logistics</h3>
+          <p>Complete fulfillment solution for online businesses</p>
+          <ul>
+            <li>✓ Bulk orders</li>
+            <li>✓ COD collection</li>
+            <li>✓ Return handling</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏭</div>
+          <h3>3PL Warehousing</h3>
+          <p>Storage and distribution services</p>
+          <ul>
+            <li>✓ Inventory management</li>
+            <li>✓ Pick & pack</li>
+            <li>✓ Multi-channel distribution</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Book Online</h3>
+          <p>Enter pickup and drop locations with package details</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Get Assigned</h3>
+          <p>Our nearest delivery partner gets assigned instantly</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Track Live</h3>
+          <p>Monitor your delivery in real-time with GPS tracking</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Delivered</h3>
+          <p>Package delivered safely with digital proof</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"Super fast delivery! My package reached in just 2 hours. Excellent service!"</p>
+          <div class="customer">- Priya Sharma, Mumbai</div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"Best logistics partner for my e-commerce business. Reliable and cost-effective."</p>
+          <div class="customer">- Rajesh Kumar, Delhi</div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"Real-time tracking is amazing. I could see exactly where my delivery was."</p>
+          <div class="customer">- Anita Patel, Bangalore</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Flonze</h3>
+          <p>India's fastest delivery service</p>
+          <div class="social-links">
+            <a href="#">📘</a>
+            <a href="#">📷</a>
+            <a href="#">🐦</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <a href="#">Parcel Delivery</a>
+          <a href="#">E-commerce Logistics</a>
+          <a href="#">3PL Warehousing</a>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <a href="#">Help Center</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Track Order</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Flonze. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Auth Modals -->
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="loginForm" class="auth-form">
+        <h2>Login</h2>
+        <form onsubmit="login(event)">
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="showRegister()">Sign up</a></p>
+      </div>
+      <div id="registerForm" class="auth-form" style="display:none;">
+        <h2>Sign Up</h2>
+        <form onsubmit="register(event)">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="tel" placeholder="Phone Number" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="btn-primary">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tawk.to Live Chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/YOUR_TAWK_ID/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>

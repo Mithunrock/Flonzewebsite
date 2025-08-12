@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Flonze</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar admin-nav">
+    <div class="nav-container">
+      <div class="logo">🚚 Flonze Admin</div>
+      <div class="admin-user">
+        <span>Admin User</span>
+        <button onclick="logout()" class="btn-secondary">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="admin-page">
+    <div class="admin-container">
+      <!-- Sidebar -->
+      <div class="admin-sidebar">
+        <nav class="admin-nav-menu">
+          <a href="#" onclick="showAdminSection('dashboard')" class="nav-item active">
+            📊 Dashboard
+          </a>
+          <a href="#" onclick="showAdminSection('bookings')" class="nav-item">
+            📦 Bookings
+          </a>
+          <a href="#" onclick="showAdminSection('drivers')" class="nav-item">
+            🚗 Drivers
+          </a>
+          <a href="#" onclick="showAdminSection('pricing')" class="nav-item">
+            💰 Pricing
+          </a>
+          <a href="#" onclick="showAdminSection('reports')" class="nav-item">
+            📈 Reports
+          </a>
+          <a href="#" onclick="showAdminSection('settings')" class="nav-item">
+            ⚙️ Settings
+          </a>
+        </nav>
+      </div>
+
+      <!-- Main Content -->
+      <div class="admin-content">
+        <!-- Dashboard Section -->
+        <div id="dashboardSection" class="admin-section active">
+          <div class="section-header">
+            <h2>Dashboard Overview</h2>
+            <div class="date-filter">
+              <select id="dateRange">
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+                <option value="month">This Month</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">📦</div>
+              <div class="stat-info">
+                <h3>Total Orders</h3>
+                <div class="stat-number">1,247</div>
+                <div class="stat-change positive">+12% from yesterday</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">💰</div>
+              <div class="stat-info">
+                <h3>Revenue</h3>
+                <div class="stat-number">₹1,24,750</div>
+                <div class="stat-change positive">+8% from yesterday</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🚗</div>
+              <div class="stat-info">
+                <h3>Active Drivers</h3>
+                <div class="stat-number">89</div>
+                <div class="stat-change">12 online now</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⭐</div>
+              <div class="stat-info">
+                <h3>Avg Rating</h3>
+                <div class="stat-number">4.8</div>
+                <div class="stat-change positive">+0.2 this week</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-charts">
+            <div class="chart-container">
+              <h3>Orders Overview</h3>
+              <div class="chart-placeholder">
+                <canvas id="ordersChart" width="400" height="200"></canvas>
+              </div>
+            </div>
+            <div class="recent-orders">
+              <h3>Recent Orders</h3>
+              <div class="orders-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Customer</th>
+                      <th>Status</th>
+                      <th>Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recentOrdersTable">
+                    <!-- Orders will be loaded here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bookings Section -->
+        <div id="bookingsSection" class="admin-section">
+          <div class="section-header">
+            <h2>Booking Management</h2>
+            <div class="booking-filters">
+              <select id="statusFilter" onchange="filterBookings()">
+                <option value="all">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="assigned">Assigned</option>
+                <option value="in_transit">In Transit</option>
+                <option value="delivered">Delivered</option>
+              </select>
+              <input type="date" id="dateFilter" onchange="filterBookings()">
+            </div>
+          </div>
+
+          <div class="bookings-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Customer</th>
+                  <th>Route</th>
+                  <th>Driver</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="bookingsTable">
+                <!-- Bookings will be loaded here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Drivers Section -->
+        <div id="driversSection" class="admin-section">
+          <div class="section-header">
+            <h2>Driver Management</h2>
+            <button onclick="addNewDriver()" class="btn-primary">+ Add Driver</button>
+          </div>
+
+          <div class="drivers-grid" id="driversGrid">
+            <!-- Drivers will be loaded here -->
+          </div>
+        </div>
+
+        <!-- Pricing Section -->
+        <div id="pricingSection" class="admin-section">
+          <div class="section-header">
+            <h2>Pricing Management</h2>
+          </div>
+
+          <div class="pricing-forms">
+            <div class="pricing-card">
+              <h3>Vehicle Rates (per km)</h3>
+              <form class="pricing-form" onsubmit="updatePricing(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Bike</label>
+                    <input type="number" id="bikeRate" value="8" min="1" step="0.5">
+                  </div>
+                  <div class="form-group">
+                    <label>Auto Rickshaw</label>
+                    <input type="number" id="autoRate" value="12" min="1" step="0.5">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Mini Truck</label>
+                    <input type="number" id="miniRate" value="15" min="1" step="0.5">
+                  </div>
+                  <div class="form-group">
+                    <label>Sedan</label>
+                    <input type="number" id="sedanRate" value="18" min="1" step="0.5">
+                  </div>
+                </div>
+                <button type="submit" class="btn-primary">Update Rates</button>
+              </form>
+            </div>
+
+            <div class="pricing-card">
+              <h3>Additional Charges</h3>
+              <form class="pricing-form" onsubmit="updateAdditionalCharges(event)">
+                <div class="form-group">
+                  <label>Weight Charge (per kg above 5kg)</label>
+                  <input type="number" id="weightCharge" value="2" min="0" step="0.5">
+                </div>
+                <div class="form-group">
+                  <label>Night Charge (10 PM - 6 AM)</label>
+                  <input type="number" id="nightCharge" value="20" min="0">
+                </div>
+                <div class="form-group">
+                  <label>Holiday Surcharge (%)</label>
+                  <input type="number" id="holidayCharge" value="15" min="0" max="50">
+                </div>
+                <button type="submit" class="btn-primary">Update Charges</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reports Section -->
+        <div id="reportsSection" class="admin-section">
+          <div class="section-header">
+            <h2>Reports & Analytics</h2>
+            <div class="report-filters">
+              <input type="date" id="reportStartDate">
+              <input type="date" id="reportEndDate">
+              <button onclick="generateReport()" class="btn-primary">Generate Report</button>
+            </div>
+          </div>
+
+          <div class="reports-grid">
+            <div class="report-card">
+              <h3>Daily Summary</h3>
+              <div class="report-stats">
+                <div class="report-stat">
+                  <span class="label">Total Orders:</span>
+                  <span class="value">156</span>
+                </div>
+                <div class="report-stat">
+                  <span class="label">Revenue:</span>
+                  <span class="value">₹15,680</span>
+                </div>
+                <div class="report-stat">
+                  <span class="label">Avg Order Value:</span>
+                  <span class="value">₹101</span>
+                </div>
+              </div>
+              <button onclick="downloadReport('daily')" class="btn-secondary">Download PDF</button>
+            </div>
+
+            <div class="report-card">
+              <h3>Driver Performance</h3>
+              <div class="driver-performance">
+                <div class="performance-item">
+                  <span>Rajesh Kumar</span>
+                  <span>45 deliveries • 4.9⭐</span>
+                </div>
+                <div class="performance-item">
+                  <span>Amit Singh</span>
+                  <span>38 deliveries • 4.7⭐</span>
+                </div>
+                <div class="performance-item">
+                  <span>Suresh Patel</span>
+                  <span>42 deliveries • 4.8⭐</span>
+                </div>
+              </div>
+              <button onclick="downloadReport('drivers')" class="btn-secondary">Download PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Driver Assignment Modal -->
+  <div id="assignDriverModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>Assign Driver</h3>
+      <div class="available-drivers" id="availableDrivers">
+        <!-- Available drivers will be loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Load admin data on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      loadDashboardData();
+      loadBookings();
+      loadDrivers();
+      loadRecentOrders();
+    });
+
+    function showAdminSection(sectionName) {
+      // Hide all sections
+      document.querySelectorAll('.admin-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Remove active class from nav items
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Show selected section
+      document.getElementById(sectionName + 'Section').classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function loadDashboardData() {
+      // Mock dashboard data
+      console.log('Dashboard data loaded');
+    }
+
+    function loadBookings() {
+      const bookingsTable = document.getElementById('bookingsTable');
+      
+      // Mock bookings data
+      const bookings = [
+        {
+          id: 'FL1234567890',
+          customer: 'John Doe',
+          pickup: 'Connaught Place',
+          drop: 'India Gate',
+          driver: 'Rajesh Kumar',
+          status: 'in_transit',
+          amount: 150
+        },
+        {
+          id: 'FL1234567891',
+          customer: 'Jane Smith',
+          pickup: 'Karol Bagh',
+          drop: 'Lajpat Nagar',
+          driver: 'Unassigned',
+          status: 'pending',
+          amount: 120
+        }
+      ];
+      
+      bookingsTable.innerHTML = bookings.map(booking => `
+        <tr>
+          <td>${booking.id}</td>
+          <td>${booking.customer}</td>
+          <td>${booking.pickup} → ${booking.drop}</td>
+          <td>${booking.driver}</td>
+          <td><span class="status-badge status-${booking.status}">${getStatusText(booking.status)}</span></td>
+          <td>₹${booking.amount}</td>
+          <td>
+            <button onclick="assignDriver('${booking.id}')" class="btn-small btn-primary">Assign</button>
+            <button onclick="viewBookingDetails('${booking.id}')" class="btn-small btn-secondary">View</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function loadDrivers() {
+      const driversGrid = document.getElementById('driversGrid');
+      
+      // Mock drivers data
+      const drivers = [
+        {
+          id: 1,
+          name: 'Rajesh Kumar',
+          phone: '+91 9876543210',
+          vehicle: 'Bike • MH 01 AB 1234',
+          rating: 4.9,
+          status: 'online',
+          deliveries: 245
+        },
+        {
+          id: 2,
+          name: 'Amit Singh',
+          phone: '+91 9876543211',
+          vehicle: 'Auto • DL 02 CD 5678',
+          rating: 4.7,
+          status: 'busy',
+          deliveries: 189
+        }
+      ];
+      
+      driversGrid.innerHTML = drivers.map(driver => `
+        <div class="driver-card">
+          <div class="driver-header">
+            <div class="driver-avatar">👨‍💼</div>
+            <div class="driver-info">
+              <h4>${driver.name}</h4>
+              <p>${driver.phone}</p>
+              <p>${driver.vehicle}</p>
+            </div>
+            <div class="driver-status status-${driver.status}">${driver.status}</div>
+          </div>
+          <div class="driver-stats">
+            <div class="stat">
+              <span class="stat-label">Rating</span>
+              <span class="stat-value">${driver.rating}⭐</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Deliveries</span>
+              <span class="stat-value">${driver.deliveries}</span>
+            </div>
+          </div>
+          <div class="driver-actions">
+            <button onclick="editDriver(${driver.id})" class="btn-secondary btn-small">Edit</button>
+            <button onclick="viewDriverDetails(${driver.id})" class="btn-primary btn-small">View</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function loadRecentOrders() {
+      const recentOrdersTable = document.getElementById('recentOrdersTable');
+      
+      // Mock recent orders
+      const orders = [
+        { id: 'FL001', customer: 'John Doe', status: 'delivered', amount: 150 },
+        { id: 'FL002', customer: 'Jane Smith', status: 'in_transit', amount: 120 },
+        { id: 'FL003', customer: 'Bob Johnson', status: 'pending', amount: 180 }
+      ];
+      
+      recentOrdersTable.innerHTML = orders.map(order => `
+        <tr>
+          <td>${order.id}</td>
+          <td>${order.customer}</td>
+          <td><span class="status-badge status-${order.status}">${getStatusText(order.status)}</span></td>
+          <td>₹${order.amount}</td>
+        </tr>
+      `).join('');
+    }
+
+    function getStatusText(status) {
+      const statusMap = {
+        'pending': 'Pending',
+        'assigned': 'Assigned',
+        'picked_up': 'Picked Up',
+        'in_transit': 'In Transit',
+        'delivered': 'Delivered',
+        'cancelled': 'Cancelled'
+      };
+      return statusMap[status] || status;
+    }
+
+    function assignDriver(bookingId) {
+      document.getElementById('assignDriverModal').style.display = 'block';
+      
+      // Load available drivers
+      const availableDrivers = document.getElementById('availableDrivers');
+      availableDrivers.innerHTML = `
+        <div class="driver-option" onclick="confirmAssignment('${bookingId}', 'driver1')">
+          <div class="driver-info">
+            <h4>Rajesh Kumar</h4>
+            <p>🏍️ Bike • 2.5 km away</p>
+            <p>⭐ 4.9 rating</p>
+          </div>
+        </div>
+        <div class="driver-option" onclick="confirmAssignment('${bookingId}', 'driver2')">
+          <div class="driver-info">
+            <h4>Amit Singh</h4>
+            <p>🛺 Auto • 3.1 km away</p>
+            <p>⭐ 4.7 rating</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function confirmAssignment(bookingId, driverId) {
+      alert(`Driver assigned to booking ${bookingId}`);
+      closeModal();
+      loadBookings(); // Refresh bookings
+    }
+
+    function updatePricing(event) {
+      event.preventDefault();
+      alert('Pricing updated successfully!');
+    }
+
+    function updateAdditionalCharges(event) {
+      event.preventDefault();
+      alert('Additional charges updated successfully!');
+    }
+
+    function generateReport() {
+      alert('Report generated successfully!');
+    }
+
+    function downloadReport(type) {
+      alert(`${type} report download will be available soon!`);
+    }
+
+    function filterBookings() {
+      // Implement booking filtering logic
+      loadBookings();
+    }
+
+    function addNewDriver() {
+      alert('Add driver feature will be available soon!');
+    }
+
+    function editDriver(driverId) {
+      alert(`Edit driver ${driverId} feature will be available soon!`);
+    }
+
+    function viewDriverDetails(driverId) {
+      alert(`View driver ${driverId} details feature will be available soon!`);
+    }
+
+    function viewBookingDetails(bookingId) {
+      alert(`View booking ${bookingId} details feature will be available soon!`);
+    }
+
+    function closeModal() {
+      document.getElementById('assignDriverModal').style.display = 'none';
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = 'home.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Order - Flonze</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">🚚 Flonze</div>
+      <ul class="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="tracking.html" class="active">Track</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="tracking-page">
+    <div class="container">
+      <!-- Track by ID Section -->
+      <div class="track-search">
+        <h1>Track Your Order</h1>
+        <div class="search-form">
+          <input type="text" id="trackingInput" placeholder="Enter Tracking ID (e.g., FL1234567890)">
+          <button onclick="trackOrder()" class="btn-primary">Track</button>
+        </div>
+      </div>
+
+      <!-- Tracking Results -->
+      <div id="trackingResults" class="tracking-results" style="display: none;">
+        <div class="tracking-container">
+          <!-- Order Status -->
+          <div class="order-status">
+            <div class="status-header">
+              <h2>Order Status</h2>
+              <div class="tracking-id">ID: <span id="displayTrackingId"></span></div>
+            </div>
+            
+            <div class="status-timeline">
+              <div class="status-step completed">
+                <div class="step-icon">📋</div>
+                <div class="step-content">
+                  <h3>Order Placed</h3>
+                  <p id="orderTime">Today, 10:30 AM</p>
+                </div>
+              </div>
+              <div class="status-step completed">
+                <div class="step-icon">🚚</div>
+                <div class="step-content">
+                  <h3>Driver Assigned</h3>
+                  <p id="assignTime">Today, 10:35 AM</p>
+                </div>
+              </div>
+              <div class="status-step active">
+                <div class="step-icon">📦</div>
+                <div class="step-content">
+                  <h3>Package Picked Up</h3>
+                  <p id="pickupTime">Today, 11:00 AM</p>
+                </div>
+              </div>
+              <div class="status-step">
+                <div class="step-icon">🚛</div>
+                <div class="step-content">
+                  <h3>In Transit</h3>
+                  <p>Estimated: 12:30 PM</p>
+                </div>
+              </div>
+              <div class="status-step">
+                <div class="step-icon">✅</div>
+                <div class="step-content">
+                  <h3>Delivered</h3>
+                  <p>Estimated: 1:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Map -->
+          <div class="live-tracking">
+            <h3>Live Location</h3>
+            <div id="trackingMap" style="height: 400px; border-radius: 12px;"></div>
+            
+            <!-- Driver Info -->
+            <div class="driver-info">
+              <div class="driver-card">
+                <div class="driver-avatar">👨‍💼</div>
+                <div class="driver-details">
+                  <h4 id="driverName">Rajesh Kumar</h4>
+                  <p id="driverRating">⭐ 4.8 (234 trips)</p>
+                  <p id="vehicleInfo">🏍️ Bike • MH 01 AB 1234</p>
+                </div>
+                <div class="driver-actions">
+                  <button onclick="callDriver()" class="btn-secondary">📞 Call</button>
+                  <button onclick="chatDriver()" class="btn-secondary">💬 Chat</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ETA Info -->
+            <div class="eta-info">
+              <div class="eta-card">
+                <div class="eta-time">
+                  <span class="eta-label">Estimated Arrival</span>
+                  <span class="eta-value" id="etaTime">25 mins</span>
+                </div>
+                <div class="distance-info">
+                  <span id="remainingDistance">3.2 km remaining</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Details -->
+        <div class="order-details">
+          <h3>Order Details</h3>
+          <div class="details-grid">
+            <div class="detail-item">
+              <span class="label">From:</span>
+              <span id="pickupAddress">Loading...</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">To:</span>
+              <span id="dropAddress">Loading...</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Package:</span>
+              <span id="packageInfo">Loading...</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Fare:</span>
+              <span id="fareAmount">Loading...</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Payment:</span>
+              <span id="paymentMethod">Cash on Delivery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Results -->
+      <div id="noResults" class="no-results" style="display: none;">
+        <div class="no-results-content">
+          <div class="no-results-icon">🔍</div>
+          <h3>Order Not Found</h3>
+          <p>Please check your tracking ID and try again.</p>
+          <button onclick="clearSearch()" class="btn-secondary">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let trackingMap;
+    let driverMarker;
+    let routePolyline;
+
+    // Initialize tracking map
+    function initTrackingMap() {
+      trackingMap = new google.maps.Map(document.getElementById('trackingMap'), {
+        zoom: 14,
+        center: { lat: 28.6139, lng: 77.2090 },
+        styles: [
+          {
+            featureType: 'poi',
+            elementType: 'labels',
+            stylers: [{ visibility: 'off' }]
+          }
+        ]
+      });
+    }
+
+    // Track order function
+    async function trackOrder() {
+      const trackingId = document.getElementById('trackingInput').value.trim();
+      
+      if (!trackingId) {
+        alert('Please enter a tracking ID');
+        return;
+      }
+
+      try {
+        // Show loading state
+        document.getElementById('trackingResults').style.display = 'none';
+        document.getElementById('noResults').style.display = 'none';
+
+        // Simulate API call (replace with actual API)
+        const response = await fetch(`/api/track/${trackingId}`);
+        
+        if (response.ok) {
+          const orderData = await response.json();
+          displayTrackingResults(orderData);
+        } else {
+          showNoResults();
+        }
+      } catch (error) {
+        // For demo purposes, show mock data
+        displayMockTrackingData(trackingId);
+      }
+    }
+
+    function displayTrackingResults(orderData) {
+      document.getElementById('displayTrackingId').textContent = orderData.trackingId;
+      document.getElementById('pickupAddress').textContent = orderData.pickupLocation.address;
+      document.getElementById('dropAddress').textContent = orderData.dropLocation.address;
+      document.getElementById('packageInfo').textContent = `${orderData.packageDetails.weight}kg ${orderData.packageDetails.type}`;
+      document.getElementById('fareAmount').textContent = `₹${orderData.fare}`;
+      
+      document.getElementById('trackingResults').style.display = 'block';
+      
+      // Initialize map and show route
+      setTimeout(() => {
+        initTrackingMap();
+        showLiveTracking(orderData);
+      }, 100);
+    }
+
+    function displayMockTrackingData(trackingId) {
+      // Mock data for demonstration
+      const mockData = {
+        trackingId: trackingId,
+        pickupLocation: { address: "Connaught Place, New Delhi", lat: 28.6315, lng: 77.2167 },
+        dropLocation: { address: "India Gate, New Delhi", lat: 28.6129, lng: 77.2295 },
+        packageDetails: { weight: 2.5, type: "Electronics" },
+        fare: 150,
+        status: "in_transit",
+        driverLocation: { lat: 28.6200, lng: 77.2200 }
+      };
+      
+      displayTrackingResults(mockData);
+    }
+
+    function showLiveTracking(orderData) {
+      // Add pickup and drop markers
+      const pickupMarker = new google.maps.Marker({
+        position: orderData.pickupLocation,
+        map: trackingMap,
+        title: 'Pickup Location',
+        icon: {
+          url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+            <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="15" cy="15" r="12" fill="#4CAF50" stroke="white" stroke-width="3"/>
+              <text x="15" y="20" text-anchor="middle" fill="white" font-size="16">📦</text>
+            </svg>
+          `)
+        }
+      });
+
+      const dropMarker = new google.maps.Marker({
+        position: orderData.dropLocation,
+        map: trackingMap,
+        title: 'Drop Location',
+        icon: {
+          url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+            <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="15" cy="15" r="12" fill="#FF5722" stroke="white" stroke-width="3"/>
+              <text x="15" y="20" text-anchor="middle" fill="white" font-size="16">🏁</text>
+            </svg>
+          `)
+        }
+      });
+
+      // Add driver marker
+      driverMarker = new google.maps.Marker({
+        position: orderData.driverLocation || { lat: 28.6200, lng: 77.2200 },
+        map: trackingMap,
+        title: 'Driver Location',
+        icon: {
+          url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+            <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="15" cy="15" r="12" fill="#2196F3" stroke="white" stroke-width="3"/>
+              <text x="15" y="20" text-anchor="middle" fill="white" font-size="16">🚚</text>
+            </svg>
+          `)
+        }
+      });
+
+      // Fit map to show all markers
+      const bounds = new google.maps.LatLngBounds();
+      bounds.extend(orderData.pickupLocation);
+      bounds.extend(orderData.dropLocation);
+      bounds.extend(orderData.driverLocation || { lat: 28.6200, lng: 77.2200 });
+      trackingMap.fitBounds(bounds);
+
+      // Start live tracking simulation
+      startLiveTracking();
+    }
+
+    function startLiveTracking() {
+      // Simulate driver movement every 10 seconds
+      setInterval(() => {
+        if (driverMarker) {
+          const currentPos = driverMarker.getPosition();
+          const newLat = currentPos.lat() + (Math.random() - 0.5) * 0.001;
+          const newLng = currentPos.lng() + (Math.random() - 0.5) * 0.001;
+          
+          driverMarker.setPosition({ lat: newLat, lng: newLng });
+          
+          // Update ETA (simulate decreasing time)
+          const currentETA = parseInt(document.getElementById('etaTime').textContent);
+          if (currentETA > 5) {
+            document.getElementById('etaTime').textContent = (currentETA - 1) + ' mins';
+            
+            const distance = (currentETA * 0.13).toFixed(1); // Rough calculation
+            document.getElementById('remainingDistance').textContent = distance + ' km remaining';
+          }
+        }
+      }, 10000);
+    }
+
+    function showNoResults() {
+      document.getElementById('noResults').style.display = 'block';
+    }
+
+    function clearSearch() {
+      document.getElementById('trackingInput').value = '';
+      document.getElementById('trackingResults').style.display = 'none';
+      document.getElementById('noResults').style.display = 'none';
+    }
+
+    function callDriver() {
+      window.location.href = 'tel:+919876543210';
+    }
+
+    function chatDriver() {
+      alert('Chat feature will be available soon!');
+    }
+
+    // Auto-track if tracking ID is in URL
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const trackingId = urlParams.get('id');
+      
+      if (trackingId) {
+        document.getElementById('trackingInput').value = trackingId;
+        trackOrder();
+      }
+    };
+  </script>
+</body>
+</html>
