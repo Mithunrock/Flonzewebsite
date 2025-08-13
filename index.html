@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <p>🎉 Special Offer: 30% OFF on First Service! Use Code: FIRST30</p>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="nav">
@@ -39,10 +44,11 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Eco-Friendly Car Detailing at Your Doorstep</h1>
-            <p>Professional mobile car detailing services using 100% eco-friendly products. We come to you, anywhere in India.</p>
+            <h1>Mobile Eco-Friendly Car Detailing at Your Doorstep</h1>
+            <p>Professional mobile eco-friendly car detailing services using 100% biodegradable products. We come to you, anywhere in India.</p>
             <div class="hero-buttons">
                 <a href="#booking" class="btn-primary">Book Service Now</a>
+                <a href="https://wa.me/919876543210" class="btn-whatsapp" target="_blank">📱 WhatsApp Booking</a>
                 <a href="#services" class="btn-secondary">View Services</a>
             </div>
             <div class="hero-stats">
@@ -66,60 +72,42 @@
     <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Choose from our range of eco-friendly car detailing packages</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🚗</div>
-                    <h3>Basic Wash</h3>
-                    <p class="price">₹499</p>
-                    <ul class="service-features">
-                        <li>Exterior wash & dry</li>
-                        <li>Interior vacuum</li>
-                        <li>Dashboard cleaning</li>
-                        <li>Tire shine</li>
-                    </ul>
-                    <button class="service-btn" onclick="selectService('Basic Wash', 499)">Select Package</button>
-                </div>
-                <div class="service-card featured">
-                    <div class="service-badge">Most Popular</div>
-                    <div class="service-icon">✨</div>
-                    <h3>Premium Detailing</h3>
-                    <p class="price">₹999</p>
-                    <ul class="service-features">
-                        <li>Complete exterior detailing</li>
-                        <li>Interior deep cleaning</li>
-                        <li>Leather conditioning</li>
-                        <li>Engine bay cleaning</li>
-                        <li>Wax protection</li>
-                    </ul>
-                    <button class="service-btn" onclick="selectService('Premium Detailing', 999)">Select Package</button>
+                    <h3>Car Wash</h3>
+                    <p class="price">₹599</p>
+                    <p class="duration">⏱️ 45 mins</p>
+                    <button class="service-btn" onclick="selectService('Car Wash', 599)">Book</button>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3>Ceramic Coating</h3>
-                    <p class="price">₹2999</p>
-                    <ul class="service-features">
-                        <li>9H ceramic coating</li>
-                        <li>Paint correction</li>
-                        <li>2-year protection</li>
-                        <li>Hydrophobic finish</li>
-                        <li>UV protection</li>
-                    </ul>
-                    <button class="service-btn" onclick="selectService('Ceramic Coating', 2999)">Select Package</button>
+                    <div class="service-icon">🔧</div>
+                    <h3>Car Care</h3>
+                    <p class="price">₹1999</p>
+                    <p class="duration">⏱️ 2 hours</p>
+                    <button class="service-btn" onclick="selectService('Car Care', 1999)">Book</button>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📅</div>
-                    <h3>Monthly Subscription</h3>
-                    <p class="price">₹1499/month</p>
-                    <ul class="service-features">
-                        <li>2 premium washes</li>
-                        <li>Priority booking</li>
-                        <li>20% discount on extras</li>
-                        <li>Free pickup & drop</li>
-                    </ul>
-                    <button class="service-btn" onclick="selectService('Monthly Subscription', 1499)">Subscribe Now</button>
+                    <div class="service-icon">🏍️</div>
+                    <h3>Bike Care</h3>
+                    <p class="price">₹399</p>
+                    <p class="duration">⏱️ 30 mins</p>
+                    <button class="service-btn" onclick="selectService('Bike Care', 399)">Book</button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Service Areas Section -->
+    <section class="service-areas">
+        <div class="container">
+            <h2 class="section-title">Service Areas</h2>
+            <div class="areas-grid">
+                <div class="area-card">🏢 Mumbai</div>
+                <div class="area-card">🏢 Delhi NCR</div>
+                <div class="area-card">🏢 Bangalore</div>
+            </div>
+            <p class="areas-note">Don't see your city? <a href="#contact">Contact us</a> - we're expanding!</p>
         </div>
     </section>
 
@@ -130,23 +118,19 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🌱</div>
-                    <h3>100% Eco-Friendly</h3>
-                    <p>We use only biodegradable, non-toxic products that are safe for your car and the environment.</p>
+                    <h3>Mobile Eco-Friendly</h3>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🚪</div>
                     <h3>Doorstep Service</h3>
-                    <p>No need to visit a car wash. We come to your home, office, or any location convenient for you.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">👨‍🔧</div>
-                    <h3>Trained Experts</h3>
-                    <p>Our certified professionals use advanced techniques and premium equipment for perfect results.</p>
+                    <h3>Quick & Fast</h3>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💧</div>
-                    <h3>Water Conservation</h3>
-                    <p>Our waterless and steam cleaning methods save up to 80% water compared to traditional car washes.</p>
+                    <h3>Quality Work</h3>
                 </div>
             </div>
         </div>
@@ -236,10 +220,9 @@
                         <label for="service">Select Service</label>
                         <select id="service" name="service" required>
                             <option value="">Choose a service</option>
-                            <option value="Basic Wash - ₹499">Basic Wash - ₹499</option>
-                            <option value="Premium Detailing - ₹999">Premium Detailing - ₹999</option>
-                            <option value="Ceramic Coating - ₹2999">Ceramic Coating - ₹2999</option>
-                            <option value="Monthly Subscription - ₹1499">Monthly Subscription - ₹1499</option>
+                            <option value="Car Wash - ₹599">Car Wash - ₹599</option>
+                            <option value="Car Care - ₹1999">Car Care - ₹1999</option>
+                            <option value="Bike Care - ₹399">Bike Care - ₹399</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -272,8 +255,8 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>About Flonze</h2>
-                    <p>Founded in 2023, Flonze is India's leading eco-friendly mobile car detailing service. We're passionate about keeping your car spotless while protecting our environment.</p>
-                    <p>Our mission is to revolutionize car care by bringing professional, eco-friendly detailing services directly to your doorstep. We believe in convenience without compromise.</p>
+                    <p>Founded in 2023, Flonze is India's leading mobile eco-friendly car detailing service. We're passionate about keeping your car spotless while protecting our environment.</p>
+                    <p>Our mission is to revolutionize car care by bringing professional, mobile eco-friendly detailing services directly to your doorstep. We believe in convenience without compromise.</p>
                     <div class="about-values">
                         <div class="value">
                             <h4>🌍 Environmental Responsibility</h4>
@@ -288,6 +271,31 @@
                             <p>Convenient, reliable, and transparent service</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>🕰️ How long does service take?</h4>
+                    <p>Car wash: 45 mins, Car care: 2 hours, Bike care: 30 mins</p>
+                </div>
+                <div class="faq-item">
+                    <h4>📍 Do you serve my area?</h4>
+                    <p>We serve 50+ cities across India. Check availability during booking.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>💳 Payment options?</h4>
+                    <p>Cash, UPI, Cards, and all digital payment methods accepted.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>🛡️ Is service insured?</h4>
+                    <p>Yes, all our services are fully insured for your peace of mind.</p>
                 </div>
             </div>
         </div>
@@ -343,7 +351,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>🌿 Flonze</h3>
-                    <p>Eco-friendly mobile car detailing at your doorstep. Professional, convenient, and environmentally responsible.</p>
+                    <p>Mobile eco-friendly car detailing at your doorstep. Professional, convenient, and environmentally responsible.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook">📘</a>
                         <a href="#" aria-label="Instagram">📷</a>
@@ -354,10 +362,9 @@
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#services">Basic Wash</a></li>
-                        <li><a href="#services">Premium Detailing</a></li>
-                        <li><a href="#services">Ceramic Coating</a></li>
-                        <li><a href="#services">Subscriptions</a></li>
+                        <li><a href="#services">Car Wash</a></li>
+                        <li><a href="#services">Car Care</a></li>
+                        <li><a href="#services">Bike Care</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -381,6 +388,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/919876543210" target="_blank">
+            <div class="whatsapp-icon">📱</div>
+        </a>
+    </div>
 
     <script src="script.js"></script>
 </body>
