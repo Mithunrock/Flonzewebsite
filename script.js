@@ -314,3 +314,122 @@ const statsObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.stat').forEach(stat => {
     statsObserver.observe(stat);
 });
+
+// Service Calculator Functions
+function calculatePrice() {
+    const vehicleType = document.getElementById('vehicleType').value;
+    const serviceType = document.getElementById('serviceType').value;
+    const addons = document.querySelectorAll('.addons input[type="checkbox"]:checked');
+    
+    let basePrice = 0;
+    
+    // Base pricing logic
+    if (serviceType === 'wash') {
+        if (vehicleType === 'hatchback') basePrice = 499;
+        else if (vehicleType === 'sedan') basePrice = 599;
+        else if (vehicleType === 'suv') basePrice = 799;
+        else if (vehicleType === 'bike') basePrice = 299;
+    } else if (serviceType === 'care') {
+        if (vehicleType === 'hatchback') basePrice = 1799;
+        else if (vehicleType === 'sedan') basePrice = 1999;
+        else if (vehicleType === 'suv') basePrice = 2499;
+    } else if (serviceType === 'bike') {
+        basePrice = 399;
+    }
+    
+    // Add addon prices
+    let addonPrice = 0;
+    addons.forEach(addon => {
+        addonPrice += parseInt(addon.value);
+    });
+    
+    const totalPrice = basePrice + addonPrice;
+    document.getElementById('totalPrice').textContent = '₹' + totalPrice;
+}
+
+function bookFromCalculator() {
+    const vehicleType = document.getElementById('vehicleType').value;
+    const serviceType = document.getElementById('serviceType').value;
+    
+    if (!vehicleType || !serviceType) {
+        alert('Please select vehicle type and service type first.');
+        return;
+    }
+    
+    // Scroll to booking section
+    document.getElementById('booking').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+// Live Chat Functions
+function toggleChat() {
+    const chatBody = document.getElementById('chatBody');
+    const chatToggle = document.getElementById('chatToggle');
+    
+    if (chatBody.style.display === 'none' || !chatBody.style.display) {
+        chatBody.style.display = 'flex';
+        chatToggle.textContent = '▼';
+    } else {
+        chatBody.style.display = 'none';
+        chatToggle.textContent = '▲';
+    }
+}
+
+function sendMessage() {
+    const chatInput = document.getElementById('chatInput');
+    const message = chatInput.value.trim();
+    
+    if (message) {
+        // Add user message
+        const chatMessages = document.querySelector('.chat-messages');
+        const userMessage = document.createElement('div');
+        userMessage.className = 'chat-message user';
+        userMessage.innerHTML = `<p style="background: #2f855a; color: white; padding: 0.5rem 1rem; border-radius: 15px; margin: 0; font-size: 0.9rem; text-align: right;">${message}</p>`;
+        chatMessages.appendChild(userMessage);
+        
+        // Auto-reply
+        setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message bot';
+            botMessage.innerHTML = `<p>Thanks for your message! Please call us at +91 8108395367 or WhatsApp for immediate assistance.</p>`;
+            chatMessages.appendChild(botMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 1000);
+        
+        chatInput.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+}
+
+// Scroll to Top Function
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Show/Hide Scroll to Top Button
+window.addEventListener('scroll', function() {
+    const scrollTop = document.getElementById('scrollTop');
+    if (window.pageYOffset > 300) {
+        scrollTop.style.display = 'flex';
+    } else {
+        scrollTop.style.display = 'none';
+    }
+});
+
+// Initialize chat as collapsed
+document.addEventListener('DOMContentLoaded', function() {
+    const chatBody = document.getElementById('chatBody');
+    chatBody.style.display = 'none';
+    
+    // Chat input enter key support
+    document.getElementById('chatInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+});

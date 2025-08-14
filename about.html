@@ -1,237 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Flonze Fulfillment</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.4;
-      color: #333;
-      font-size: 14px;
-    }
-
-    .header {
-      background: #fff;
-      box-shadow: 0 2px 20px rgba(13,27,42,0.1);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 5%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .logo-img {
-      height: 32px;
-      width: auto;
-    }
-
-    .logo-text {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #0D1B2A;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #374151;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a:hover {
-      color: #0D1B2A;
-    }
-
-    .cta-btn {
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-      color: #0D1B2A;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
-      color: white;
-      padding: 6rem 5% 3rem;
-      text-align: center;
-      margin-top: 80px;
-    }
-
-    .hero h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero p {
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-
-    .about {
-      padding: 3rem 5%;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .about h2 {
-      font-size: 1.4rem;
-      color: #0D1B2A;
-      margin-bottom: 1rem;
-    }
-
-    .about p {
-      margin-bottom: 1.5rem;
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    .stats {
-      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
-      color: white;
-      padding: 2rem 5%;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .stat-number {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      opacity: 0.9;
-    }
-
-    .footer {
-      background: #1f2937;
-      color: white;
-      padding: 2rem 5% 1rem;
-      text-align: center;
-    }
-
-    .footer p {
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 1.4rem;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Flonze Car Detailing</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <nav class="nav">
-      <div class="logo">
-        <img src="logo.png" alt="Flonze Fulfillment" class="logo-img">
-        <span class="logo-text">Flonze Fulfillment</span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <a href="contact.html" class="cta-btn">Get Started</a>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Flonze Logo" class="logo">
+                <span class="brand-name">Flonze</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-  <section class="hero">
-    <h1>About Flonze Fulfillment</h1>
-    <p>Your trusted partner for e-commerce logistics and fulfillment solutions</p>
-  </section>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Flonze</h1>
+            <p>India's leading mobile eco-friendly car detailing service</p>
+        </div>
+    </section>
 
-  <section class="about">
-    <h2>Our Mission</h2>
-    <p>We help small and medium e-commerce businesses scale by providing reliable, affordable, and fast fulfillment services. From warehousing to last-mile delivery, we handle your logistics so you can focus on growing your business.</p>
+    <!-- Company Story -->
+    <section class="company-story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2023, Flonze emerged from a simple yet powerful vision: to revolutionize car care in India by making professional detailing services accessible, convenient, and environmentally responsible.</p>
+                    <p>We recognized that busy urban lifestyles left little time for proper vehicle maintenance, while traditional car washes often used harsh chemicals harmful to both vehicles and the environment. This gap inspired us to create a mobile service that brings premium, eco-friendly car detailing directly to our customers' doorsteps.</p>
+                    <p>Starting in Mumbai, we've rapidly expanded across major Indian cities, serving over 10,000 satisfied customers who trust us with their vehicles. Our commitment to quality, convenience, and environmental responsibility has made us the preferred choice for discerning car and bike owners.</p>
+                </div>
+                <div class="story-stats">
+                    <div class="stat-card">
+                        <h3>10,000+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>3</h3>
+                        <p>Major Cities</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>2+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>100%</h3>
+                        <p>Eco-Friendly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h2>Why Choose Us</h2>
-    <p>With 500+ happy sellers and 50,000+ orders fulfilled, we understand the challenges of e-commerce logistics. Our same-day dispatch, multi-courier network, and real-time tracking ensure your customers receive their orders quickly and safely.</p>
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="mv-icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>To revolutionize car care by providing convenient, professional, and eco-friendly mobile detailing services that exceed customer expectations while protecting our environment for future generations.</p>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-icon">👁️</div>
+                    <h3>Our Vision</h3>
+                    <p>To become India's most trusted and preferred mobile car detailing service, setting new standards for quality, convenience, and environmental responsibility in the automotive care industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h2>Our Promise</h2>
-    <p>Transparent pricing, reliable service, and dedicated support. We're not just a fulfillment partner - we're your growth partner.</p>
-  </section>
+    <!-- Core Values -->
+    <section class="core-values">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Environmental Responsibility</h3>
+                    <p>We use only 100% biodegradable products and water-saving techniques. Every service is designed to minimize environmental impact while delivering exceptional results.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⭐</div>
+                    <h3>Quality Excellence</h3>
+                    <p>Our certified professionals use premium equipment and proven techniques to ensure your vehicle receives the highest standard of care every single time.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Customer First</h3>
+                    <p>Your satisfaction is our priority. We provide transparent pricing, reliable service, and go the extra mile to exceed your expectations.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>Innovation</h3>
+                    <p>We continuously adopt new technologies and methods to improve our services and provide the most convenient experience for our customers.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🛡️</div>
+                    <h3>Trust & Reliability</h3>
+                    <p>Fully insured services, background-verified technicians, and consistent quality you can depend on for all your vehicle care needs.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3>Convenience</h3>
+                    <p>We bring professional car care to your location, saving you time and effort while providing the same quality as premium detailing centers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="stats">
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Happy Sellers</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">50K+</div>
-        <div class="stat-label">Orders Fulfilled</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">99.5%</div>
-        <div class="stat-label">On-Time Delivery</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">Support</div>
-      </div>
-    </div>
-  </section>
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose Flonze?</h2>
+            <div class="choose-grid">
+                <div class="choose-item">
+                    <div class="choose-icon">✅</div>
+                    <h4>Certified Professionals</h4>
+                    <p>All our technicians are trained and certified in professional car detailing techniques</p>
+                </div>
+                <div class="choose-item">
+                    <div class="choose-icon">🌱</div>
+                    <h4>100% Eco-Friendly</h4>
+                    <p>Biodegradable products that are safe for your car, family, and the environment</p>
+                </div>
+                <div class="choose-item">
+                    <div class="choose-icon">🚗</div>
+                    <h4>Mobile Convenience</h4>
+                    <p>We come to your home, office, or any location convenient for you</p>
+                </div>
+                <div class="choose-item">
+                    <div class="choose-icon">💰</div>
+                    <h4>Transparent Pricing</h4>
+                    <p>No hidden charges, clear pricing structure with value for money</p>
+                </div>
+                <div class="choose-item">
+                    <div class="choose-icon">⏰</div>
+                    <h4>Flexible Scheduling</h4>
+                    <p>Book at your convenience with same-day availability in most areas</p>
+                </div>
+                <div class="choose-item">
+                    <div class="choose-icon">🛡️</div>
+                    <h4>Fully Insured</h4>
+                    <p>Complete insurance coverage for your peace of mind during service</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section style="background: #f8fafc; padding: 2rem 5%; text-align: center;">
-    <a href="index.html" style="background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%); color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">← Back to Home</a>
-  </section>
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-content">
+                <p>Our success is built on the dedication and expertise of our professional team. From our certified detailing technicians to our customer service representatives, every team member is committed to delivering exceptional service.</p>
+                <div class="team-stats">
+                    <div class="team-stat">
+                        <h4>50+</h4>
+                        <p>Certified Technicians</p>
+                    </div>
+                    <div class="team-stat">
+                        <h4>24/7</h4>
+                        <p>Customer Support</p>
+                    </div>
+                    <div class="team-stat">
+                        <h4>100%</h4>
+                        <p>Background Verified</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer class="footer">
-    <p>&copy; 2025 Flonze Fulfillment. All rights reserved.</p>
-  </footer>
+    <!-- Customer Reviews -->
+    <section class="customer-reviews">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <p>"Excellent service! They came to my office and did an amazing job on my car. The eco-friendly products they use are impressive."</p>
+                    <div class="review-author">
+                        <strong>Rajesh Kumar</strong>
+                        <span>Mumbai</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <p>"Very professional team and great results. My car looks brand new after their car care service. Highly recommended!"</p>
+                    <div class="review-author">
+                        <strong>Priya Sharma</strong>
+                        <span>Delhi NCR</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    <p>"Convenient booking, punctual service, and excellent cleaning. The bike care service exceeded my expectations."</p>
+                    <div class="review-author">
+                        <strong>Arjun Reddy</strong>
+                        <span>Bangalore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Flonze Logo" class="footer-logo-img">
+                        <h3>Flonze</h3>
+                    </div>
+                    <p>Mobile eco-friendly car detailing at your doorstep.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 8108395367</p>
+                    <p>✉️ hello@flonze.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flonze. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

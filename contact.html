@@ -1,485 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Flonze Fulfillment</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f8fafc;
-    }
-
-    .header {
-      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
-      padding: 1rem 5%;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      color: white;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #FFD700;
-    }
-
-    .main-container {
-      max-width: 1200px;
-      margin: 6rem auto 2rem;
-      padding: 0 5%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .contact-info,
-    .contact-form {
-      background: white;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-
-    .contact-info h2,
-    .contact-form h2 {
-      color: #0D1B2A;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .contact-info p {
-      color: #64748b;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      background: #f8fafc;
-      border-radius: 8px;
-    }
-
-    .contact-icon {
-      font-size: 1.5rem;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
-      color: white;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .contact-details h4 {
-      color: #0D1B2A;
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .contact-details span {
-      color: #64748b;
-      font-size: 0.9rem;
-    }
-
-    .quick-actions {
-      margin-top: 2rem;
-    }
-
-    .quick-actions h3 {
-      color: #0D1B2A;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-
-    .action-buttons {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .action-btn {
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-      color: #0D1B2A;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .action-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(255,215,0,0.3);
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      color: #0D1B2A;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 2px solid #e2e8f0;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      transition: border-color 0.3s ease;
-      background: white;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: #0D1B2A;
-    }
-
-    .form-group textarea {
-      height: 120px;
-      resize: vertical;
-    }
-
-    .submit-btn {
-      background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%);
-      color: white;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      width: 100%;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(13,27,42,0.3);
-    }
-
-    .submit-btn:disabled {
-      background: #9ca3af;
-      cursor: not-allowed;
-    }
-
-    .success-msg,
-    .error-msg {
-      padding: 12px;
-      border-radius: 8px;
-      text-align: center;
-      display: none;
-      font-size: 14px;
-      margin-bottom: 1rem;
-    }
-
-    .success-msg {
-      background: #d1fae5;
-      color: #065f46;
-      border: 1px solid #a7f3d0;
-    }
-
-    .error-msg {
-      background: #fee2e2;
-      color: #991b1b;
-      border: 1px solid #fca5a5;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .main-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        margin: 2rem auto;
-      }
-
-      .contact-info,
-      .contact-form {
-        padding: 1.5rem;
-      }
-
-      .contact-info h2,
-      .contact-form h2 {
-        font-size: 1.5rem;
-      }
-
-      .action-buttons {
-        flex-direction: column;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Flonze Car Detailing</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="nav-container">
-      <div class="logo">FLONZE FULFILLMENT</div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html">Login</a>
-        <a href="signin.html">Sign Up</a>
-      </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Flonze Logo" class="logo">
+                <span class="brand-name">Flonze</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with us for any queries or to book your service</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p>Call us for immediate assistance</p>
+                    <a href="tel:+918108395367" class="contact-link">+91 8108395367</a>
+                    <small>Available 24/7 for emergencies</small>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>WhatsApp</h3>
+                    <p>Quick booking and instant support</p>
+                    <a href="https://wa.me/918108395367" class="contact-link">Chat with us</a>
+                    <small>Fastest response time</small>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>Send us your detailed queries</p>
+                    <a href="mailto:hello@flonze.com" class="contact-link">hello@flonze.com</a>
+                    <small>Response within 24 hours</small>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Address</h3>
+                    <p>Our headquarters</p>
+                    <div class="contact-link">123 Green Street, Eco Park<br>Mumbai, Maharashtra 400001</div>
+                    <small>Visit by appointment only</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Send us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you as soon as possible</p>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="Service Inquiry">Service Inquiry</option>
+                            <option value="Booking Support">Booking Support</option>
+                            <option value="Complaint">Complaint</option>
+                            <option value="Feedback">Feedback</option>
+                            <option value="Partnership">Partnership</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <select id="city" name="city">
+                            <option value="">Select your city</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi NCR">Delhi NCR</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="service-areas-contact">
+        <div class="container">
+            <h2 class="section-title">Service Areas</h2>
+            <div class="areas-detailed">
+                <div class="area-detail">
+                    <h3>🏙️ Mumbai</h3>
+                    <div class="area-locations">
+                        <p><strong>Coverage Areas:</strong></p>
+                        <ul>
+                            <li>Andheri (East & West)</li>
+                            <li>Bandra & Khar</li>
+                            <li>Powai & Hiranandani</li>
+                            <li>Thane & Mulund</li>
+                            <li>Borivali & Malad</li>
+                            <li>Lower Parel & Worli</li>
+                        </ul>
+                    </div>
+                    <div class="area-contact">
+                        <p><strong>Local Contact:</strong> +91 8108395367</p>
+                    </div>
+                </div>
+                <div class="area-detail">
+                    <h3>🏛️ Delhi NCR</h3>
+                    <div class="area-locations">
+                        <p><strong>Coverage Areas:</strong></p>
+                        <ul>
+                            <li>Gurgaon (All Sectors)</li>
+                            <li>Noida & Greater Noida</li>
+                            <li>Faridabad</li>
+                            <li>Ghaziabad</li>
+                            <li>Central Delhi</li>
+                            <li>South Delhi</li>
+                        </ul>
+                    </div>
+                    <div class="area-contact">
+                        <p><strong>Local Contact:</strong> +91 8108395367</p>
+                    </div>
+                </div>
+                <div class="area-detail">
+                    <h3>🌆 Bangalore</h3>
+                    <div class="area-locations">
+                        <p><strong>Coverage Areas:</strong></p>
+                        <ul>
+                            <li>Whitefield & ITPL</li>
+                            <li>Koramangala & BTM</li>
+                            <li>Indiranagar & Marathahalli</li>
+                            <li>Electronic City</li>
+                            <li>Hebbal & Yelahanka</li>
+                            <li>JP Nagar & Jayanagar</li>
+                        </ul>
+                    </div>
+                    <div class="area-contact">
+                        <p><strong>Local Contact:</strong> +91 8108395367</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours -->
+    <section class="business-hours">
+        <div class="container">
+            <h2 class="section-title">Business Hours</h2>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>🕒 Regular Services</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span>Monday - Friday</span>
+                            <span>8:00 AM - 8:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Saturday</span>
+                            <span>8:00 AM - 9:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Sunday</span>
+                            <span>9:00 AM - 7:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hours-card">
+                    <h3>🚨 Emergency Services</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span>All Days</span>
+                            <span>24/7 Available</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Response Time</span>
+                            <span>Within 2 hours</span>
+                        </div>
+                        <div class="hours-item">
+                            <span>Emergency Hotline</span>
+                            <span>+91 8108395367</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="contact-faq">
+        <div class="container">
+            <h2 class="section-title">Common Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>📞 How quickly do you respond?</h4>
+                    <p>Phone calls: Immediate, WhatsApp: Within 5 minutes, Email: Within 24 hours</p>
+                </div>
+                <div class="faq-item">
+                    <h4>📅 Can I book for the same day?</h4>
+                    <p>Yes, subject to availability. Call us directly for same-day bookings.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>💳 Do you provide quotes over phone?</h4>
+                    <p>Yes, we provide instant quotes based on your service requirements.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>🚗 Do you service all vehicle types?</h4>
+                    <p>We service cars, SUVs, bikes, and commercial vehicles. Contact us for specific requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Flonze Logo" class="footer-logo-img">
+                        <h3>Flonze</h3>
+                    </div>
+                    <p>Mobile eco-friendly car detailing at your doorstep.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 8108395367</p>
+                    <p>✉️ hello@flonze.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flonze. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/918108395367" target="_blank">
+            <div class="whatsapp-icon">📱</div>
+        </a>
     </div>
-  </header>
 
-  <div class="main-container">
-    <div class="contact-info">
-      <h2>📞 Get in Touch</h2>
-      <p>Ready to scale your e-commerce business? Need help with fulfillment services? Want a custom quote? We're here to help! Reach out to us through any of the channels below.</p>
-
-      <div class="contact-item">
-        <div class="contact-icon">📱</div>
-        <div class="contact-details">
-          <h4>Phone & WhatsApp</h4>
-          <span>+91 81083 95367</span>
-        </div>
-      </div>
-
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <div class="contact-details">
-          <h4>Email</h4>
-          <span>hello@flonzefulfillment.com</span>
-        </div>
-      </div>
-
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div class="contact-details">
-          <h4>Service Area</h4>
-          <span>Mumbai, Maharashtra & Pan India</span>
-        </div>
-      </div>
-
-      <div class="contact-item">
-        <div class="contact-icon">🕒</div>
-        <div class="contact-details">
-          <h4>Business Hours</h4>
-          <span>Mon-Sat: 9 AM - 7 PM IST</span>
-        </div>
-      </div>
-
-      <div class="quick-actions">
-        <h3>Quick Actions</h3>
-        <div class="action-buttons">
-          <a href="https://wa.me/918108395367?text=Hi! I want to know about Flonze Fulfillment services for my e-commerce business." class="action-btn whatsapp" target="_blank">
-            <span>💬</span> Get Quote
-          </a>
-          <a href="tel:+918108395367" class="action-btn">
-            <span>📞</span> Call Us
-          </a>
-          <a href="services.html" class="action-btn">
-            <span>📦</span> View Services
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-form">
-      <h2>💬 Send us a Message</h2>
-      
-      <div class="success-msg" id="success">✅ Message sent successfully! We'll get back to you soon.</div>
-      <div class="error-msg" id="error">❌ Please fill all fields correctly.</div>
-
-      <form id="contact-form">
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-        </div>
-
-        <div class="form-group">
-          <label for="service">Inquiry Type</label>
-          <select id="service" name="service" required>
-            <option value="">Select inquiry type</option>
-            <option value="warehousing">Warehousing Services</option>
-            <option value="fulfillment">Order Fulfillment</option>
-            <option value="shipping">Shipping Solutions</option>
-            <option value="returns">Returns Management</option>
-            <option value="integration">API Integration</option>
-            <option value="pricing">Pricing & Quotes</option>
-            <option value="partnership">Partnership</option>
-            <option value="support">Technical Support</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us about your business needs, order volume, or any questions about our fulfillment services..." required></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-    </div>
-  </div>
-
-  <section style="background: #f8fafc; padding: 2rem 5%; text-align: center;">
-    <a href="index.html" style="background: linear-gradient(135deg, #0D1B2A 0%, #1e3a8a 100%); color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">← Back to Home</a>
-  </section>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('contact-form');
-      const successMsg = document.getElementById('success');
-      const errorMsg = document.getElementById('error');
-      const submitBtn = form.querySelector('.submit-btn');
-
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwpMWGD9t41Isi3R-jSr6DxEOFE6s8fmuClmPPGHa2UQbUYvIZdgjkAkCIPax9QG5ZAhw/exec';
-      
-      let isSubmitting = false;
-
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        if (isSubmitting) return;
-        isSubmitting = true;
-        
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        successMsg.style.display = 'none';
-        errorMsg.style.display = 'none';
-
-        const formData = new FormData(form);
-        const data = {
-          name: formData.get('name'),
-          email: formData.get('email'),
-          phone: formData.get('phone'),
-          service: formData.get('service'),
-          message: formData.get('message'),
-          type: 'contact'
-        };
-
-        if (!data.name || !data.email || !data.phone || !data.service || !data.message) {
-          errorMsg.textContent = '❌ Please fill all fields.';
-          errorMsg.style.display = 'block';
-          submitBtn.textContent = 'Send Message';
-          submitBtn.disabled = false;
-          isSubmitting = false;
-          return;
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
-          errorMsg.textContent = '❌ Please enter a valid email address.';
-          errorMsg.style.display = 'block';
-          submitBtn.textContent = 'Send Message';
-          submitBtn.disabled = false;
-          isSubmitting = false;
-          return;
-        }
-
-        const timeoutId = setTimeout(() => {
-          errorMsg.textContent = '⏰ Request timeout. Please try again.';
-          errorMsg.style.display = 'block';
-          submitBtn.textContent = 'Send Message';
-          submitBtn.disabled = false;
-          isSubmitting = false;
-        }, 10000);
-
-        try {
-          const response = await Promise.race([
-            fetch(scriptURL, {
-              method: 'POST',
-              body: JSON.stringify(data),
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            }),
-            new Promise((_, reject) => 
-              setTimeout(() => reject(new Error('Timeout')), 8000)
-            )
-          ]);
-
-          clearTimeout(timeoutId);
-
-          if (response.ok) {
-            successMsg.style.display = 'block';
-            form.reset();
-            
-            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            throw new Error('Network response was not ok');
-          }
-        } catch (error) {
-          clearTimeout(timeoutId);
-          errorMsg.textContent = error.message === 'Timeout' ? 
-            '⏰ Connection timeout. Please try again.' : 
-            '❌ Failed to send message. Please try again or contact us directly.';
-          errorMsg.style.display = 'block';
-        } finally {
-          submitBtn.textContent = 'Send Message';
-          submitBtn.disabled = false;
-          isSubmitting = false;
-        }
-      });
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
