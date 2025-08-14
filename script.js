@@ -427,27 +427,32 @@ function updateCartCount() {
 }
 
 function addToCart(name, price, location, seller, emoji) {
-    const existingItem = cart.find(item => item.name === name);
-    
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push({
-            id: Date.now(),
-            name,
-            price,
-            location,
-            seller,
-            emoji,
-            quantity: 1
-        });
+    try {
+        const existingItem = cart.find(item => item.name === name);
+        
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({
+                id: Date.now(),
+                name: name || 'Product',
+                price: price || 0,
+                location: location || 'India',
+                seller: seller || 'Seller',
+                emoji: emoji || '🛒',
+                quantity: 1
+            });
+        }
+        
+        localStorage.setItem('flonzeCart', JSON.stringify(cart));
+        updateCartCount();
+        
+        // Show success message
+        showNotification(`${name} added to cart!`, 'success');
+    } catch (error) {
+        console.error('Add to cart error:', error);
+        showNotification('Error adding to cart', 'error');
     }
-    
-    localStorage.setItem('flonzeCart', JSON.stringify(cart));
-    updateCartCount();
-    
-    // Show success message
-    showNotification(`${name} added to cart!`, 'success');
 }
 
 function buyNow(name, price, location, seller) {
@@ -568,13 +573,21 @@ function showNotification(message, type) {
 }
 
 // Initialize cart on page load
-document.addEventListener('DOMContentLoaded', function() {
-    updateCartCount();
-    if (window.location.pathname.includes('cart.html')) {
-        displayCartItems();
-        updateCartSummary();
+function initializeCart() {
+    try {
+        updateCartCount();
+        if (window.location.pathname.includes('cart.html') || window.location.href.includes('cart.html')) {
+            displayCartItems();
+            updateCartSummary();
+        }
+    } catch (error) {
+        console.error('Cart initialization error:', error);
     }
-});
+}
+
+// Call on DOM ready and window load
+document.addEventListener('DOMContentLoaded', initializeCart);
+window.addEventListener('load', initializeCart);
 
 // Product Marketplace Functions
 function searchProducts() {
