@@ -204,80 +204,7 @@
         </div>
     </section>
 
-    <!-- Customer Reviews Section -->
-    <section class="reviews">
-        <div class="container">
-            <h2 class="section-title">Customer Reviews</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-rating">★★★★★</div>
-                    <p>"Excellent service! My car looks brand new. Very professional team."</p>
-                    <div class="reviewer">
-                        <strong>Amit Singh</strong>
-                        <span>Mumbai</span>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-rating">★★★★★</div>
-                    <p>"Eco-friendly products and great results. Highly recommended!"</p>
-                    <div class="reviewer">
-                        <strong>Neha Sharma</strong>
-                        <span>Delhi</span>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-rating">★★★★★</div>
-                    <p>"Convenient doorstep service. Will definitely book again."</p>
-                    <div class="reviewer">
-                        <strong>Ravi Kumar</strong>
-                        <span>Bangalore</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Service Calculator Section -->
-    <section class="calculator">
-        <div class="container">
-            <h2 class="section-title">Service Calculator</h2>
-            <div class="calc-container">
-                <div class="calc-form">
-                    <div class="form-group">
-                        <label>Vehicle Type</label>
-                        <select id="vehicleType" onchange="calculatePrice()">
-                            <option value="">Select Vehicle</option>
-                            <option value="hatchback">Hatchback</option>
-                            <option value="sedan">Sedan</option>
-                            <option value="suv">SUV</option>
-                            <option value="bike">Bike</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Service Type</label>
-                        <select id="serviceType" onchange="calculatePrice()">
-                            <option value="">Select Service</option>
-                            <option value="wash">Car Wash</option>
-                            <option value="care">Car Care</option>
-                            <option value="bike">Bike Care</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Add-ons</label>
-                        <div class="addons">
-                            <label><input type="checkbox" onchange="calculatePrice()" value="50"> Air Freshener (+₹50)</label>
-                            <label><input type="checkbox" onchange="calculatePrice()" value="100"> Dashboard Polish (+₹100)</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="calc-result">
-                    <h3>Estimated Price</h3>
-                    <div class="price-display" id="totalPrice">₹0</div>
-                    <button class="calc-book-btn" onclick="bookFromCalculator()">Book This Service</button>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Booking Section -->
     <section class="booking" id="booking">
@@ -436,12 +363,7 @@
                         <h3>Flonze</h3>
                     </div>
                     <p>Mobile eco-friendly car detailing at your doorstep. Professional, convenient, and environmentally responsible.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="Twitter">🐦</a>
-                        <a href="#" aria-label="LinkedIn">💼</a>
-                    </div>
+
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
@@ -480,29 +402,7 @@
         </a>
     </div>
 
-    <!-- Live Chat Widget -->
-    <div class="chat-widget" id="chatWidget">
-        <div class="chat-header" onclick="toggleChat()">
-            <span>💬 Live Chat</span>
-            <span id="chatToggle">▲</span>
-        </div>
-        <div class="chat-body" id="chatBody">
-            <div class="chat-messages">
-                <div class="chat-message bot">
-                    <p>Hi! How can I help you today?</p>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Type your message...">
-                <button onclick="sendMessage()">➤</button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
-        <span>↑</span>
-    </div>
 
     <script src="script.js?v=1.2"></script>
 </body>
