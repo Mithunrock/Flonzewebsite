@@ -1183,6 +1183,11 @@ body {
     display: none;
 }
 
+.page-content {
+    padding: 100px 0;
+    min-height: 60vh;
+}
+
 /* Cart Page Styles */
 .cart-section {
     padding: 100px 0;
@@ -1815,6 +1820,15 @@ body {
 }
 
 .scroll-to-top:hover {
+    transform: translateY(-2px);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
 }
@@ -2020,6 +2034,19 @@ input, select, textarea {
     * {
         max-width: 100%;
         box-sizing: border-box;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    
+    .contact-item {
+        padding: 15px !important;
+    }
+    
+    .contact-form form {
+        padding: 20px !important;
     }
 }
     
