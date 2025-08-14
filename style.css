@@ -1951,45 +1951,7 @@ input, select, textarea {
 }
 
 @media (max-width: 768px) {
-    body {
-        font-size: 14px;
-        overflow-x: hidden;
-    }
-    
-    .container {
-        padding: 0 15px;
-        max-width: 100%;
-    }
-    
-    .header .container {
-        padding: 12px 15px;
-    }
-    
-    .hero {
-        padding: 100px 0 60px;
-        min-height: auto;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        line-height: 1.2;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-        margin-bottom: 30px;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-    
-    .hamburger {
-        display: flex;
-        z-index: 1001;
-    }
+    .hamburger { display: flex; }
     
     .nav-menu {
         position: fixed;
@@ -1997,47 +1959,39 @@ input, select, textarea {
         left: -100%;
         width: 100%;
         height: calc(100vh - 70px);
-        background: var(--white);
+        background: white;
         flex-direction: column;
-        padding: 30px 20px;
+        padding: 20px;
         transition: left 0.3s ease;
-        box-shadow: var(--shadow);
         z-index: 1000;
-        overflow-y: auto;
     }
     
-    .nav-menu.active {
-        left: 0;
-    }
+    .nav-menu.active { left: 0; }
     
     .nav-menu li {
-        margin: 10px 0;
-        width: 100%;
+        margin: 15px 0;
         text-align: center;
-    }
-    
-    .nav-menu a {
-        display: block;
-        padding: 15px;
-        font-size: 16px;
-        border-radius: 8px;
     }
     
     .nav-actions {
         position: fixed;
-        bottom: 30px;
+        bottom: 20px;
         left: -100%;
         width: 100%;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         padding: 0 20px;
         transition: left 0.3s ease;
         z-index: 1000;
     }
     
-    .nav-actions.active {
-        left: 0;
-    }
+    .nav-actions.active { left: 0; }
+    
+    .hero h1 { font-size: 2rem; }
+    .section-title { font-size: 1.8rem; }
+    .products-grid { grid-template-columns: 1fr; }
+    .cart-content { display: block; }
+    .cart-summary { position: static; margin-top: 20px; }
     
     .marketplace-controls {
         flex-direction: column;
