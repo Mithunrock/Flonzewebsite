@@ -414,16 +414,28 @@ function debounce(func, wait) {
     };
 }
 
-// Cart Management
-let cart = JSON.parse(localStorage.getItem('flonzeCart')) || [];
+// Cart Management - Fixed
+let cart = [];
+try {
+    cart = JSON.parse(localStorage.getItem('flonzeCart') || '[]');
+} catch (e) {
+    cart = [];
+    localStorage.removeItem('flonzeCart');
+}
 
 function updateCartCount() {
-    const cartCounts = document.querySelectorAll('#cartCount');
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartCounts.forEach(count => {
-        count.textContent = totalItems;
-        count.style.display = totalItems > 0 ? 'inline' : 'none';
-    });
+    try {
+        const cartCounts = document.querySelectorAll('#cartCount');
+        const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+        cartCounts.forEach(count => {
+            if (count) {
+                count.textContent = totalItems;
+                count.style.display = totalItems > 0 ? 'inline' : 'none';
+            }
+        });
+    } catch (e) {
+        console.error('Cart count error:', e);
+    }
 }
 
 function addToCart(name, price, location, seller, emoji) {
@@ -444,11 +456,14 @@ function addToCart(name, price, location, seller, emoji) {
             });
         }
         
-        localStorage.setItem('flonzeCart', JSON.stringify(cart));
-        updateCartCount();
-        
-        // Show success message
-        showNotification(`${name} added to cart!`, 'success');
+        try {
+            localStorage.setItem('flonzeCart', JSON.stringify(cart));
+            updateCartCount();
+            showNotification(`${name} added to cart!`, 'success');
+        } catch (e) {
+            console.error('Storage error:', e);
+            showNotification('Error saving to cart', 'error');
+        }
     } catch (error) {
         console.error('Add to cart error:', error);
         showNotification('Error adding to cart', 'error');
@@ -490,29 +505,34 @@ function displayCartItems() {
     const emptyCart = document.getElementById('emptyCart');
     const cartContent = document.getElementById('cartContent');
     
-    if (!cartItemsContainer) return;
+    console.log('Cart items:', cart.length);
     
-    if (cart.length === 0) {
-        emptyCart.style.display = 'block';
-        cartContent.style.display = 'none';
+    if (!cartItemsContainer) {
+        console.log('Cart container not found');
         return;
     }
     
-    emptyCart.style.display = 'none';
-    cartContent.style.display = 'block';
+    if (cart.length === 0) {
+        if (emptyCart) emptyCart.style.display = 'block';
+        if (cartContent) cartContent.style.display = 'none';
+        return;
+    }
+    
+    if (emptyCart) emptyCart.style.display = 'none';
+    if (cartContent) cartContent.style.display = 'block';
     
     cartItemsContainer.innerHTML = cart.map(item => `
         <div class="cart-item">
-            <div class="cart-item-image">${item.emoji}</div>
+            <div class="cart-item-image">${item.emoji || '🛒'}</div>
             <div class="cart-item-info">
-                <h4>${item.name}</h4>
-                <div class="cart-item-details">📍 ${item.location} • 👤 ${item.seller}</div>
-                <div class="cart-item-price">₹${item.price}/kg</div>
+                <h4>${item.name || 'Product'}</h4>
+                <div class="cart-item-details">📍 ${item.location || 'India'} • 👤 ${item.seller || 'Seller'}</div>
+                <div class="cart-item-price">₹${item.price || 0}/kg</div>
             </div>
             <div class="cart-item-controls">
                 <div class="quantity-controls">
                     <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-                    <span class="quantity-display">${item.quantity}</span>
+                    <span class="quantity-display">${item.quantity || 1}</span>
                     <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
                 </div>
                 <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
@@ -795,19 +815,35 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Fix mobile menu close on link click
+        // Mobile menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const navActions = document.querySelector('.nav-actions');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                if (navMenu) navMenu.classList.toggle('active');
+                if (navActions) navActions.classList.toggle('active');
+            });
+        }
+        
+        // Close menu on link click
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                const hamburger = document.querySelector('.hamburger');
-                const navMenu = document.querySelector('.nav-menu');
-                const navActions = document.querySelector('.nav-actions');
-                
-                if (hamburger && hamburger.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    if (navMenu) navMenu.classList.remove('active');
-                    if (navActions) navActions.classList.remove('active');
-                }
+                if (hamburger) hamburger.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
+                if (navActions) navActions.classList.remove('active');
             });
+        });
+        
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!hamburger?.contains(e.target) && !navMenu?.contains(e.target)) {
+                if (hamburger) hamburger.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
+                if (navActions) navActions.classList.remove('active');
+            }
         });
     } catch (error) {
         console.error('Initialization error:', error);

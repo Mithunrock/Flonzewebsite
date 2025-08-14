@@ -3,25 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Flonze Car Detailing</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Contact Us - Flonze</title>
+    <meta name="description" content="Get in touch with Flonze team. Contact us for support, partnerships, or any queries about our agricultural marketplace.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e40af">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=8.0">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="nav-brand">
-                <img src="logo.png" alt="Flonze Logo" class="logo">
+                <img src="logo.png" alt="Flonze" class="logo" loading="eager" onerror="this.style.display='none'">
                 <span class="brand-name">Flonze</span>
             </div>
             <nav class="nav">
                 <ul class="nav-menu">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">My Cart <span class="cart-count" id="cartCount">0</span></a></li>
                     <li><a href="how-it-works.html">How It Works</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="why-choose-us.html">Why Choose Us</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <a href="index.html#join-buyer" class="btn-outline">Join as Buyer</a>
+                    <a href="index.html#join-seller" class="btn-primary">Join as Seller</a>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -31,234 +44,77 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Contact Content -->
+    <section class="page-content" style="padding-top: 120px;">
         <div class="container">
-            <h1>Contact Us</h1>
-            <p>Get in touch with us for any queries or to book your service</p>
-        </div>
-    </section>
+            <h1 class="section-title">Contact Us</h1>
+            <p style="text-align: center; font-size: 1.125rem; color: var(--text-gray); margin-bottom: 50px;">Get in touch with our team for support, partnerships, or any queries</p>
+            
+            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 30px; color: var(--primary-color);">Get In Touch</h3>
+                    
+                    <div class="contact-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 20px; background: var(--light-gray); border-radius: 10px;">
+                        <div style="font-size: 2rem;">📞</div>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Phone</h4>
+                            <p style="color: var(--text-gray);"><a href="tel:+918108395367" style="color: var(--primary-color); text-decoration: none;">+91 8108395367</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 20px; background: var(--light-gray); border-radius: 10px;">
+                        <div style="font-size: 2rem;">✉️</div>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Email</h4>
+                            <p style="color: var(--text-gray);"><a href="mailto:hello@flonze.com" style="color: var(--primary-color); text-decoration: none;">hello@flonze.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 20px; background: var(--light-gray); border-radius: 10px;">
+                        <div style="font-size: 2rem;">📍</div>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Address</h4>
+                            <p style="color: var(--text-gray);">Mumbai, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 20px; background: var(--light-gray); border-radius: 10px;">
+                        <div style="font-size: 2rem;">💬</div>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">WhatsApp</h4>
+                            <p style="color: var(--text-gray);"><a href="https://wa.me/918108395367" target="_blank" style="color: var(--primary-color); text-decoration: none;">Chat with us</a></p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Contact Information -->
-    <section class="contact-info-section">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <div class="contact-icon">📞</div>
-                    <h3>Phone</h3>
-                    <p>Call us for immediate assistance</p>
-                    <a href="tel:+918108395367" class="contact-link">+91 8108395367</a>
-                    <small>Available 24/7 for emergencies</small>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">📱</div>
-                    <h3>WhatsApp</h3>
-                    <p>Quick booking and instant support</p>
-                    <a href="https://wa.me/918108395367" class="contact-link">Chat with us</a>
-                    <small>Fastest response time</small>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">✉️</div>
-                    <h3>Email</h3>
-                    <p>Send us your detailed queries</p>
-                    <a href="mailto:hello@flonze.com" class="contact-link">hello@flonze.com</a>
-                    <small>Response within 24 hours</small>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">📍</div>
-                    <h3>Address</h3>
-                    <p>Our headquarters</p>
-                    <div class="contact-link">123 Green Street, Eco Park<br>Mumbai, Maharashtra 400001</div>
-                    <small>Visit by appointment only</small>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form -->
-    <section class="contact-form-section">
-        <div class="container">
-            <div class="form-container">
-                <div class="form-header">
-                    <h2>Send us a Message</h2>
-                    <p>Fill out the form below and we'll get back to you as soon as possible</p>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" required>
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 30px; color: var(--primary-color);">Send Message</h3>
+                    <form style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <input type="text" placeholder="Your Name" required style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px;">
                         </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" required>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <input type="email" placeholder="Your Email" required style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px;">
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <input type="tel" placeholder="Your Phone" style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px;">
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <select required style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px;">
+                                <option value="">Select Subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Select a subject</option>
-                            <option value="Service Inquiry">Service Inquiry</option>
-                            <option value="Booking Support">Booking Support</option>
-                            <option value="Complaint">Complaint</option>
-                            <option value="Feedback">Feedback</option>
-                            <option value="Partnership">Partnership</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <select id="city" name="city">
-                            <option value="">Select your city</option>
-                            <option value="Mumbai">Mumbai</option>
-                            <option value="Delhi NCR">Delhi NCR</option>
-                            <option value="Bangalore">Bangalore</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Areas -->
-    <section class="service-areas-contact">
-        <div class="container">
-            <h2 class="section-title">Service Areas</h2>
-            <div class="areas-detailed">
-                <div class="area-detail">
-                    <h3>🏙️ Mumbai</h3>
-                    <div class="area-locations">
-                        <p><strong>Coverage Areas:</strong></p>
-                        <ul>
-                            <li>Andheri (East & West)</li>
-                            <li>Bandra & Khar</li>
-                            <li>Powai & Hiranandani</li>
-                            <li>Thane & Mulund</li>
-                            <li>Borivali & Malad</li>
-                            <li>Lower Parel & Worli</li>
-                        </ul>
-                    </div>
-                    <div class="area-contact">
-                        <p><strong>Local Contact:</strong> +91 8108395367</p>
-                    </div>
-                </div>
-                <div class="area-detail">
-                    <h3>🏛️ Delhi NCR</h3>
-                    <div class="area-locations">
-                        <p><strong>Coverage Areas:</strong></p>
-                        <ul>
-                            <li>Gurgaon (All Sectors)</li>
-                            <li>Noida & Greater Noida</li>
-                            <li>Faridabad</li>
-                            <li>Ghaziabad</li>
-                            <li>Central Delhi</li>
-                            <li>South Delhi</li>
-                        </ul>
-                    </div>
-                    <div class="area-contact">
-                        <p><strong>Local Contact:</strong> +91 8108395367</p>
-                    </div>
-                </div>
-                <div class="area-detail">
-                    <h3>🌆 Bangalore</h3>
-                    <div class="area-locations">
-                        <p><strong>Coverage Areas:</strong></p>
-                        <ul>
-                            <li>Whitefield & ITPL</li>
-                            <li>Koramangala & BTM</li>
-                            <li>Indiranagar & Marathahalli</li>
-                            <li>Electronic City</li>
-                            <li>Hebbal & Yelahanka</li>
-                            <li>JP Nagar & Jayanagar</li>
-                        </ul>
-                    </div>
-                    <div class="area-contact">
-                        <p><strong>Local Contact:</strong> +91 8108395367</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Business Hours -->
-    <section class="business-hours">
-        <div class="container">
-            <h2 class="section-title">Business Hours</h2>
-            <div class="hours-grid">
-                <div class="hours-card">
-                    <h3>🕒 Regular Services</h3>
-                    <div class="hours-list">
-                        <div class="hours-item">
-                            <span>Monday - Friday</span>
-                            <span>8:00 AM - 8:00 PM</span>
+                        <div class="form-group" style="margin-bottom: 25px;">
+                            <textarea placeholder="Your Message" rows="5" required style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px; resize: vertical;"></textarea>
                         </div>
-                        <div class="hours-item">
-                            <span>Saturday</span>
-                            <span>8:00 AM - 9:00 PM</span>
-                        </div>
-                        <div class="hours-item">
-                            <span>Sunday</span>
-                            <span>9:00 AM - 7:00 PM</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hours-card">
-                    <h3>🚨 Emergency Services</h3>
-                    <div class="hours-list">
-                        <div class="hours-item">
-                            <span>All Days</span>
-                            <span>24/7 Available</span>
-                        </div>
-                        <div class="hours-item">
-                            <span>Response Time</span>
-                            <span>Within 2 hours</span>
-                        </div>
-                        <div class="hours-item">
-                            <span>Emergency Hotline</span>
-                            <span>+91 8108395367</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="contact-faq">
-        <div class="container">
-            <h2 class="section-title">Common Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h4>📞 How quickly do you respond?</h4>
-                    <p>Phone calls: Immediate, WhatsApp: Within 5 minutes, Email: Within 24 hours</p>
-                </div>
-                <div class="faq-item">
-                    <h4>📅 Can I book for the same day?</h4>
-                    <p>Yes, subject to availability. Call us directly for same-day bookings.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>💳 Do you provide quotes over phone?</h4>
-                    <p>Yes, we provide instant quotes based on your service requirements.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>🚗 Do you service all vehicle types?</h4>
-                    <p>We service cars, SUVs, bikes, and commercial vehicles. Contact us for specific requirements.</p>
+                        <button type="submit" class="submit-btn" style="width: 100%; background: var(--gradient-primary); color: var(--white); border: none; padding: 16px; border-radius: 8px; font-size: 1.125rem; font-weight: 600; cursor: pointer;">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -270,24 +126,32 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="logo.png" alt="Flonze Logo" class="footer-logo-img">
+                        <img src="logo.png" alt="Flonze" class="footer-logo-img" loading="lazy" onerror="this.style.display='none'">
                         <h3>Flonze</h3>
                     </div>
-                    <p>Mobile eco-friendly car detailing at your doorstep.</p>
+                    <p>India's Largest Reselling Platform</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>For Buyers</h4>
                     <ul>
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html#signup">Register</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="why-choose-us.html">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Sellers</h4>
+                    <ul>
+                        <li><a href="index.html#signup">Join Platform</a></li>
+                        <li><a href="how-it-works.html">Seller Journey</a></li>
+                        <li><a href="why-choose-us.html">Why Choose Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p>📞 +91 8108395367</p>
                     <p>✉️ hello@flonze.com</p>
+                    <p>📍 Mumbai, India</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -296,13 +160,6 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/918108395367" target="_blank">
-            <div class="whatsapp-icon">📱</div>
-        </a>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="script.js?v=8.0"></script>
 </body>
 </html>

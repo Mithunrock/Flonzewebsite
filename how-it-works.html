@@ -3,25 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How It Works - Flonze Car Detailing</title>
-    <link rel="stylesheet" href="style.css">
+    <title>How It Works - Flonze</title>
+    <meta name="description" content="Learn how Flonze connects farmers and buyers across India through our digital marketplace platform.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e40af">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=8.0">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="nav-brand">
-                <img src="logo.png" alt="Flonze Logo" class="logo">
+                <img src="logo.png" alt="Flonze" class="logo" loading="eager" onerror="this.style.display='none'">
                 <span class="brand-name">Flonze</span>
             </div>
             <nav class="nav">
                 <ul class="nav-menu">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">My Cart <span class="cart-count" id="cartCount">0</span></a></li>
                     <li><a href="how-it-works.html" class="active">How It Works</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="why-choose-us.html">Why Choose Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <a href="index.html#join-buyer" class="btn-outline">Join as Buyer</a>
+                    <a href="index.html#join-seller" class="btn-primary">Join as Seller</a>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -31,179 +44,127 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- How It Works Content -->
+    <section class="page-content" style="padding-top: 120px;">
         <div class="container">
-            <h1>How It Works</h1>
-            <p>Simple steps to get your vehicle professionally cleaned at your doorstep</p>
-        </div>
-    </section>
+            <h1 class="section-title">How Flonze Works</h1>
+            <p style="text-align: center; font-size: 1.125rem; color: var(--text-gray); margin-bottom: 50px;">Simple steps to connect farmers and buyers across India</p>
+            
+            <!-- Process Flow -->
+            <div class="value-flow">
+                <!-- Buyer Side -->
+                <div class="flow-side buyer-side">
+                    <div class="side-header">
+                        <div class="side-icon">🛒</div>
+                        <h3>Buyers</h3>
+                        <p>Retailers, Kiranas, HORECA, Modern Trade, Consumer Brands & Wholesalers</p>
+                    </div>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-icon">🔍</div>
+                            <span>Search for Vendor</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">📞</div>
+                            <span>Meeting/Call</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">💰</div>
+                            <span>Price Negotiation</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">✅</div>
+                            <span>Quality Inspection</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">📄</div>
+                            <span>Sales Contract</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">💳</div>
+                            <span>Payment</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">🚚</div>
+                            <span>Logistics/Transport</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">📦</div>
+                            <span>Unloading</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">🔍</div>
+                            <span>Quality Check</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">🛠️</div>
+                            <span>Grievance Redressal</span>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Process Steps -->
-    <section class="process-steps">
-        <div class="container">
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">📱</div>
-                    <h3>Book Online</h3>
-                    <p>Choose your service, select date and time, and provide your location. Booking takes less than 2 minutes through our website or by calling us directly.</p>
+                <!-- Central TradeBridge -->
+                <div class="flow-center">
+                    <div class="tradebridge-logo">
+                        <img src="logo.png" alt="Flonze" class="center-logo" loading="lazy" onerror="this.style.display='none'">
+                        <h4>Flonze</h4>
+                        <p>India's Largest Reselling Platform</p>
+                    </div>
+                    <div class="connection-lines">
+                        <div class="line line-left"></div>
+                        <div class="line line-right"></div>
+                    </div>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">✅</div>
-                    <h3>Confirmation</h3>
-                    <p>Receive instant confirmation with service details and technician information. We'll send you updates via SMS and WhatsApp about your booking status.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">🚗</div>
-                    <h3>We Arrive</h3>
-                    <p>Our certified technician arrives at your location with all equipment and eco-friendly products. No need for you to provide water or electricity.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <div class="step-icon">🧽</div>
-                    <h3>Professional Service</h3>
-                    <p>Sit back and relax while we professionally clean your vehicle using premium eco-friendly products and advanced techniques for best results.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">5</div>
-                    <div class="step-icon">💳</div>
-                    <h3>Easy Payment</h3>
-                    <p>Pay conveniently through cash, UPI, cards, or any digital payment method. Transparent pricing with no hidden charges or surprises.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">6</div>
-                    <div class="step-icon">⭐</div>
-                    <h3>Quality Check</h3>
-                    <p>Final inspection to ensure perfect results. Rate your experience and provide feedback to help us maintain our high service standards.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Booking Methods -->
-    <section class="booking-methods">
-        <div class="container">
-            <h2 class="section-title">Multiple Ways to Book</h2>
-            <div class="methods-grid">
-                <div class="method-card">
-                    <div class="method-icon">🌐</div>
-                    <h3>Online Booking</h3>
-                    <p>Visit our website, select your service, choose date and time, and book instantly. Available 24/7 with immediate confirmation.</p>
-                    <a href="services.html" class="method-btn">Book Online</a>
-                </div>
-                <div class="method-card">
-                    <div class="method-icon">📞</div>
-                    <h3>Phone Call</h3>
-                    <p>Call our customer service team for personalized assistance. We're available to help you choose the right service for your needs.</p>
-                    <a href="tel:+918108395367" class="method-btn">Call +91 8108395367</a>
-                </div>
-                <div class="method-card">
-                    <div class="method-icon">📱</div>
-                    <h3>WhatsApp</h3>
-                    <p>Send us a message on WhatsApp for quick booking and instant support. Share your location and requirements easily.</p>
-                    <a href="https://wa.me/918108395367" class="method-btn">WhatsApp Us</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Timeline -->
-    <section class="service-timeline">
-        <div class="container">
-            <h2 class="section-title">Service Duration</h2>
-            <div class="timeline-grid">
-                <div class="timeline-item">
-                    <div class="timeline-icon">🚗</div>
-                    <h3>Car Wash</h3>
-                    <div class="timeline-duration">45 Minutes</div>
-                    <p>Quick and efficient exterior and interior cleaning perfect for regular maintenance.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">✨</div>
-                    <h3>Car Care</h3>
-                    <div class="timeline-duration">2 Hours</div>
-                    <p>Comprehensive detailing including waxing, polishing, and deep interior cleaning.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">🏍️</div>
-                    <h3>Bike Care</h3>
-                    <div class="timeline-duration">30 Minutes</div>
-                    <p>Complete bike cleaning including chain maintenance and chrome polishing.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What We Bring -->
-    <section class="what-we-bring">
-        <div class="container">
-            <h2 class="section-title">What We Bring</h2>
-            <div class="bring-grid">
-                <div class="bring-item">
-                    <div class="bring-icon">🧴</div>
-                    <h3>Eco-Friendly Products</h3>
-                    <p>100% biodegradable cleaning solutions safe for your vehicle and environment</p>
-                </div>
-                <div class="bring-item">
-                    <div class="bring-icon">🔧</div>
-                    <h3>Professional Equipment</h3>
-                    <p>High-pressure washers, vacuum cleaners, and specialized detailing tools</p>
-                </div>
-                <div class="bring-item">
-                    <div class="bring-icon">💧</div>
-                    <h3>Water Supply</h3>
-                    <p>We bring our own water supply - no need for you to provide anything</p>
-                </div>
-                <div class="bring-item">
-                    <div class="bring-icon">⚡</div>
-                    <h3>Power Source</h3>
-                    <p>Portable generators ensure we can work anywhere without external power</p>
-                </div>
-                <div class="bring-item">
-                    <div class="bring-icon">🧽</div>
-                    <h3>Premium Supplies</h3>
-                    <p>Microfiber cloths, specialized brushes, and quality wax and polish</p>
-                </div>
-                <div class="bring-item">
-                    <div class="bring-icon">🛡️</div>
-                    <h3>Safety Gear</h3>
-                    <p>Protective covers and mats to safeguard your property during service</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h4>🕰️ How long does service take?</h4>
-                    <p>Car wash: 45 mins, Car care: 2 hours, Bike care: 30 mins</p>
-                </div>
-                <div class="faq-item">
-                    <h4>📍 Do you serve my area?</h4>
-                    <p>We serve Mumbai, Delhi NCR, and Bangalore. Check availability during booking.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>💳 Payment options?</h4>
-                    <p>Cash, UPI, Cards, and all digital payment methods accepted.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>🛡️ Is service insured?</h4>
-                    <p>Yes, all our services are fully insured for your peace of mind.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>🌧️ What about bad weather?</h4>
-                    <p>We can reschedule for free or provide covered area service when possible.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>📞 Can I change my booking?</h4>
-                    <p>Yes, you can modify or cancel your booking up to 2 hours before service.</p>
+                <!-- Seller Side -->
+                <div class="flow-side seller-side">
+                    <div class="side-header">
+                        <div class="side-icon">🌾</div>
+                        <h3>Sellers</h3>
+                        <p>Farmers, Processors, Importers, Traders</p>
+                    </div>
+                    <div class="process-steps">
+                        <div class="step">
+                            <div class="step-icon">📝</div>
+                            <span>Product Listing</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">✅</div>
+                            <span>Verification</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">📧</div>
+                            <span>Buyer Inquiries</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">🤝</div>
+                            <span>Negotiation</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">📋</div>
+                            <span>Order Confirmation</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">📦</div>
+                            <span>Product Preparation</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">🚛</div>
+                            <span>Dispatch</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">📍</div>
+                            <span>Delivery Tracking</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">💰</div>
+                            <span>Payment Receipt</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">⭐</div>
+                            <span>Relationship Building</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -215,24 +176,32 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="logo.png" alt="Flonze Logo" class="footer-logo-img">
+                        <img src="logo.png" alt="Flonze" class="footer-logo-img" loading="lazy" onerror="this.style.display='none'">
                         <h3>Flonze</h3>
                     </div>
-                    <p>Mobile eco-friendly car detailing at your doorstep.</p>
+                    <p>India's Largest Reselling Platform</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>For Buyers</h4>
                     <ul>
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html#signup">Register</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="why-choose-us.html">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Sellers</h4>
+                    <ul>
+                        <li><a href="index.html#signup">Join Platform</a></li>
+                        <li><a href="how-it-works.html">Seller Journey</a></li>
+                        <li><a href="why-choose-us.html">Why Choose Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p>📞 +91 8108395367</p>
                     <p>✉️ hello@flonze.com</p>
+                    <p>📍 Mumbai, India</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -241,6 +210,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=8.0"></script>
 </body>
 </html>

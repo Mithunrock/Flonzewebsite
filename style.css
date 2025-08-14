@@ -175,6 +175,19 @@ body {
     background: var(--primary-color);
     margin: 3px 0;
     transition: var(--transition);
+    display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 /* Hero Section */
@@ -1939,34 +1952,91 @@ input, select, textarea {
 
 @media (max-width: 768px) {
     body {
-        font-size: 13px;
+        font-size: 14px;
+        overflow-x: hidden;
     }
     
     .container {
         padding: 0 15px;
+        max-width: 100%;
     }
     
     .header .container {
-        padding: 10px 15px;
+        padding: 12px 15px;
     }
     
     .hero {
-        padding: 80px 0 60px;
+        padding: 100px 0 60px;
+        min-height: auto;
     }
     
     .hero h1 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
     }
     
     .hero p {
         font-size: 1rem;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
     
     .section-title {
         font-size: 1.8rem;
         margin-bottom: 30px;
+    }
+    
+    .hamburger {
+        display: flex;
+        z-index: 1001;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--white);
+        flex-direction: column;
+        padding: 30px 20px;
+        transition: left 0.3s ease;
+        box-shadow: var(--shadow);
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: 15px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+    
+    .nav-actions {
+        position: fixed;
+        bottom: 30px;
+        left: -100%;
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 20px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .nav-actions.active {
+        left: 0;
     }
     
     .marketplace-controls {
@@ -1987,11 +2057,15 @@ input, select, textarea {
     
     .products-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 20px;
+        padding: 0;
     }
     
     .product-card {
-        padding: 20px 15px;
+        padding: 20px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .product-image {
@@ -2020,8 +2094,12 @@ input, select, textarea {
     }
     
     .cart-content {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        display: block;
+    }
+    
+    .cart-summary {
+        position: static;
+        margin-top: 30px;
     }
     
     .cart-item {
