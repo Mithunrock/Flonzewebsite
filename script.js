@@ -1,28 +1,28 @@
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileNav = document.querySelector('.mobile-nav');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
     
-    if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', function(e) {
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function(e) {
             e.preventDefault();
-            mobileNav.classList.toggle('active');
-            this.textContent = mobileNav.classList.contains('active') ? '✕' : '☰';
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
         
         // Close mobile menu when clicking on links
-        mobileNav.querySelectorAll('a').forEach(link => {
+        navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
-                mobileNav.classList.remove('active');
-                mobileMenuBtn.textContent = '☰';
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
             });
         });
         
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!mobileMenuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
-                mobileNav.classList.remove('active');
-                mobileMenuBtn.textContent = '☰';
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
             }
         });
     }
@@ -34,11 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         dateInput.setAttribute('min', today);
     }
     
-    // Force mobile viewport refresh
-    if (window.innerWidth <= 768) {
-        document.body.style.minHeight = '100vh';
-        window.scrollTo(0, 0);
-    }
 });
 
 // Smooth Scrolling
