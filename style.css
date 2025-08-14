@@ -1026,7 +1026,7 @@ body {
 }
 
 .mobile-nav.active {
-    display: flex;
+    display: flex !important;
 }
 
 .mobile-nav a {
@@ -1050,6 +1050,10 @@ body {
     
     .hamburger {
         display: flex;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .hero {
