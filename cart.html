@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart - Flonze</title>
+    <meta name="description" content="Review your selected agricultural products and proceed to checkout on Flonze marketplace.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e40af">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6.0">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Flonze" class="logo" loading="eager" onerror="this.style.display='none'">
+                <span class="brand-name">Flonze</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html" class="active">My Cart <span class="cart-count" id="cartCount">0</span></a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#why-choose">Why Choose Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="index.html#join-buyer" class="btn-outline">Join as Buyer</a>
+                    <a href="index.html#join-seller" class="btn-primary">Join as Seller</a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-section" style="padding-top: 120px;">
+        <div class="container">
+            <h1 class="section-title">My Cart</h1>
+            
+            <!-- Empty Cart Message -->
+            <div class="empty-cart" id="emptyCart">
+                <div class="empty-cart-icon">🛒</div>
+                <h3>Your cart is empty</h3>
+                <p>Add some products to get started</p>
+                <a href="products.html" class="btn-primary">Browse Products</a>
+            </div>
+
+            <!-- Cart Items -->
+            <div class="cart-content" id="cartContent" style="display: none;">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">₹0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="shipping">Free</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (5%):</span>
+                            <span id="tax">₹0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="total">₹0</span>
+                        </div>
+                        <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                        <button class="continue-shopping-btn" onclick="window.location.href='products.html'">Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Flonze" class="footer-logo-img" loading="lazy" onerror="this.style.display='none'">
+                        <h3>Flonze</h3>
+                    </div>
+                    <p>India's Largest Reselling Platform</p>
+                </div>
+                <div class="footer-section">
+                    <h4>For Buyers</h4>
+                    <ul>
+                        <li><a href="index.html#signup">Register</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#why-choose">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Sellers</h4>
+                    <ul>
+                        <li><a href="index.html#signup">Join Platform</a></li>
+                        <li><a href="index.html#how-it-works">Seller Journey</a></li>
+                        <li><a href="index.html#why-choose">Why Choose Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 8108395367</p>
+                    <p>✉️ hello@flonze.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flonze. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <span>↑</span>
+    </button>
+
+    <script src="script.js?v=6.0"></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Flonze Marketplace</title>
+    <meta name="description" content="Browse and buy agricultural products from verified sellers across India. Find grains, spices, pulses, nuts and more at best prices.">
+    <meta name="keywords" content="agricultural products, farming, grains, spices, pulses, nuts, marketplace, India">
+    <meta name="author" content="Flonze">
+    <meta property="og:title" content="Products - Flonze Marketplace">
+    <meta property="og:description" content="Browse and buy agricultural products from verified sellers across India.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e40af">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6.0">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Flonze" class="logo" loading="eager" onerror="this.style.display='none'">
+                <span class="brand-name">Flonze</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="cart.html">My Cart <span class="cart-count" id="cartCount">0</span></a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#why-choose">Why Choose Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="index.html#join-buyer" class="btn-outline">Join as Buyer</a>
+                    <a href="index.html#join-seller" class="btn-primary">Join as Seller</a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Product Marketplace -->
+    <section class="product-marketplace" style="padding-top: 120px;">
+        <div class="container">
+            <h1 class="section-title">Product Marketplace</h1>
+            <p style="text-align: center; font-size: 1.125rem; color: var(--text-gray); margin-bottom: 50px;">Browse and buy agricultural products from verified sellers across India</p>
+            
+            <!-- Search and Filters -->
+            <div class="marketplace-controls">
+                <div class="search-bar">
+                    <input type="text" id="productSearch" placeholder="Search products..." class="search-input">
+                    <button class="search-btn" onclick="searchProducts()">🔍</button>
+                </div>
+                <div class="filter-controls">
+                    <select id="categoryFilter" onchange="filterProducts()">
+                        <option value="all">All Categories</option>
+                        <option value="grains">Grains</option>
+                        <option value="spices">Spices</option>
+                        <option value="pulses">Pulses</option>
+                        <option value="nuts">Nuts</option>
+                        <option value="vegetables">Vegetables</option>
+                    </select>
+                    <select id="locationFilter" onchange="filterProducts()">
+                        <option value="all">All Locations</option>
+                        <option value="punjab">Punjab</option>
+                        <option value="gujarat">Gujarat</option>
+                        <option value="maharashtra">Maharashtra</option>
+                        <option value="rajasthan">Rajasthan</option>
+                        <option value="delhi">Delhi</option>
+                    </select>
+                    <select id="priceFilter" onchange="filterProducts()">
+                        <option value="all">All Prices</option>
+                        <option value="low">Under ₹100</option>
+                        <option value="medium">₹100 - ₹500</option>
+                        <option value="high">Above ₹500</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="products-grid" id="productsGrid">
+                <div class="product-card" data-category="grains" data-location="punjab" data-price="85">
+                    <div class="product-image">🌾</div>
+                    <div class="product-info">
+                        <h4>Basmati Rice</h4>
+                        <p class="product-price">₹85/kg</p>
+                        <p class="product-location">📍 Punjab</p>
+                        <p class="product-seller">👤 Rajesh Farms</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (4.8)</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('Basmati Rice', 85, 'Punjab', 'Rajesh Farms', '🌾')">Add to Cart</button>
+                            <button class="buy-now-btn" onclick="buyNow('Basmati Rice', 85, 'Punjab', 'Rajesh Farms')">Buy Now</button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="spices" data-location="gujarat" data-price="320">
+                    <div class="product-image">🌱</div>
+                    <div class="product-info">
+                        <h4>Cumin Seeds</h4>
+                        <p class="product-price">₹320/kg</p>
+                        <p class="product-location">📍 Gujarat</p>
+                        <p class="product-seller">👤 Spice Valley</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('Cumin Seeds', 320, 'Gujarat', 'Spice Valley', '🌱')">Add to Cart</button>
+                            <button class="buy-now-btn" onclick="buyNow('Cumin Seeds', 320, 'Gujarat', 'Spice Valley')">Buy Now</button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="spices" data-location="gujarat" data-price="180">
+                    <div class="product-image">🌶️</div>
+                    <div class="product-info">
+                        <h4>Red Chili Powder</h4>
+                        <p class="product-price">₹180/kg</p>
+                        <p class="product-location">📍 Guntur</p>
+                        <p class="product-seller">👤 Chili Express</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (4.7)</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('Red Chili Powder', 180, 'Guntur', 'Chili Express', '🌶️')">Add to Cart</button>
+                            <button class="buy-now-btn" onclick="buyNow('Red Chili Powder', 180, 'Guntur', 'Chili Express')">Buy Now</button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="nuts" data-location="delhi" data-price="850">
+                    <div class="product-image">🌰</div>
+                    <div class="product-info">
+                        <h4>California Almonds</h4>
+                        <p class="product-price">₹850/kg</p>
+                        <p class="product-location">📍 Delhi</p>
+                        <p class="product-seller">👤 Dry Fruits Hub</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('California Almonds', 850, 'Delhi', 'Dry Fruits Hub', '🌰')">Add to Cart</button>
+                            <button class="buy-now-btn" onclick="buyNow('California Almonds', 850, 'Delhi', 'Dry Fruits Hub')">Buy Now</button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="pulses" data-location="maharashtra" data-price="95">
+                    <div class="product-image">🫘</div>
+                    <div class="product-info">
+                        <h4>Toor Dal</h4>
+                        <p class="product-price">₹95/kg</p>
+                        <p class="product-location">📍 Maharashtra</p>
+                        <p class="product-seller">👤 Pulse Traders</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (4.6)</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('Toor Dal', 95, 'Maharashtra', 'Pulse Traders', '🫘')">Add to Cart</button>
+                            <button class="buy-now-btn" onclick="buyNow('Toor Dal', 95, 'Maharashtra', 'Pulse Traders')">Buy Now</button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="nuts" data-location="rajasthan" data-price="1200">
+                    <div class="product-image">🌴</div>
+                    <div class="product-info">
+                        <h4>Medjool Dates</h4>
+                        <p class="product-price">₹1200/kg</p>
+                        <p class="product-location">📍 Rajasthan</p>
+                        <p class="product-seller">👤 Desert Dates</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (4.8)</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('Medjool Dates', 1200, 'Rajasthan', 'Desert Dates', '🌴')">Add to Cart</button>
+                            <button class="buy-now-btn" onclick="buyNow('Medjool Dates', 1200, 'Rajasthan', 'Desert Dates')">Buy Now</button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="grains" data-location="punjab" data-price="75">
+                    <div class="product-image">🌾</div>
+                    <div class="product-info">
+                        <h4>Wheat Flour</h4>
+                        <p class="product-price">₹75/kg</p>
+                        <p class="product-location">📍 Punjab</p>
+                        <p class="product-seller">👤 Golden Grains</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (4.7)</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('Wheat Flour', 75, 'Punjab', 'Golden Grains', '🌾')">Add to Cart</button>
+                            <button class="buy-now-btn" onclick="buyNow('Wheat Flour', 75, 'Punjab', 'Golden Grains')">Buy Now</button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="spices" data-location="kerala" data-price="450">
+                    <div class="product-image">🌿</div>
+                    <div class="product-info">
+                        <h4>Black Pepper</h4>
+                        <p class="product-price">₹450/kg</p>
+                        <p class="product-location">📍 Kerala</p>
+                        <p class="product-seller">👤 Spice Garden</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('Black Pepper', 450, 'Kerala', 'Spice Garden', '🌿')">Add to Cart</button>
+                            <button class="buy-now-btn" onclick="buyNow('Black Pepper', 450, 'Kerala', 'Spice Garden')">Buy Now</button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="vegetables" data-location="punjab" data-price="45">
+                    <div class="product-image">🥔</div>
+                    <div class="product-info">
+                        <h4>Fresh Potatoes</h4>
+                        <p class="product-price">₹45/kg</p>
+                        <p class="product-location">📍 Punjab</p>
+                        <p class="product-seller">👤 Farm Fresh</p>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (4.5)</div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn" onclick="addToCart('Fresh Potatoes', 45, 'Punjab', 'Farm Fresh', '🥔')">Add to Cart</button>
+                            <button class="buy-now-btn" onclick="buyNow('Fresh Potatoes', 45, 'Punjab', 'Farm Fresh')">Buy Now</button>
+                            <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section">
+                <button class="btn-primary" onclick="loadMoreProducts()">Load More Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Flonze" class="footer-logo-img" loading="lazy" onerror="this.style.display='none'">
+                        <h3>Flonze</h3>
+                    </div>
+                    <p>India's Largest Reselling Platform</p>
+                </div>
+                <div class="footer-section">
+                    <h4>For Buyers</h4>
+                    <ul>
+                        <li><a href="index.html#signup">Register</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#why-choose">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Sellers</h4>
+                    <ul>
+                        <li><a href="index.html#signup">Join Platform</a></li>
+                        <li><a href="index.html#how-it-works">Seller Journey</a></li>
+                        <li><a href="index.html#why-choose">Why Choose Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 8108395367</p>
+                    <p>✉️ hello@flonze.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flonze. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <span>↑</span>
+    </button>
+
+    <script src="script.js?v=6.0"></script>
+</body>
+</html>

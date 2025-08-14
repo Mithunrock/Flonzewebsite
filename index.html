@@ -2,34 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Flonze - Eco-Friendly Mobile Car Detailing at Your Doorstep | India</title>
-    <meta name="description" content="Professional eco-friendly mobile car detailing services at your doorstep in India. Book now for premium car wash, detailing, and ceramic coating services.">
-    <meta name="keywords" content="mobile car detailing, eco-friendly car wash India, car cleaning at doorstep, car detailing services, ceramic coating">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=1.2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flonze - India's Largest Reselling Platform</title>
+    <meta name="description" content="India's largest reselling platform with lowest commission rates. Buy or sell agricultural products across India with one click. Digital e-mandi marketplace.">
+    <meta name="keywords" content="agricultural trading, farming, e-mandi, agricultural products, farmers, buyers, sellers, India">
+    <meta name="author" content="Flonze">
+    <meta property="og:title" content="Flonze - India's Largest Reselling Platform">
+    <meta property="og:description" content="Buy or sell agricultural products with lowest commission rates.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e40af">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6.0">
 </head>
 <body>
-    <!-- Promo Banner -->
-    <div class="promo-banner">
-        <p>🎉 Special Offer: 30% OFF on First Service! Use Code: FIRST30</p>
-    </div>
-
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="nav-brand">
-                <img src="logo.png" alt="Flonze Logo" class="logo">
+                <img src="logo.png" alt="Flonze" class="logo" loading="eager" onerror="this.style.display='none'">
                 <span class="brand-name">Flonze</span>
             </div>
             <nav class="nav">
                 <ul class="nav-menu">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="how-it-works.html">How It Works</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="cart.html">My Cart <span class="cart-count" id="cartCount">0</span></a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#why-choose">Why Choose Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <a href="#join-buyer" class="btn-outline">Join as Buyer</a>
+                    <a href="#join-seller" class="btn-primary">Join as Seller</a>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -37,130 +47,405 @@
                 </div>
             </nav>
         </div>
-        <div class="mobile-nav">
-            <a href="home.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="how-it-works.html">How It Works</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="#booking">Book Now</a>
-        </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Mobile Eco-Friendly Car Detailing at Your Doorstep</h1>
-            <p>Professional mobile eco-friendly car detailing services using 100% biodegradable products. We come to you, anywhere in India.</p>
-            <div class="hero-buttons">
-                <a href="#booking" class="btn-primary">Book Service Now</a>
-                <a href="https://wa.me/918108395367" class="btn-whatsapp" target="_blank">📱 WhatsApp Booking</a>
-                <a href="#services" class="btn-secondary">View Services</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">5000+</span>
-                    <span class="stat-label">Cars Detailed</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Cities Served</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">4.9★</span>
-                    <span class="stat-label">Customer Rating</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
+        <div class="hero-bg"></div>
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🚗</div>
-                    <h3>Car Wash</h3>
-                    <p class="price">₹599</p>
-                    <p class="duration">⏱️ 45 mins</p>
-                    <button class="service-btn" onclick="selectService('Car Wash', 599)">Book</button>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Car Care</h3>
-                    <p class="price">₹1999</p>
-                    <p class="duration">⏱️ 2 hours</p>
-                    <button class="service-btn" onclick="selectService('Car Care', 1999)">Book</button>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏍️</div>
-                    <h3>Bike Care</h3>
-                    <p class="price">₹399</p>
-                    <p class="duration">⏱️ 30 mins</p>
-                    <button class="service-btn" onclick="selectService('Bike Care', 399)">Book</button>
+            <div class="hero-content">
+                <h1>India's Largest Reselling Platform</h1>
+                <p>Buy or sell agricultural products with lowest commission rates. Connect directly with farmers, processors, and traders across India.</p>
+                <div class="hero-buttons">
+                    <a href="#join-buyer" class="btn-primary">Join as Buyer</a>
+                    <a href="#join-seller" class="btn-secondary">Join as Seller</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Areas Section -->
-    <section class="service-areas">
+    <!-- Product Categories Section -->
+    <section class="product-categories">
         <div class="container">
-            <h2 class="section-title">Service Areas</h2>
-            <div class="areas-grid">
-                <div class="area-card">🏢 Mumbai</div>
-                <div class="area-card">🏢 Delhi NCR</div>
-                <div class="area-card">🏢 Bangalore</div>
+            <h2 class="section-title">Explore by Products</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">🌰</div>
+                    <h3>Almonds</h3>
+                    <p>Premium quality almonds</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🌶️</div>
+                    <h3>Spices</h3>
+                    <p>Fresh aromatic spices</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🌴</div>
+                    <h3>Dates</h3>
+                    <p>Sweet natural dates</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🌱</div>
+                    <h3>Seeds</h3>
+                    <p>High quality seeds</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🫘</div>
+                    <h3>Pulses</h3>
+                    <p>Nutritious pulses & lentils</p>
+                </div>
             </div>
-            <p class="areas-note">Don't see your city? <a href="#contact">Contact us</a> - we're expanding!</p>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
+    <!-- Sample Products Section -->
+    <section class="sample-products">
+        <div class="container">
+            <h2 class="section-title">Sample Products For Best Rates</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🌰</div>
+                    <h4>California Almonds</h4>
+                    <p class="product-price">₹850/kg</p>
+                    <p class="product-location">📍 Delhi</p>
+                    <button class="product-btn">Get Quote</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🌶️</div>
+                    <h4>Red Chili Powder</h4>
+                    <p class="product-price">₹180/kg</p>
+                    <p class="product-location">📍 Guntur</p>
+                    <button class="product-btn">Get Quote</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🌴</div>
+                    <h4>Medjool Dates</h4>
+                    <p class="product-price">₹1200/kg</p>
+                    <p class="product-location">📍 Rajasthan</p>
+                    <button class="product-btn">Get Quote</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🌱</div>
+                    <h4>Cumin Seeds</h4>
+                    <p class="product-price">₹320/kg</p>
+                    <p class="product-location">📍 Gujarat</p>
+                    <button class="product-btn">Get Quote</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🫘</div>
+                    <h4>Toor Dal</h4>
+                    <p class="product-price">₹95/kg</p>
+                    <p class="product-location">📍 Maharashtra</p>
+                    <button class="product-btn">Get Quote</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🌾</div>
+                    <h4>Basmati Rice</h4>
+                    <p class="product-price">₹85/kg</p>
+                    <p class="product-location">📍 Punjab</p>
+                    <button class="product-btn">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-Mandi Section -->
+    <section class="e-mandi">
+        <div class="container">
+            <div class="e-mandi-content">
+                <div class="e-mandi-text">
+                    <h2>#e-mandi</h2>
+                    <p>A B2B virtual marketplace created with the goal of digitalizing agricultural mandis using cutting-edge technology.</p>
+                    <h3>Buy or Sell across India with one Click</h3>
+                    <div class="e-mandi-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🏪</div>
+                            <span>Digital Mandi Experience</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💰</div>
+                            <span>Lowest Commission Rates</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🚀</div>
+                            <span>One-Click Trading</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🇮🇳</div>
+                            <span>Pan-India Network</span>
+                        </div>
+                    </div>
+                    <div class="e-mandi-buttons">
+                        <a href="#signup" class="btn-primary">Start Trading</a>
+                        <a href="#how-it-works" class="btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="e-mandi-visual">
+                    <div class="mandi-icon">🏪</div>
+                    <div class="connection-dots">
+                        <div class="dot">🌾</div>
+                        <div class="dot">🛒</div>
+                        <div class="dot">🚚</div>
+                        <div class="dot">💰</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="value-proposition" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Flonze Works</h2>
+            <div class="value-flow">
+                <!-- Buyer Side -->
+                <div class="flow-side buyer-side">
+                    <div class="side-header">
+                        <div class="side-icon">🛒</div>
+                        <h3>Buyers</h3>
+                        <p>Retailers, Kiranas, HORECA, Modern Trade, Consumer Brands & Wholesalers</p>
+                    </div>
+                    <div class="process-steps">
+                        <div class="step" data-tooltip="Find verified suppliers based on your requirements">
+                            <div class="step-icon">🔍</div>
+                            <span>Search for Vendor</span>
+                        </div>
+                        <div class="step" data-tooltip="Connect directly with suppliers via call or meeting">
+                            <div class="step-icon">📞</div>
+                            <span>Meeting/Call</span>
+                        </div>
+                        <div class="step" data-tooltip="Negotiate best prices with transparent pricing">
+                            <div class="step-icon">💰</div>
+                            <span>Price Negotiation</span>
+                        </div>
+                        <div class="step" data-tooltip="Ensure product quality before purchase">
+                            <div class="step-icon">✅</div>
+                            <span>Quality Inspection</span>
+                        </div>
+                        <div class="step" data-tooltip="Secure digital contracts with legal protection">
+                            <div class="step-icon">📄</div>
+                            <span>Sales Contract</span>
+                        </div>
+                        <div class="step" data-tooltip="Safe and secure payment processing">
+                            <div class="step-icon">💳</div>
+                            <span>Payment</span>
+                        </div>
+                        <div class="step" data-tooltip="Efficient logistics and transportation">
+                            <div class="step-icon">🚚</div>
+                            <span>Logistics/Transport</span>
+                        </div>
+                        <div class="step" data-tooltip="Smooth unloading at destination">
+                            <div class="step-icon">📦</div>
+                            <span>Unloading</span>
+                        </div>
+                        <div class="step" data-tooltip="Final quality verification upon delivery">
+                            <div class="step-icon">🔍</div>
+                            <span>Quality Check</span>
+                        </div>
+                        <div class="step" data-tooltip="24/7 support for any issues or concerns">
+                            <div class="step-icon">🛠️</div>
+                            <span>Grievance Redressal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Central TradeBridge -->
+                <div class="flow-center">
+                    <div class="tradebridge-logo">
+                        <img src="logo.png" alt="Flonze" class="center-logo" loading="lazy">
+                        <h4>Flonze</h4>
+                        <p>India's Largest Reselling Platform</p>
+                    </div>
+                    <div class="connection-lines">
+                        <div class="line line-left"></div>
+                        <div class="line line-right"></div>
+                    </div>
+                </div>
+
+                <!-- Seller Side -->
+                <div class="flow-side seller-side">
+                    <div class="side-header">
+                        <div class="side-icon">🌾</div>
+                        <h3>Sellers</h3>
+                        <p>Farmers, Processors, Importers, Traders</p>
+                    </div>
+                    <div class="process-steps">
+                        <div class="step" data-tooltip="List your products and services">
+                            <div class="step-icon">📝</div>
+                            <span>Product Listing</span>
+                        </div>
+                        <div class="step" data-tooltip="Get verified by our quality team">
+                            <div class="step-icon">✅</div>
+                            <span>Verification</span>
+                        </div>
+                        <div class="step" data-tooltip="Receive inquiries from buyers">
+                            <div class="step-icon">📧</div>
+                            <span>Buyer Inquiries</span>
+                        </div>
+                        <div class="step" data-tooltip="Negotiate terms and pricing">
+                            <div class="step-icon">🤝</div>
+                            <span>Negotiation</span>
+                        </div>
+                        <div class="step" data-tooltip="Finalize orders with contracts">
+                            <div class="step-icon">📋</div>
+                            <span>Order Confirmation</span>
+                        </div>
+                        <div class="step" data-tooltip="Prepare products for shipment">
+                            <div class="step-icon">📦</div>
+                            <span>Product Preparation</span>
+                        </div>
+                        <div class="step" data-tooltip="Coordinate pickup and shipping">
+                            <div class="step-icon">🚛</div>
+                            <span>Dispatch</span>
+                        </div>
+                        <div class="step" data-tooltip="Track delivery status">
+                            <div class="step-icon">📍</div>
+                            <span>Delivery Tracking</span>
+                        </div>
+                        <div class="step" data-tooltip="Receive secure payments">
+                            <div class="step-icon">💰</div>
+                            <span>Payment Receipt</span>
+                        </div>
+                        <div class="step" data-tooltip="Build long-term relationships">
+                            <div class="step-icon">⭐</div>
+                            <span>Relationship Building</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach -->
+    <section class="our-approach">
+        <div class="container">
+            <h2 class="section-title">Our Approach</h2>
+            <div class="approach-content">
+                <p>Flonze is an AI driven, B2B e-marketplace for Agro-Commodities providing farmers, processors & importers seamless access to millions of retailers & wholesalers across India. Flonze does not buy or sell crops and is not a broker. Instead, we offer you the ability to effortlessly market your commodity via our platform.</p>
+                
+                <p>We have built a complete digital platform for Buyers and Vendors; a trade marketplace to buy & sell, without having to worry about anything but "Price". We take care of logistics, quality inspections, secure payments, returns, grievance redressals & extension of credit. We are introducing technology to improve food traceability and sustainability, and insurance coverage for all the major risks in the agri-business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traditional vs Flonze Comparison -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Traditional Selling vs Flonze Platform</h2>
+            <div class="comparison-grid">
+                <!-- Traditional Way -->
+                <div class="comparison-card traditional">
+                    <div class="comparison-header">
+                        <div class="comparison-icon">😰</div>
+                        <h3>Traditional Way</h3>
+                        <p class="subtitle">Agar farmer seeds directly bechta hai</p>
+                    </div>
+                    <div class="problems-circle">
+                        <div class="circle-content">
+                            <div class="problem-item">🚫 Limited Buyers</div>
+                            <div class="problem-item">💸 Low Prices</div>
+                            <div class="problem-item">⏰ Time Wastage</div>
+                            <div class="problem-item">🚚 Transport Issues</div>
+                            <div class="problem-item">💰 Payment Delays</div>
+                            <div class="problem-item">📉 Market Dependency</div>
+                            <div class="problem-item">🤝 Middleman Commission</div>
+                            <div class="problem-item">❌ No Quality Assurance</div>
+                        </div>
+                    </div>
+                    <div class="result-box negative">
+                        <h4>Result: ज्यादा परेशानी, कम मुनाफा</h4>
+                    </div>
+                </div>
+
+                <!-- Flonze Way -->
+                <div class="comparison-card flonze">
+                    <div class="comparison-header">
+                        <div class="comparison-icon">😊</div>
+                        <h3>Flonze Platform</h3>
+                        <p class="subtitle">Flonze के through selling</p>
+                    </div>
+                    <div class="benefits-circle">
+                        <div class="circle-content">
+                            <div class="benefit-item">🌐 Pan-India Buyers</div>
+                            <div class="benefit-item">💎 Best Prices</div>
+                            <div class="benefit-item">⚡ Quick Process</div>
+                            <div class="benefit-item">🚛 Logistics Support</div>
+                            <div class="benefit-item">💳 Secure Payments</div>
+                            <div class="benefit-item">📈 Market Access</div>
+                            <div class="benefit-item">🚫 No Middleman</div>
+                            <div class="benefit-item">✅ Quality Verification</div>
+                        </div>
+                    </div>
+                    <div class="result-box positive">
+                        <h4>Result: आसान Process, ज्यादा मुनाफा</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose" id="why-choose">
         <div class="container">
             <h2 class="section-title">Why Choose Flonze?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Mobile Eco-Friendly</h3>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💎</div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees, clear pricing structure, and competitive rates for all services</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚪</div>
-                    <h3>Doorstep Service</h3>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h3>Verified Suppliers</h3>
+                    <p>All suppliers undergo rigorous verification including licenses and quality checks</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍🔧</div>
-                    <h3>Quick & Fast</h3>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3>Efficient Logistics</h3>
+                    <p>Streamlined logistics network ensuring timely delivery across India</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💧</div>
-                    <h3>Quality Work</h3>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Quality Assurance</h3>
+                    <p>Multi-level quality checks and inspection processes for product excellence</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
+    <!-- Statistics Section -->
+    <section class="stats-section">
         <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Book Online</h3>
-                    <p>Choose your service package and schedule a convenient time slot through our easy booking form.</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Active Farmers</div>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>We Come to You</h3>
-                    <p>Our professional team arrives at your location with all equipment and eco-friendly products.</p>
+                <div class="stat-card">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Verified Buyers</div>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Enjoy Clean Car</h3>
-                    <p>Relax while we transform your car. Pay securely online and enjoy your spotless, eco-clean vehicle.</p>
+                <div class="stat-card">
+                    <div class="stat-number">₹50Cr+</div>
+                    <div class="stat-label">Trade Volume</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">States Covered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to grow your business with Flonze?</h2>
+                <p>Join thousands of buyers and sellers who trust our platform for seamless trade</p>
+                <div class="cta-buttons">
+                          <a href="#signup" class="btn-cta">Sign Up Now</a>
+                    <a href="tel:+918108395367" class="btn-cta-secondary">📞 Call Now</a>
                 </div>
             </div>
         </div>
@@ -169,224 +454,169 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <div class="testimonials-slider">
-                <div class="testimonial-card active">
-                    <div class="stars">★★★★★</div>
-                    <p>"Amazing service! They made my car look brand new. Love that they use eco-friendly products."</p>
-                    <div class="customer-info">
-                        <strong>Priya Sharma</strong>
-                        <span>Mumbai</span>
+            <h2 class="section-title">What Our Users Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Flonze ne meri farming business ko completely transform kar diya. Ab main direct buyers se deal karta hun aur 30% zyada profit milta hai."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Rajesh Kumar</h4>
+                            <span>Farmer, Punjab</span>
+                        </div>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Super convenient doorstep service. Professional team and excellent results every time."</p>
-                    <div class="customer-info">
-                        <strong>Rajesh Kumar</strong>
-                        <span>Delhi</span>
+                    <div class="testimonial-content">
+                        <p>"Quality products, transparent pricing, and reliable delivery. Flonze has made sourcing agricultural products so much easier for our retail chain."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <span>Retail Chain Owner, Delhi</span>
+                        </div>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The ceramic coating service is outstanding. My car still looks new after 6 months!"</p>
-                    <div class="customer-info">
-                        <strong>Anita Patel</strong>
-                        <span>Bangalore</span>
+                    <div class="testimonial-content">
+                        <p>"Best platform for spice trading. No middleman, direct connection with farmers, and excellent logistics support. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Mohammed Ali</h4>
+                            <span>Spice Trader, Gujarat</span>
+                        </div>
+                        <div class="rating">⭐⭐⭐⭐⭐</div>
                     </div>
                 </div>
-            </div>
-            <div class="slider-dots">
-                <span class="dot active" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
             </div>
         </div>
     </section>
 
-
-
-    <!-- Booking Section -->
-    <section class="booking" id="booking">
+    <!-- Registration Forms -->
+    <section class="registration" id="signup">
         <div class="container">
-            <h2 class="section-title">Book Your Service</h2>
-            <div class="booking-form-container">
-                <form class="booking-form" id="bookingForm">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" name="fullName" required>
+            <div class="registration-tabs">
+                <button class="tab-btn active" onclick="showTab('buyer')" id="join-buyer" type="button" aria-pressed="true">Join as Buyer</button>
+                <button class="tab-btn" onclick="showTab('seller')" id="join-seller" type="button" aria-pressed="false">Join as Seller</button>
+            </div>
+            
+            <div class="tab-content" id="buyer-tab">
+                <h3>Register as Buyer</h3>
+                <form class="registration-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Company Name" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Business Type</option>
+                                <option value="retailer">Retailer</option>
+                                <option value="kirana">Kirana Store</option>
+                                <option value="horeca">HORECA</option>
+                                <option value="modern-trade">Modern Trade</option>
+                                <option value="brand">Consumer Brand</option>
+                                <option value="wholesaler">Wholesaler</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Contact Person" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="City" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="service">Select Service</label>
-                        <select id="service" name="service" required>
-                            <option value="">Choose a service</option>
-                            <option value="Car Wash - ₹599">Car Wash - ₹599</option>
-                            <option value="Car Care - ₹1999">Car Care - ₹1999</option>
-                            <option value="Bike Care - ₹399">Bike Care - ₹399</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Preferred Date</label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Preferred Time</label>
-                        <select id="time" name="time" required>
-                            <option value="">Select time slot</option>
-                            <option value="9:00 AM - 11:00 AM">9:00 AM - 11:00 AM</option>
-                            <option value="11:00 AM - 1:00 PM">11:00 AM - 1:00 PM</option>
-                            <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
-                            <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Service Location</label>
-                        <input type="text" id="location" name="location" placeholder="Enter your address" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Book Service</button>
+                    <button type="submit" class="submit-btn" aria-label="Submit buyer registration form">Register as Buyer</button>
                 </form>
             </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Flonze</h2>
-                    <p>Founded in 2023, Flonze is India's leading mobile eco-friendly car detailing service. We're passionate about keeping your car spotless while protecting our environment.</p>
-                    <p>Our mission is to revolutionize car care by bringing professional, mobile eco-friendly detailing services directly to your doorstep. We believe in convenience without compromise.</p>
-                    <div class="about-values">
-                        <div class="value">
-                            <h4>🌍 Environmental Responsibility</h4>
-                            <p>100% biodegradable products and water-saving techniques</p>
+            <div class="tab-content" id="seller-tab" style="display: none;">
+                <h3>Register as Seller</h3>
+                <form class="registration-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Company/Farm Name" required>
                         </div>
-                        <div class="value">
-                            <h4>⭐ Quality Excellence</h4>
-                            <p>Certified professionals using premium equipment</p>
-                        </div>
-                        <div class="value">
-                            <h4>🤝 Customer First</h4>
-                            <p>Convenient, reliable, and transparent service</p>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Seller Type</option>
+                                <option value="farmer">Farmer</option>
+                                <option value="processor">Processor</option>
+                                <option value="importer">Importer</option>
+                                <option value="trader">Trader</option>
+                            </select>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h4>🕰️ How long does service take?</h4>
-                    <p>Car wash: 45 mins, Car care: 2 hours, Bike care: 30 mins</p>
-                </div>
-                <div class="faq-item">
-                    <h4>📍 Do you serve my area?</h4>
-                    <p>We serve 50+ cities across India. Check availability during booking.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>💳 Payment options?</h4>
-                    <p>Cash, UPI, Cards, and all digital payment methods accepted.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>🛡️ Is service insured?</h4>
-                    <p>Yes, all our services are fully insured for your peace of mind.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h4>Address</h4>
-                            <p>123 Green Street, Eco Park<br>Mumbai, Maharashtra 400001</p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Contact Person" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+91 8108395367</p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number" required>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>hello@flonze.com</p>
+                        <div class="form-group">
+                            <input type="text" placeholder="Location" required>
                         </div>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Products/Services you offer (e.g., Wheat, Rice, Spices)" rows="3"></textarea>
                     </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <button type="submit" class="submit-btn" aria-label="Submit seller registration form">Register as Seller</button>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="logo.png" alt="Flonze Logo" class="footer-logo-img">
+                        <img src="logo.png" alt="Flonze" class="footer-logo-img" loading="lazy" onerror="this.style.display='none'">
                         <h3>Flonze</h3>
                     </div>
-                    <p>Mobile eco-friendly car detailing at your doorstep. Professional, convenient, and environmentally responsible.</p>
-
+                    <p>India's Largest Reselling Platform</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Services</h4>
+                    <h4>For Buyers</h4>
                     <ul>
-                        <li><a href="services.html">Car Wash</a></li>
-                        <li><a href="services.html">Car Care</a></li>
-                        <li><a href="services.html">Bike Care</a></li>
+                        <li><a href="#signup">Register</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#why-choose">Benefits</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Company</h4>
+                    <h4>For Sellers</h4>
                     <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#signup">Join Platform</a></li>
+                        <li><a href="#how-it-works">Seller Journey</a></li>
+                        <li><a href="#why-choose">Why Choose Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
+                    <h4>Contact</h4>
                     <p>📞 +91 8108395367</p>
                     <p>✉️ hello@flonze.com</p>
-                    <p>📍 Mumbai, Maharashtra</p>
+                    <p>📍 Mumbai, India</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -395,15 +625,14 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/918108395367" target="_blank">
-            <div class="whatsapp-icon">📱</div>
-        </a>
-    </div>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <span>↑</span>
+    </button>
 
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip"></div>
 
-
-    <script src="script.js?v=1.2"></script>
+    <script src="script.js?v=6.0"></script>
 </body>
 </html>

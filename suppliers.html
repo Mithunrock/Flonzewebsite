@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Suppliers - TradeBridge | Global Supplier Directory</title>
+    <meta name="description" content="Discover verified suppliers worldwide. Search by industry, location, and capabilities. Connect with trusted manufacturers and exporters.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3.0">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="TradeBridge Logo" class="logo">
+                <span class="brand-name">TradeBridge</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="platform.html">Platform</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="suppliers.html" class="active">Find Suppliers</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="#login" class="btn-login">Login</a>
+                    <a href="#register" class="btn-register">Get Started</a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="supplier-search">
+        <div class="container">
+            <h1>Find Verified Global Suppliers</h1>
+            <p>Search from 50,000+ verified suppliers across 120 countries</p>
+            
+            <div class="search-form">
+                <div class="search-row">
+                    <div class="search-field">
+                        <input type="text" placeholder="What are you looking for?" id="productSearch">
+                    </div>
+                    <div class="search-field">
+                        <select id="industryFilter">
+                            <option value="">All Industries</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="textiles">Textiles</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="chemicals">Chemicals</option>
+                        </select>
+                    </div>
+                    <div class="search-field">
+                        <select id="countryFilter">
+                            <option value="">All Countries</option>
+                            <option value="china">China</option>
+                            <option value="india">India</option>
+                            <option value="vietnam">Vietnam</option>
+                            <option value="bangladesh">Bangladesh</option>
+                            <option value="turkey">Turkey</option>
+                        </select>
+                    </div>
+                    <button class="search-btn">Search Suppliers</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Suppliers -->
+    <section class="featured-suppliers">
+        <div class="container">
+            <h2 class="section-title">Featured Suppliers</h2>
+            <div class="suppliers-grid">
+                <div class="supplier-card">
+                    <div class="supplier-header">
+                        <div class="supplier-logo">🏭</div>
+                        <div class="supplier-info">
+                            <h3>Global Manufacturing Co.</h3>
+                            <p class="location">📍 Guangzhou, China</p>
+                            <div class="rating">⭐ 4.8 (127 reviews)</div>
+                        </div>
+                        <div class="verified-badge">✅ Verified</div>
+                    </div>
+                    <div class="supplier-details">
+                        <p><strong>Specialization:</strong> Electronics, Consumer Goods</p>
+                        <p><strong>Capacity:</strong> 10,000 units/month</p>
+                        <p><strong>Certifications:</strong> ISO 9001, CE, FCC</p>
+                        <p><strong>Min Order:</strong> 500 units</p>
+                    </div>
+                    <div class="supplier-actions">
+                        <button class="btn-primary">Contact Supplier</button>
+                        <button class="btn-secondary">View Profile</button>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="supplier-header">
+                        <div class="supplier-logo">🌾</div>
+                        <div class="supplier-info">
+                            <h3>Organic Farms Ltd.</h3>
+                            <p class="location">📍 Punjab, India</p>
+                            <div class="rating">⭐ 4.9 (89 reviews)</div>
+                        </div>
+                        <div class="verified-badge">✅ Verified</div>
+                    </div>
+                    <div class="supplier-details">
+                        <p><strong>Specialization:</strong> Organic Grains, Spices</p>
+                        <p><strong>Capacity:</strong> 1000 tons/month</p>
+                        <p><strong>Certifications:</strong> Organic, HACCP, FSSAI</p>
+                        <p><strong>Min Order:</strong> 10 tons</p>
+                    </div>
+                    <div class="supplier-actions">
+                        <button class="btn-primary">Contact Supplier</button>
+                        <button class="btn-secondary">View Profile</button>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="supplier-header">
+                        <div class="supplier-logo">👕</div>
+                        <div class="supplier-info">
+                            <h3>Textile Excellence</h3>
+                            <p class="location">📍 Ho Chi Minh, Vietnam</p>
+                            <div class="rating">⭐ 4.7 (156 reviews)</div>
+                        </div>
+                        <div class="verified-badge">✅ Verified</div>
+                    </div>
+                    <div class="supplier-details">
+                        <p><strong>Specialization:</strong> Garments, Home Textiles</p>
+                        <p><strong>Capacity:</strong> 50,000 pieces/month</p>
+                        <p><strong>Certifications:</strong> OEKO-TEX, GOTS, BSCI</p>
+                        <p><strong>Min Order:</strong> 1,000 pieces</p>
+                    </div>
+                    <div class="supplier-actions">
+                        <button class="btn-primary">Contact Supplier</button>
+                        <button class="btn-secondary">View Profile</button>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="supplier-header">
+                        <div class="supplier-logo">🔧</div>
+                        <div class="supplier-info">
+                            <h3>Precision Machinery</h3>
+                            <p class="location">📍 Istanbul, Turkey</p>
+                            <div class="rating">⭐ 4.6 (92 reviews)</div>
+                        </div>
+                        <div class="verified-badge">✅ Verified</div>
+                    </div>
+                    <div class="supplier-details">
+                        <p><strong>Specialization:</strong> Industrial Machinery, Tools</p>
+                        <p><strong>Capacity:</strong> 200 units/month</p>
+                        <p><strong>Certifications:</strong> ISO 9001, CE, TUV</p>
+                        <p><strong>Min Order:</strong> 5 units</p>
+                    </div>
+                    <div class="supplier-actions">
+                        <button class="btn-primary">Contact Supplier</button>
+                        <button class="btn-secondary">View Profile</button>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="supplier-header">
+                        <div class="supplier-logo">💊</div>
+                        <div class="supplier-info">
+                            <h3>PharmaCorp International</h3>
+                            <p class="location">📍 Mumbai, India</p>
+                            <div class="rating">⭐ 4.9 (203 reviews)</div>
+                        </div>
+                        <div class="verified-badge">✅ Verified</div>
+                    </div>
+                    <div class="supplier-details">
+                        <p><strong>Specialization:</strong> Generic Medicines, APIs</p>
+                        <p><strong>Capacity:</strong> 1M tablets/day</p>
+                        <p><strong>Certifications:</strong> WHO-GMP, FDA, EMA</p>
+                        <p><strong>Min Order:</strong> 10,000 tablets</p>
+                    </div>
+                    <div class="supplier-actions">
+                        <button class="btn-primary">Contact Supplier</button>
+                        <button class="btn-secondary">View Profile</button>
+                    </div>
+                </div>
+
+                <div class="supplier-card">
+                    <div class="supplier-header">
+                        <div class="supplier-logo">💎</div>
+                        <div class="supplier-info">
+                            <h3>Gems & Jewelry House</h3>
+                            <p class="location">📍 Jaipur, India</p>
+                            <div class="rating">⭐ 4.8 (74 reviews)</div>
+                        </div>
+                        <div class="verified-badge">✅ Verified</div>
+                    </div>
+                    <div class="supplier-details">
+                        <p><strong>Specialization:</strong> Silver Jewelry, Gemstones</p>
+                        <p><strong>Capacity:</strong> 5,000 pieces/month</p>
+                        <p><strong>Certifications:</strong> BIS Hallmark, GIA</p>
+                        <p><strong>Min Order:</strong> 100 pieces</p>
+                    </div>
+                    <div class="supplier-actions">
+                        <button class="btn-primary">Contact Supplier</button>
+                        <button class="btn-secondary">View Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supplier Categories -->
+    <section class="supplier-categories">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">🏭</div>
+                    <h3>Manufacturing</h3>
+                    <p>12,500+ suppliers</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🌾</div>
+                    <h3>Agriculture</h3>
+                    <p>8,200+ suppliers</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">👕</div>
+                    <h3>Textiles</h3>
+                    <p>9,800+ suppliers</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💻</div>
+                    <h3>Electronics</h3>
+                    <p>7,600+ suppliers</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💊</div>
+                    <h3>Pharmaceuticals</h3>
+                    <p>3,400+ suppliers</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🔧</div>
+                    <h3>Machinery</h3>
+                    <p>5,900+ suppliers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our Suppliers -->
+    <section class="supplier-benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose TradeBridge Suppliers?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h3>100% Verified</h3>
+                    <p>All suppliers undergo rigorous verification including business licenses, certifications, and on-site audits</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⭐</div>
+                    <h3>Rated & Reviewed</h3>
+                    <p>Transparent rating system based on real buyer feedback, quality, delivery, and communication</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Trade Protection</h3>
+                    <p>Built-in dispute resolution, payment protection, and quality guarantees for secure trading</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Performance Tracking</h3>
+                    <p>Monitor supplier performance with delivery times, quality scores, and communication metrics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="supplier-cta">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Supplier?</h2>
+            <p>Join thousands of buyers who have found reliable suppliers through TradeBridge</p>
+            <div class="cta-buttons">
+                <a href="#register" class="btn-primary">Start Searching</a>
+                <a href="services.html" class="btn-secondary">Learn About Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="TradeBridge Logo" class="footer-logo-img">
+                        <h3>TradeBridge</h3>
+                    </div>
+                    <p>Connecting global businesses through intelligent trade facilitation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="suppliers.html">Find Suppliers</a></li>
+                        <li><a href="services.html">Trade Financing</a></li>
+                        <li><a href="services.html">Quality Verification</a></li>
+                        <li><a href="services.html">Logistics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 8108395367</p>
+                    <p>✉️ hello@tradebridge.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TradeBridge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=3.0"></script>
+</body>
+</html>
