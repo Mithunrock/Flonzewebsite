@@ -18,12 +18,26 @@ body {
     padding: 0 20px;
 }
 
+/* Promo Banner */
+.promo-banner {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+}
+
 /* Header Styles */
 .header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
-    top: 0;
+    top: 35px;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
@@ -125,7 +139,7 @@ body {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
-    padding: 120px 0 80px;
+    padding: 160px 0 80px;
     text-align: center;
 }
 
@@ -1033,6 +1047,15 @@ body {
 
     .hero {
         padding: 140px 20px 60px;
+    }
+    
+    .header {
+        top: 30px;
+    }
+    
+    .promo-banner {
+        font-size: 0.8rem;
+        padding: 0.4rem;
     }
 
     .hero h1 {
