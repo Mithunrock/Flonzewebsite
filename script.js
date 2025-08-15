@@ -158,14 +158,33 @@ function proceedToCheckout() {
 // Show message
 function showMessage(text) {
     const msg = document.createElement('div');
+    const isError = text.includes('❌');
+    const isSuccess = text.includes('✅');
+    
     msg.style.cssText = `
-        position: fixed; top: 100px; right: 20px; background: #10b981; 
-        color: white; padding: 15px 25px; border-radius: 25px; 
-        font-weight: 600; z-index: 2000;
+        position: fixed; top: 100px; right: 20px; 
+        background: ${isError ? '#dc3545' : isSuccess ? '#10b981' : '#1e40af'}; 
+        color: white; padding: 16px 24px; border-radius: 12px; 
+        font-weight: 600; z-index: 2000; font-size: 14px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        max-width: 300px; word-wrap: break-word;
     `;
-    msg.textContent = text;
+    
+    msg.innerHTML = text;
     document.body.appendChild(msg);
-    setTimeout(() => msg.remove(), 3000);
+    
+    // Slide in animation
+    setTimeout(() => {
+        msg.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Slide out and remove
+    setTimeout(() => {
+        msg.style.transform = 'translateX(100%)';
+        setTimeout(() => msg.remove(), 300);
+    }, 3000);
 }
 
 // Wishlist toggle
@@ -310,13 +329,54 @@ function validateForm(form) {
     inputs.forEach(input => {
         if (!input.value.trim()) {
             input.style.borderColor = '#dc3545';
+            input.style.boxShadow = '0 0 0 3px rgba(220,53,69,0.1)';
             isValid = false;
         } else {
-            input.style.borderColor = var('--border-gray');
+            input.style.borderColor = '#10b981';
+            input.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)';
         }
     });
     
     return isValid;
+}
+
+// Add loading state to buttons
+function setButtonLoading(button, loading) {
+    if (loading) {
+        button.disabled = true;
+        button.innerHTML = '<span class="loading-spinner"></span>Processing...';
+        button.style.opacity = '0.8';
+        button.style.cursor = 'not-allowed';
+    } else {
+        button.disabled = false;
+        const originalText = button.getAttribute('aria-label') || 'Submit';
+        button.innerHTML = originalText;
+        button.style.opacity = '1';
+        button.style.cursor = 'pointer';
+    }
+}
+
+// Add page loader
+function showPageLoader() {
+    const loader = document.createElement('div');
+    loader.id = 'pageLoader';
+    loader.innerHTML = `
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                    background: rgba(255,255,255,0.9); z-index: 9999; 
+                    display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center;">
+                <div class="loading-spinner" style="width: 40px; height: 40px; margin: 0 auto 20px;"></div>
+                <p style="color: #1e40af; font-weight: 600;">Loading...</p>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(loader);
+    
+    setTimeout(() => {
+        if (document.getElementById('pageLoader')) {
+            document.getElementById('pageLoader').remove();
+        }
+    }, 1500);
 }
 
 // Handle form submissions
@@ -326,16 +386,29 @@ function initForms() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
             if (validateForm(form)) {
+                setButtonLoading(submitBtn, true);
+                
                 const formData = new FormData(form);
                 const formType = form.closest('.tab-content') ? 
-                    (form.closest('#buyer-tab') ? 'buyer' : 'seller') : 'contact';
+                    (form.closest('#buyer-tab') ? 'Buyer' : 'Seller') : 'Contact';
                 
-                // Simulate form submission
-                showMessage(`${formType} registration submitted successfully!`);
-                form.reset();
+                // Simulate API call
+                setTimeout(() => {
+                    setButtonLoading(submitBtn, false);
+                    showMessage(`✅ ${formType} registration submitted successfully!`);
+                    form.reset();
+                    
+                    // Reset form styling
+                    form.querySelectorAll('input, select, textarea').forEach(input => {
+                        input.style.borderColor = '';
+                        input.style.boxShadow = '';
+                    });
+                }, 2000);
             } else {
-                showMessage('Please fill all required fields!');
+                showMessage('❌ Please fill all required fields!');
             }
         });
     });
@@ -357,8 +430,101 @@ function initSmoothScroll() {
     });
 }
 
+// Add page loading animation
+function initPageLoading() {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease';
+    
+    window.addEventListener('load', function() {
+        document.body.style.opacity = '1';
+    });
+}
+
+// Add intersection observer for animations
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.feature-card, .product-card, .stat-card, .benefit-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// Make all elements clickable
+function initClickHandlers() {
+    // Feature cards click
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => card.style.transform = '', 150);
+        });
+    });
+    
+    // Product cards click
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', () => {
+            showMessage('🛒 Product details coming soon!');
+        });
+    });
+    
+    // Stat cards click
+    document.querySelectorAll('.stat-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.style.transform = 'scale(1.1)';
+            setTimeout(() => card.style.transform = '', 200);
+        });
+    });
+    
+    // Logo click
+    document.querySelector('.nav-brand').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+}
+
+// Fix all page links with loading
+function fixPageLinks() {
+    const pages = ['products.html', 'cart.html', 'how-it-works.html', 'why-choose-us.html', 'contact.html'];
+    
+    pages.forEach(page => {
+        document.querySelectorAll(`a[href="${page}"]`).forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPageLoader();
+                setTimeout(() => {
+                    window.location.href = page;
+                }, 500);
+            });
+        });
+    });
+}
+
+// Add error boundary
+window.addEventListener('error', function(e) {
+    console.error('Website error:', e.error);
+    showMessage('❌ Something went wrong. Please refresh the page.');
+});
+
+// Add network status
+window.addEventListener('online', () => {
+    showMessage('✅ Connection restored');
+});
+
+window.addEventListener('offline', () => {
+    showMessage('⚠️ No internet connection');
+});
+
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
+    initPageLoading();
     loadCart();
     displayCart();
     initMobileMenu();
@@ -366,6 +532,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initSearch();
     initForms();
     initSmoothScroll();
+    initScrollAnimations();
+    initClickHandlers();
+    fixPageLinks();
 });
 
 // Also initialize on window load
