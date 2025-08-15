@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success - Flonze</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=12.0">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Flonze" class="logo" loading="eager" onerror="this.style.display='none'">
+                <span class="brand-name">Flonze</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Success Section -->
+    <section class="success-section" style="padding: 150px 0; text-align: center; background: var(--light-green);">
+        <div class="container">
+            <div class="success-content" style="max-width: 600px; margin: 0 auto;">
+                <div class="success-icon" style="font-size: 5rem; margin-bottom: 30px;">✅</div>
+                <h1 style="color: var(--primary-color); margin-bottom: 20px;">Order Placed Successfully!</h1>
+                <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--text-gray);">
+                    Thank you for your order. We'll process it shortly and send you updates via email and SMS.
+                </p>
+                
+                <div class="order-details" style="background: var(--white); padding: 30px; border-radius: 15px; margin: 30px 0; box-shadow: var(--shadow);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">Order Details</h3>
+                    <p><strong>Order ID:</strong> #FL<span id="orderId"></span></p>
+                    <p><strong>Estimated Delivery:</strong> 3-5 Business Days</p>
+                    <p><strong>Payment Status:</strong> <span style="color: var(--accent-color);">Confirmed</span></p>
+                </div>
+
+                <div class="success-actions" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="products.html" class="btn-primary">Continue Shopping</a>
+                    <a href="index.html" class="btn-outline">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Generate random order ID
+        document.getElementById('orderId').textContent = Math.floor(Math.random() * 1000000);
+        
+        // Update cart count to 0
+        document.querySelectorAll('#cartCount').forEach(count => {
+            count.textContent = '0';
+            count.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

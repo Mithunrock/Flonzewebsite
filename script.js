@@ -1,3 +1,42 @@
+// Products data
+const products = [
+    { id: 1, name: 'Premium Basmati Rice', price: 120, emoji: '🍚', location: 'Punjab', seller: 'Singh Farms', rating: 4.8, 
+      description: 'Premium quality Basmati rice with long grains and aromatic fragrance. Perfect for biryanis and pulao.',
+      benefits: ['Long grain variety', 'Aromatic fragrance', 'Low glycemic index', 'Rich in nutrients'],
+      specifications: 'Grain Length: 6.5mm+, Moisture: 12-14%, Broken: <5%' },
+    { id: 2, name: 'Organic Wheat', price: 45, emoji: '🌾', location: 'Haryana', seller: 'Green Valley', rating: 4.6 },
+    { id: 3, name: 'Fresh Turmeric', price: 180, emoji: '🟡', location: 'Kerala', seller: 'Spice Garden', rating: 4.9 },
+    { id: 4, name: 'Red Chili Powder', price: 220, emoji: '🌶️', location: 'Andhra Pradesh', seller: 'Hot Spices Co', rating: 4.7 },
+    { id: 5, name: 'Black Pepper', price: 850, emoji: '⚫', location: 'Karnataka', seller: 'Pepper King', rating: 4.8 },
+    { id: 6, name: 'Cardamom', price: 1200, emoji: '🟢', location: 'Kerala', seller: 'Cardamom Hills', rating: 4.9 },
+    { id: 7, name: 'Cumin Seeds', price: 320, emoji: '🟤', location: 'Gujarat', seller: 'Desert Spices', rating: 4.5 },
+    { id: 8, name: 'Coriander Seeds', price: 180, emoji: '🌿', location: 'Rajasthan', seller: 'Royal Herbs', rating: 4.6 },
+    { id: 9, name: 'Mustard Seeds', price: 95, emoji: '🟡', location: 'West Bengal', seller: 'Bengal Oils', rating: 4.4 },
+    { id: 10, name: 'Fenugreek Seeds', price: 140, emoji: '🟫', location: 'Madhya Pradesh', seller: 'Central Spices', rating: 4.3 },
+    { id: 11, name: 'Cloves', price: 950, emoji: '🟤', location: 'Tamil Nadu', seller: 'South Spices', rating: 4.8 },
+    { id: 12, name: 'Cinnamon Sticks', price: 420, emoji: '🟫', location: 'Kerala', seller: 'Spice Coast', rating: 4.7 },
+    { id: 13, name: 'Soybean', price: 65, emoji: '🟡', location: 'Maharashtra', seller: 'Soya Farms', rating: 4.5 },
+    { id: 14, name: 'Groundnuts', price: 85, emoji: '🥜', location: 'Gujarat', seller: 'Nut Valley', rating: 4.6 },
+    { id: 15, name: 'Sesame Seeds', price: 160, emoji: '⚪', location: 'Uttar Pradesh', seller: 'Sesame Co', rating: 4.4 },
+    { id: 16, name: 'Sunflower Seeds', price: 75, emoji: '🌻', location: 'Karnataka', seller: 'Sun Farms', rating: 4.3 },
+    { id: 17, name: 'Cotton Seeds', price: 55, emoji: '🤍', location: 'Gujarat', seller: 'Cotton King', rating: 4.2 },
+    { id: 18, name: 'Maize', price: 35, emoji: '🌽', location: 'Bihar', seller: 'Corn Fields', rating: 4.4 },
+    { id: 19, name: 'Barley', price: 40, emoji: '🌾', location: 'Rajasthan', seller: 'Desert Grains', rating: 4.3 },
+    { id: 20, name: 'Millets', price: 80, emoji: '🌾', location: 'Karnataka', seller: 'Healthy Grains', rating: 4.7 },
+    { id: 21, name: 'Green Gram', price: 110, emoji: '🟢', location: 'Andhra Pradesh', seller: 'Pulse Power', rating: 4.5 },
+    { id: 22, name: 'Black Gram', price: 125, emoji: '⚫', location: 'Tamil Nadu', seller: 'Dal Direct', rating: 4.6 },
+    { id: 23, name: 'Chickpeas', price: 90, emoji: '🟡', location: 'Madhya Pradesh', seller: 'Chana Champ', rating: 4.4 },
+    { id: 24, name: 'Red Lentils', price: 105, emoji: '🔴', location: 'West Bengal', seller: 'Lentil Land', rating: 4.5 },
+    { id: 25, name: 'Pigeon Peas', price: 115, emoji: '🟡', location: 'Maharashtra', seller: 'Arhar Express', rating: 4.3 },
+    { id: 26, name: 'Star Anise', price: 680, emoji: '⭐', location: 'Arunachal Pradesh', seller: 'Star Spices', rating: 4.8 },
+    { id: 27, name: 'Bay Leaves', price: 280, emoji: '🍃', location: 'Himachal Pradesh', seller: 'Mountain Herbs', rating: 4.6 },
+    { id: 28, name: 'Nutmeg', price: 1100, emoji: '🟤', location: 'Kerala', seller: 'Spice Paradise', rating: 4.9 },
+    { id: 29, name: 'Mace', price: 1500, emoji: '🟠', location: 'Kerala', seller: 'Premium Spices', rating: 4.8 },
+    { id: 30, name: 'Asafoetida', price: 2200, emoji: '🟡', location: 'Kashmir', seller: 'Hing House', rating: 4.7 },
+    { id: 31, name: 'Fennel Seeds', price: 190, emoji: '🟢', location: 'Gujarat', seller: 'Fennel Fresh', rating: 4.5 },
+    { id: 32, name: 'Carom Seeds', price: 240, emoji: '🟫', location: 'Rajasthan', seller: 'Ajwain King', rating: 4.4 }
+];
+
 // Simple Cart System
 let cart = [];
 
@@ -148,11 +187,8 @@ function proceedToCheckout() {
         return;
     }
     
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) * 1.05;
-    const items = cart.map(item => `${item.name} (${item.quantity}kg)`).join(', ');
-    const message = `Hi! I want to order: ${items}. Total: ₹${total.toFixed(2)}`;
-    
-    window.open(`https://wa.me/918108395367?text=${encodeURIComponent(message)}`, '_blank');
+    // Redirect to checkout page
+    window.location.href = 'checkout.html';
 }
 
 // Show message
@@ -555,11 +591,96 @@ window.addEventListener('offline', () => {
     showMessage('⚠️ No internet connection');
 });
 
+// Display products on products page
+function displayProducts() {
+    const container = document.getElementById('productsContainer');
+    if (!container) return;
+    
+    container.innerHTML = products.map(product => `
+        <div class="product-card" data-category="${product.name.toLowerCase()}" data-location="${product.location.toLowerCase()}" data-price="${product.price}" onclick="showProductDetails(${product.id})">
+            <div class="product-image">${product.emoji}</div>
+            <div class="product-info">
+                <h4>${product.name}</h4>
+                <div class="product-price">₹${product.price}/kg</div>
+                <div class="product-location">📍 ${product.location}</div>
+                <div class="product-seller">👤 ${product.seller}</div>
+                <div class="product-rating">⭐ ${product.rating}</div>
+            </div>
+            <div class="product-actions" onclick="event.stopPropagation()">
+                <button class="add-to-cart-btn" onclick="addToCart('${product.name}', ${product.price}, '${product.location}', '${product.seller}', '${product.emoji}')">
+                    Add to Cart
+                </button>
+                <button class="buy-now-btn" onclick="buyNow('${product.name}', ${product.price}, '${product.location}', '${product.seller}')">
+                    Buy Now
+                </button>
+                <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Show product details modal
+function showProductDetails(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+    
+    const modal = document.createElement('div');
+    modal.className = 'product-modal';
+    modal.innerHTML = `
+        <div class="product-modal-content">
+            <div class="product-modal-header">
+                <h2>${product.emoji} ${product.name}</h2>
+                <button class="close-modal" onclick="closeProductModal()">&times;</button>
+            </div>
+            <div class="product-modal-body">
+                <div class="product-details">
+                    <div class="product-price-large">₹${product.price}/kg</div>
+                    <div class="product-meta">
+                        <p><strong>📍 Location:</strong> ${product.location}</p>
+                        <p><strong>👤 Seller:</strong> ${product.seller}</p>
+                        <p><strong>⭐ Rating:</strong> ${product.rating}/5</p>
+                    </div>
+                    <div class="product-description">
+                        <h3>About This Product</h3>
+                        <p>${product.description || 'High quality agricultural product sourced directly from verified farmers.'}</p>
+                    </div>
+                    <div class="product-benefits">
+                        <h3>Key Benefits</h3>
+                        <ul>
+                            <li>Premium quality guaranteed</li>
+                            <li>Direct from verified farmers</li>
+                            <li>Fresh and organic</li>
+                            <li>Best market prices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-modal-actions">
+                    <button class="btn-primary" onclick="addToCart('${product.name}', ${product.price}, '${product.location}', '${product.seller}', '${product.emoji}'); closeProductModal();">Add to Cart</button>
+                    <button class="btn-secondary" onclick="buyNow('${product.name}', ${product.price}, '${product.location}', '${product.seller}'); closeProductModal();">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+}
+
+// Close product details modal
+function closeProductModal() {
+    const modal = document.querySelector('.product-modal');
+    if (modal) {
+        modal.remove();
+        document.body.style.overflow = '';
+    }
+}
+
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
     initPageLoading();
     loadCart();
     displayCart();
+    displayProducts();
     initMobileMenu();
     initScrollToTop();
     initSearch();
