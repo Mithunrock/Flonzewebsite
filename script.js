@@ -89,14 +89,15 @@ function displayCart() {
     
     if (!container) return;
     
-    if (cart.length === 0) {
-        if (empty) empty.style.display = 'block';
-        if (content) content.style.display = 'none';
-        return;
-    }
-    
-    if (empty) empty.style.display = 'none';
-    if (content) content.style.display = 'block';
+    try {
+        if (cart.length === 0) {
+            if (empty) empty.style.display = 'block';
+            if (content) content.style.display = 'none';
+            return;
+        }
+        
+        if (empty) empty.style.display = 'none';
+        if (content) content.style.display = 'block';
     
     container.innerHTML = cart.map(item => `
         <div class="cart-item">
@@ -116,8 +117,13 @@ function displayCart() {
             </div>
         </div>
     `).join('');
-    
-    updateSummary();
+        
+        updateSummary();
+    } catch (error) {
+        console.error('Error displaying cart:', error);
+        if (empty) empty.style.display = 'block';
+        if (content) content.style.display = 'none';
+    }
 }
 
 // Update cart summary
@@ -216,19 +222,28 @@ function loadMoreProducts() {
 
 // Tab switching
 function showTab(tabName) {
+    // Hide all tab contents
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.style.display = 'none';
     });
     
+    // Remove active class from all buttons
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
+        btn.setAttribute('aria-pressed', 'false');
     });
     
+    // Show selected tab
     const selectedTab = document.getElementById(tabName + '-tab');
-    if (selectedTab) selectedTab.style.display = 'block';
+    if (selectedTab) {
+        selectedTab.style.display = 'block';
+    }
     
-    if (event && event.target) {
-        event.target.classList.add('active');
+    // Add active class to clicked button
+    const activeBtn = document.getElementById('join-' + tabName);
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.setAttribute('aria-pressed', 'true');
     }
 }
 
@@ -238,21 +253,51 @@ function initMobileMenu() {
     const navMenu = document.querySelector('.nav-menu');
     const navActions = document.querySelector('.nav-actions');
     
-    if (hamburger) {
-        hamburger.onclick = function() {
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             hamburger.classList.toggle('active');
-            if (navMenu) navMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
             if (navActions) navActions.classList.toggle('active');
-        };
+            
+            // Prevent body scroll when menu is open
+            if (hamburger.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
     }
     
     // Close menu on link click
     document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.onclick = function() {
-            if (hamburger) hamburger.classList.remove('active');
-            if (navMenu) navMenu.classList.remove('active');
-            if (navActions) navActions.classList.remove('active');
-        };
+        link.addEventListener('click', function() {
+            closeMenu();
+        });
+    });
+    
+    // Close menu function
+    function closeMenu() {
+        if (hamburger) hamburger.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
+        if (navActions) navActions.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Close menu on outside click
+    document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('active')) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                closeMenu();
+            }
+        }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
     });
 }
 
@@ -287,6 +332,61 @@ function initSearch() {
     }
 }
 
+// Form validation
+function validateForm(form) {
+    const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+    let isValid = true;
+    
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.style.borderColor = '#dc3545';
+            isValid = false;
+        } else {
+            input.style.borderColor = var('--border-gray');
+        }
+    });
+    
+    return isValid;
+}
+
+// Handle form submissions
+function initForms() {
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm(form)) {
+                const formData = new FormData(form);
+                const formType = form.closest('.tab-content') ? 
+                    (form.closest('#buyer-tab') ? 'buyer' : 'seller') : 'contact';
+                
+                // Simulate form submission
+                showMessage(`${formType} registration submitted successfully!`);
+                form.reset();
+            } else {
+                showMessage('Please fill all required fields!');
+            }
+        });
+    });
+}
+
+// Smooth scroll for anchor links
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
@@ -294,6 +394,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initScrollToTop();
     initSearch();
+    initForms();
+    initSmoothScroll();
 });
 
 // Also initialize on window load

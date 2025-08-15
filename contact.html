@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=11.0">
+    <link rel="stylesheet" href="style.css?v=12.0">
 </head>
 <body>
     <!-- Header -->
@@ -50,59 +50,59 @@
             <h1 class="section-title">Contact Us</h1>
             <p style="text-align: center; font-size: 1.125rem; color: var(--text-gray); margin-bottom: 50px;">Get in touch with our team for support, partnerships, or any queries</p>
             
-            <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+            <div class="contact-grid">
                 <!-- Contact Info -->
                 <div class="contact-info">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 30px; color: var(--primary-color);">Get In Touch</h3>
+                    <h3>Get In Touch</h3>
                     
-                    <div class="contact-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 20px; background: var(--light-gray); border-radius: 10px;">
-                        <div style="font-size: 2rem;">📞</div>
+                    <div class="contact-item">
+                        <div>📞</div>
                         <div>
-                            <h4 style="margin-bottom: 5px;">Phone</h4>
-                            <p style="color: var(--text-gray);"><a href="tel:+918108395367" style="color: var(--primary-color); text-decoration: none;">+91 8108395367</a></p>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+918108395367">+91 8108395367</a></p>
                         </div>
                     </div>
                     
-                    <div class="contact-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 20px; background: var(--light-gray); border-radius: 10px;">
-                        <div style="font-size: 2rem;">✉️</div>
+                    <div class="contact-item">
+                        <div>✉️</div>
                         <div>
-                            <h4 style="margin-bottom: 5px;">Email</h4>
-                            <p style="color: var(--text-gray);"><a href="mailto:hello@flonze.com" style="color: var(--primary-color); text-decoration: none;">hello@flonze.com</a></p>
+                            <h4>Email</h4>
+                            <p><a href="mailto:hello@flonze.com">hello@flonze.com</a></p>
                         </div>
                     </div>
                     
-                    <div class="contact-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 20px; background: var(--light-gray); border-radius: 10px;">
-                        <div style="font-size: 2rem;">📍</div>
+                    <div class="contact-item">
+                        <div>📍</div>
                         <div>
-                            <h4 style="margin-bottom: 5px;">Address</h4>
-                            <p style="color: var(--text-gray);">Mumbai, India</p>
+                            <h4>Address</h4>
+                            <p>Mumbai, India</p>
                         </div>
                     </div>
                     
-                    <div class="contact-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; padding: 20px; background: var(--light-gray); border-radius: 10px;">
-                        <div style="font-size: 2rem;">💬</div>
+                    <div class="contact-item">
+                        <div>💬</div>
                         <div>
-                            <h4 style="margin-bottom: 5px;">WhatsApp</h4>
-                            <p style="color: var(--text-gray);"><a href="https://wa.me/918108395367" target="_blank" style="color: var(--primary-color); text-decoration: none;">Chat with us</a></p>
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/918108395367" target="_blank">Chat with us</a></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
                 <div class="contact-form">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 30px; color: var(--primary-color);">Send Message</h3>
-                    <form style="background: var(--white); padding: 30px; border-radius: 15px; box-shadow: var(--shadow);">
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <input type="text" placeholder="Your Name" required style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px;">
+                    <h3>Send Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
                         </div>
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <input type="email" placeholder="Your Email" required style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px;">
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <input type="tel" placeholder="Your Phone" style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px;">
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Your Phone">
                         </div>
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <select required style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px;">
+                        <div class="form-group">
+                            <select name="subject" required>
                                 <option value="">Select Subject</option>
                                 <option value="general">General Inquiry</option>
                                 <option value="support">Technical Support</option>
@@ -110,10 +110,10 @@
                                 <option value="feedback">Feedback</option>
                             </select>
                         </div>
-                        <div class="form-group" style="margin-bottom: 25px;">
-                            <textarea placeholder="Your Message" rows="5" required style="width: 100%; padding: 14px 16px; border: 2px solid var(--border-gray); border-radius: 8px; font-size: 16px; resize: vertical;"></textarea>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn" style="width: 100%; background: var(--gradient-primary); color: var(--white); border: none; padding: 16px; border-radius: 8px; font-size: 1.125rem; font-weight: 600; cursor: pointer;">Send Message</button>
+                        <button type="submit" class="submit-btn">Send Message</button>
                     </form>
                 </div>
             </div>

@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=11.0">
+    <link rel="stylesheet" href="style.css?v=12.0">
 </head>
 <body>
     <!-- Header -->
@@ -54,8 +54,11 @@
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <h1>India's Largest Reselling Platform</h1>
-                <p>Buy or sell agricultural products with lowest commission rates. Connect directly with farmers, processors, and traders across India.</p>
+                <h1>Flonze — India's B2B & B2C E-Agri Marketplace</h1>
+                <p>Buy & sell agricultural products at the lowest commission rates.<br>
+Connect directly with farmers, processors & traders across India.<br>
+Logistics, payments, quality checks — all in one platform.</p>
+                <p class="hero-tagline">🌱 <strong>Empowering Agriculture. Enabling Growth.</strong></p>
                 <div class="hero-buttons">
                     <a href="#join-buyer" class="btn-primary">Join as Buyer</a>
                     <a href="#join-seller" class="btn-secondary">Join as Seller</a>
@@ -451,46 +454,25 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
+    <!-- Platform Features -->
+    <section class="features">
         <div class="container">
-            <h2 class="section-title">What Our Users Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Flonze ne meri farming business ko completely transform kar diya. Ab main direct buyers se deal karta hun aur 30% zyada profit milta hai."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Rajesh Kumar</h4>
-                            <span>Farmer, Punjab</span>
-                        </div>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                    </div>
+            <h2 class="section-title">Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌾</div>
+                    <h3>Direct Connection</h3>
+                    <p>Connect farmers directly with buyers across India</p>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Quality products, transparent pricing, and reliable delivery. Flonze has made sourcing agricultural products so much easier for our retail chain."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Priya Sharma</h4>
-                            <span>Retail Chain Owner, Delhi</span>
-                        </div>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Best Prices</h3>
+                    <p>Competitive pricing with transparent market rates</p>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Best platform for spice trading. No middleman, direct connection with farmers, and excellent logistics support. Highly recommended!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Mohammed Ali</h4>
-                            <span>Spice Trader, Gujarat</span>
-                        </div>
-                        <div class="rating">⭐⭐⭐⭐⭐</div>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Logistics Support</h3>
+                    <p>End-to-end logistics and delivery solutions</p>
                 </div>
             </div>
         </div>
@@ -509,10 +491,10 @@
                 <form class="registration-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" placeholder="Company Name" required>
+                            <input type="text" name="company_name" placeholder="Company Name" required>
                         </div>
                         <div class="form-group">
-                            <select required>
+                            <select name="business_type" required>
                                 <option value="">Business Type</option>
                                 <option value="retailer">Retailer</option>
                                 <option value="kirana">Kirana Store</option>
@@ -525,18 +507,18 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" placeholder="Contact Person" required>
+                            <input type="text" name="contact_person" placeholder="Contact Person" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email Address" required>
+                            <input type="email" name="email" placeholder="Email Address" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="tel" placeholder="Phone Number" required>
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="City" required>
+                            <input type="text" name="city" placeholder="City" required>
                         </div>
                     </div>
                     <button type="submit" class="submit-btn" aria-label="Submit buyer registration form">Register as Buyer</button>
@@ -548,10 +530,10 @@
                 <form class="registration-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" placeholder="Company/Farm Name" required>
+                            <input type="text" name="company_name" placeholder="Company/Farm Name" required>
                         </div>
                         <div class="form-group">
-                            <select required>
+                            <select name="seller_type" required>
                                 <option value="">Seller Type</option>
                                 <option value="farmer">Farmer</option>
                                 <option value="processor">Processor</option>
@@ -562,22 +544,22 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" placeholder="Contact Person" required>
+                            <input type="text" name="contact_person" placeholder="Contact Person" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email Address" required>
+                            <input type="email" name="email" placeholder="Email Address" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="tel" placeholder="Phone Number" required>
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Location" required>
+                            <input type="text" name="location" placeholder="Location" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Products/Services you offer (e.g., Wheat, Rice, Spices)" rows="3"></textarea>
+                        <textarea name="products" placeholder="Products/Services you offer (e.g., Wheat, Rice, Spices)" rows="3"></textarea>
                     </div>
                     <button type="submit" class="submit-btn" aria-label="Submit seller registration form">Register as Seller</button>
                 </form>
