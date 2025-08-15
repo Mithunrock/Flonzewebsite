@@ -266,28 +266,30 @@ function showTab(tabName) {
     }
 }
 
-// Mobile menu
+// Mobile menu - Simple and reliable
 function initMobileMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    const navActions = document.querySelector('.nav-actions');
     
-    if (hamburger) {
-        hamburger.onclick = function() {
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             hamburger.classList.toggle('active');
-            if (navMenu) navMenu.classList.toggle('active');
-            if (navActions) navActions.classList.toggle('active');
-        };
+            navMenu.classList.toggle('active');
+            
+            console.log('Menu toggled:', navMenu.classList.contains('active'));
+        });
+        
+        // Close on menu item click
+        navMenu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
     }
-    
-    // Close menu on link click
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.onclick = function() {
-            if (hamburger) hamburger.classList.remove('active');
-            if (navMenu) navMenu.classList.remove('active');
-            if (navActions) navActions.classList.remove('active');
-        };
-    });
 }
 
 // Scroll to top

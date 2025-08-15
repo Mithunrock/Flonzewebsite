@@ -212,22 +212,38 @@ section {
 @media (max-width: 768px) {
     .hamburger {
         display: flex !important;
+        z-index: 1001;
     }
     
     .nav-menu {
-        display: none !important;
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 80px);
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     
     .nav-menu.active {
         display: flex !important;
     }
     
-    .nav-actions {
-        display: none !important;
+    .nav-menu li {
+        margin: 10px 0;
+        text-align: center;
     }
     
-    .nav-actions.active {
-        display: flex !important;
+    .nav-menu a {
+        display: block;
+        padding: 15px;
+        font-size: 18px;
+        color: #1e40af;
+        text-decoration: none;
     }
 }
 
