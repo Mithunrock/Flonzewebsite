@@ -433,10 +433,17 @@ function initSmoothScroll() {
 // Add page loading animation
 function initPageLoading() {
     document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
+    document.body.style.transition = 'opacity 0.3s ease';
     
     window.addEventListener('load', function() {
         document.body.style.opacity = '1';
+    });
+    
+    // Preload critical images
+    const images = ['logo.png', 'hero-banner.png'];
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
     });
 }
 
@@ -463,14 +470,17 @@ function initScrollAnimations() {
 function initClickHandlers() {
     // Feature cards click
     document.querySelectorAll('.feature-card').forEach(card => {
+        card.style.cursor = 'pointer';
         card.addEventListener('click', () => {
             card.style.transform = 'scale(0.98)';
             setTimeout(() => card.style.transform = '', 150);
+            showMessage('📋 Feature details coming soon!');
         });
     });
     
     // Product cards click
     document.querySelectorAll('.product-card').forEach(card => {
+        card.style.cursor = 'pointer';
         card.addEventListener('click', () => {
             showMessage('🛒 Product details coming soon!');
         });
@@ -478,15 +488,36 @@ function initClickHandlers() {
     
     // Stat cards click
     document.querySelectorAll('.stat-card').forEach(card => {
+        card.style.cursor = 'pointer';
         card.addEventListener('click', () => {
-            card.style.transform = 'scale(1.1)';
+            card.style.transform = 'scale(1.05)';
             setTimeout(() => card.style.transform = '', 200);
         });
     });
     
     // Logo click
-    document.querySelector('.nav-brand').addEventListener('click', () => {
-        window.location.href = 'index.html';
+    const navBrand = document.querySelector('.nav-brand');
+    if (navBrand) {
+        navBrand.style.cursor = 'pointer';
+        navBrand.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    }
+    
+    // Category cards click
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            showMessage('🔍 Category products coming soon!');
+        });
+    });
+    
+    // Benefit cards click
+    document.querySelectorAll('.benefit-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            showMessage('ℹ️ More details coming soon!');
+        });
     });
 }
 

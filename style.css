@@ -141,6 +141,10 @@ section {
     gap: 15px;
 }
 
+.nav-actions:empty {
+    display: none;
+}
+
 .btn-outline {
     background: transparent;
     color: var(--primary-color);
@@ -2408,10 +2412,19 @@ a:hover {
     .logo { height: 30px; }
     
     /* Touch-friendly buttons */
-    .btn-primary, .btn-secondary, .btn-outline, .btn-cta, .btn-cta-secondary {
+    .btn-primary, .btn-secondary, .btn-outline, .btn-cta, .btn-cta-secondary, .submit-btn, .tab-btn {
         min-height: 48px;
         padding: 12px 20px;
         font-size: 14px;
+        cursor: pointer;
+    }
+    
+    .hamburger {
+        min-width: 48px;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     /* Better form spacing */
