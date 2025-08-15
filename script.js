@@ -253,51 +253,21 @@ function initMobileMenu() {
     const navMenu = document.querySelector('.nav-menu');
     const navActions = document.querySelector('.nav-actions');
     
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function(e) {
-            e.stopPropagation();
+    if (hamburger) {
+        hamburger.onclick = function() {
             hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            if (navMenu) navMenu.classList.toggle('active');
             if (navActions) navActions.classList.toggle('active');
-            
-            // Prevent body scroll when menu is open
-            if (hamburger.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
+        };
     }
     
     // Close menu on link click
     document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', function() {
-            closeMenu();
-        });
-    });
-    
-    // Close menu function
-    function closeMenu() {
-        if (hamburger) hamburger.classList.remove('active');
-        if (navMenu) navMenu.classList.remove('active');
-        if (navActions) navActions.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-    
-    // Close menu on outside click
-    document.addEventListener('click', function(e) {
-        if (navMenu && navMenu.classList.contains('active')) {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                closeMenu();
-            }
-        }
-    });
-    
-    // Close menu on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
-            closeMenu();
-        }
+        link.onclick = function() {
+            if (hamburger) hamburger.classList.remove('active');
+            if (navMenu) navMenu.classList.remove('active');
+            if (navActions) navActions.classList.remove('active');
+        };
     });
 }
 
