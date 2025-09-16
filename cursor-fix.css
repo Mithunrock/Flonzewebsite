@@ -1,0 +1,16 @@
+/* Cursor Fix CSS */
+html, body, * {
+    caret-color: red !important;
+}
+
+input, textarea, [contenteditable="true"] {
+    caret-color: red !important;
+    color: black !important;
+    background: white !important;
+}
+
+input:focus, textarea:focus, [contenteditable="true"]:focus {
+    caret-color: red !important;
+    color: black !important;
+    background: white !important;
+}

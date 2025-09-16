@@ -11,13 +11,14 @@
     <meta property="og:description" content="Buy or sell agricultural products with lowest commission rates.">
     <meta property="og:type" content="website">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#1e40af">
+    <meta name="theme-color" content="#dc2626">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=12.0">
+    <link rel="stylesheet" href="cursor-fix.css">
 </head>
 <body>
     <!-- Header -->
@@ -159,6 +160,106 @@ Logistics, payments, quality checks — all in one platform.</p>
                             <span>Lowest Commission Rates</span>
                         </div>
                         <div class="feature-item">
+                            <div class="feature-icon">🚚</div>
+                            <span>Fast Delivery</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📱</div>
+                            <span>Mobile Friendly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="mobile-optimize.js"></script>
+    <script>
+        // Cursor and text selection fix
+        document.addEventListener('DOMContentLoaded', function() {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                * { caret-color: red !important; }
+                input, textarea, [contenteditable] { 
+                    caret-color: red !important; 
+                    color: black !important; 
+                    background: white !important; 
+                }
+                input:focus, textarea:focus, [contenteditable]:focus {
+                    color: black !important;
+                    background: white !important;
+                }
+                ::selection {
+                    background: red !important;
+                    color: white !important;
+                }
+                ::-moz-selection {
+                    background: red !important;
+                    color: white !important;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+    <script src="script.js?v=9.0"></script>
+</body>
+</html>       <div class="feature-item">
+                            <div class="feature-icon">🚚</div>
+                            <span>Fast Delivery</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📱</div>
+                            <span>Mobile Friendly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Flonze" class="footer-logo-img" loading="lazy" onerror="this.style.display='none'">
+                        <h3>Flonze</h3>
+                    </div>
+                    <p>India's Largest Reselling Platform</p>
+                </div>
+                <div class="footer-section">
+                    <h4>For Buyers</h4>
+                    <ul>
+                        <li><a href="#join-buyer">Register</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="why-choose-us.html">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Sellers</h4>
+                    <ul>
+                        <li><a href="#join-seller">Join Platform</a></li>
+                        <li><a href="how-it-works.html">Seller Journey</a></li>
+                        <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 +91 8108395367</p>
+                    <p>✉️ hello@flonze.com</p>
+                    <p>📍 Mumbai, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flonze. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=9.0"></script>
+</body>
+</html>       <div class="feature-item">
                             <div class="feature-icon">🚀</div>
                             <span>One-Click Trading</span>
                         </div>
