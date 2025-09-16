@@ -675,6 +675,55 @@ function closeProductModal() {
     }
 }
 
+// Modern enhancements
+function initModernFeatures() {
+    // Add loading states to buttons
+    document.querySelectorAll('button, .btn-primary, .btn-secondary').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    });
+    
+    // Add smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    // Add intersection observer for animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    // Observe all cards and sections
+    document.querySelectorAll('.feature-card, .category-card, .stat-card').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+    
+    // Add form validation feedback
+    document.querySelectorAll('input, select, textarea').forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.checkValidity()) {
+                this.style.borderColor = 'var(--success)';
+            } else {
+                this.style.borderColor = 'var(--danger)';
+            }
+        });
+        
+        input.addEventListener('focus', function() {
+            this.style.borderColor = 'var(--primary)';
+        });
+    });
+}
+
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
     initPageLoading();
@@ -689,6 +738,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initClickHandlers();
     fixPageLinks();
+    initModernFeatures();
 });
 
 // Also initialize on window load
