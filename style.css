@@ -37,7 +37,7 @@ html {
     --text-primary: #000000;
     --text-secondary: #374151;
     --text-light: #6b7280;
-    --border: #e5e7eb;
+    --border: #000000;
     --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --transition: all 0.2s ease;
@@ -222,7 +222,7 @@ section {
     top: 0;
     width: 100%;
     background: var(--white);
-    box-shadow: var(--shadow);
+    border-bottom: 2px solid var(--black);
     z-index: 1000;
     transition: var(--transition);
 }
@@ -319,8 +319,8 @@ section {
 }
 
 .btn-secondary {
-    background: var(--green);
-    color: white;
+    background: #16a34a !important;
+    color: white !important;
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
@@ -401,8 +401,8 @@ section {
 }
 
 .btn-secondary:hover {
-    background: var(--white);
-    color: var(--primary-color);
+    background: #15803d !important;
+    color: white !important;
 }
 
 .hamburger {
@@ -1314,7 +1314,7 @@ section {
 .search-input {
     flex: 1;
     padding: 14px 20px;
-    border: 2px solid var(--border-gray);
+    border: 2px solid var(--black);
     border-radius: 25px 0 0 25px;
     font-size: 16px;
     outline: none;
@@ -1348,7 +1348,7 @@ section {
 
 .filter-controls select {
     padding: 12px 16px;
-    border: 2px solid var(--border-gray);
+    border: 2px solid var(--black);
     border-radius: 20px;
     font-size: 14px;
     background: var(--white);
@@ -1374,7 +1374,7 @@ section {
     padding: 8px;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    border: 1px solid var(--border-gray);
+    border: 2px solid var(--black);
     width: 100%;
     max-width: 250px;
 }
@@ -1479,7 +1479,7 @@ section {
     width: 35px;
     height: 35px;
     background: var(--light-gray);
-    border: 2px solid var(--border-gray);
+    border: 2px solid var(--black);
     border-radius: 50%;
     font-size: 16px;
     cursor: pointer;
@@ -1729,7 +1729,7 @@ section {
     align-items: center;
     gap: 20px;
     padding: 20px 0;
-    border-bottom: 1px solid var(--border-gray);
+    border-bottom: 2px solid var(--black);
 }
 
 .cart-item:last-child {
@@ -3264,7 +3264,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .btn-outline:active, 
     border-radius: 12px;
     padding: 30px;
     box-shadow: var(--shadow);
-    border: 1px solid var(--border);
+    border: 2px solid var(--black);
     transition: var(--transition);
     text-align: center;
 }
@@ -3298,7 +3298,7 @@ button:active, .btn-primary:active, .btn-secondary:active, .btn-outline:active, 
     border-radius: 12px;
     padding: 30px;
     text-align: center;
-    border: 1px solid var(--border);
+    border: 2px solid var(--black);
     transition: var(--transition);
     cursor: pointer;
     box-shadow: var(--shadow);
@@ -3575,7 +3575,7 @@ section {
 
 .tab-btn {
     background: var(--white);
-    border: 1px solid var(--border);
+    border: 2px solid var(--black);
     padding: 12px 24px;
     border-radius: 8px;
     font-weight: 600;
@@ -3681,7 +3681,7 @@ section {
 .form-group textarea {
     width: 100%;
     padding: 16px 20px;
-    border: 1px solid var(--border);
+    border: 2px solid var(--black);
     border-radius: 8px;
     font-size: 16px;
     transition: var(--transition);
@@ -3952,6 +3952,77 @@ section {
     color: white !important;
     border-color: var(--green) !important;
     box-shadow: var(--shadow) !important;
+}
+
+/* Comparison Table Styles */
+.comparison-table-container {
+    overflow-x: auto;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--black);
+}
+
+.comparison-table thead {
+    background: var(--black);
+}
+
+.comparison-table th {
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--white);
+    border: 2px solid var(--black);
+}
+
+.comparison-table td {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 0.8rem;
+    border: 2px solid var(--black);
+}
+
+.feature-name {
+    font-weight: 600;
+    background: var(--gray-100);
+    color: var(--black);
+}
+
+.traditional-cell {
+    background: #ffebee;
+    color: var(--red);
+    font-weight: 500;
+}
+
+.flonze-cell {
+    background: #e8f5e8;
+    color: var(--green);
+    font-weight: 500;
+}
+
+.traditional-column {
+    background: var(--red) !important;
+}
+
+.flonze-column {
+    background: var(--green) !important;
+}
+
+@media (max-width: 768px) {
+    .comparison-table th,
+    .comparison-table td {
+        padding: 8px;
+        font-size: 0.7rem;
+    }
 }
 
 /* Cross-browser fixes */
